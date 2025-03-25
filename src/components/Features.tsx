@@ -4,39 +4,39 @@ import { Layers, Zap, Star, Unlock } from "lucide-react";
 
 const features = [
   {
-    title: "Fast & Efficient",
-    description: "Our platform is optimized for performance and speed.",
+    title: "Rápido & Eficiente",
+    description: "Nossa plataforma é otimizada para performance e velocidade.",
     icon: Zap,
   },
   {
-    title: "Fully Customizable",
-    description: "Tailor everything to your specific needs and preferences.",
+    title: "Totalmente Personalizável",
+    description: "Adapte tudo às suas necessidades e preferências específicas.",
     icon: Layers,
   },
   {
-    title: "Premium Quality",
-    description: "We deliver only the highest quality products and services.",
+    title: "Qualidade Premium",
+    description: "Oferecemos apenas produtos e serviços da mais alta qualidade.",
     icon: Star,
   },
   {
-    title: "Unlimited Access",
-    description: "Get full access to all features with no restrictions.",
+    title: "Acesso Ilimitado",
+    description: "Tenha acesso completo a todos os recursos sem restrições.",
     icon: Unlock,
   },
 ];
 
 const Features = () => {
   return (
-    <section className="py-20 px-4 md:px-6 bg-muted/50">
+    <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/50">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Our Key Features</h2>
-          <p className="text-xl text-muted-foreground max-w-[42rem] mx-auto">
-            Discover what makes our platform stand out from the competition.
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Nossos Principais Recursos</h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-[42rem] mx-auto">
+            Descubra o que faz nossa plataforma se destacar da concorrência.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((feature, index) => (
             <Card key={index} className="border-none shadow-sm hover:shadow-md transition-all">
               <CardHeader>

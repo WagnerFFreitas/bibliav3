@@ -3,8 +3,10 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -14,9 +16,11 @@ const Index = () => {
         <Hero />
         <Features />
         <Testimonials />
+        <FAQ />
         <CallToAction />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

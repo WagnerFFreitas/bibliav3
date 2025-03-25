@@ -8,40 +8,40 @@ const testimonials = [
   {
     name: "Emma Wilson",
     title: "CEO, TechStart",
-    content: "This platform has completely transformed how we operate. The interface is intuitive and the features are exactly what we needed.",
+    content: "Esta plataforma transformou completamente a forma como operamos. A interface é intuitiva e os recursos são exatamente o que precisávamos.",
     avatar: "EW",
   },
   {
     name: "Alex Johnson",
     title: "Designer, CreativeHub",
-    content: "I've tried many similar tools, but this one stands out in terms of flexibility and ease of use. Highly recommended for creative professionals.",
+    content: "Já experimentei muitas ferramentas similares, mas esta se destaca em termos de flexibilidade e facilidade de uso. Altamente recomendada para profissionais criativos.",
     avatar: "AJ",
   },
   {
     name: "Sarah Parker",
-    title: "Marketing Director, GrowthCo",
-    content: "The analytics capabilities have given us insights we never had before. Our campaigns are now data-driven and much more effective.",
+    title: "Diretora de Marketing, GrowthCo",
+    content: "Os recursos de análise nos deram insights que nunca tivemos antes. Nossas campanhas agora são baseadas em dados e muito mais eficazes.",
     avatar: "SP",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-20 px-4 md:px-6">
+    <section className="py-16 md:py-20 px-4 md:px-6">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-muted-foreground max-w-[42rem] mx-auto">
-            Don't just take our word for it — hear from some of our satisfied customers.
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">O Que Nossos Clientes Dizem</h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-[42rem] mx-auto">
+            Não acredite apenas na nossa palavra — ouça o que alguns de nossos clientes satisfeitos têm a dizer.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card">
-              <CardContent className="pt-6">
+            <Card key={index} className="bg-card h-full">
+              <CardContent className="pt-6 h-full flex flex-col">
                 <QuoteIcon className="h-8 w-8 text-muted-foreground mb-4" />
-                <p className="mb-6">{testimonial.content}</p>
+                <p className="mb-6 flex-grow">{testimonial.content}</p>
                 <Separator className="mb-6" />
                 <div className="flex items-center">
                   <Avatar className="h-10 w-10 mr-4">
