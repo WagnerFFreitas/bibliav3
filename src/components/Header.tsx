@@ -32,13 +32,13 @@ const Header = () => {
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
             Início
           </Link>
-          <Link to="/features" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link to="/recursos" className="text-sm font-medium transition-colors hover:text-primary">
             Recursos
           </Link>
-          <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
             Sobre
           </Link>
-          <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link to="/contato" className="text-sm font-medium transition-colors hover:text-primary">
             Contato
           </Link>
         </nav>
@@ -50,13 +50,13 @@ const Header = () => {
               <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
                 Início
               </Link>
-              <Link to="/features" className="text-sm font-medium transition-colors hover:text-primary">
+              <Link to="/recursos" className="text-sm font-medium transition-colors hover:text-primary">
                 Recursos
               </Link>
-              <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
+              <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
                 Sobre
               </Link>
-              <Link to="/contact" className="text-sm font-medium transition-colors hover:text-primary">
+              <Link to="/contato" className="text-sm font-medium transition-colors hover:text-primary">
                 Contato
               </Link>
             </div>

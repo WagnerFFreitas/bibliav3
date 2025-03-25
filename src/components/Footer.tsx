@@ -9,23 +9,23 @@ const Footer = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-xl font-bold mb-4">YourBrand</h3>
+            <h3 className="text-xl font-bold mb-4">SuaMarca</h3>
             <p className="text-muted-foreground">
-              Creating amazing experiences for businesses and individuals since 2023.
+              Criando experiências incríveis para empresas e indivíduos desde 2023.
             </p>
           </div>
           
           <div>
-            <h4 className="font-medium mb-4">Company</h4>
+            <h4 className="font-medium mb-4">Empresa</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  About
+                <Link to="/sobre" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Sobre
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Careers
+                <Link to="/carreiras" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Carreiras
                 </Link>
               </li>
               <li>
@@ -37,28 +37,28 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-medium mb-4">Resources</h4>
+            <h4 className="font-medium mb-4">Recursos</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/documentation" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Documentation
+                <Link to="/documentacao" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Documentação
                 </Link>
               </li>
               <li>
-                <Link to="/help" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Help Center
+                <Link to="/ajuda" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Central de Ajuda
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Privacy Policy
+                <Link to="/privacidade" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Política de Privacidade
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-medium mb-4">Follow Us</h4>
+            <h4 className="font-medium mb-4">Siga-nos</h4>
             <div className="flex space-x-4">
               <a href="https://github.com" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-5 w-5" />
@@ -80,17 +80,17 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2023 YourBrand. All rights reserved.
+            © 2023 SuaMarca. Todos os direitos reservados.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
+            <Link to="/termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Termos de Serviço
             </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
+            <Link to="/privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Política de Privacidade
             </Link>
             <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Cookie Policy
+              Política de Cookies
             </Link>
           </div>
         </div>
