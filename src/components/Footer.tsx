@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
-import { Github, Twitter, Facebook, Instagram } from "lucide-react";
+import { Github, Twitter, Facebook, Instagram, Book } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,28 +9,31 @@ const Footer = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-xl font-bold mb-4">SuaMarca</h3>
+            <h3 className="text-xl font-bold mb-4 flex items-center">
+              <Book className="mr-2 h-5 w-5" />
+              BíbliaOnline
+            </h3>
             <p className="text-muted-foreground">
-              Criando experiências incríveis para empresas e indivíduos desde 2023.
+              Facilitando o acesso e estudo da Palavra de Deus em diversas traduções desde 2023.
             </p>
           </div>
           
           <div>
-            <h4 className="font-medium mb-4">Empresa</h4>
+            <h4 className="font-medium mb-4">Bíblia</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/sobre" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Sobre
+                <Link to="/versoes" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Versões
                 </Link>
               </li>
               <li>
-                <Link to="/carreiras" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Carreiras
+                <Link to="/livros" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Livros
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Blog
+                <Link to="/pesquisar" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Pesquisar
                 </Link>
               </li>
             </ul>
@@ -40,18 +43,18 @@ const Footer = () => {
             <h4 className="font-medium mb-4">Recursos</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/documentacao" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Documentação
+                <Link to="/dicionario" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Dicionário Bíblico
                 </Link>
               </li>
               <li>
-                <Link to="/ajuda" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Central de Ajuda
+                <Link to="/estudos" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Estudos Bíblicos
                 </Link>
               </li>
               <li>
-                <Link to="/privacidade" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Política de Privacidade
+                <Link to="/planos" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Planos de Leitura
                 </Link>
               </li>
             </ul>
@@ -80,7 +83,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2023 SuaMarca. Todos os direitos reservados.
+            © 2023 BíbliaOnline. Todos os direitos reservados.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link to="/termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -89,8 +92,8 @@ const Footer = () => {
             <Link to="/privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Política de Privacidade
             </Link>
-            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Política de Cookies
+            <Link to="/atribuicoes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Atribuições
             </Link>
           </div>
         </div>

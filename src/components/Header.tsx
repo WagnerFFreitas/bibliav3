@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Book, Search } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,8 @@ const Header = () => {
     <header className="sticky top-0 z-10 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">SuaMarca</span>
+          <Book className="h-6 w-6" />
+          <span className="text-xl font-bold">BíbliaOnline</span>
         </Link>
         
         {/* Mobile menu button */}
@@ -32,14 +33,14 @@ const Header = () => {
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
             Início
           </Link>
-          <Link to="/recursos" className="text-sm font-medium transition-colors hover:text-primary">
-            Recursos
+          <Link to="/versoes" className="text-sm font-medium transition-colors hover:text-primary">
+            Versões
+          </Link>
+          <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
+            Pesquisar
           </Link>
           <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
             Sobre
-          </Link>
-          <Link to="/contato" className="text-sm font-medium transition-colors hover:text-primary">
-            Contato
           </Link>
         </nav>
         
@@ -50,14 +51,14 @@ const Header = () => {
               <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
                 Início
               </Link>
-              <Link to="/recursos" className="text-sm font-medium transition-colors hover:text-primary">
-                Recursos
+              <Link to="/versoes" className="text-sm font-medium transition-colors hover:text-primary">
+                Versões
+              </Link>
+              <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
+                Pesquisar
               </Link>
               <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
                 Sobre
-              </Link>
-              <Link to="/contato" className="text-sm font-medium transition-colors hover:text-primary">
-                Contato
               </Link>
             </div>
           </div>
@@ -65,9 +66,10 @@ const Header = () => {
         
         <div className="hidden md:flex items-center space-x-4">
           <Button variant="outline" size="sm">
-            Entrar
+            <Search className="mr-2 h-4 w-4" />
+            Buscar
           </Button>
-          <Button size="sm">Começar</Button>
+          <Button size="sm">Minha Conta</Button>
         </div>
       </div>
     </header>
