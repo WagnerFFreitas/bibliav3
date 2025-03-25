@@ -8,7 +8,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import BibleVersions from "./pages/BibleVersions";
 import BibleSearch from "./pages/BibleSearch";
+import BibleReader from "./pages/BibleReader";
+import Dictionary from "./pages/Dictionary";
 import NotFound from "./pages/NotFound";
+import Utilities from "./pages/Utilities";
+import MusicPage from "./pages/MusicPage";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Downloads from "./pages/Downloads";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +29,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/versoes" element={<BibleVersions />} />
           <Route path="/pesquisar" element={<BibleSearch />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/biblia/:livro/:capitulo" element={<BibleReader />} />
+          <Route path="/dicionario" element={<Dictionary />} />
+          <Route path="/utilitarios" element={<Utilities />} />
+          <Route path="/harpa" element={<MusicPage />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/baixar" element={<Downloads />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
