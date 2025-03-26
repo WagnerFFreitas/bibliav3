@@ -27,8 +27,7 @@ const versiculosPorVersao: Record<string, any> = {
     { numero: 5, texto: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia." },
   ],
   acf: [
-    { numero:
-1, texto: "No princípio criou Deus os céus e a terra." },
+    { numero: 1, texto: "No princípio criou Deus os céus e a terra." },
     { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
     { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
     { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
@@ -44,16 +43,16 @@ const versiculosPorVersao: Record<string, any> = {
   naa: [
     { numero: 1, texto: "No princípio, Deus criou os céus e a terra." },
     { numero: 2, texto: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas." },
-    { numero: 3, texto: "Disse Deus: "Haja luz!" E houve luz." },
+    { numero: 3, texto: "Disse Deus: 'Haja luz!' E houve luz." },
     { numero: 4, texto: "Deus viu que a luz era boa e separou a luz das trevas." },
-    { numero: 5, texto: "Deus chamou à luz "dia" e às trevas, "noite". Houve tarde e manhã: o primeiro dia." },
+    { numero: 5, texto: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia." },
   ],
   ntlh: [
     { numero: 1, texto: "No começo Deus criou os céus e a terra." },
     { numero: 2, texto: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água." },
-    { numero: 3, texto: "Então Deus disse: "Que haja luz!" e a luz começou a existir." },
+    { numero: 3, texto: "Então Deus disse: 'Que haja luz!' e a luz começou a existir." },
     { numero: 4, texto: "Deus viu que a luz era boa e a separou da escuridão." },
-    { numero: 5, texto: "E Deus chamou a luz de "dia" e a escuridão de "noite". A noite passou, e a manhã chegou. Esse foi o primeiro dia." },
+    { numero: 5, texto: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia." },
   ],
   kjv: [
     { numero: 1, texto: "In the beginning God created the heaven and the earth." },

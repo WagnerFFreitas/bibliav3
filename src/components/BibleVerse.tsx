@@ -48,9 +48,9 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "No princípio, Deus criou os céus e a terra.",
         2: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas.",
-        3: "Disse Deus: "Haja luz!" E houve luz.",
+        3: "Disse Deus: 'Haja luz!' E houve luz.",
         4: "Deus viu que a luz era boa e separou a luz das trevas.",
-        5: "Deus chamou à luz "dia" e às trevas, "noite". Houve tarde e manhã: o primeiro dia.",
+        5: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia.",
       },
     },
   },
@@ -59,9 +59,9 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "No começo Deus criou os céus e a terra.",
         2: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água.",
-        3: "Então Deus disse: "Que haja luz!" e a luz começou a existir.",
+        3: "Então Deus disse: 'Que haja luz!' e a luz começou a existir.",
         4: "Deus viu que a luz era boa e a separou da escuridão.",
-        5: "E Deus chamou a luz de "dia" e a escuridão de "noite". A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
+        5: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
       },
     },
   },
