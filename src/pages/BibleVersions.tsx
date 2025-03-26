@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Book, Check } from "lucide-react";
+import { Link } from "react-router-dom";
+import BibleVersionSelector from "@/components/BibleVersionSelector";
 
 const versoesBiblia = [
   { 
@@ -62,6 +64,11 @@ const BibleVersions = () => {
           </p>
         </div>
         
+        <div className="mb-10">
+          <h2 className="text-2xl font-bold mb-6 text-center">Selecione uma Versão para Leitura</h2>
+          <BibleVersionSelector />
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {versoesBiblia.map((versao) => (
             <Card key={versao.id} className={versao.destaque ? "border-primary" : ""}>
@@ -76,9 +83,11 @@ const BibleVersions = () => {
                 <p>{versao.descricao}</p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full">
-                  <Book className="mr-2 h-4 w-4" />
-                  Ler Esta Versão
+                <Button className="w-full" asChild>
+                  <Link to={`/biblia/genesis/1?versao=${versao.id}`}>
+                    <Book className="mr-2 h-4 w-4" />
+                    Ler Esta Versão
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

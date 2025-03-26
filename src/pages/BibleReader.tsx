@@ -1,17 +1,28 @@
 
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
 import BibleVerse from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
+import BibleVersionSelector from "@/components/BibleVersionSelector";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
+  const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
+  
+  useEffect(() => {
+    // Atualizar a versão da Bíblia quando os parâmetros de URL mudarem
+    const versaoUrl = searchParams.get("versao");
+    if (versaoUrl) {
+      setVersaoBiblia(versaoUrl);
+    }
+  }, [searchParams]);
   
   // Formatação do título do livro e capítulo atual
   const formatBookTitle = (book: string) => {
@@ -23,6 +34,15 @@ const BibleReader = () => {
     setSelectedVerse(verse);
     // Adiciona um hash à URL para o versículo selecionado
     window.location.hash = `v${verse}`;
+  };
+  
+  const handleVersionChange = (novaVersao: string) => {
+    setVersaoBiblia(novaVersao);
+    // Atualiza a URL com a nova versão
+    setSearchParams(prev => {
+      prev.set("versao", novaVersao);
+      return prev;
+    });
   };
   
   return (
@@ -78,6 +98,13 @@ const BibleReader = () => {
               {selectedVerse && <span> - VERSÍCULO {selectedVerse}</span>}
             </h1>
             
+            <div className="mb-6">
+              <BibleVersionSelector 
+                onVersionChange={handleVersionChange} 
+                initialVersion={versaoBiblia}
+              />
+            </div>
+            
             {/* Grid de versículos (números) */}
             <BibleVerseGrid 
               totalVerses={50} 
@@ -89,6 +116,7 @@ const BibleReader = () => {
               livro={livro} 
               capitulo={parseInt(capitulo)} 
               versiculo={selectedVerse}
+              versao={versaoBiblia}
             />
             
             <footer className="text-center text-sm text-gray-400 mt-8">

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Book } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const versoesBiblia = [
   { id: "nvi", nome: "Nova Versão Internacional" },
@@ -19,13 +20,25 @@ const versoesBiblia = [
   { id: "kjv", nome: "King James Version" }
 ];
 
-const BibleVersionSelector = () => {
-  const [versaoSelecionada, setVersaoSelecionada] = useState("nvi");
+interface BibleVersionSelectorProps {
+  onVersionChange?: (versao: string) => void;
+  initialVersion?: string;
+}
+
+const BibleVersionSelector = ({ onVersionChange, initialVersion = "nvi" }: BibleVersionSelectorProps) => {
+  const [versaoSelecionada, setVersaoSelecionada] = useState(initialVersion);
+
+  const handleVersionChange = (versao: string) => {
+    setVersaoSelecionada(versao);
+    if (onVersionChange) {
+      onVersionChange(versao);
+    }
+  };
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mx-auto">
       <div className="w-full sm:w-2/3">
-        <Select value={versaoSelecionada} onValueChange={setVersaoSelecionada}>
+        <Select value={versaoSelecionada} onValueChange={handleVersionChange}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Selecione uma versão" />
           </SelectTrigger>
@@ -38,9 +51,11 @@ const BibleVersionSelector = () => {
           </SelectContent>
         </Select>
       </div>
-      <Button className="w-full sm:w-auto" size="sm">
-        <Book className="mr-2 h-4 w-4" />
-        Ler Agora
+      <Button className="w-full sm:w-auto" size="sm" asChild>
+        <Link to={`/biblia/genesis/1?versao=${versaoSelecionada}`}>
+          <Book className="mr-2 h-4 w-4" />
+          Ler Agora
+        </Link>
       </Button>
     </div>
   );
