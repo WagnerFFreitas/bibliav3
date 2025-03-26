@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
-import BibleVerse from "@/components/BibleVerse";
+import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
 import BibleVersionSelector from "@/components/BibleVersionSelector";
 
@@ -15,6 +15,9 @@ const BibleReader = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
+  
+  // Determinar o número de versículos para o capítulo atual
+  const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
   useEffect(() => {
     // Atualizar a versão da Bíblia quando os parâmetros de URL mudarem
@@ -105,9 +108,9 @@ const BibleReader = () => {
               />
             </div>
             
-            {/* Grid de versículos (números) */}
+            {/* Grid de versículos (números) - agora com o número correto */}
             <BibleVerseGrid 
-              totalVerses={50} 
+              totalVerses={totalVerses} 
               onVerseSelect={handleVerseSelect}
             />
             

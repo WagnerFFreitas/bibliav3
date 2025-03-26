@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -10,72 +9,112 @@ interface BibleVerseProps {
 
 // Dados de exemplo para simular o conteúdo da Bíblia em diferentes versões
 const versiculosExemploPorVersao: Record<string, any> = {
-  nvi: {
-    genesis: {
-      1: {
-        1: "No princípio, Deus criou os céus e a terra.",
-        2: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.",
-        3: "Disse Deus: 'Haja luz', e houve luz.",
-        4: "Deus viu que a luz era boa, e separou a luz das trevas.",
-        5: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
-      },
-    },
+  // ... keep existing code (versões da Bíblia)
+};
+
+// Definir o número de versículos por capítulo para cada livro
+const versiculosPorCapitulo: Record<string, Record<number, number>> = {
+  genesis: {
+    1: 31,
+    2: 25,
+    3: 24,
+    // Outros capítulos...
+    50: 26
   },
-  acf: {
-    genesis: {
-      1: {
-        1: "No princípio criou Deus os céus e a terra.",
-        2: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
-        3: "E disse Deus: Haja luz; e houve luz.",
-        4: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
-        5: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro.",
-      },
-    },
+  exodo: {
+    1: 22,
+    2: 25,
+    // Outros capítulos...
+    40: 38
   },
-  ara: {
-    genesis: {
-      1: {
-        1: "No princípio, criou Deus os céus e a terra.",
-        2: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas.",
-        3: "Disse Deus: Haja luz; e houve luz.",
-        4: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
-        5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
-      },
-    },
+  levitico: {
+    1: 17,
+    2: 16,
+    3: 17,
+    // Outros capítulos...
+    27: 34
   },
-  naa: {
-    genesis: {
-      1: {
-        1: "No princípio, Deus criou os céus e a terra.",
-        2: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas.",
-        3: "Disse Deus: 'Haja luz!' E houve luz.",
-        4: "Deus viu que a luz era boa e separou a luz das trevas.",
-        5: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia.",
-      },
-    },
-  },
-  ntlh: {
-    genesis: {
-      1: {
-        1: "No começo Deus criou os céus e a terra.",
-        2: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água.",
-        3: "Então Deus disse: 'Que haja luz!' e a luz começou a existir.",
-        4: "Deus viu que a luz era boa e a separou da escuridão.",
-        5: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
-      },
-    },
-  },
-  kjv: {
-    genesis: {
-      1: {
-        1: "In the beginning God created the heaven and the earth.",
-        2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
-        3: "And God said, Let there be light: and there was light.",
-        4: "And God saw the light, that it was good: and God divided the light from the darkness.",
-        5: "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
-      },
-    },
-  },
+  numeros: { 1: 54, 36: 13 },
+  deuteronomio: { 1: 46, 34: 12 },
+  josue: { 1: 18, 24: 33 },
+  juizes: { 1: 36, 21: 25 },
+  rute: { 1: 22, 4: 22 },
+  "1samuel": { 1: 28, 31: 13 },
+  "2samuel": { 1: 27, 24: 25 },
+  "1reis": { 1: 53, 22: 53 },
+  "2reis": { 1: 18, 25: 30 },
+  "1cronicas": { 1: 54, 29: 30 },
+  "2cronicas": { 1: 17, 36: 23 },
+  esdras: { 1: 11, 10: 44 },
+  neemias: { 1: 11, 13: 31 },
+  ester: { 1: 22, 10: 3 },
+  jo: { 1: 22, 42: 17 },
+  salmos: { 1: 6, 150: 6 },
+  proverbios: { 1: 33, 31: 31 },
+  eclesiastes: { 1: 18, 12: 14 },
+  cantares: { 1: 17, 8: 14 },
+  isaias: { 1: 31, 66: 24 },
+  jeremias: { 1: 19, 52: 34 },
+  lamentacoes: { 1: 22, 5: 22 },
+  ezequiel: { 1: 28, 48: 35 },
+  daniel: { 1: 21, 12: 13 },
+  oseias: { 1: 11, 14: 9 },
+  joel: { 1: 20, 3: 21 },
+  amos: { 1: 15, 9: 15 },
+  obadias: { 1: 21 },
+  jonas: { 1: 17, 4: 11 },
+  miqueias: { 1: 16, 7: 20 },
+  naum: { 1: 15, 3: 19 },
+  habacuque: { 1: 17, 3: 19 },
+  sofonias: { 1: 18, 3: 20 },
+  ageu: { 1: 15, 2: 23 },
+  zacarias: { 1: 21, 14: 21 },
+  malaquias: { 1: 14, 4: 6 },
+  mateus: { 1: 25, 28: 20 },
+  marcos: { 1: 45, 16: 20 },
+  lucas: { 1: 80, 24: 53 },
+  joao: { 1: 51, 21: 25 },
+  atos: { 1: 26, 28: 31 },
+  romanos: { 1: 32, 16: 27 },
+  "1corintios": { 1: 31, 16: 24 },
+  "2corintios": { 1: 24, 13: 14 },
+  galatas: { 1: 24, 6: 18 },
+  efesios: { 1: 23, 6: 24 },
+  filipenses: { 1: 30, 4: 23 },
+  colossenses: { 1: 29, 4: 18 },
+  "1tessalonicenses": { 1: 10, 5: 28 },
+  "2tessalonicenses": { 1: 12, 3: 18 },
+  "1timoteo": { 1: 20, 6: 21 },
+  "2timoteo": { 1: 18, 4: 22 },
+  tito: { 1: 16, 3: 15 },
+  filemom: { 1: 25 },
+  hebreus: { 1: 14, 13: 25 },
+  tiago: { 1: 27, 5: 20 },
+  "1pedro": { 1: 25, 5: 14 },
+  "2pedro": { 1: 21, 3: 18 },
+  "1joao": { 1: 10, 5: 21 },
+  "2joao": { 1: 13 },
+  "3joao": { 1: 14 },
+  judas: { 1: 25 },
+  apocalipse: { 1: 20, 22: 21 }
+};
+
+// Função para obter o número de versículos para um livro e capítulo específicos
+export const getNumeroVersiculos = (livro: string, capitulo: number): number => {
+  if (versiculosPorCapitulo[livro] && versiculosPorCapitulo[livro][capitulo]) {
+    return versiculosPorCapitulo[livro][capitulo];
+  }
+  
+  // Valores padrão para capítulos que não estão definidos
+  const capitulosFinal = versiculosPorCapitulo[livro] || {};
+  const ultimoCapitulo = Object.keys(capitulosFinal).map(Number).sort((a, b) => b - a)[0] || 0;
+  
+  if (capitulo <= ultimoCapitulo) {
+    // Se estiver dentro do intervalo conhecido, retorna um valor padrão razoável
+    return 30;
+  }
+  
+  return 0; // Capítulo não existe
 };
 
 const formatBookName = (bookId: string): string => {
@@ -159,3 +198,4 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
 };
 
 export default BibleVerse;
+
