@@ -5,16 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
+import BibleVerse from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   
   // Formatação do título do livro e capítulo atual
   const formatBookTitle = (book: string) => {
     const formatted = book.charAt(0).toUpperCase() + book.slice(1);
     return formatted;
+  };
+
+  const handleVerseSelect = (verse: number) => {
+    setSelectedVerse(verse);
+    // Adiciona um hash à URL para o versículo selecionado
+    window.location.hash = `v${verse}`;
   };
   
   return (
@@ -67,21 +75,21 @@ const BibleReader = () => {
           <div className="container mx-auto">
             <h1 className="text-center text-3xl md:text-4xl font-bold uppercase mb-6 text-white">
               {formatBookTitle(livro)} - CAPÍTULO {capitulo}
-              {livro === "genesis" && capitulo === "1" && <span> - VERSÍCULO 1</span>}
+              {selectedVerse && <span> - VERSÍCULO {selectedVerse}</span>}
             </h1>
             
             {/* Grid de versículos (números) */}
-            <BibleVerseGrid totalVerses={50} />
+            <BibleVerseGrid 
+              totalVerses={50} 
+              onVerseSelect={handleVerseSelect}
+            />
             
-            {/* Texto do versículo atual */}
-            <div className="mt-8 md:mt-16 mb-8 text-center">
-              {livro === "genesis" && capitulo === "1" && (
-                <h2 className="text-3xl md:text-4xl font-bold text-green-500 uppercase">
-                  CRIAÇÃO DO CÉU E DA TERRA E DE<br />
-                  TUDO O QUE NELES SE CONTÉM
-                </h2>
-              )}
-            </div>
+            {/* Exibição do texto do versículo */}
+            <BibleVerse 
+              livro={livro} 
+              capitulo={parseInt(capitulo)} 
+              versiculo={selectedVerse}
+            />
             
             <footer className="text-center text-sm text-gray-400 mt-8">
               © Bíblia Sagrada 2024
