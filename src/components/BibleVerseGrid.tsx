@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 interface BibleVerseGridProps {
   totalVerses: number;
@@ -37,24 +38,24 @@ const BibleVerseGrid = ({ totalVerses, rows = 4, onVerseSelect }: BibleVerseGrid
   
   return (
     <div className="space-y-2">
+      <h2 className="text-xl font-bold mb-4 text-center">Versículos</h2>
       {versesGrid.map((row, rowIndex) => (
-        <div key={rowIndex} className="grid grid-cols-13 gap-2 mb-2">
+        <div key={rowIndex} className="flex flex-wrap gap-2 mb-2 justify-center">
           {row.map((verse) => (
-            <button
+            <Button
               key={verse}
               onClick={() => handleVerseClick(verse)}
+              variant={verse === selectedVerse ? "default" : "outline"}
               className={`
-                flex items-center justify-center
-                aspect-square rounded
+                min-w-12 h-10 rounded-md
                 ${verse === selectedVerse 
-                  ? "bg-green-600 hover:bg-green-700" 
-                  : "bg-indigo-900 hover:bg-indigo-800"}
-                text-white font-medium text-sm md:text-base
-                transition-colors duration-200
+                  ? "bg-green-600 hover:bg-green-700 text-white" 
+                  : "bg-indigo-900/70 hover:bg-indigo-800 text-white border-indigo-700"}
+                font-medium text-sm transition-colors duration-200
               `}
             >
               {verse}
-            </button>
+            </Button>
           ))}
         </div>
       ))}
