@@ -9,6 +9,7 @@ import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
 import BibleVersionSelector from "@/components/BibleVersionSelector";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { toast } from "sonner";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
@@ -22,11 +23,21 @@ const BibleReader = () => {
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
   useEffect(() => {
-    // Resetar o versículo selecionado ao mudar de capítulo ou livro
-    setSelectedVerse(null);
+    // Verificar se há um hash na URL (para ir direto a um versículo)
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#v')) {
+      const verse = parseInt(hash.substring(2));
+      if (!isNaN(verse) && verse > 0 && verse <= totalVerses) {
+        setSelectedVerse(verse);
+      }
+    } else {
+      // Resetar o versículo selecionado ao mudar de capítulo ou livro
+      setSelectedVerse(null);
+    }
+    
     // Limpar qualquer erro ao navegar para um novo capítulo
     setError(null);
-  }, [livro, capitulo]);
+  }, [livro, capitulo, totalVerses]);
   
   useEffect(() => {
     // Atualizar a versão da Bíblia quando os parâmetros de URL mudarem
@@ -46,15 +57,19 @@ const BibleReader = () => {
     setSelectedVerse(verse);
     // Adiciona um hash à URL para o versículo selecionado
     window.location.hash = `v${verse}`;
+    toast.success(`Versículo ${verse} selecionado`);
   };
   
   const handleVersionChange = (novaVersao: string) => {
+    if (novaVersao === versaoBiblia) return;
+    
     setVersaoBiblia(novaVersao);
     // Atualiza a URL com a nova versão
     setSearchParams(prev => {
       prev.set("versao", novaVersao);
       return prev;
     });
+    toast.info(`Versão alterada para ${novaVersao.toUpperCase()}`);
   };
   
   return (

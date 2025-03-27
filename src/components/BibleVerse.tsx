@@ -31,6 +31,15 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "ainda nenhum arbusto do campo havia surgido na terra, e nenhuma planta do campo havia brotado; porque o Senhor Deus ainda não tinha feito chover sobre a terra, e também não havia homem para cultivar o solo."
       }
     },
+    exodo: {
+      1: {
+        1: "São estes os nomes dos filhos de Israel que entraram no Egito com Jacó, cada um com sua família:",
+        2: "Rúben, Simeão, Levi e Judá;",
+        3: "Issacar, Zebulom e Benjamim;",
+        4: "Dã e Naftali; Gade e Aser.",
+        5: "Os descendentes de Jacó eram setenta ao todo; José, porém, já estava no Egito."
+      }
+    }
   },
   acf: {
     genesis: {
@@ -54,6 +63,15 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "E toda a planta do campo que ainda não estava na terra, e toda a erva do campo que ainda não brotava; porque ainda o Senhor Deus não tinha feito chover sobre a terra, e não havia homem para lavrar a terra."
       }
     },
+    exodo: {
+      1: {
+        1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua casa:",
+        2: "Rúben, Simeão, Levi, e Judá;",
+        3: "Issacar, Zebulom, e Benjamim;",
+        4: "Dã e Naftali, Gade e Aser.",
+        5: "Todas as almas, pois, que procederam dos lombos de Jacó, foram setenta almas; José, porém, estava no Egito."
+      }
+    }
   },
   ara: {
     genesis: {
@@ -77,6 +95,15 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "Não havia ainda nenhuma planta do campo na terra, pois ainda nenhuma erva do campo havia brotado; porque o SENHOR Deus não fizera chover sobre a terra, e também não havia homem para lavrar o solo."
       }
     },
+    exodo: {
+      1: {
+        1: "Estes são os nomes dos filhos de Israel que entraram no Egito com Jacó; cada um entrou com sua família:",
+        2: "Rúben, Simeão, Levi e Judá,",
+        3: "Issacar, Zebulom e Benjamim,",
+        4: "Dã e Naftali, Gade e Aser.",
+        5: "Todas as pessoas que descenderam de Jacó eram setenta. José já estava no Egito."
+      }
+    }
   },
   naa: {
     genesis: {
@@ -100,6 +127,15 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "ainda não havia nenhum arbusto do campo na terra, nem tinha brotado ainda nenhuma erva do campo, porque o SENHOR Deus não tinha feito chover sobre a terra, nem havia homem para cultivar o solo."
       }
     },
+    exodo: {
+      1: {
+        1: "Estes são os nomes dos filhos de Israel que entraram no Egito com Jacó, cada um com a sua família:",
+        2: "Rúben, Simeão, Levi e Judá,",
+        3: "Issacar, Zebulom e Benjamim,",
+        4: "Dã e Naftali, Gade e Aser.",
+        5: "O total dos descendentes de Jacó foi de setenta pessoas. José já estava no Egito."
+      }
+    }
   },
   ntlh: {
     genesis: {
@@ -123,6 +159,15 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "não havia ainda na terra nenhum arbusto do campo, e as plantas do campo ainda não tinham brotado. Pois o SENHOR ainda não tinha feito chover, e não havia ninguém para cultivar a terra."
       }
     },
+    exodo: {
+      1: {
+        1: "Estes são os nomes dos israelitas que foram com Jacó para o Egito, cada um com a sua família:",
+        2: "Rúben, Simeão, Levi, Judá,",
+        3: "Issacar, Zebulom, Benjamim,",
+        4: "Dã, Naftali, Gade e Aser.",
+        5: "Ao todo, os descendentes de Jacó eram setenta pessoas. José já estava no Egito."
+      }
+    }
   },
   kjv: {
     genesis: {
@@ -146,7 +191,16 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "And every plant of the field before it was in the earth, and every herb of the field before it grew: for the LORD God had not caused it to rain upon the earth, and there was not a man to till the ground."
       }
     },
-  },
+    exodo: {
+      1: {
+        1: "Now these are the names of the children of Israel, which came into Egypt; every man and his household came with Jacob.",
+        2: "Reuben, Simeon, Levi, and Judah,",
+        3: "Issachar, Zebulun, and Benjamin,",
+        4: "Dan, and Naphtali, Gad, and Asher.",
+        5: "And all the souls that came out of the loins of Jacob were seventy souls: for Joseph was in Egypt already."
+      }
+    }
+  }
 };
 
 // Definir o número de versículos por capítulo para cada livro
@@ -314,17 +368,81 @@ export const getNumeroVersiculos = (livro: string, capitulo: number): number => 
   return 0; // Capítulo não existe
 };
 
+// Formata o nome do livro para exibição
 const formatBookName = (bookId: string): string => {
   const bookMap: Record<string, string> = {
     "genesis": "Gênesis",
     "exodo": "Êxodo",
     "levitico": "Levítico",
-    // ... outros livros
+    "numeros": "Números",
+    "deuteronomio": "Deuteronômio",
+    "josue": "Josué",
+    "juizes": "Juízes",
+    "rute": "Rute",
+    "1samuel": "1 Samuel",
+    "2samuel": "2 Samuel",
+    "1reis": "1 Reis",
+    "2reis": "2 Reis",
+    "1cronicas": "1 Crônicas",
+    "2cronicas": "2 Crônicas",
+    "esdras": "Esdras",
+    "neemias": "Neemias",
+    "ester": "Ester",
+    "jo": "Jó",
+    "salmos": "Salmos",
+    "proverbios": "Provérbios",
+    "eclesiastes": "Eclesiastes",
+    "cantares": "Cantares",
+    "isaias": "Isaías",
+    "jeremias": "Jeremias",
+    "lamentacoes": "Lamentações",
+    "ezequiel": "Ezequiel",
+    "daniel": "Daniel",
+    "oseias": "Oséias",
+    "joel": "Joel",
+    "amos": "Amós",
+    "obadias": "Obadias",
+    "jonas": "Jonas",
+    "miqueias": "Miquéias",
+    "naum": "Naum",
+    "habacuque": "Habacuque",
+    "sofonias": "Sofonias",
+    "ageu": "Ageu",
+    "zacarias": "Zacarias",
+    "malaquias": "Malaquias",
+    "mateus": "Mateus",
+    "marcos": "Marcos",
+    "lucas": "Lucas",
+    "joao": "João",
+    "atos": "Atos",
+    "romanos": "Romanos",
+    "1corintios": "1 Coríntios",
+    "2corintios": "2 Coríntios",
+    "galatas": "Gálatas",
+    "efesios": "Efésios",
+    "filipenses": "Filipenses",
+    "colossenses": "Colossenses",
+    "1tessalonicenses": "1 Tessalonicenses",
+    "2tessalonicenses": "2 Tessalonicenses",
+    "1timoteo": "1 Timóteo",
+    "2timoteo": "2 Timóteo",
+    "tito": "Tito",
+    "filemom": "Filemom",
+    "hebreus": "Hebreus",
+    "tiago": "Tiago",
+    "1pedro": "1 Pedro",
+    "2pedro": "2 Pedro",
+    "1joao": "1 João",
+    "2joao": "2 João",
+    "3joao": "3 João",
+    "judas": "Judas",
+    "apocalipse": "Apocalipse"
   };
   
   return bookMap[bookId] || bookId.charAt(0).toUpperCase() + bookId.slice(1);
 };
 
+// Retorna o nome completo da versão baseado no ID
 const getNomeVersao = (id: string): string => {
   const versoes: Record<string, string> = {
     "nvi": "Nova Versão Internacional",
@@ -339,69 +457,82 @@ const getNomeVersao = (id: string): string => {
 
 const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, versao = "nvi" }) => {
   const [textoVersiculo, setTextoVersiculo] = useState<string>("");
+  const [erro, setErro] = useState<string | null>(null);
   
   useEffect(() => {
     if (versiculo) {
       getVerseText();
+    } else {
+      setTextoVersiculo("");
+      setErro(null);
     }
   }, [livro, capitulo, versiculo, versao]);
 
-  // Simulando a obtenção do texto do versículo
+  // Função para obter o texto do versículo
   const getVerseText = () => {
     try {
-      // Se a versão não existir, usa a NVI como padrão
-      const versaoData = versiculosExemploPorVersao[versao] || versiculosExemploPorVersao.nvi;
+      setErro(null);
       
-      // Verifica se o livro existe na versão selecionada
-      if (!versaoData[livro]) {
-        console.error(`Livro "${livro}" não encontrado na versão ${versao}`);
-        setTextoVersiculo(`Livro "${livro}" não encontrado na versão ${getNomeVersao(versao)}.`);
-        return;
-      }
-      
-      // Verifica se o capítulo existe no livro selecionado
-      if (!versaoData[livro][capitulo]) {
-        console.error(`Capítulo ${capitulo} do livro "${livro}" não encontrado na versão ${versao}`);
-        
-        // Tenta carregar da versão NVI se disponível
-        if (versiculosExemploPorVersao.nvi[livro] && versiculosExemploPorVersao.nvi[livro][capitulo]) {
-          setTextoVersiculo(`Capítulo ${capitulo} não disponível na versão ${getNomeVersao(versao)}. Usando texto da NVI.`);
-          if (versiculo && versiculosExemploPorVersao.nvi[livro][capitulo][versiculo]) {
-            setTextoVersiculo(versiculosExemploPorVersao.nvi[livro][capitulo][versiculo]);
-          } else {
-            setTextoVersiculo("Versículo não encontrado.");
-          }
+      // Verifica se a versão existe nos dados
+      if (!versiculosExemploPorVersao[versao]) {
+        console.warn(`Versão "${versao}" não encontrada. Usando NVI como padrão.`);
+        const nviVerse = getVerseFromVersion("nvi");
+        if (nviVerse) {
+          setTextoVersiculo(nviVerse);
+          setErro(`Versão "${getNomeVersao(versao)}" não disponível. Exibindo texto da NVI.`);
         } else {
-          setTextoVersiculo(`Capítulo ${capitulo} não encontrado.`);
+          setTextoVersiculo("");
+          setErro(`Versículo não encontrado em nenhuma versão.`);
         }
         return;
       }
       
-      if (!versiculo) {
-        setTextoVersiculo("Selecione um versículo.");
-        return;
-      }
+      // Tenta obter o versículo da versão solicitada
+      const verse = getVerseFromVersion(versao);
       
-      const verseContent = versaoData[livro][capitulo][versiculo];
-      if (!verseContent) {
-        console.error(`Versículo ${versiculo} do capítulo ${capitulo} do livro "${livro}" não encontrado na versão ${versao}`);
-        
-        // Tenta carregar da versão NVI se disponível
-        if (versiculosExemploPorVersao.nvi[livro] && 
-            versiculosExemploPorVersao.nvi[livro][capitulo] && 
-            versiculosExemploPorVersao.nvi[livro][capitulo][versiculo]) {
-          setTextoVersiculo(`Este versículo não está disponível na versão ${getNomeVersao(versao)}. Usando texto da NVI: ${versiculosExemploPorVersao.nvi[livro][capitulo][versiculo]}`);
+      if (verse) {
+        setTextoVersiculo(verse);
+      } else {
+        // Se não encontrar na versão solicitada, tenta na NVI como fallback
+        const nviVerse = getVerseFromVersion("nvi");
+        if (nviVerse) {
+          setTextoVersiculo(nviVerse);
+          setErro(`Versículo não disponível na versão "${getNomeVersao(versao)}". Exibindo texto da NVI.`);
         } else {
-          setTextoVersiculo("Versículo não encontrado.");
+          setTextoVersiculo("");
+          setErro(`Versículo não encontrado.`);
         }
-        return;
       }
-      
-      setTextoVersiculo(verseContent);
     } catch (error) {
       console.error("Erro ao buscar versículo:", error);
-      setTextoVersiculo("Erro ao buscar o versículo. Por favor, tente novamente.");
+      setTextoVersiculo("");
+      setErro("Erro ao buscar o versículo. Por favor, tente novamente.");
     }
+  };
+  
+  // Função auxiliar para obter o texto do versículo de uma versão específica
+  const getVerseFromVersion = (versionId: string): string | null => {
+    // Verifica se a versão existe
+    if (!versiculosExemploPorVersao[versionId]) {
+      return null;
+    }
+    
+    // Verifica se o livro existe na versão
+    if (!versiculosExemploPorVersao[versionId][livro]) {
+      return null;
+    }
+    
+    // Verifica se o capítulo existe no livro
+    if (!versiculosExemploPorVersao[versionId][livro][capitulo]) {
+      return null;
+    }
+    
+    // Verifica se o versículo existe no capítulo
+    if (!versiculo || !versiculosExemploPorVersao[versionId][livro][capitulo][versiculo]) {
+      return null;
+    }
+    
+    return versiculosExemploPorVersao[versionId][livro][capitulo][versiculo];
   };
 
   return (
@@ -411,9 +542,20 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
           <h3 className="text-xl font-bold mb-4 text-indigo-300">
             {formatBookName(livro)} {capitulo}:{versiculo} <span className="text-sm">({getNomeVersao(versao)})</span>
           </h3>
-          <p className="text-xl text-gray-300 mb-4">
-            {textoVersiculo}
-          </p>
+          {erro && (
+            <div className="mb-4 py-2 px-4 bg-yellow-900/50 border border-yellow-700 rounded text-yellow-300 text-sm">
+              {erro}
+            </div>
+          )}
+          {textoVersiculo ? (
+            <p className="text-xl text-gray-300 mb-4">
+              {textoVersiculo}
+            </p>
+          ) : (
+            <p className="text-gray-400 italic">
+              Versículo não encontrado. Por favor, tente outro versículo ou versão.
+            </p>
+          )}
         </div>
       ) : (
         <p className="text-gray-400 italic">Selecione um versículo para visualizar o texto.</p>
