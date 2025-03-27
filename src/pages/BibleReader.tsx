@@ -139,7 +139,7 @@ const BibleReader = () => {
               </Alert>
             )}
             
-            {/* Grid de versículos (números) - agora com o número correto */}
+            {/* Grid de versículos (números) */}
             <BibleVerseGrid 
               totalVerses={totalVerses} 
               onVerseSelect={handleVerseSelect}

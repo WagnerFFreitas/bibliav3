@@ -29,6 +29,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "Abençoou Deus o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação.",
         4: "Esta é a história da criação dos céus e da terra. Quando o Senhor Deus fez a terra e os céus,",
         5: "ainda nenhum arbusto do campo havia surgido na terra, e nenhuma planta do campo havia brotado; porque o Senhor Deus ainda não tinha feito chover sobre a terra, e também não havia homem para cultivar o solo."
+      },
+      7: {
+        1: "O Senhor disse a Noé: 'Entre na arca, você e toda a sua família, porque você é o único justo que encontrei nesta geração.'",
+        2: "De todos os animais puros, leve sete casais, macho e fêmea; dos impuros, um casal, macho e fêmea;",
+        3: "e também das aves do céu, sete casais, macho e fêmea, para preservar as suas espécies na terra.",
+        4: "Daqui a sete dias farei chover sobre a terra durante quarenta dias e quarenta noites, e destruirei da face da terra todos os seres vivos que fiz.'",
+        5: "E Noé fez tudo como o Senhor lhe tinha ordenado.",
+        6: "Noé tinha seiscentos anos de idade quando as águas do dilúvio vieram sobre a terra.",
+        7: "Ele entrou na arca com seus filhos, sua mulher e as mulheres de seus filhos, por causa das águas do dilúvio.",
+        8: "Dos animais puros e dos impuros, das aves e de todos os seres que se movem sobre a terra,",
+        9: "vieram casais, macho e fêmea, a Noé, e entraram na arca, como Deus tinha ordenado a Noé.",
+        10: "Depois de sete dias, as águas do dilúvio vieram sobre a terra."
       }
     },
     exodo: {
@@ -61,6 +73,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "E abençoou Deus o dia sétimo, e o santificou; porque nele descansou de toda a sua obra que Deus criara e fizera.",
         4: "Estas são as origens dos céus e da terra, quando foram criados; no dia em que o Senhor Deus fez a terra e os céus,",
         5: "E toda a planta do campo que ainda não estava na terra, e toda a erva do campo que ainda não brotava; porque ainda o Senhor Deus não tinha feito chover sobre a terra, e não havia homem para lavrar a terra."
+      },
+      7: {
+        1: "Depois disse o SENHOR a Noé: Entra tu e toda a tua casa na arca, porque tenho visto que és justo diante de mim nesta geração.",
+        2: "De todo o animal limpo tomarás para ti sete e sete, o macho e sua fêmea; mas dos animais que não são limpos, um casal: o macho e sua fêmea.",
+        3: "Também das aves dos céus sete e sete, macho e fêmea, para conservar em vida sua espécie sobre a face de toda a terra.",
+        4: "Porque, passados ainda sete dias, farei chover sobre a terra quarenta dias e quarenta noites; e destruirei de sobre a face da terra toda a substância que fiz.",
+        5: "E fez Noé conforme a tudo o que o SENHOR lhe ordenara.",
+        6: "E era Noé da idade de seiscentos anos, quando o dilúvio das águas veio sobre a terra.",
+        7: "E entrou Noé e seus filhos, e sua mulher, e as mulheres de seus filhos com ele na arca, por causa das águas do dilúvio.",
+        8: "Dos animais limpos e dos animais que não são limpos, e das aves, e de todo o réptil sobre a terra,",
+        9: "Entraram de dois em dois para Noé na arca, macho e fêmea, como Deus tinha ordenado a Noé.",
+        10: "E aconteceu que, passados sete dias, vieram sobre a terra as águas do dilúvio."
       }
     },
     exodo: {
@@ -93,6 +117,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a obra que, como Criador, fizera.",
         4: "Esta é a gênese dos céus e da terra quando foram criados, quando o SENHOR Deus os criou.",
         5: "Não havia ainda nenhuma planta do campo na terra, pois ainda nenhuma erva do campo havia brotado; porque o SENHOR Deus não fizera chover sobre a terra, e também não havia homem para lavrar o solo."
+      },
+      7: {
+        1: "Disse o SENHOR a Noé: Entra na arca, tu e toda a tua casa, porque reconheço que tens sido justo diante de mim no meio desta geração.",
+        2: "De todo animal limpo levarás contigo sete pares: o macho e sua fêmea; mas dos animais imundos, um casal: o macho e sua fêmea.",
+        3: "Também das aves do céu, sete pares: macho e fêmea; para se conservar a semente sobre a face da terra.",
+        4: "Porque, daqui a sete dias, farei chover sobre a terra durante quarenta dias e quarenta noites; e da superfície da terra exterminarei todos os seres que fiz.",
+        5: "E tudo fez Noé segundo o SENHOR lhe ordenara.",
+        6: "Tinha Noé seiscentos anos de idade, quando as águas do dilúvio inundaram a terra.",
+        7: "Por causa das águas do dilúvio, entrou Noé na arca, ele com seus filhos, sua mulher e as mulheres de seus filhos.",
+        8: "Dos animais limpos e dos animais imundos, das aves e de todos os répteis sobre a terra,",
+        9: "entraram de dois em dois para junto de Noé na arca, macho e fêmea, como Deus lhe ordenara.",
+        10: "E aconteceu que, passados sete dias, vieram sobre a terra as águas do dilúvio."
       }
     },
     exodo: {
@@ -125,6 +161,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "Deus abençoou o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação.",
         4: "Esta é a história da criação dos céus e da terra. Quando o SENHOR Deus fez a terra e os céus,",
         5: "ainda não havia nenhum arbusto do campo na terra, nem tinha brotado ainda nenhuma erva do campo, porque o SENHOR Deus não tinha feito chover sobre a terra, nem havia homem para cultivar o solo."
+      },
+      7: {
+        1: "Depois o SENHOR disse a Noé: 'Entre na arca, você e toda a sua família, porque tenho visto que você é justo diante de mim no meio desta geração.'",
+        2: "De todos os animais puros, leve com você sete pares, o macho e sua fêmea; mas dos animais impuros, um par, o macho e sua fêmea;",
+        3: "também das aves do céu, sete pares, macho e fêmea, para preservar a espécie sobre a face da terra.",
+        4: "Porque, daqui a sete dias, farei chover sobre a terra durante quarenta dias e quarenta noites; e eliminarei da face da terra todos os seres que fiz.'",
+        5: "E Noé fez conforme tudo o que o SENHOR lhe havia ordenado.",
+        6: "Noé tinha seiscentos anos de idade quando o dilúvio veio sobre a terra.",
+        7: "Noé entrou na arca, com seus filhos, sua mulher e as mulheres de seus filhos, por causa das águas do dilúvio.",
+        8: "Dos animais puros e dos animais impuros, das aves e de todos os que rastejam sobre a terra,",
+        9: "entraram para junto de Noé na arca, de dois em dois, macho e fêmea, como Deus havia ordenado a Noé.",
+        10: "Depois de sete dias, vieram as águas do dilúvio sobre a terra."
       }
     },
     exodo: {
@@ -157,6 +205,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "Ele abençoou o sétimo dia e o separou como um dia especial, pois naquele dia Deus descansou depois de criar tudo.",
         4: "Foi essa a história da criação do céu e da terra. Quando o SENHOR Deus fez o céu e a terra,",
         5: "não havia ainda na terra nenhum arbusto do campo, e as plantas do campo ainda não tinham brotado. Pois o SENHOR ainda não tinha feito chover, e não havia ninguém para cultivar a terra."
+      },
+      7: {
+        1: "O SENHOR Deus disse a Noé: 'Entre na barca com toda a sua família, pois você é a única pessoa desta geração que eu reconheço como justa.'",
+        2: "E disse mais: 'Leve com você sete casais de cada espécie de animais que servem para o sacrifício e um casal de cada espécie que não serve para o sacrifício.'",
+        3: "'Leve também sete casais de cada espécie de aves. Faça isso para que todas as espécies de animais e aves continuem vivas na terra.'",
+        4: "'Pois daqui a sete dias vou fazer que chova durante quarenta dias e quarenta noites e vou destruir todos os seres vivos que criei.'",
+        5: "E Noé fez tudo o que o SENHOR havia mandado.",
+        6: "Noé tinha seiscentos anos de idade quando veio o dilúvio sobre a terra.",
+        7: "Para escapar das águas do dilúvio, Noé entrou na barca com a sua mulher, os seus filhos e as suas noras.",
+        8: "Casais de animais puros e impuros, de aves e de todos os animais que se arrastam pelo chão",
+        9: "entraram na barca com Noé, como Deus tinha ordenado.",
+        10: "E, como Deus tinha dito, aconteceu que depois de sete dias veio o dilúvio sobre a terra."
       }
     },
     exodo: {
@@ -189,6 +249,18 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made.",
         4: "These are the generations of the heavens and of the earth when they were created, in the day that the LORD God made the earth and the heavens,",
         5: "And every plant of the field before it was in the earth, and every herb of the field before it grew: for the LORD God had not caused it to rain upon the earth, and there was not a man to till the ground."
+      },
+      7: {
+        1: "And the LORD said unto Noah, Come thou and all thy house into the ark; for thee have I seen righteous before me in this generation.",
+        2: "Of every clean beast thou shalt take to thee by sevens, the male and his female: and of beasts that are not clean by two, the male and his female.",
+        3: "Of fowls also of the air by sevens, the male and the female; to keep seed alive upon the face of all the earth.",
+        4: "For yet seven days, and I will cause it to rain upon the earth forty days and forty nights; and every living substance that I have made will I destroy from off the face of the earth.",
+        5: "And Noah did according unto all that the LORD commanded him.",
+        6: "And Noah was six hundred years old when the flood of waters was upon the earth.",
+        7: "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark, because of the waters of the flood.",
+        8: "Of clean beasts, and of beasts that are not clean, and of fowls, and of every thing that creepeth upon the earth,",
+        9: "There went in two and two unto Noah into the ark, the male and the female, as God had commanded Noah.",
+        10: "And it came to pass after seven days, that the waters of the flood were upon the earth."
       }
     },
     exodo: {
@@ -499,6 +571,7 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
           setTextoVersiculo(nviVerse);
           setErro(`Versículo não disponível na versão "${getNomeVersao(versao)}". Exibindo texto da NVI.`);
         } else {
+          console.error(`Capítulo ${capitulo} do livro "${livro}" não encontrado na versão ${versao}`);
           setTextoVersiculo("");
           setErro(`Versículo não encontrado.`);
         }
