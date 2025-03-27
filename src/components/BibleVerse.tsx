@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -9,7 +10,108 @@ interface BibleVerseProps {
 
 // Dados de exemplo para simular o conteúdo da Bíblia em diferentes versões
 const versiculosExemploPorVersao: Record<string, any> = {
-  // ... keep existing code (versões da Bíblia)
+  nvi: {
+    genesis: {
+      1: {
+        1: "No princípio, Deus criou os céus e a terra.",
+        2: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.",
+        3: "Disse Deus: 'Haja luz', e houve luz.",
+        4: "Deus viu que a luz era boa, e separou a luz das trevas.",
+        5: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
+        // Adicionando mais versículos para completar o capítulo
+        6: "Disse Deus: 'Haja um firmamento no meio das águas, e separação entre águas e águas'.",
+        7: "Fez, pois, Deus o firmamento, e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
+        8: "E chamou Deus ao firmamento Céus. Passaram-se a tarde e a manhã, o segundo dia.",
+        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca'. E assim se fez.",
+        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom."
+      },
+    },
+  },
+  acf: {
+    genesis: {
+      1: {
+        1: "No princípio criou Deus os céus e a terra.",
+        2: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
+        3: "E disse Deus: Haja luz; e houve luz.",
+        4: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
+        5: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro.",
+        // Adicionando mais versículos para completar o capítulo
+        6: "E disse Deus: Haja uma expansão no meio das águas, e haja separação entre águas e águas.",
+        7: "E fez Deus a expansão, e fez separação entre as águas que estavam debaixo da expansão e as águas que estavam sobre a expansão; e assim foi.",
+        8: "E chamou Deus à expansão Céus, e foi a tarde e a manhã, o dia segundo.",
+        9: "E disse Deus: Ajuntem-se as águas debaixo dos céus num lugar, e apareça a porção seca; e assim foi.",
+        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que era bom."
+      },
+    },
+  },
+  ara: {
+    genesis: {
+      1: {
+        1: "No princípio, criou Deus os céus e a terra.",
+        2: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas.",
+        3: "Disse Deus: 'Haja luz'; e houve luz.",
+        4: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
+        5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
+        // Adicionando mais versículos para completar o capítulo
+        6: "E disse Deus: 'Haja firmamento no meio das águas, e separação entre águas e águas'.",
+        7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
+        8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
+        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca'. E assim se fez.",
+        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom."
+      },
+    },
+  },
+  naa: {
+    genesis: {
+      1: {
+        1: "No princípio, Deus criou os céus e a terra.",
+        2: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas.",
+        3: "Disse Deus: 'Haja luz!' E houve luz.",
+        4: "Deus viu que a luz era boa e separou a luz das trevas.",
+        5: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia.",
+        // Adicionando mais versículos para completar o capítulo
+        6: "Disse Deus: 'Haja um firmamento no meio das águas, e haja separação entre águas e águas'.",
+        7: "Deus fez o firmamento e separou as águas que ficavam abaixo do firmamento das que ficavam acima. E assim se fez.",
+        8: "Ao firmamento Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
+        9: "Disse Deus: 'Ajuntem-se num só lugar as águas que estão debaixo do céu, e apareça a parte seca'. E assim se fez.",
+        10: "À parte seca Deus chamou 'terra', e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom."
+      },
+    },
+  },
+  ntlh: {
+    genesis: {
+      1: {
+        1: "No começo Deus criou os céus e a terra.",
+        2: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água.",
+        3: "Então Deus disse: 'Que haja luz!' e a luz começou a existir.",
+        4: "Deus viu que a luz era boa e a separou da escuridão.",
+        5: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
+        // Adicionando mais versículos para completar o capítulo
+        6: "Então Deus disse: 'Que haja uma divisão entre as águas, para separá-las em duas partes!'",
+        7: "E assim aconteceu. Deus fez uma divisão e separou as águas que estavam embaixo da divisão das que estavam em cima.",
+        8: "Deus chamou a divisão de 'céu'. A noite passou, e a manhã chegou. Esse foi o segundo dia.",
+        9: "Então Deus disse: 'Que as águas que estão debaixo do céu se ajuntem num só lugar, para que apareça a terra seca!' E assim aconteceu.",
+        10: "Deus chamou a terra seca de 'terra' e as águas que se ajuntaram de 'mar'. E Deus viu que o que havia feito era bom."
+      },
+    },
+  },
+  kjv: {
+    genesis: {
+      1: {
+        1: "In the beginning God created the heaven and the earth.",
+        2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+        3: "And God said, Let there be light: and there was light.",
+        4: "And God saw the light, that it was good: and God divided the light from the darkness.",
+        5: "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
+        // Adding more verses to complete the chapter
+        6: "And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.",
+        7: "And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so.",
+        8: "And God called the firmament Heaven. And the evening and the morning were the second day.",
+        9: "And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so.",
+        10: "And God called the dry land Earth; and the gathering together of the waters called he Seas: and God saw that it was good."
+      },
+    },
+  },
 };
 
 // Definir o número de versículos por capítulo para cada livro
@@ -198,4 +300,3 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
 };
 
 export default BibleVerse;
-

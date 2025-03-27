@@ -20,6 +20,11 @@ const BibleReader = () => {
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
   useEffect(() => {
+    // Resetar o versículo selecionado ao mudar de capítulo ou livro
+    setSelectedVerse(null);
+  }, [livro, capitulo]);
+  
+  useEffect(() => {
     // Atualizar a versão da Bíblia quando os parâmetros de URL mudarem
     const versaoUrl = searchParams.get("versao");
     if (versaoUrl) {
