@@ -10,6 +10,14 @@ import ScrollToTop from "@/components/ScrollToTop";
 import BibleVersionSelector from "@/components/BibleVersionSelector";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { toast } from "sonner";
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from "@/components/ui/pagination";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
@@ -29,6 +37,7 @@ const BibleReader = () => {
       const verse = parseInt(hash.substring(2));
       if (!isNaN(verse) && verse > 0 && verse <= totalVerses) {
         setSelectedVerse(verse);
+        toast.info(`Versículo ${verse} selecionado`);
       }
     } else {
       // Resetar o versículo selecionado ao mudar de capítulo ou livro
@@ -70,6 +79,19 @@ const BibleReader = () => {
       return prev;
     });
     toast.info(`Versão alterada para ${novaVersao.toUpperCase()}`);
+  };
+  
+  // Navegação para capítulos anteriores e próximos
+  const handlePreviousChapter = () => {
+    const currentChapter = parseInt(capitulo);
+    if (currentChapter > 1) {
+      window.location.href = `/biblia/${livro}/${currentChapter - 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
+    }
+  };
+  
+  const handleNextChapter = () => {
+    const currentChapter = parseInt(capitulo);
+    window.location.href = `/biblia/${livro}/${currentChapter + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
   };
   
   return (
@@ -131,6 +153,23 @@ const BibleReader = () => {
                 initialVersion={versaoBiblia}
               />
             </div>
+            
+            {/* Navegação de capítulos */}
+            <Pagination className="mb-8">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious onClick={handlePreviousChapter} className="cursor-pointer bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink className="bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700">
+                    Capítulo {capitulo}
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext onClick={handleNextChapter} className="cursor-pointer bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
             
             {error && (
               <Alert variant="destructive" className="mb-6 bg-red-900/60 border-red-800 text-white">

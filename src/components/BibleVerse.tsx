@@ -16,12 +16,12 @@ const versiculosExemploPorVersao: Record<string, any> = {
         2: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.",
         3: "Disse Deus: 'Haja luz', e houve luz.",
         4: "Deus viu que a luz era boa, e separou a luz das trevas.",
-        5: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
+        5: "Deus chamou à luz Dia, e às trevas chamou Noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
         6: "Disse Deus: 'Haja um firmamento no meio das águas, e separação entre águas e águas'.",
         7: "Fez, pois, Deus o firmamento, e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
         8: "E chamou Deus ao firmamento Céus. Passaram-se a tarde e a manhã, o segundo dia.",
         9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca'. E assim se fez.",
-        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom."
+        10: "À porção seca chamou Deus Terra, e ao ajuntamento das águas, Mares. E viu Deus que isso era bom."
       },
       2: {
         1: "Assim foram concluídos os céus e a terra, e tudo o que neles há.",
@@ -64,26 +64,26 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "E disse Deus: Haja uma expansão no meio das águas, e haja separação entre águas e águas.",
         7: "E fez Deus a expansão, e fez separação entre as águas que estavam debaixo da expansão e as águas que estavam sobre a expansão; e assim foi.",
         8: "E chamou Deus à expansão Céus, e foi a tarde e a manhã, o dia segundo.",
-        9: "E disse Deus: Ajuntem-se as águas debaixo dos céus num lugar, e apareça a porção seca; e assim foi.",
-        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que era bom."
+        9: "E disse Deus: Ajuntem-se as águas debaixo dos céus num lugar, e apareça a porção seca; e assim se fez.",
+        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que isso era bom."
       },
       2: {
         1: "Assim os céus, a terra e todo o seu exército foram acabados.",
         2: "E havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a sua obra, que tinha feito.",
-        3: "E abençoou Deus o dia sétimo, e o santificou; porque nele descansou de toda a sua obra que Deus criara e fizera.",
+        3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a sua obra que tinha feito.",
         4: "Estas são as origens dos céus e da terra, quando foram criados; no dia em que o Senhor Deus fez a terra e os céus,",
-        5: "E toda a planta do campo que ainda não estava na terra, e toda a erva do campo que ainda não brotava; porque ainda o Senhor Deus não tinha feito chover sobre a terra, e não havia homem para lavrar a terra."
+        5: "E toda a planta do campo que ainda não estava na terra, e toda a erva do campo que ainda não brotava; porque ainda o Senhor Deus não tinha feito chover sobre a terra, e também não havia homem para lavrar o solo."
       },
       7: {
         1: "Depois disse o SENHOR a Noé: Entra tu e toda a tua casa na arca, porque tenho visto que és justo diante de mim nesta geração.",
-        2: "De todo o animal limpo tomarás para ti sete e sete, o macho e sua fêmea; mas dos animais que não são limpos, um casal: o macho e sua fêmea.",
-        3: "Também das aves dos céus sete e sete, macho e fêmea, para conservar em vida sua espécie sobre a face de toda a terra.",
+        2: "De todo animal limpo tomarás para ti sete e sete, o macho e sua fêmea; mas dos animais que não são limpos, um casal: o macho e sua fêmea;",
+        3: "também das aves dos céus sete e sete, macho e fêmea, para preservar em vida sua espécie sobre a face de toda a terra.",
         4: "Porque, passados ainda sete dias, farei chover sobre a terra quarenta dias e quarenta noites; e destruirei de sobre a face da terra toda a substância que fiz.",
         5: "E fez Noé conforme a tudo o que o SENHOR lhe ordenara.",
         6: "E era Noé da idade de seiscentos anos, quando o dilúvio das águas veio sobre a terra.",
         7: "E entrou Noé e seus filhos, e sua mulher, e as mulheres de seus filhos com ele na arca, por causa das águas do dilúvio.",
         8: "Dos animais limpos e dos animais que não são limpos, e das aves, e de todo o réptil sobre a terra,",
-        9: "Entraram de dois em dois para Noé na arca, macho e fêmea, como Deus tinha ordenado a Noé.",
+        9: "entraram de dois em dois para Noé na arca, macho e fêmea, como Deus tinha ordenado a Noé.",
         10: "E aconteceu que, passados sete dias, vieram sobre a terra as águas do dilúvio."
       }
     },
@@ -108,8 +108,8 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "E disse Deus: 'Haja firmamento no meio das águas, e haja separação entre águas e águas'.",
         7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
         8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
-        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca'. E assim se fez.",
-        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom."
+        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos c��us num só lugar, e apareça a porção seca'. E assim se fez.",
+        10: "À porção seca chamou Deus Terra; e ao ajuntamento das águas, Mares; e viu Deus que isso era bom."
       },
       2: {
         1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
@@ -124,7 +124,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "Também das aves do céu, sete pares: macho e fêmea; para se conservar a semente sobre a face da terra.",
         4: "Porque, daqui a sete dias, farei chover sobre a terra durante quarenta dias e quarenta noites; e da superfície da terra exterminarei todos os seres que fiz.",
         5: "E tudo fez Noé segundo o SENHOR lhe ordenara.",
-        6: "Tinha Noé seiscentos anos de idade, quando as águas do dilúvio inundaram a terra.",
+        6: "Tinha Noé seiscentos anos de idade, quando o dilúvio inundaram a terra.",
         7: "Por causa das águas do dilúvio, entrou Noé na arca, ele com seus filhos, sua mulher e as mulheres de seus filhos.",
         8: "Dos animais limpos e dos animais imundos, das aves e de todos os répteis sobre a terra,",
         9: "entraram de dois em dois para junto de Noé na arca, macho e fêmea, como Deus lhe ordenara.",
@@ -152,35 +152,35 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "Disse Deus: 'Haja um firmamento no meio das águas, e haja separação entre águas e águas'.",
         7: "Deus fez o firmamento e separou as águas que ficavam abaixo do firmamento das que ficavam acima. E assim se fez.",
         8: "Ao firmamento Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
-        9: "Disse Deus: 'Ajuntem-se num só lugar as águas que estão debaixo do céu, e apareça a parte seca'. E assim se fez.",
+        9: "Disse Deus: 'Ajuntem-se num só lugar as águas que estão debaixo do céu, e apareça a parte seca'; E assim se fez.",
         10: "À parte seca Deus chamou 'terra', e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom."
       },
       2: {
         1: "Assim foram terminados os céus, a terra e todo o seu exército.",
-        2: "Deus terminou no sétimo dia a obra que tinha feito e descansou de toda a sua obra no sétimo dia.",
-        3: "Deus abençoou o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação.",
-        4: "Esta é a história da criação dos céus e da terra. Quando o SENHOR Deus fez a terra e os céus,",
-        5: "ainda não havia nenhum arbusto do campo na terra, nem tinha brotado ainda nenhuma erva do campo, porque o SENHOR Deus não tinha feito chover sobre a terra, nem havia homem para cultivar o solo."
+        2: "E, havendo Deus terminado no dia sétimo a sua obra, que fizera, descansou nesse dia de toda a sua obra que tinha feito.",
+        3: "E abençoou o sétimo dia e o santificou; porque nele descansou de toda a obra que, como Criador, fizera.",
+        4: "Esta é a gênese dos céus e da terra quando foram criados, quando o SENHOR Deus os criou.",
+        5: "Não havia ainda nenhuma planta do campo na terra, pois ainda nenhuma erva do campo havia brotado; porque o SENHOR Deus não fizera chover sobre a terra, nem havia homem para lavrar o solo."
       },
       7: {
-        1: "Depois o SENHOR disse a Noé: 'Entre na arca, você e toda a sua família, porque tenho visto que você é justo diante de mim no meio desta geração.'",
-        2: "De todos os animais puros, leve com você sete pares, o macho e sua fêmea; mas dos animais impuros, um par, o macho e sua fêmea;",
-        3: "também das aves do céu, sete pares, macho e fêmea, para preservar a espécie sobre a face da terra.",
+        1: "Depois o SENHOR disse a Noé: 'Entre na arca, você e toda a sua família, porque você é a única pessoa desta geração que eu reconheço como justa.'",
+        2: "De todo animal limpo levarás contigo sete pares, o macho e sua fêmea; mas dos animais impuros, um par, o macho e sua fêmea;",
+        3: "também das aves do céu, sete pares, macho e fêmea, para se conservar a semente sobre a face da terra.",
         4: "Porque, daqui a sete dias, farei chover sobre a terra durante quarenta dias e quarenta noites; e eliminarei da face da terra todos os seres que fiz.'",
         5: "E Noé fez conforme tudo o que o SENHOR lhe havia ordenado.",
-        6: "Noé tinha seiscentos anos de idade quando o dilúvio veio sobre a terra.",
+        6: "Tinha Noé seiscentos anos de idade quando o dilúvio veio sobre a terra.",
         7: "Noé entrou na arca, com seus filhos, sua mulher e as mulheres de seus filhos, por causa das águas do dilúvio.",
-        8: "Dos animais puros e dos animais impuros, das aves e de todos os que rastejam sobre a terra,",
-        9: "entraram para junto de Noé na arca, de dois em dois, macho e fêmea, como Deus havia ordenado a Noé.",
+        8: "Dos animais limpos e dos animais impuros, das aves e de todos os répteis sobre a terra,",
+        9: "entraram para junto de Noé na arca, de dois em dois, macho e fêmea, como Deus lhe ordenara.",
         10: "Depois de sete dias, vieram as águas do dilúvio sobre a terra."
       }
     },
     exodo: {
       1: {
-        1: "Estes são os nomes dos filhos de Israel que entraram no Egito com Jacó, cada um com a sua família:",
-        2: "Rúben, Simeão, Levi e Judá,",
-        3: "Issacar, Zebulom e Benjamim,",
-        4: "Dã e Naftali, Gade e Aser.",
+        1: "Estes são os nomes dos filhos de Israel que foram com Jacó para o Egito, cada um com a sua família:",
+        2: "Rúben, Simeão, Levi, Judá,",
+        3: "Issacar, Zebulom, Benjamim,",
+        4: "Dã, Naftali, Gade e Aser.",
         5: "O total dos descendentes de Jacó foi de setenta pessoas. José já estava no Egito."
       }
     }
@@ -194,7 +194,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         4: "Deus viu que a luz era boa e a separou da escuridão.",
         5: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
         6: "Então Deus disse: 'Que haja uma divisão entre as águas, para separá-las em duas partes!'",
-        7: "E assim aconteceu. Deus fez uma divisão e separou as águas que estavam embaixo da divisão das que estavam em cima.",
+        7: "E assim aconteceu. Deus fez uma divisão e separou as águas que estavam em baixo da divisão das que estavam em cima.",
         8: "Deus chamou a divisão de 'céu'. A noite passou, e a manhã chegou. Esse foi o segundo dia.",
         9: "Então Deus disse: 'Que as águas que estão debaixo do céu se ajuntem num só lugar, para que apareça a terra seca!' E assim aconteceu.",
         10: "Deus chamou a terra seca de 'terra' e as águas que se ajuntaram de 'mar'. E Deus viu que o que havia feito era bom."
@@ -202,7 +202,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       2: {
         1: "Foi assim que Deus terminou de criar o céu e a terra e tudo o que há neles.",
         2: "No sétimo dia Deus acabou de fazer todas as coisas que tinha criado e descansou.",
-        3: "Ele abençoou o sétimo dia e o separou como um dia especial, pois naquele dia Deus descansou depois de criar tudo.",
+        3: "Ele abençoou o sétimo dia e o santificou; porque nele descansou de toda a obra que, como Criador, fizera.",
         4: "Foi essa a história da criação do céu e da terra. Quando o SENHOR Deus fez o céu e a terra,",
         5: "não havia ainda na terra nenhum arbusto do campo, e as plantas do campo ainda não tinham brotado. Pois o SENHOR ainda não tinha feito chover, e não havia ninguém para cultivar a terra."
       },
@@ -214,7 +214,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "E Noé fez tudo o que o SENHOR havia mandado.",
         6: "Noé tinha seiscentos anos de idade quando veio o dilúvio sobre a terra.",
         7: "Para escapar das águas do dilúvio, Noé entrou na barca com a sua mulher, os seus filhos e as suas noras.",
-        8: "Casais de animais puros e impuros, de aves e de todos os animais que se arrastam pelo chão",
+        8: "Casais de animais puros e impuros, de aves e de todos os répteis sobre a terra",
         9: "entraram na barca com Noé, como Deus tinha ordenado.",
         10: "E, como Deus tinha dito, aconteceu que depois de sete dias veio o dilúvio sobre a terra."
       }
@@ -246,7 +246,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       2: {
         1: "Thus the heavens and the earth were finished, and all the host of them.",
         2: "And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made.",
-        3: "And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made.",
+        3: "And God blessed the seventh day and sanctified it: because that in it he had rested from all his work which God created and made.",
         4: "These are the generations of the heavens and of the earth when they were created, in the day that the LORD God made the earth and the heavens,",
         5: "And every plant of the field before it was in the earth, and every herb of the field before it grew: for the LORD God had not caused it to rain upon the earth, and there was not a man to till the ground."
       },
@@ -428,16 +428,14 @@ export const getNumeroVersiculos = (livro: string, capitulo: number): number => 
     return versiculosPorCapitulo[livro][capitulo];
   }
   
-  // Valores padrão para capítulos que não estão definidos
   const capitulosFinal = versiculosPorCapitulo[livro] || {};
   const ultimoCapitulo = Object.keys(capitulosFinal).map(Number).sort((a, b) => b - a)[0] || 0;
   
   if (capitulo <= ultimoCapitulo) {
-    // Se estiver dentro do intervalo conhecido, retorna um valor padrão razoável
     return 30;
   }
   
-  return 0; // Capítulo não existe
+  return 0;
 };
 
 // Formata o nome do livro para exibição
@@ -540,67 +538,67 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
     }
   }, [livro, capitulo, versiculo, versao]);
 
-  // Função para obter o texto do versículo
+  const generatePlaceholderVerse = (livro: string, capitulo: number, versiculo: number): string => {
+    return `Texto simulado para ${formatBookName(livro)} ${capitulo}:${versiculo}. Esta é uma representação temporária do versículo.`;
+  };
+
   const getVerseText = () => {
     try {
       setErro(null);
       
-      // Verifica se a versão existe nos dados
       if (!versiculosExemploPorVersao[versao]) {
         console.warn(`Versão "${versao}" não encontrada. Usando NVI como padrão.`);
         const nviVerse = getVerseFromVersion("nvi");
-        if (nviVerse) {
-          setTextoVersiculo(nviVerse);
-          setErro(`Versão "${getNomeVersao(versao)}" não disponível. Exibindo texto da NVI.`);
+        
+        const verseText = nviVerse || generatePlaceholderVerse(livro, capitulo, versiculo!);
+        setTextoVersiculo(verseText);
+        
+        if (!nviVerse) {
+          setErro(`Versículo não disponível na versão NVI. Exibindo texto simulado.`);
         } else {
-          setTextoVersiculo("");
-          setErro(`Versículo não encontrado em nenhuma versão.`);
+          setErro(`Versão "${getNomeVersao(versao)}" não disponível. Exibindo texto da NVI.`);
         }
         return;
       }
       
-      // Tenta obter o versículo da versão solicitada
       const verse = getVerseFromVersion(versao);
       
       if (verse) {
         setTextoVersiculo(verse);
       } else {
-        // Se não encontrar na versão solicitada, tenta na NVI como fallback
         const nviVerse = getVerseFromVersion("nvi");
+        
         if (nviVerse) {
           setTextoVersiculo(nviVerse);
           setErro(`Versículo não disponível na versão "${getNomeVersao(versao)}". Exibindo texto da NVI.`);
         } else {
-          console.error(`Capítulo ${capitulo} do livro "${livro}" não encontrado na versão ${versao}`);
-          setTextoVersiculo("");
-          setErro(`Versículo não encontrado.`);
+          const placeholderText = generatePlaceholderVerse(livro, capitulo, versiculo!);
+          setTextoVersiculo(placeholderText);
+          setErro(`Versículo não encontrado nas versões disponíveis. Exibindo texto simulado.`);
         }
       }
     } catch (error) {
       console.error("Erro ao buscar versículo:", error);
-      setTextoVersiculo("");
-      setErro("Erro ao buscar o versículo. Por favor, tente novamente.");
+      
+      const placeholderText = generatePlaceholderVerse(livro, capitulo, versiculo!);
+      setTextoVersiculo(placeholderText);
+      setErro("Erro ao buscar o versículo. Exibindo texto simulado.");
     }
   };
   
-  // Função auxiliar para obter o texto do versículo de uma versão específica
   const getVerseFromVersion = (versionId: string): string | null => {
-    // Verifica se a versão existe
     if (!versiculosExemploPorVersao[versionId]) {
       return null;
     }
     
-    // Verifica se o livro existe na versão
     if (!versiculosExemploPorVersao[versionId][livro]) {
       return null;
     }
     
-    // Verifica se o capítulo existe no livro
     if (!versiculosExemploPorVersao[versionId][livro][capitulo]) {
-      return null;
+      versiculosExemploPorVersao[versionId][livro][capitulo] = {};
     }
     
-    // Verifica se o versículo existe no capítulo
     if (!versiculo || !versiculosExemploPorVersao[versionId][livro][capitulo][versiculo]) {
       return null;
     }
