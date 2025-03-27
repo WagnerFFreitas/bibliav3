@@ -8,6 +8,7 @@ import BibleVerseGrid from "@/components/BibleVerseGrid";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
 import BibleVersionSelector from "@/components/BibleVersionSelector";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
@@ -15,6 +16,7 @@ const BibleReader = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
+  const [error, setError] = useState<string | null>(null);
   
   // Determinar o número de versículos para o capítulo atual
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
@@ -22,6 +24,8 @@ const BibleReader = () => {
   useEffect(() => {
     // Resetar o versículo selecionado ao mudar de capítulo ou livro
     setSelectedVerse(null);
+    // Limpar qualquer erro ao navegar para um novo capítulo
+    setError(null);
   }, [livro, capitulo]);
   
   useEffect(() => {
@@ -112,6 +116,13 @@ const BibleReader = () => {
                 initialVersion={versaoBiblia}
               />
             </div>
+            
+            {error && (
+              <Alert variant="destructive" className="mb-6 bg-red-900/60 border-red-800 text-white">
+                <AlertTitle>Erro</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
             
             {/* Grid de versículos (números) - agora com o número correto */}
             <BibleVerseGrid 
