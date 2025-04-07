@@ -13,6 +13,7 @@ import Dictionary from "./pages/Dictionary";
 import NotFound from "./pages/NotFound";
 import Utilities from "./pages/Utilities";
 import MusicPage from "./pages/MusicPage";
+import HinarioPage from "./pages/HinarioPage";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Downloads from "./pages/Downloads";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/dicionario" element={<Dictionary />} />
           <Route path="/utilitarios" element={<Utilities />} />
           <Route path="/harpa" element={<MusicPage />} />
+          <Route path="/hinario" element={<HinarioPage />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/baixar" element={<Downloads />} />

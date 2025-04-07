@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const MusicPage = () => {
+const HinarioPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   
   return (
@@ -52,7 +52,7 @@ const MusicPage = () => {
       
       <main className="flex-1 p-6 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed">
         <div className="container mx-auto max-w-5xl bg-black/70 p-6 rounded-lg">
-          <h1 className="text-3xl font-bold mb-6">Harpa Cristã</h1>
+          <h1 className="text-3xl font-bold mb-6">Hinário Cristão</h1>
           
           <div className="mb-8">
             <Input
@@ -67,7 +67,7 @@ const MusicPage = () => {
               <Button
                 key={i}
                 variant="outline"
-                className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 text-white"
+                className="bg-blue-900/80 hover:bg-blue-800 border-blue-700 text-white"
               >
                 {i + 1}
               </Button>
@@ -75,30 +75,20 @@ const MusicPage = () => {
           </div>
           
           <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-            <h2 className="text-xl font-bold mb-2 text-indigo-300">Harpa Cristã nº 1 - Chuvas de Graça</h2>
+            <h2 className="text-xl font-bold mb-2 text-blue-300">Hinário Cristão nº 1 - Grande é o Senhor</h2>
             <div className="space-y-4 text-gray-300">
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Chuvas pedimos,<br />
-                 Senhor, enviai.
+              <p>Grande é o Senhor e mui digno de louvor<br />
+                 Na cidade do nosso Deus, seu santo monte<br />
+                 Alegria de toda a terra
               </p>
-              <p>Coro:<br />
-                 Chuvas de graça,<br />
-                 Chuvas mandai;<br />
-                 Gotas celestiais já nos chegam,<br />
-                 Chuvas, a todos, Senhor, enviai.
+              <p>Grande é o Senhor em quem nós temos a vitória<br />
+                 Que nos ajuda contra o inimigo<br />
+                 Por isso diante dele nos prostramos
               </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Dá-nos os frutos e não tardes mais.
-              </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Manda-nos chuvas sem mais demorar.
-              </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Chuvas constantes, Senhor, enviai.
+              <p>Queremos o teu nome engrandecer<br />
+                 E agradecer-te por tua obra em nossas vidas<br />
+                 Confiamos em teu infinito amor<br />
+                 Tua presença é o nosso sustento
               </p>
             </div>
           </div>
@@ -116,4 +106,4 @@ const MusicPage = () => {
   );
 };
 
-export default MusicPage;
+export default HinarioPage;

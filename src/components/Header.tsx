@@ -39,6 +39,12 @@ const Header = () => {
           <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
             Pesquisar
           </Link>
+          <Link to="/harpa" className="text-sm font-medium transition-colors hover:text-primary">
+            Harpa Cristã
+          </Link>
+          <Link to="/hinario" className="text-sm font-medium transition-colors hover:text-primary">
+            Hinário Cristão
+          </Link>
           <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
             Sobre
           </Link>
@@ -56,6 +62,12 @@ const Header = () => {
               </Link>
               <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
                 Pesquisar
+              </Link>
+              <Link to="/harpa" className="text-sm font-medium transition-colors hover:text-primary">
+                Harpa Cristã
+              </Link>
+              <Link to="/hinario" className="text-sm font-medium transition-colors hover:text-primary">
+                Hinário Cristão
               </Link>
               <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
                 Sobre
