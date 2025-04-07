@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -363,7 +364,29 @@ const versiculosPorCapitulo: Record<string, Record<number, number>> = {
   numeros: { 1: 54, 36: 13 },
   deuteronomio: { 1: 46, 34: 12 },
   josue: { 1: 18, 24: 33 },
-  juizes: { 1: 36, 21: 25 },
+  juizes: { 
+    1: 36,
+    2: 23,  // Correct number of verses in Judges 2
+    3: 31,
+    4: 24,
+    5: 31,
+    6: 40,
+    7: 25,
+    8: 35,
+    9: 57,
+    10: 18,
+    11: 40,
+    12: 15,
+    13: 25,
+    14: 20,
+    15: 20,
+    16: 31,
+    17: 13,
+    18: 31,
+    19: 30,
+    20: 48,
+    21: 25
+  },
   rute: { 1: 22, 4: 22 },
   "1samuel": { 1: 28, 31: 13 },
   "2samuel": { 1: 27, 24: 25 },
@@ -439,6 +462,12 @@ export const getNumeroVersiculos = (livro: string, capitulo: number): number => 
   }
   
   return 0;
+};
+
+// Verifica se um versículo existe para um determinado livro e capítulo
+const versiculoExiste = (livro: string, capitulo: number, versiculo: number): boolean => {
+  const totalVersiculos = getNumeroVersiculos(livro, capitulo);
+  return versiculo > 0 && versiculo <= totalVersiculos;
 };
 
 // Formata o nome do livro para exibição
@@ -609,6 +638,14 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
       setErro(null);
       setAvisoSimulado(false);
       
+      // Verificar se o versículo existe no livro e capítulo
+      if (versiculo && !versiculoExiste(livro, capitulo, versiculo)) {
+        const totalVersiculos = getNumeroVersiculos(livro, capitulo);
+        setTextoVersiculo("");
+        setErro(`O versículo ${versiculo} não existe em ${formatBookName(livro)} ${capitulo}. Este capítulo tem apenas ${totalVersiculos} versículos.`);
+        return;
+      }
+      
       // Verificar se a versão existe em nossos dados
       if (!versiculosExemploPorVersao[versao]) {
         // Versão não encontrada, vamos gerar um versículo simulado
@@ -678,12 +715,12 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
           </h3>
           
           {erro && (
-            <div className="mb-4 py-2 px-4 bg-yellow-900/50 border border-yellow-700 rounded text-yellow-300 text-sm">
+            <div className="mb-4 py-2 px-4 bg-red-900/50 border border-red-700 rounded text-red-300 text-sm">
               {erro}
             </div>
           )}
           
-          {avisoSimulado && (
+          {avisoSimulado && !erro && (
             <div className="mb-4 py-2 px-4 bg-blue-900/50 border border-blue-700 rounded text-blue-300 text-sm">
               Este é um texto simulado. A versão completa deste versículo não está disponível no momento.
             </div>
@@ -695,7 +732,7 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
             </p>
           ) : (
             <p className="text-gray-400 italic">
-              Versículo não encontrado. Por favor, tente outro versículo ou versão.
+              {erro ? "Versículo inválido." : "Versículo não encontrado. Por favor, tente outro versículo ou versão."}
             </p>
           )}
         </div>

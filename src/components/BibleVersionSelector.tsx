@@ -26,9 +26,14 @@ const versoesBiblia = [
 interface BibleVersionSelectorProps {
   onVersionChange?: (versao: string) => void;
   initialVersion?: string;
+  bookLink?: string;
 }
 
-const BibleVersionSelector = ({ onVersionChange, initialVersion = "nvi" }: BibleVersionSelectorProps) => {
+const BibleVersionSelector = ({ 
+  onVersionChange, 
+  initialVersion = "nvi",
+  bookLink = "/biblia/genesis/1"
+}: BibleVersionSelectorProps) => {
   const [versaoSelecionada, setVersaoSelecionada] = useState(initialVersion);
 
   const handleVersionChange = (versao: string) => {
@@ -55,7 +60,7 @@ const BibleVersionSelector = ({ onVersionChange, initialVersion = "nvi" }: Bible
         </Select>
       </div>
       <Button className="w-full sm:w-auto" size="sm" asChild>
-        <Link to={`/biblia/genesis/1?versao=${versaoSelecionada}`}>
+        <Link to={`${bookLink}?versao=${versaoSelecionada}`}>
           <Book className="mr-2 h-4 w-4" />
           Ler Agora
         </Link>
