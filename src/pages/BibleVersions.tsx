@@ -30,6 +30,27 @@ const versoesBiblia = [
     destaque: false
   },
   { 
+    id: "aa", 
+    nome: "Almeida Atualizada", 
+    descricao: "Versão clássica com linguagem atualizada para melhor compreensão.",
+    ano: 1990,
+    destaque: false
+  },
+  { 
+    id: "arc", 
+    nome: "Almeida Revisada e Corrigida", 
+    descricao: "Uma revisão cuidadosa da tradução de Almeida, corrigida para maior precisão.",
+    ano: 1969,
+    destaque: false
+  },
+  { 
+    id: "ra", 
+    nome: "Almeida Revista e Atualizada (RA)", 
+    descricao: "Edição revisada com linguagem atual mantendo a fidelidade aos textos originais.",
+    ano: 1993,
+    destaque: false
+  },
+  { 
     id: "naa", 
     nome: "Nova Almeida Atualizada", 
     descricao: "Versão que equilibra linguagem contemporânea com fidelidade textual.",
@@ -49,6 +70,13 @@ const versoesBiblia = [
     descricao: "Tradução clássica em inglês com grande influência histórica.",
     ano: 1611,
     destaque: false
+  },
+  { 
+    id: "original", 
+    nome: "Texto Original com Tradução", 
+    descricao: "Apresenta o texto nas línguas originais (hebraico/grego) com tradução paralela.",
+    ano: 2023,
+    destaque: true
   }
 ];
 
@@ -100,3 +128,4 @@ const BibleVersions = () => {
 };
 
 export default BibleVersions;
+
