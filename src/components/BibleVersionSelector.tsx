@@ -15,6 +15,9 @@ const versoesBiblia = [
   { id: "nvi", nome: "Nova Versão Internacional" },
   { id: "acf", nome: "Almeida Corrigida Fiel" },
   { id: "ara", nome: "Almeida Revista e Atualizada" },
+  { id: "aa", nome: "Almeida Atualizada" },
+  { id: "arc", nome: "Almeida Revisada e Corrigida" },
+  { id: "ra", nome: "Almeida Revista e Atualizada (RA)" },
   { id: "naa", nome: "Nova Almeida Atualizada" },
   { id: "ntlh", nome: "Nova Tradução na Linguagem de Hoje" },
   { id: "kjv", nome: "King James Version" }

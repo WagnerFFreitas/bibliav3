@@ -83,13 +83,13 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "E era Noé da idade de seiscentos anos, quando o dilúvio das águas veio sobre a terra.",
         7: "E entrou Noé e seus filhos, e sua mulher, e as mulheres de seus filhos com ele na arca, por causa das águas do dilúvio.",
         8: "Dos animais limpos e dos animais que não são limpos, e das aves, e de todo o réptil sobre a terra,",
-        9: "entraram de dois em dois para Noé na arca, macho e fêmea, como Deus tinha ordenado a Noé.",
-        10: "E aconteceu que, passados sete dias, vieram sobre a terra as águas do dilúvio."
+        9: "vieram casais, macho e fêmea, a Noé, e entraram na arca, como Deus tinha ordenado a Noé.",
+        10: "Depois de sete dias, vieram sobre a terra as águas do dilúvio."
       }
     },
     exodo: {
       1: {
-        1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua casa:",
+        1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua família:",
         2: "Rúben, Simeão, Levi, e Judá;",
         3: "Issacar, Zebulom, e Benjamim;",
         4: "Dã e Naftali, Gade e Aser.",
@@ -107,14 +107,14 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
         6: "E disse Deus: 'Haja firmamento no meio das águas, e haja separação entre águas e águas'.",
         7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
-        8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
-        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos c��us num só lugar, e apareça a porção seca'. E assim se fez.",
+        8: "E chamou Deus ao firmamento C��us. Houve tarde e manhã, o segundo dia.",
+        9: "Disse também Deus: 'Ajuntem-se as águas debaixo dos c��us num só lugar, e apareça a porção seca'; E assim se fez.",
         10: "À porção seca chamou Deus Terra; e ao ajuntamento das águas, Mares; e viu Deus que isso era bom."
       },
       2: {
         1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
         2: "E, havendo Deus terminado no dia sétimo a sua obra, que fizera, descansou nesse dia de toda a sua obra que tinha feito.",
-        3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a obra que, como Criador, fizera.",
+        3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a sua obra que tinha feito.",
         4: "Esta é a gênese dos céus e da terra quando foram criados, quando o SENHOR Deus os criou.",
         5: "Não havia ainda nenhuma planta do campo na terra, pois ainda nenhuma erva do campo havia brotado; porque o SENHOR Deus não fizera chover sobre a terra, e também não havia homem para lavrar o solo."
       },
@@ -127,7 +127,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "Tinha Noé seiscentos anos de idade, quando o dilúvio inundaram a terra.",
         7: "Por causa das águas do dilúvio, entrou Noé na arca, ele com seus filhos, sua mulher e as mulheres de seus filhos.",
         8: "Dos animais limpos e dos animais imundos, das aves e de todos os répteis sobre a terra,",
-        9: "entraram de dois em dois para junto de Noé na arca, macho e fêmea, como Deus lhe ordenara.",
+        9: "entraram de dois em dois para Noé na arca, macho e fêmea, como Deus lhe ordenara.",
         10: "E aconteceu que, passados sete dias, vieram sobre a terra as águas do dilúvio."
       }
     },
@@ -272,7 +272,10 @@ const versiculosExemploPorVersao: Record<string, any> = {
         5: "And all the souls that came out of the loins of Jacob were seventy souls: for Joseph was in Egypt already."
       }
     }
-  }
+  },
+  aa: {},
+  arc: {},
+  ra: {}
 };
 
 // Definir o número de versículos por capítulo para cada livro
@@ -520,14 +523,76 @@ const getNomeVersao = (id: string): string => {
     "ara": "Almeida Revista e Atualizada",
     "naa": "Nova Almeida Atualizada",
     "ntlh": "Nova Tradução na Linguagem de Hoje",
-    "kjv": "King James Version"
+    "kjv": "King James Version",
+    "aa": "Almeida Atualizada",
+    "arc": "Almeida Revisada e Corrigida",
+    "ra": "Almeida Revista e Atualizada"
   };
   return versoes[id] || id.toUpperCase();
+};
+
+/**
+ * Gera um versículo simulado com base no livro, capítulo e versículo
+ * Esta função produz conteúdo consistente baseado nos parâmetros, garantindo
+ * que o mesmo versículo sempre produza o mesmo texto
+ */
+const generateSimulatedVerse = (
+  bookId: string, 
+  chapter: number, 
+  verse: number, 
+  version: string
+): string => {
+  // Mapear versões para estilos de linguagem diferentes
+  const versionStyles: Record<string, string> = {
+    "nvi": "um estilo contemporâneo e de fácil compreensão",
+    "acf": "um estilo clássico e formal, seguindo a tradição textual",
+    "ara": "um estilo equilibrado entre formal e contemporâneo",
+    "naa": "um estilo acessível com terminologia atualizada",
+    "ntlh": "um estilo simples e direto, voltado para fácil compreensão",
+    "kjv": "o estilo literário formal do inglês clássico",
+    "aa": "um estilo direto e fiel aos originais",
+    "arc": "um estilo tradicional com linguagem portuguesa clássica",
+    "ra": "um português formal seguindo as tradições da Almeida"
+  };
+  
+  const versionStyle = versionStyles[version] || "estilo próprio";
+  const bookName = formatBookName(bookId);
+  
+  // Criar um identificador único para este versículo específico
+  const verseId = `${bookId}-${chapter}-${verse}`;
+  
+  // Usar esse identificador para criar uma "aleatoriedade" determinística
+  const charSum = verseId.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  
+  // Lista de frases introdutórias que podem começar um versículo
+  const intros = [
+    "Então disse Deus,",
+    "E aconteceu que",
+    "Naquele tempo,",
+    "Assim diz o Senhor,",
+    "Por isso,",
+    "Bem-aventurado é aquele que",
+    "O Senhor declarou,",
+    "Portanto,",
+    "Eis que",
+    "E Jesus disse,"
+  ];
+  
+  // Selecionar uma introdução baseada no ID do versículo (determinístico)
+  const selectedIntro = intros[charSum % intros.length];
+  
+  // Criar o texto do versículo com comprimento baseado no número do versículo
+  // Versículos com números maiores tendem a ser mais longos
+  const length = 20 + (verse % 5) * 15;
+  
+  // Texto simulado para o versículo baseado no ID e versão
+  return `[${getNomeVersao(version)}] ${selectedIntro} este é o texto simulado para ${bookName} ${chapter}:${verse} em ${versionStyle}. Este versículo foi gerado automaticamente para representar o conteúdo que estaria presente na versão original.`;
 };
 
 const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, versao = "nvi" }) => {
   const [textoVersiculo, setTextoVersiculo] = useState<string>("");
   const [erro, setErro] = useState<string | null>(null);
+  const [avisoSimulado, setAvisoSimulado] = useState<boolean>(false);
   
   useEffect(() => {
     if (versiculo) {
@@ -535,54 +600,52 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
     } else {
       setTextoVersiculo("");
       setErro(null);
+      setAvisoSimulado(false);
     }
   }, [livro, capitulo, versiculo, versao]);
-
-  const generatePlaceholderVerse = (livro: string, capitulo: number, versiculo: number): string => {
-    return `Texto simulado para ${formatBookName(livro)} ${capitulo}:${versiculo}. Esta é uma representação temporária do versículo.`;
-  };
 
   const getVerseText = () => {
     try {
       setErro(null);
+      setAvisoSimulado(false);
       
+      // Verificar se a versão existe em nossos dados
       if (!versiculosExemploPorVersao[versao]) {
-        console.warn(`Versão "${versao}" não encontrada. Usando NVI como padrão.`);
-        const nviVerse = getVerseFromVersion("nvi");
-        
-        const verseText = nviVerse || generatePlaceholderVerse(livro, capitulo, versiculo!);
-        setTextoVersiculo(verseText);
-        
-        if (!nviVerse) {
-          setErro(`Versículo não disponível na versão NVI. Exibindo texto simulado.`);
-        } else {
-          setErro(`Versão "${getNomeVersao(versao)}" não disponível. Exibindo texto da NVI.`);
-        }
+        // Versão não encontrada, vamos gerar um versículo simulado
+        const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
+        setTextoVersiculo(simulatedVerse);
+        setAvisoSimulado(true);
         return;
       }
       
+      // Tentamos obter o versículo da versão solicitada
       const verse = getVerseFromVersion(versao);
       
       if (verse) {
+        // Versículo encontrado na versão solicitada
         setTextoVersiculo(verse);
       } else {
+        // Versículo não encontrado na versão solicitada, tentamos na NVI
         const nviVerse = getVerseFromVersion("nvi");
         
         if (nviVerse) {
+          // Versículo encontrado na NVI, usamos como fallback
           setTextoVersiculo(nviVerse);
           setErro(`Versículo não disponível na versão "${getNomeVersao(versao)}". Exibindo texto da NVI.`);
         } else {
-          const placeholderText = generatePlaceholderVerse(livro, capitulo, versiculo!);
-          setTextoVersiculo(placeholderText);
-          setErro(`Versículo não encontrado nas versões disponíveis. Exibindo texto simulado.`);
+          // Versículo não encontrado em nenhuma versão, geramos conteúdo simulado
+          const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
+          setTextoVersiculo(simulatedVerse);
+          setAvisoSimulado(true);
         }
       }
     } catch (error) {
       console.error("Erro ao buscar versículo:", error);
       
-      const placeholderText = generatePlaceholderVerse(livro, capitulo, versiculo!);
-      setTextoVersiculo(placeholderText);
-      setErro("Erro ao buscar o versículo. Exibindo texto simulado.");
+      // Em caso de erro, sempre geramos um versículo simulado
+      const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
+      setTextoVersiculo(simulatedVerse);
+      setAvisoSimulado(true);
     }
   };
   
@@ -596,7 +659,7 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
     }
     
     if (!versiculosExemploPorVersao[versionId][livro][capitulo]) {
-      versiculosExemploPorVersao[versionId][livro][capitulo] = {};
+      return null;
     }
     
     if (!versiculo || !versiculosExemploPorVersao[versionId][livro][capitulo][versiculo]) {
@@ -613,11 +676,19 @@ const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, ver
           <h3 className="text-xl font-bold mb-4 text-indigo-300">
             {formatBookName(livro)} {capitulo}:{versiculo} <span className="text-sm">({getNomeVersao(versao)})</span>
           </h3>
+          
           {erro && (
             <div className="mb-4 py-2 px-4 bg-yellow-900/50 border border-yellow-700 rounded text-yellow-300 text-sm">
               {erro}
             </div>
           )}
+          
+          {avisoSimulado && (
+            <div className="mb-4 py-2 px-4 bg-blue-900/50 border border-blue-700 rounded text-blue-300 text-sm">
+              Este é um texto simulado. A versão completa deste versículo não está disponível no momento.
+            </div>
+          )}
+          
           {textoVersiculo ? (
             <p className="text-xl text-gray-300 mb-4">
               {textoVersiculo}
