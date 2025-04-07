@@ -20,7 +20,8 @@ const versoesBiblia = [
   { id: "ra", nome: "Almeida Revista e Atualizada (RA)" },
   { id: "naa", nome: "Nova Almeida Atualizada" },
   { id: "ntlh", nome: "Nova Tradução na Linguagem de Hoje" },
-  { id: "kjv", nome: "King James Version" }
+  { id: "kjv", nome: "King James Version" },
+  { id: "original", nome: "Texto Original com Tradução" }
 ];
 
 interface BibleVersionSelectorProps {
