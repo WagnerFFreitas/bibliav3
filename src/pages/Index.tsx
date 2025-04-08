@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -48,13 +47,7 @@ const Index = () => {
             <Link to="/" className="whitespace-nowrap hover:text-white transition">Slide</Link>
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
-            <div className="relative group whitespace-nowrap">
-              <span className="hover:text-white transition cursor-pointer">Harpa e Hinário</span>
-              <div className="absolute hidden group-hover:block bg-black border border-gray-800 rounded-md p-2 mt-1 z-10 w-40">
-                <Link to="/harpa" className="block py-1 hover:text-white transition">Harpa Cristã</Link>
-                <Link to="/hinario" className="block py-1 hover:text-white transition">Hinário Cristão</Link>
-              </div>
-            </div>
+            <Link to="/harpa-hinario" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
             <Link to="/baixar" className="whitespace-nowrap hover:text-white transition">Baixar</Link>
             <Link to="/utilitarios" className="whitespace-nowrap hover:text-white transition">Utilidades</Link>
             <Link to="/contato" className="whitespace-nowrap hover:text-white transition">Contato</Link>
@@ -83,7 +76,6 @@ const Index = () => {
             <li><Link to="/biblia/1cronicas/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">1º Crônicas</Link></li>
             <li><Link to="/biblia/2cronicas/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">2º Crônicas</Link></li>
             <li><Link to="/biblia/esdras/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Esdras</Link></li>
-            {/* Exibimos apenas uma parte da lista para economizar espaço */}
           </ul>
         </div>
         
