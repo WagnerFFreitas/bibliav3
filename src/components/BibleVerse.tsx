@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -24,7 +23,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         9: "E disse Deus: 'Ajuntem-se as águas que estão debaixo do céu num só lugar, e apareça a parte seca.' E assim aconteceu.",
         10: "À parte seca Deus chamou terra, e chamou mares ao conjunto das águas. E Deus viu que ficou bom.",
         11: "Então disse Deus: 'Cubra-se a terra de vegetação: plantas que dêem sementes e árvores cujos frutos produzam sementes de acordo com as suas espécies.' E assim aconteceu.",
-        12: "A terra fez brotar a vegetação: plantas que dão sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom.",
+        12: "A terra fez brotar a vegetação: plantas que dêem sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom.",
         13: "Passaram-se a tarde e a manhã; esse foi o terceiro dia."
       },
       2: {
@@ -59,14 +58,14 @@ const versiculosExemploPorVersao: Record<string, any> = {
         7: "E fez Deus a expansão, e fez separação entre as águas que estavam debaixo da expansão e as águas que estavam sobre a expansão; e assim foi.",
         8: "E chamou Deus à expansão Céus, e foi a tarde e a manhã, o dia segundo.",
         9: "E disse Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim foi.",
-        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que era bom.",
+        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que isso era bom.",
         11: "E disse Deus: 'Produza a terra erva verde, erva que dê semente, árvore frutífera que dê fruto segundo a sua espécie, cuja semente está nela sobre a terra; e assim foi.",
         12: "A terra produziu erva, erva dando semente conforme a sua espécie, e a árvore frutífera, cuja semente está nela conforme a sua espécie; e viu Deus que era bom.",
         13: "Passaram-se a tarde e a manhã; esse foi o terceiro dia."
       },
       2: {
         1: "Assim os céus, a terra e todo o seu exército foram acabados.",
-        2: "E havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a sua obra, que tinha feito.",
+        2: "E, havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a obra que tinha feito.",
         3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a obra que realizara na criação."
       }
     },
@@ -92,13 +91,13 @@ const versiculosExemploPorVersao: Record<string, any> = {
         3: "Disse Deus: 'Haja luz'; e houve luz.",
         4: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
         5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
-        6: "E disse Deus: 'Haja firmamento no meio das águas e separação entre águas e águas.'",
+        6: "E disse Deus: 'Haja firmamento no meio das águas, e haja separação entre águas e águas.'",
         7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
         8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
         9: "Disse também Deus: Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim se fez.",
-        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom.",
+        10: "À porção seca chamou Deus Terra; e ao ajuntamento das águas, Mares. E viu Deus que isso era bom.",
         11: "E disse: Produza a terra relva, ervas que dêem semente e árvores frutíferas que dêem fruto segundo a sua espécie, cuja semente esteja nele, sobre a terra. E assim se fez.",
-        12: "A terra, pois, produziu relva, ervas que davam semente segundo a sua espécie e árvores que davam fruto, cuja semente estava nele, conforme a sua espécie. E viu Deus que isso era bom.",
+        12: "A terra produziu relva, ervas que davam semente segundo a sua espécie e árvores que davam fruto, cuja semente estava nele, conforme a sua espécie. E viu Deus que isso era bom.",
         13: "Houve tarde e manhã, o terceiro dia."
       },
       2: {
@@ -111,7 +110,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "São estes os nomes dos filhos de Israel que entraram no Egito com Jacó; cada um entrou com sua família:",
         2: "Rúben, Simeão, Levi e Judá,",
-        3: "Issacar, Zebulom e Benjamim,",
+        3: "Issacar, Zebulom, Benjamim,",
         4: "Dã e Naftali, Gade e Aser.",
         5: "Toda descendência de Jacó foi de setenta pessoas; José, porém, já estava no Egito."
       },
@@ -132,7 +131,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "Disse Deus: 'Haja um firmamento no meio das águas, e haja separação entre águas e águas.'",
         7: "Deus fez o firmamento e separou as águas que estavam debaixo do firmamento das águas que estavam por cima do firmamento. E assim foi.",
         8: "Ao firmamento, Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
-        9: "Disse Deus: 'Ajuntem-se as águas debaixo do céu num só lugar, e apareça a porção seca; e assim foi.",
+        9: "Disse Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim foi.",
         10: "Deus chamou ao elemento seco 'terra' e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom.",
         11: "Disse Deus: 'Produza a terra relva, ervas que deem semente e árvores frutíferas que, segundo as suas espécies, deem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
         12: "A terra produziu relva, ervas que davam semente segundo as suas espécies e árvores que davam fruto que tinha em si a sua semente, segundo as suas espécies. E Deus viu que isso era bom.",
@@ -140,7 +139,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       },
       2: {
         1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
-        2: "No sétimo dia, Deus já havia concluído a obra que fizera, e descansou nesse dia de toda a obra que tinha feito.",
+        2: "No sétimo dia, Deus já havia acabado a obra que fizera, e descansou nesse dia de toda a obra que tinha feito.",
         3: "Deus abençoou o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação."
       }
     },
@@ -171,8 +170,8 @@ const versiculosExemploPorVersao: Record<string, any> = {
         8: "Deus chamou a cobertura de 'céu'. A noite passou, e a manhã chegou. Esse foi o segundo dia.",
         9: "Então Deus disse: 'Que as águas que estão debaixo do céu se juntem num só lugar, e apareça a terra seca!' E assim aconteceu.",
         10: "Deus chamou a terra seca de 'terra' e as águas que se juntaram de 'mar'. E Deus viu que o que havia feito era bom.",
-        11: "Então disse: 'Que a terra produza todo tipo de vegetais, isto é, plantas que deem sementes e árvores que deem frutas com sementes!' E assim aconteceu.",
-        12: "A terra produziu vegetais: plantas que dão sementes e árvores que dão frutas com sementes. E Deus viu que o que havia feito era bom.",
+        11: "Então disse: 'Que a terra produza todo tipo de vegetais, isto é, plantas que deem semente e árvores que deem frutas com sementes!' E assim aconteceu.",
+        12: "A terra produziu vegetais: plantas que dão semente e árvores que dão frutas com sementes. E Deus viu que o que havia feito era bom.",
         13: "A noite passou, e a manhã chegou. Esse foi o terceiro dia."
       },
       2: {
