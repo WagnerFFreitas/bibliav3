@@ -9,8 +9,220 @@ interface BibleVerseProps {
 
 // Dados de exemplo para simular o conteúdo da Bíblia em diferentes versões
 const versiculosExemploPorVersao: Record<string, any> = {
-  // ... keep existing code (versões nvi, acf, ara, naa, ntlh, kjv)
-
+  nvi: {
+    genesis: {
+      1: {
+        1: "No princípio, Deus criou os céus e a terra.",
+        2: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.",
+        3: "Disse Deus: 'Haja luz', e houve luz.",
+        4: "Deus viu que a luz era boa, e separou a luz das trevas.",
+        5: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
+        6: "Disse Deus: 'Haja um firmamento no meio das águas, e separe ele as águas das águas.'",
+        7: "Deus fez o firmamento e separou as águas que estavam embaixo do firmamento das que estavam por cima. E assim aconteceu.",
+        8: "Ao firmamento Deus chamou céu. Passaram-se a tarde e a manhã; esse foi o segundo dia.",
+        9: "E disse Deus: 'Ajuntem-se as águas que estão debaixo do céu num só lugar, e apareça a parte seca.' E assim aconteceu.",
+        10: "À parte seca Deus chamou terra, e chamou mares ao conjunto das águas. E Deus viu que ficou bom.",
+        11: "Então disse Deus: 'Cubra-se a terra de vegetação: plantas que dêem sementes e árvores cujos frutos produzam sementes de acordo com as suas espécies.' E assim aconteceu.",
+        12: "A terra fez brotar a vegetação: plantas que dão sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom.",
+        13: "Passaram-se a tarde e a manhã; esse foi o terceiro dia."
+      },
+      2: {
+        1: "Assim foram terminados os céus e a terra, e tudo o que neles há.",
+        2: "No sétimo dia Deus já havia concluído a obra que realizara, e nesse dia descansou.",
+        3: "Abençoou Deus o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação."
+      }
+    },
+    exodo: {
+      1: {
+        1: "São estes os nomes dos filhos de Israel que entraram com Jacó no Egito, cada um com sua família:",
+        2: "Rúben, Simeão, Levi e Judá;",
+        3: "Issacar, Zebulom e Benjamim;",
+        4: "Dã e Naftali; Gade e Aser.",
+        5: "Os descendentes de Jacó eram setenta ao todo; José, porém, já estava no Egito."
+      },
+      2: {
+        1: "Um homem da tribo de Levi casou-se com uma mulher da mesma tribo,",
+        2: "e ela engravidou e deu à luz um filho. Vendo que ele era bonito, ela o escondeu por três meses."
+      }
+    }
+  },
+  acf: {
+    genesis: {
+      1: {
+        1: "No princípio criou Deus os céus e a terra.",
+        2: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
+        3: "E disse Deus: Haja luz; e houve luz.",
+        4: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
+        5: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro.",
+        6: "E disse Deus: Haja uma expansão no meio das águas, e haja separação entre águas e águas.",
+        7: "E fez Deus a expansão, e fez separação entre as águas que estavam debaixo da expansão e as águas que estavam sobre a expansão; e assim foi.",
+        8: "E chamou Deus à expansão Céus, e foi a tarde e a manhã, o dia segundo.",
+        9: "E disse Deus: Ajuntem-se as águas debaixo dos céus num lugar; e apareça a porção seca; e assim foi.",
+        10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que era bom.",
+        11: "E disse Deus: Produza a terra erva verde, erva que dê semente, árvore frutífera que dê fruto segundo a sua espécie, cuja semente está nela sobre a terra; e assim foi.",
+        12: "E a terra produziu erva, erva dando semente conforme a sua espécie, e a árvore frutífera, cuja semente está nela conforme a sua espécie; e viu Deus que era bom.",
+        13: "E foi a tarde e a manhã, o dia terceiro."
+      },
+      2: {
+        1: "Assim os céus, a terra e todo o seu exército foram acabados.",
+        2: "E havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a sua obra, que tinha feito.",
+        3: "E abençoou Deus o dia sétimo, e o santificou; porque nele descansou de toda a sua obra que Deus criara e fizera."
+      }
+    },
+    exodo: {
+      1: {
+        1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua casa:",
+        2: "Rúben, Simeão, Levi, e Judá;",
+        3: "Issacar, Zebulom, e Benjamim;",
+        4: "Dã e Naftali, Gade e Aser.",
+        5: "Todas as almas, pois, que procederam dos lombos de Jacó, foram setenta almas; José, porém, estava no Egito."
+      },
+      2: {
+        1: "E foi-se um homem da casa de Levi e casou com uma filha de Levi.",
+        2: "E a mulher concebeu e deu à luz um filho; e, vendo que ele era formoso, escondeu-o três meses."
+      }
+    }
+  },
+  ara: {
+    genesis: {
+      1: {
+        1: "No princípio, criou Deus os céus e a terra.",
+        2: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas.",
+        3: "Disse Deus: Haja luz; e houve luz.",
+        4: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
+        5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
+        6: "E disse Deus: Haja firmamento no meio das águas e separação entre águas e águas.",
+        7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
+        8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
+        9: "Disse também Deus: Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca. E assim se fez.",
+        10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom.",
+        11: "E disse: Produza a terra relva, ervas que dêem semente e árvores frutíferas que dêem fruto segundo a sua espécie, cuja semente esteja nele, sobre a terra. E assim se fez.",
+        12: "A terra, pois, produziu relva, ervas que davam semente segundo a sua espécie e árvores que davam fruto, cuja semente estava nele, conforme a sua espécie. E viu Deus que isso era bom.",
+        13: "Houve tarde e manhã, o terceiro dia."
+      },
+      2: {
+        1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
+        2: "E, havendo Deus terminado no dia sétimo a sua obra, que fizera, descansou nesse dia de toda a sua obra que tinha feito.",
+        3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a obra que, como Criador, fizera."
+      }
+    },
+    exodo: {
+      1: {
+        1: "São estes os nomes dos filhos de Israel que entraram no Egito com Jacó; cada um entrou com sua família:",
+        2: "Rúben, Simeão, Levi e Judá,",
+        3: "Issacar, Zebulom e Benjamim,",
+        4: "Dã e Naftali, Gade e Aser.",
+        5: "Toda descendência de Jacó foi de setenta pessoas; José, porém, já estava no Egito."
+      },
+      2: {
+        1: "Um homem da casa de Levi casou-se com uma filha de Levi.",
+        2: "A mulher concebeu e deu à luz um filho; vendo que era formoso, escondeu-o por três meses."
+      }
+    }
+  },
+  naa: {
+    genesis: {
+      1: {
+        1: "No princípio, Deus criou os céus e a terra.",
+        2: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas.",
+        3: "Disse Deus: 'Haja luz!' E houve luz.",
+        4: "Deus viu que a luz era boa e separou a luz das trevas.",
+        5: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia.",
+        6: "Disse Deus: 'Haja um firmamento no meio das águas, e haja separação entre águas e águas.'",
+        7: "Deus fez o firmamento e separou as águas que estavam debaixo do firmamento das águas que estavam por cima do firmamento. E assim foi.",
+        8: "Ao firmamento, Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
+        9: "Disse Deus: 'Ajuntem-se as águas debaixo do céu num só lugar, e apareça o elemento seco.' E assim foi.",
+        10: "Deus chamou ao elemento seco 'terra' e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom.",
+        11: "Disse Deus: 'Produza a terra relva, ervas que deem semente e árvores frutíferas que, segundo as suas espécies, deem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
+        12: "A terra produziu relva, ervas que davam semente segundo as suas espécies e árvores que davam fruto que tinha em si a sua semente, segundo as suas espécies. E Deus viu que isso era bom.",
+        13: "Houve tarde e manhã: o terceiro dia."
+      },
+      2: {
+        1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
+        2: "No sétimo dia, Deus já havia concluído a obra que fizera, e descansou nesse dia de toda a obra que tinha feito.",
+        3: "Deus abençoou o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação."
+      }
+    },
+    exodo: {
+      1: {
+        1: "São estes os nomes dos filhos de Israel que entraram no Egito com Jacó, cada um com a sua família:",
+        2: "Rúben, Simeão, Levi e Judá,",
+        3: "Issacar, Zebulom e Benjamim,",
+        4: "Dã, Naftali, Gade e Aser.",
+        5: "Todos os descendentes de Jacó foram setenta pessoas. José já estava no Egito."
+      },
+      2: {
+        1: "Um homem da família de Levi casou-se com uma mulher da tribo de Levi.",
+        2: "Ela engravidou e deu à luz um filho. E, vendo que era bonito, escondeu-o por três meses."
+      }
+    }
+  },
+  ntlh: {
+    genesis: {
+      1: {
+        1: "No começo Deus criou os céus e a terra.",
+        2: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água.",
+        3: "Então Deus disse: 'Que haja luz!' e a luz começou a existir.",
+        4: "Deus viu que a luz era boa e a separou da escuridão.",
+        5: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia.",
+        6: "Então Deus disse: 'Que haja uma cobertura entre as águas para separar umas das outras!'",
+        7: "E assim Deus fez a cobertura que separou as águas que estavam debaixo da cobertura das que estavam em cima. E assim aconteceu.",
+        8: "Deus chamou a cobertura de 'céu'. A noite passou, e a manhã chegou. Esse foi o segundo dia.",
+        9: "Então Deus disse: 'Que as águas que estão debaixo do céu se juntem num só lugar, e apareça a terra seca!' E assim aconteceu.",
+        10: "Deus chamou a terra seca de 'terra' e as águas que se juntaram de 'mar'. E Deus viu que o que havia feito era bom.",
+        11: "Então disse: 'Que a terra produza todo tipo de vegetais, isto é, plantas que deem sementes e árvores que deem frutas com sementes!' E assim aconteceu.",
+        12: "A terra produziu vegetais: plantas que dão sementes e árvores que dão frutas com sementes. E Deus viu que o que havia feito era bom.",
+        13: "A noite passou, e a manhã chegou. Esse foi o terceiro dia."
+      },
+      2: {
+        1: "Foi assim que Deus acabou de criar o céu e a terra e tudo o que há neles.",
+        2: "No sétimo dia Deus já havia acabado a sua obra e nesse dia ele descansou de todo o seu trabalho.",
+        3: "Deus abençoou o sétimo dia e o santificou, porque nesse dia ele descansou de todo o trabalho da criação."
+      }
+    },
+    exodo: {
+      1: {
+        1: "Jacó foi para o Egito, levando os seus filhos, e cada um deles foi com a sua família. Eis os seus nomes:",
+        2: "Rúben, Simeão, Levi, Judá,",
+        3: "Issacar, Zebulom, Benjamim,",
+        4: "Dã, Naftali, Gade e Aser.",
+        5: "Ao todo eram setenta pessoas descendentes de Jacó. José já estava no Egito."
+      },
+      2: {
+        1: "Um homem da tribo de Levi casou com uma moça da mesma tribo,",
+        2: "e eles tiveram um filho. Como o menino era bonito, a mãe o escondeu durante três meses."
+      }
+    }
+  },
+  kjv: {
+    genesis: {
+      1: {
+        1: "In the beginning God created the heaven and the earth.",
+        2: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+        3: "And God said, Let there be light: and there was light.",
+        4: "And God saw the light, that it was good: and God divided the light from the darkness.",
+        5: "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day."
+      },
+      2: {
+        1: "Thus the heavens and the earth were finished, and all the host of them.",
+        2: "And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made.",
+        3: "And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made."
+      }
+    },
+    exodo: {
+      1: {
+        1: "Now these are the names of the children of Israel, which came into Egypt; every man and his household came with Jacob.",
+        2: "Reuben, Simeon, Levi, and Judah,",
+        3: "Issachar, Zebulun, and Benjamin,",
+        4: "Dan, and Naphtali, Gad, and Asher.",
+        5: "And all the souls that came out of the loins of Jacob were seventy souls: for Joseph was in Egypt already."
+      },
+      2: {
+        1: "And there went a man of the house of Levi, and took to wife a daughter of Levi.",
+        2: "And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months."
+      }
+    }
+  },
   aa: {
     genesis: {
       1: {
@@ -47,20 +259,20 @@ const versiculosExemploPorVersao: Record<string, any> = {
   original: {
     genesis: {
       1: {
-        1: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ׃ (Bereshit bara Elohim et hashamayim ve'et ha'aretz) - No princípio criou Deus os céus e a terra.",
-        2: "וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃ - E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
-        3: "וַיֹּאמֶר אֱלֹהִים יְהִי אוֹר וַיְהִי־אוֹר׃ - E disse Deus: Haja luz; e houve luz.",
-        4: "וַיַּרְא אֱלֹהִים אֶת־הָאוֹר כִּי־טוֹב וַיַּבְדֵּל אֱלֹהִים בֵּין הָאוֹר וּבֵין הַחֹשֶׁךְ׃ - E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
-        5: "וַיִּקְרָא אֱלֹהִים לָאוֹר יוֹם וְלַחֹשֶׁךְ קָרָא לָיְלָה וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר יוֹם אֶחָד׃ - E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro."
+        1: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ׃",
+        2: "וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃",
+        3: "וַיֹּאמֶר אֱלֹהִים יְהִי אוֹר וַיְהִי־אוֹר׃",
+        4: "וַיַּרְא אֱלֹהִים אֶת־הָאוֹר כִּי־טוֹב וַיַּבְדֵּל אֱלֹהִים בֵּין הָאוֹר וּבֵין הַחֹשֶׁךְ׃",
+        5: "וַיִּקְרָא אֱלֹהִים לָאוֹר יוֹם וְלַחֹשֶׁךְ קָרָא לָיְלָה וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר יוֹם אֶחָד׃"
       }
     },
     exodo: {
       1: {
-        1: "וְאֵלֶּה שְׁמוֹת בְּנֵי יִשְׂרָאֵל הַבָּאִים מִצְרָיְמָה אֵת יַעֲקֹב אִישׁ וּבֵיתוֹ בָּאוּ׃ - E estes são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua família:",
-        2: "רְאוּבֵן שִׁמְעוֹן לֵוִי וִיהוּדָה׃ - Rúben, Simeão, Levi e Judá;",
-        3: "יִשָּׂשכָר זְבוּלֻן וּבִנְיָמִן׃ - Issacar, Zebulom e Benjamim;",
-        4: "דָּן וְנַפְתָּלִי גָּד וְאָשֵׁר׃ - Dã e Naftali, Gade e Aser.",
-        5: "וַיְהִי כָּל־נֶפֶשׁ יֹצְאֵי יֶרֶךְ־יַעֲקֹב שִׁבְעִים נָפֶשׁ וְיוֹסֵף הָיָה בְמִצְרָיִם׃ - Todas as almas, pois, que descenderam de Jacó, foram setenta almas; José, porém, já estava no Egito."
+        1: "וְאֵלֶּה שְׁמוֹת בְּנֵי יִשְׂרָאֵל הַבָּאִים מִצְרָיְמָה אֵת יַעֲקֹב אִישׁ וּבֵיתוֹ בָּאוּ׃",
+        2: "רְאוּבֵן שִׁמְעוֹן לֵוִי וִיהוּדָה׃",
+        3: "יִשָּׂשכָר זְבוּלֻן וּבִנְיָמִן׃",
+        4: "דָּן וְנַפְתָּלִי גָּד וְאָשֵׁר׃",
+        5: "וַיְהִי כָּל־נֶפֶשׁ יֹצְאֵי יֶרֶךְ־יַעֲקֹב שִׁבְעִים נָפֶשׁ וְיוֹסֵף הָיָה בְמִצְרָיִם׃"
       }
     }
   }
@@ -294,270 +506,4 @@ const formatBookName = (bookId: string): string => {
     "jonas": "Jonas",
     "miqueias": "Miquéias",
     "naum": "Naum",
-    "habacuque": "Habacuque",
-    "sofonias": "Sofonias",
-    "ageu": "Ageu",
-    "zacarias": "Zacarias",
-    "malaquias": "Malaquias",
-    "mateus": "Mateus",
-    "marcos": "Marcos",
-    "lucas": "Lucas",
-    "joao": "João",
-    "atos": "Atos",
-    "romanos": "Romanos",
-    "1corintios": "1 Coríntios",
-    "2corintios": "2 Coríntios",
-    "galatas": "Gálatas",
-    "efesios": "Efésios",
-    "filipenses": "Filipenses",
-    "colossenses": "Colossenses",
-    "1tessalonicenses": "1 Tessalonicenses",
-    "2tessalonicenses": "2 Tessalonicenses",
-    "1timoteo": "1 Timóteo",
-    "2timoteo": "2 Timóteo",
-    "tito": "Tito",
-    "filemom": "Filemom",
-    "hebreus": "Hebreus",
-    "tiago": "Tiago",
-    "1pedro": "1 Pedro",
-    "2pedro": "2 Pedro",
-    "1joao": "1 João",
-    "2joao": "2 João",
-    "3joao": "3 João",
-    "judas": "Judas",
-    "apocalipse": "Apocalipse"
-  };
-  
-  return bookMap[bookId] || bookId.charAt(0).toUpperCase() + bookId.slice(1);
-};
-
-// Retorna o nome completo da versão baseado no ID
-const getNomeVersao = (id: string): string => {
-  const versoes: Record<string, string> = {
-    "nvi": "Nova Versão Internacional",
-    "acf": "Almeida Corrigida Fiel",
-    "ara": "Almeida Revista e Atualizada",
-    "naa": "Nova Almeida Atualizada",
-    "ntlh": "Nova Tradução na Linguagem de Hoje",
-    "kjv": "King James Version",
-    "aa": "Almeida Atualizada",
-    "arc": "Almeida Revisada e Corrigida",
-    "ra": "Almeida Revista e Atualizada",
-    "original": "Texto Original com Tradução"
-  };
-  return versoes[id] || id.toUpperCase();
-};
-
-/**
- * Gera um versículo simulado com base no livro, capítulo e versículo
- * Esta função produz conteúdo consistente baseado nos parâmetros, garantindo
- * que o mesmo versículo sempre produza o mesmo texto
- */
-const generateSimulatedVerse = (
-  bookId: string, 
-  chapter: number, 
-  verse: number, 
-  version: string
-): string => {
-  // Mapear versões para estilos de linguagem diferentes
-  const versionStyles: Record<string, string> = {
-    "nvi": "um estilo contemporâneo e de fácil compreensão",
-    "acf": "um estilo clássico e formal, seguindo a tradição textual",
-    "ara": "um estilo equilibrado entre formal e contemporâneo",
-    "naa": "um estilo acessível com terminologia atualizada",
-    "ntlh": "um estilo simples e direto, voltado para fácil compreensão",
-    "kjv": "o estilo literário formal do inglês clássico",
-    "aa": "um estilo direto e fiel aos originais",
-    "arc": "um estilo tradicional com linguagem portuguesa clássica",
-    "ra": "um português formal seguindo as tradições da Almeida",
-    "original": "o texto original com tradução para o português"
-  };
-  
-  const versionStyle = versionStyles[version] || "estilo próprio";
-  const bookName = formatBookName(bookId);
-  
-  // Criar um identificador único para este versículo específico
-  const verseId = `${bookId}-${chapter}-${verse}`;
-  
-  // Usar esse identificador para criar uma "aleatoriedade" determinística
-  const charSum = verseId.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  
-  // Lista de frases introdutórias que podem começar um versículo
-  const intros = [
-    "Então disse Deus,",
-    "E aconteceu que",
-    "Naquele tempo,",
-    "Assim diz o Senhor,",
-    "Por isso,",
-    "Bem-aventurado é aquele que",
-    "O Senhor declarou,",
-    "Portanto,",
-    "Eis que",
-    "E Jesus disse,"
-  ];
-  
-  // Selecionar uma introdução baseada no ID do versículo (determinístico)
-  const selectedIntro = intros[charSum % intros.length];
-  
-  // Criar o texto do versículo com comprimento baseado no número do versículo
-  // Versículos com números maiores tendem a ser mais longos
-  const length = 20 + (verse % 5) * 15;
-  
-  // Texto simulado para o versículo baseado no ID e versão
-  if (version === "original") {
-    // Texto hebraico ou grego simulado para o Antigo ou Novo Testamento
-    const isOldTestament = ["genesis", "exodo", "levitico", "numeros", "deuteronomio", "josue", "juizes", "rute", "1samuel", "2samuel", "1reis", "2reis", "1cronicas", "2cronicas", "esdras", "neemias", "ester", "jo", "salmos", "proverbios", "eclesiastes", "cantares", "isaias", "jeremias", "lamentacoes", "ezequiel", "daniel", "oseias", "joel", "amos", "obadias", "jonas", "miqueias", "naum", "habacuque", "sofonias", "ageu", "zacarias", "malaquias"].includes(bookId);
-    
-    const hebrewChars = "אבגדהוזחטיכלמנסעפצקרשת";
-    const greekChars = "αβγδεζηθικλμνξοπρστυφχψω";
-    
-    const chars = isOldTestament ? hebrewChars : greekChars;
-    const originalLength = 20 + (verse % 8) * 10;
-    let originalText = "";
-    
-    for (let i = 0; i < originalLength; i++) {
-      originalText += chars[Math.floor((charSum + i) % chars.length)];
-      if (i % 5 === 4) originalText += " ";
-    }
-    
-    // Adicionamos a transliteração para o hebraico ou grego (simulado)
-    let transliteration = "";
-    if (isOldTestament) {
-      transliteration = ` (${selectedIntro.split(' ')[0]} ${selectedIntro.split(' ')[1]} ${bookName} ${chapter}:${verse})`;
-    } else {
-      const greekWords = ["Kai", "Theos", "Logos", "Christos", "Pneuma", "Agape", "Elpis", "Pistis", "Doxa"];
-      transliteration = ` (${greekWords[charSum % greekWords.length]} ${greekWords[(charSum + 1) % greekWords.length]})`;
-    }
-    
-    return `[${getNomeVersao(version)}]\n${originalText} ${transliteration}\n\n${selectedIntro} este é o texto traduzido do versículo ${bookName} ${chapter}:${verse}. Este versículo foi gerado automaticamente com texto original simulado e sua tradução para o português.`;
-  }
-  
-  return `[${getNomeVersao(version)}] ${selectedIntro} este é o texto simulado para ${bookName} ${chapter}:${verse} em ${versionStyle}. Este versículo foi gerado automaticamente para representar o conteúdo que estaria presente na versão original.`;
-};
-
-const BibleVerse: React.FC<BibleVerseProps> = ({ livro, capitulo, versiculo, versao = "nvi" }) => {
-  const [textoVersiculo, setTextoVersiculo] = useState<string>("");
-  const [erro, setErro] = useState<string | null>(null);
-  const [avisoSimulado, setAvisoSimulado] = useState<boolean>(false);
-  
-  useEffect(() => {
-    if (versiculo) {
-      getVerseText();
-    } else {
-      setTextoVersiculo("");
-      setErro(null);
-      setAvisoSimulado(false);
-    }
-  }, [livro, capitulo, versiculo, versao]);
-
-  const getVerseText = () => {
-    try {
-      setErro(null);
-      setAvisoSimulado(false);
-      
-      // Verificar se o versículo existe no livro e capítulo
-      if (versiculo && !versiculoExiste(livro, capitulo, versiculo)) {
-        const totalVersiculos = getNumeroVersiculos(livro, capitulo);
-        setTextoVersiculo("");
-        setErro(`O versículo ${versiculo} não existe em ${formatBookName(livro)} ${capitulo}. Este capítulo tem apenas ${totalVersiculos} versículos.`);
-        return;
-      }
-      
-      // Verificar se a versão existe em nossos dados
-      if (!versiculosExemploPorVersao[versao]) {
-        // Versão não encontrada, vamos gerar um versículo simulado
-        const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
-        setTextoVersiculo(simulatedVerse);
-        setAvisoSimulado(true);
-        return;
-      }
-      
-      // Tentamos obter o versículo da versão solicitada
-      const verse = getVerseFromVersion(versao);
-      
-      if (verse) {
-        // Versículo encontrado na versão solicitada
-        setTextoVersiculo(verse);
-      } else {
-        // Versículo não encontrado na versão solicitada, tentamos na NVI
-        const nviVerse = getVerseFromVersion("nvi");
-        
-        if (nviVerse) {
-          // Versículo encontrado na NVI, usamos como fallback
-          setTextoVersiculo(nviVerse);
-          setErro(`Versículo não disponível na versão "${getNomeVersao(versao)}". Exibindo texto da NVI.`);
-        } else {
-          // Versículo não encontrado em nenhuma versão, geramos conteúdo simulado
-          const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
-          setTextoVersiculo(simulatedVerse);
-          setAvisoSimulado(true);
-        }
-      }
-    } catch (error) {
-      console.error("Erro ao buscar versículo:", error);
-      
-      // Em caso de erro, sempre geramos um versículo simulado
-      const simulatedVerse = generateSimulatedVerse(livro, capitulo, versiculo!, versao);
-      setTextoVersiculo(simulatedVerse);
-      setAvisoSimulado(true);
-    }
-  };
-  
-  const getVerseFromVersion = (versionId: string): string | null => {
-    if (!versiculosExemploPorVersao[versionId]) {
-      return null;
-    }
-    
-    if (!versiculosExemploPorVersao[versionId][livro]) {
-      return null;
-    }
-    
-    if (!versiculosExemploPorVersao[versionId][livro][capitulo]) {
-      return null;
-    }
-    
-    if (!versiculo || !versiculosExemploPorVersao[versionId][livro][capitulo][versiculo]) {
-      return null;
-    }
-    
-    return versiculosExemploPorVersao[versionId][livro][capitulo][versiculo];
-  };
-
-  return (
-    <div className="mt-8 text-center">
-      {versiculo ? (
-        <div className="p-6 bg-black/60 rounded-lg border border-gray-800">
-          <h3 className="text-xl font-bold mb-4 text-indigo-300">
-            {formatBookName(livro)} {capitulo}:{versiculo} <span className="text-sm">({getNomeVersao(versao)})</span>
-          </h3>
-          
-          {erro && (
-            <div className="mb-4 py-2 px-4 bg-red-900/50 border border-red-700 rounded text-red-300 text-sm">
-              {erro}
-            </div>
-          )}
-          
-          {avisoSimulado && !erro && (
-            <div className="mb-4 py-2 px-4 bg-blue-900/50 border border-blue-700 rounded text-blue-300 text-sm">
-              Este é um texto simulado. A versão completa deste versículo não está disponível no momento.
-            </div>
-          )}
-          
-          {textoVersiculo ? (
-            <p className="text-xl text-gray-300 mb-4">
-              {textoVersiculo}
-            </p>
-          ) : (
-            <p className="text-gray-400 italic">
-              {erro ? "Versículo inválido." : "Versículo não encontrado. Por favor, tente outro versículo ou versão."}
-            </p>
-          )}
-        </div>
-      ) : (
-        <p className="text-gray-400 italic">Selecione um versículo para visualizar o texto.</p>
-      )}
-    </div>
-  );
-};
-
-export default BibleVerse;
+    "hab
