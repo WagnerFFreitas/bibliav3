@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -542,3 +543,68 @@ const formatBookName = (bookId: string): string => {
   
   return bookMap[bookId] || bookId;
 };
+
+// Create BibleVerse component
+const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVerseProps) => {
+  const [texto, setTexto] = useState<string | null>(null);
+  const [erro, setErro] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (!versiculo) {
+      setTexto(null);
+      setErro(null);
+      return;
+    }
+    
+    if (!versiculoExiste(livro, capitulo, versiculo)) {
+      setErro(`O versículo ${versiculo} não existe em ${formatBookName(livro)} ${capitulo}.`);
+      setTexto(null);
+      return;
+    }
+    
+    const versiculoTexto = versiculosExemploPorVersao[versao]?.[livro]?.[capitulo]?.[versiculo];
+    
+    if (versiculoTexto) {
+      setTexto(versiculoTexto);
+      setErro(null);
+    } else {
+      // Tentar encontrar o versículo em outra versão se não estiver disponível na versão solicitada
+      const versaoPadrao = "nvi";
+      const versiculoDefault = versiculosExemploPorVersao[versaoPadrao]?.[livro]?.[capitulo]?.[versiculo];
+      
+      if (versiculoDefault) {
+        setTexto(versiculoDefault);
+        setErro(`Versículo não disponível na versão ${versao.toUpperCase()}. Exibindo da versão ${versaoPadrao.toUpperCase()}.`);
+      } else {
+        setTexto("Este é um texto simulado. A versão completa deste versículo não está disponível no momento.");
+        setErro(`Versículo não disponível em ${formatBookName(livro)} ${capitulo}:${versiculo}.`);
+      }
+    }
+  }, [livro, capitulo, versiculo, versao]);
+  
+  if (!versiculo) return null;
+  
+  return (
+    <div className="my-8 p-6 bg-black/70 rounded-lg text-white border border-indigo-900">
+      <h3 className="text-xl font-bold mb-2 text-indigo-300">
+        {formatBookName(livro)} {capitulo}:{versiculo}
+      </h3>
+      
+      {erro && (
+        <div className="mb-4 text-amber-400 text-sm">
+          {erro}
+        </div>
+      )}
+      
+      <div className="text-lg leading-relaxed">
+        {texto}
+      </div>
+      
+      <div className="mt-4 text-right text-sm text-gray-400">
+        Versão: {versao.toUpperCase()}
+      </div>
+    </div>
+  );
+};
+
+export default BibleVerse;
