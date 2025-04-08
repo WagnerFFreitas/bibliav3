@@ -48,7 +48,13 @@ const Index = () => {
             <Link to="/" className="whitespace-nowrap hover:text-white transition">Slide</Link>
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
-            <Link to="/harpa" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
+            <div className="relative group whitespace-nowrap">
+              <span className="hover:text-white transition cursor-pointer">Harpa e Hinário</span>
+              <div className="absolute hidden group-hover:block bg-black border border-gray-800 rounded-md p-2 mt-1 z-10 w-40">
+                <Link to="/harpa" className="block py-1 hover:text-white transition">Harpa Cristã</Link>
+                <Link to="/hinario" className="block py-1 hover:text-white transition">Hinário Cristão</Link>
+              </div>
+            </div>
             <Link to="/baixar" className="whitespace-nowrap hover:text-white transition">Baixar</Link>
             <Link to="/utilitarios" className="whitespace-nowrap hover:text-white transition">Utilidades</Link>
             <Link to="/contato" className="whitespace-nowrap hover:text-white transition">Contato</Link>

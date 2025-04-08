@@ -2,7 +2,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Book, Search } from "lucide-react";
+import { Menu, X, Book, Search, Music, ChevronDown } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,12 +48,41 @@ const Header = () => {
           <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
             Pesquisar
           </Link>
-          <Link to="/harpa" className="text-sm font-medium transition-colors hover:text-primary">
-            Harpa Cristã
-          </Link>
-          <Link to="/hinario" className="text-sm font-medium transition-colors hover:text-primary">
-            Hinário Cristão
-          </Link>
+          
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium transition-colors hover:text-primary">
+                  Harpa e Hinário
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[200px] gap-3 p-4">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link 
+                          to="/harpa" 
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Harpa Cristã</div>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link 
+                          to="/hinario" 
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">Hinário Cristão</div>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          
           <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
             Sobre
           </Link>
@@ -63,12 +101,23 @@ const Header = () => {
               <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
                 Pesquisar
               </Link>
-              <Link to="/harpa" className="text-sm font-medium transition-colors hover:text-primary">
-                Harpa Cristã
-              </Link>
-              <Link to="/hinario" className="text-sm font-medium transition-colors hover:text-primary">
-                Hinário Cristão
-              </Link>
+              
+              <div className="space-y-2">
+                <div className="text-sm font-medium flex items-center">
+                  <Music className="mr-2 h-4 w-4" />
+                  Harpa e Hinário
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </div>
+                <div className="pl-6 space-y-2">
+                  <Link to="/harpa" className="block text-sm font-medium transition-colors hover:text-primary">
+                    Harpa Cristã
+                  </Link>
+                  <Link to="/hinario" className="block text-sm font-medium transition-colors hover:text-primary">
+                    Hinário Cristão
+                  </Link>
+                </div>
+              </div>
+              
               <Link to="/sobre" className="text-sm font-medium transition-colors hover:text-primary">
                 Sobre
               </Link>
