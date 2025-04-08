@@ -51,22 +51,22 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "No princípio criou Deus os céus e a terra.",
         2: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
-        3: "E disse Deus: Haja luz; e houve luz.",
+        3: "E disse Deus: 'Haja luz', e houve luz.",
         4: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
-        5: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro.",
-        6: "E disse Deus: Haja uma expansão no meio das águas, e haja separação entre águas e águas.",
+        5: "E Deus chamou à luz Dia, e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro.",
+        6: "E disse Deus: 'Haja uma expansão no meio das águas, e haja separação entre águas e águas.'",
         7: "E fez Deus a expansão, e fez separação entre as águas que estavam debaixo da expansão e as águas que estavam sobre a expansão; e assim foi.",
         8: "E chamou Deus à expansão Céus, e foi a tarde e a manhã, o dia segundo.",
-        9: "E disse Deus: Ajuntem-se as águas debaixo dos céus num lugar; e apareça a porção seca; e assim foi.",
+        9: "E disse Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim foi.",
         10: "E chamou Deus à porção seca Terra; e ao ajuntamento das águas chamou Mares; e viu Deus que era bom.",
-        11: "E disse Deus: Produza a terra erva verde, erva que dê semente, árvore frutífera que dê fruto segundo a sua espécie, cuja semente está nela sobre a terra; e assim foi.",
-        12: "E a terra produziu erva, erva dando semente conforme a sua espécie, e a árvore frutífera, cuja semente está nela conforme a sua espécie; e viu Deus que era bom.",
-        13: "E foi a tarde e a manhã, o dia terceiro."
+        11: "E disse Deus: 'Produza a terra erva verde, erva que dê semente, árvore frutífera que dê fruto segundo a sua espécie, cuja semente está nela sobre a terra; e assim foi.",
+        12: "A terra produziu erva, erva dando semente conforme a sua espécie, e a árvore frutífera, cuja semente está nela conforme a sua espécie; e viu Deus que era bom.",
+        13: "Passaram-se a tarde e a manhã; esse foi o terceiro dia."
       },
       2: {
         1: "Assim os céus, a terra e todo o seu exército foram acabados.",
         2: "E havendo Deus acabado no dia sétimo a obra que fizera, descansou no sétimo dia de toda a sua obra, que tinha feito.",
-        3: "E abençoou Deus o dia sétimo, e o santificou; porque nele descansou de toda a sua obra que Deus criara e fizera."
+        3: "E abençoou Deus o dia sétimo e o santificou; porque nele descansou de toda a obra que realizara na criação."
       }
     },
     exodo: {
@@ -88,13 +88,13 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "No princípio, criou Deus os céus e a terra.",
         2: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas.",
-        3: "Disse Deus: Haja luz; e houve luz.",
+        3: "Disse Deus: 'Haja luz'; e houve luz.",
         4: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
         5: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia.",
-        6: "E disse Deus: Haja firmamento no meio das águas e separação entre águas e águas.",
+        6: "E disse Deus: 'Haja firmamento no meio das águas e separação entre águas e águas.'",
         7: "Fez, pois, Deus o firmamento e separação entre as águas debaixo do firmamento e as águas sobre o firmamento. E assim se fez.",
         8: "E chamou Deus ao firmamento Céus. Houve tarde e manhã, o segundo dia.",
-        9: "Disse também Deus: Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca. E assim se fez.",
+        9: "Disse também Deus: Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim se fez.",
         10: "À porção seca chamou Deus Terra e ao ajuntamento das águas, Mares. E viu Deus que isso era bom.",
         11: "E disse: Produza a terra relva, ervas que dêem semente e árvores frutíferas que dêem fruto segundo a sua espécie, cuja semente esteja nele, sobre a terra. E assim se fez.",
         12: "A terra, pois, produziu relva, ervas que davam semente segundo a sua espécie e árvores que davam fruto, cuja semente estava nele, conforme a sua espécie. E viu Deus que isso era bom.",
@@ -131,7 +131,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         6: "Disse Deus: 'Haja um firmamento no meio das águas, e haja separação entre águas e águas.'",
         7: "Deus fez o firmamento e separou as águas que estavam debaixo do firmamento das águas que estavam por cima do firmamento. E assim foi.",
         8: "Ao firmamento, Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
-        9: "Disse Deus: 'Ajuntem-se as águas debaixo do céu num só lugar, e apareça o elemento seco.' E assim foi.",
+        9: "Disse Deus: 'Ajuntem-se as águas debaixo do céu num só lugar, e apareça a porção seca; e assim foi.",
         10: "Deus chamou ao elemento seco 'terra' e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom.",
         11: "Disse Deus: 'Produza a terra relva, ervas que deem semente e árvores frutíferas que, segundo as suas espécies, deem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
         12: "A terra produziu relva, ervas que davam semente segundo as suas espécies e árvores que davam fruto que tinha em si a sua semente, segundo as suas espécies. E Deus viu que isso era bom.",
@@ -147,7 +147,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "São estes os nomes dos filhos de Israel que entraram no Egito com Jacó, cada um com a sua família:",
         2: "Rúben, Simeão, Levi e Judá,",
-        3: "Issacar, Zebulom e Benjamim,",
+        3: "Issacar, Zebulom, Benjamim,",
         4: "Dã, Naftali, Gade e Aser.",
         5: "Todos os descendentes de Jacó foram setenta pessoas. José já estava no Egito."
       },
@@ -268,7 +268,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
     },
     exodo: {
       1: {
-        1: "וְאֵלֶּה שְׁמוֹת בְּנֵי יִשְׂרָאֵל הַבָּאִים מִצְרָיְמָה אֵת יַעֲקֹב אִישׁ וּבֵיתוֹ בָּאוּ׃",
+        1: "וְאֵלֶּה שְׁמוֹת בְּנֵי יִשְׂרָאֵל הַבָּאִים מִצְרָיְמָה אִישׁ וּבֵיתוֹ בָּאוּ׃",
         2: "רְאוּבֵן שִׁמְעוֹן לֵוִי וִיהוּדָה׃",
         3: "יִשָּׂשכָר זְבוּלֻן וּבִנְיָמִן׃",
         4: "דָּן וְנַפְתָּלִי גָּד וְאָשֵׁר׃",
@@ -506,4 +506,39 @@ const formatBookName = (bookId: string): string => {
     "jonas": "Jonas",
     "miqueias": "Miquéias",
     "naum": "Naum",
-    "hab
+    "habacuque": "Habacuque",
+    "sofonias": "Sofonias",
+    "ageu": "Ageu",
+    "zacarias": "Zacarias",
+    "malaquias": "Malaquias",
+    "mateus": "Mateus",
+    "marcos": "Marcos",
+    "lucas": "Lucas",
+    "joao": "João",
+    "atos": "Atos",
+    "romanos": "Romanos",
+    "1corintios": "1 Coríntios",
+    "2corintios": "2 Coríntios",
+    "galatas": "Gálatas",
+    "efesios": "Efésios",
+    "filipenses": "Filipenses",
+    "colossenses": "Colossenses",
+    "1tessalonicenses": "1 Tessalonicenses",
+    "2tessalonicenses": "2 Tessalonicenses",
+    "1timoteo": "1 Timóteo",
+    "2timoteo": "2 Timóteo",
+    "tito": "Tito",
+    "filemom": "Filemom",
+    "hebreus": "Hebreus",
+    "tiago": "Tiago",
+    "1pedro": "1 Pedro",
+    "2pedro": "2 Pedro",
+    "1joao": "1 João",
+    "2joao": "2 João",
+    "3joao": "3 João",
+    "judas": "Judas",
+    "apocalipse": "Apocalipse"
+  };
+  
+  return bookMap[bookId] || bookId;
+};
