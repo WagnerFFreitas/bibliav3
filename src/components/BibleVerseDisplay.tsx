@@ -79,15 +79,73 @@ interface BibleVerseDisplayProps {
   livro?: string;
   capitulo?: number;
   versao?: string;
+  singleVerse?: number;
+  slideMode?: boolean;
 }
 
-const BibleVerseDisplay = ({ livro = "Gênesis", capitulo = 1, versao = "nvi" }: BibleVerseDisplayProps) => {
+const BibleVerseDisplay = ({ 
+  livro = "Gênesis", 
+  capitulo = 1, 
+  versao = "nvi", 
+  singleVerse,
+  slideMode = false
+}: BibleVerseDisplayProps) => {
   const [versiculos, setVersiculos] = useState(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   
   useEffect(() => {
     // Atualizar versículos quando a versão mudar
     setVersiculos(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   }, [versao]);
+
+  // Função para carregar dados reais da API em vez de dados simulados
+  const carregarVersiculos = async () => {
+    try {
+      const response = await fetch(`/src/data/${versao}/${livro.toLowerCase()}/${capitulo}.json`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data && data.versículos) {
+          setVersiculos(Object.entries(data.versículos).map(([numero, conteudo]) => {
+            if (typeof conteudo === 'string') {
+              return { numero: parseInt(numero), texto: conteudo };
+            } else {
+              return { 
+                numero: parseInt(numero), 
+                texto: (conteudo as any).texto,
+                titulo: (conteudo as any).título
+              };
+            }
+          }));
+        }
+      }
+    } catch (error) {
+      console.error("Erro ao carregar versículos:", error);
+    }
+  };
+
+  useEffect(() => {
+    carregarVersiculos();
+  }, [livro, capitulo, versao]);
+
+  // Se estiver no modo slide e tiver um versículo específico, filtrar apenas esse versículo
+  const versiculosExibidos = singleVerse 
+    ? versiculos.filter((v: any) => v.numero === singleVerse) 
+    : versiculos;
+
+  // No modo slide, remover elementos desnecessários e aumentar o tamanho do texto
+  if (slideMode) {
+    return (
+      <div className={`${slideMode ? 'text-center' : 'bg-white rounded-lg shadow-md p-4 w-full'}`}>
+        {versiculosExibidos.map((versiculo: any) => (
+          <div key={versiculo.numero} className="space-y-2">
+            {versiculo.titulo && (
+              <h3 className="text-2xl font-bold text-green-400 mb-4">{versiculo.titulo}</h3>
+            )}
+            <p className="text-4xl leading-relaxed">{versiculo.texto}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4 w-full">

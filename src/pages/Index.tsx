@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Slideshow } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
@@ -25,8 +27,14 @@ const Index = () => {
           </Link>
           
           <form onSubmit={handleSearch} className="flex w-full md:w-auto items-center gap-2">
-            <Button variant="outline" className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300">
-              Todos
+            <Button 
+              variant="outline" 
+              className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300"
+              type="button"
+              onClick={() => navigate('/slide/genesis/1?versao=nvi&verso=1')}
+            >
+              <Slideshow className="mr-2 h-4 w-4" />
+              Slide
             </Button>
             <Input
               type="text"
@@ -44,7 +52,7 @@ const Index = () => {
         {/* Menu de navegação */}
         <nav className="container mx-auto mt-4">
           <div className="flex overflow-x-auto py-2 gap-6 text-gray-400">
-            <Link to="/" className="whitespace-nowrap hover:text-white transition">Slide</Link>
+            <Link to="/slide/genesis/1?versao=nvi&verso=1" className="whitespace-nowrap hover:text-white transition">Slide</Link>
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
             <Link to="/harpa-hinario" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
@@ -96,8 +104,9 @@ const Index = () => {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" className="border-indigo-700 text-indigo-300 hover:bg-indigo-900/50 px-6 py-4 text-lg">
-                  <Link to="/versoes">
-                    Ver Versões Disponíveis
+                  <Link to="/slide/genesis/1?versao=nvi&verso=1">
+                    <Slideshow className="mr-2 h-5 w-5" />
+                    Modo Apresentação
                   </Link>
                 </Button>
               </div>

@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from "react";
-import { useParams, Link, useSearchParams } from "react-router-dom";
+import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Slideshow } from "lucide-react";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
@@ -22,6 +23,7 @@ import {
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
@@ -94,6 +96,12 @@ const BibleReader = () => {
     window.location.href = `/biblia/${livro}/${currentChapter + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
   };
   
+  // Função para abrir o modo de apresentação
+  const openSlideMode = () => {
+    const verseToShow = selectedVerse || 1;
+    navigate(`/slide/${livro}/${capitulo}?versao=${versaoBiblia}&verso=${verseToShow}`);
+  };
+  
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
       {/* Cabeçalho */}
@@ -104,8 +112,13 @@ const BibleReader = () => {
           </Link>
           
           <div className="flex w-full md:w-auto items-center gap-2">
-            <Button variant="outline" className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300">
-              Todos
+            <Button 
+              variant="outline" 
+              className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300"
+              onClick={openSlideMode}
+            >
+              <Slideshow className="mr-2 h-4 w-4" />
+              Slide
             </Button>
             <Input
               type="text"
@@ -163,6 +176,7 @@ const BibleReader = () => {
                 <li>Clique em um número abaixo para selecionar um versículo específico</li>
                 <li>Use os botões de navegação para avançar ou retroceder entre os capítulos</li>
                 <li>Selecione diferentes versões da Bíblia no menu suspenso acima</li>
+                <li>Use o botão "Slide" para abrir o modo de apresentação</li>
               </ul>
               <p className="mt-2 text-gray-400 italic">
                 Nota: Quando um versículo não está disponível em uma versão específica, o sistema exibirá 
