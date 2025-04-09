@@ -94,11 +94,6 @@ const BibleSlide = () => {
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
-        {/* Título do versículo se houver */}
-        <h2 className="text-3xl font-bold mb-8 text-green-400 uppercase">
-          CRIAÇÃO DO CÉU E DA TERRA E DE TUDO O QUE NELES SE CONTÉM
-        </h2>
-        
         {/* Texto do versículo */}
         <div className="text-4xl sm:text-5xl font-semibold leading-relaxed text-white mb-12">
           <BibleVerseDisplay
