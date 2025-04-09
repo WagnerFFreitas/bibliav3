@@ -26,7 +26,7 @@ const BibleSlide = () => {
   // Função para navegar para o versículo anterior
   const handlePreviousVerse = () => {
     if (currentVerse > 1) {
-      setCurrentVerse(currentVerse - 1);
+      setCurrentVerse(prevVerse => prevVerse - 1);
     } else {
       // Se estiver no primeiro versículo do capítulo atual, voltar para o capítulo anterior
       const currentChapter = parseInt(capitulo);
@@ -43,7 +43,7 @@ const BibleSlide = () => {
   // Função para navegar para o próximo versículo
   const handleNextVerse = () => {
     if (currentVerse < totalVerses) {
-      setCurrentVerse(currentVerse + 1);
+      setCurrentVerse(prevVerse => prevVerse + 1);
     } else {
       // Se estiver no último versículo do capítulo atual, avançar para o próximo capítulo
       const currentChapter = parseInt(capitulo);
@@ -75,7 +75,7 @@ const BibleSlide = () => {
     const newParams = new URLSearchParams(searchParams);
     newParams.set("verso", currentVerse.toString());
     navigate(`/slide/${livro}/${capitulo}?${newParams.toString()}`, { replace: true });
-  }, [currentVerse]);
+  }, [currentVerse, livro, capitulo, searchParams]);
   
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center text-white p-4">

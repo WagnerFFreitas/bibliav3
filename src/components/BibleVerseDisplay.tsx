@@ -90,7 +90,7 @@ const BibleVerseDisplay = ({
   singleVerse,
   slideMode = false
 }: BibleVerseDisplayProps) => {
-  const [versiculos, setVersiculos] = useState(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
+  const [versiculos, setVersiculos] = useState<any[]>(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   
   useEffect(() => {
     // Atualizar versículos quando a versão mudar
@@ -104,7 +104,7 @@ const BibleVerseDisplay = ({
       if (response.ok) {
         const data = await response.json();
         if (data && data.versículos) {
-          setVersiculos(Object.entries(data.versículos).map(([numero, conteudo]) => {
+          const versiculosArray = Object.entries(data.versículos).map(([numero, conteudo]) => {
             if (typeof conteudo === 'string') {
               return { numero: parseInt(numero), texto: conteudo };
             } else {
@@ -114,7 +114,8 @@ const BibleVerseDisplay = ({
                 titulo: (conteudo as any).título
               };
             }
-          }));
+          });
+          setVersiculos(versiculosArray);
         }
       }
     } catch (error) {
@@ -128,21 +129,25 @@ const BibleVerseDisplay = ({
 
   // Se estiver no modo slide e tiver um versículo específico, filtrar apenas esse versículo
   const versiculosExibidos = singleVerse 
-    ? versiculos.filter((v: any) => v.numero === singleVerse) 
+    ? versiculos.filter(v => v.numero === singleVerse) 
     : versiculos;
 
   // No modo slide, remover elementos desnecessários e aumentar o tamanho do texto
   if (slideMode) {
     return (
       <div className={`${slideMode ? 'text-center' : 'bg-white rounded-lg shadow-md p-4 w-full'}`}>
-        {versiculosExibidos.map((versiculo: any) => (
-          <div key={versiculo.numero} className="space-y-2">
-            {versiculo.titulo && (
-              <h3 className="text-2xl font-bold text-green-400 mb-4">{versiculo.titulo}</h3>
-            )}
-            <p className="text-4xl leading-relaxed">{versiculo.texto}</p>
-          </div>
-        ))}
+        {versiculosExibidos.length > 0 ? (
+          versiculosExibidos.map((versiculo) => (
+            <div key={versiculo.numero} className="space-y-2">
+              {versiculo.titulo && (
+                <h3 className="text-2xl font-bold text-green-400 mb-4">{versiculo.titulo}</h3>
+              )}
+              <p className="text-4xl leading-relaxed">{versiculo.texto}</p>
+            </div>
+          ))
+        ) : (
+          <p className="text-2xl">Carregando versículo...</p>
+        )}
       </div>
     );
   }
@@ -155,7 +160,7 @@ const BibleVerseDisplay = ({
       </div>
       
       <div className="space-y-4 my-6">
-        {versiculos.map((versiculo: any) => (
+        {versiculos.map((versiculo) => (
           <div key={versiculo.numero} className="flex">
             <span className="font-bold text-sm text-primary mr-2 pt-0.5 min-w-[20px]">{versiculo.numero}</span>
             <p className="text-base">{versiculo.texto}</p>
