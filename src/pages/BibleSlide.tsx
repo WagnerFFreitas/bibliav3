@@ -90,12 +90,12 @@ const BibleSlide = () => {
       </div>
       
       <div className="max-w-5xl w-full mx-auto text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 uppercase tracking-wide text-yellow-400">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 uppercase tracking-wide text-black">
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
         {/* Texto do versículo */}
-        <div className="text-4xl sm:text-5xl font-semibold leading-relaxed text-white mb-12">
+        <div className="text-4xl sm:text-5xl font-semibold leading-relaxed text-black mb-12">
           <BibleVerseDisplay
             livro={formatBookTitle(livro)}
             capitulo={parseInt(capitulo)}
