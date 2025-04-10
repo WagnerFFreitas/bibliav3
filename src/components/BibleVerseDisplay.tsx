@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { 
   Pagination, 
@@ -20,7 +19,7 @@ import {
 // Dados simulados para diferentes versões
 const versiculosPorVersao: Record<string, any> = {
   nvi: [
-    { numero: 1, texto: "No princípio, Deus criou os céus e a terra." },
+    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "CRIAÇÃO DO CÉU E DA TERRA E DE TUDO O QUE NELES SE CONTÉM" },
     { numero: 2, texto: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas." },
     { numero: 3, texto: "Disse Deus: 'Haja luz', e houve luz." },
     { numero: 4, texto: "Deus viu que a luz era boa, e separou a luz das trevas." },
@@ -138,15 +137,19 @@ const BibleVerseDisplay = ({
       <div className={`${slideMode ? 'text-center' : 'bg-white rounded-lg shadow-md p-4 w-full'}`}>
         {versiculosExibidos.length > 0 ? (
           versiculosExibidos.map((versiculo) => (
-            <div key={versiculo.numero} className="space-y-4">
+            <div key={versiculo.numero} className="space-y-8">
               {versiculo.titulo && (
-                <h3 className="text-[2.5vw] font-bold text-black mb-6">{versiculo.titulo}</h3>
+                <h3 className="text-[4vw] font-bold text-green-400 mb-6 uppercase tracking-wider leading-tight">
+                  {versiculo.titulo}
+                </h3>
               )}
-              <p className="text-[2.2vw] leading-relaxed text-black font-bold">{versiculo.texto}</p>
+              <p className="text-[5vw] leading-tight text-white font-bold">
+                {versiculo.texto}
+              </p>
             </div>
           ))
         ) : (
-          <p className="text-2xl text-black font-bold">Carregando versículo...</p>
+          <p className="text-2xl text-white font-bold">Carregando versículo...</p>
         )}
       </div>
     );

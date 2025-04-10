@@ -78,7 +78,7 @@ const BibleSlide = () => {
   }, [currentVerse, livro, capitulo, searchParams]);
   
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center text-white p-4">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center p-4">
       <div className="absolute top-4 left-4">
         <Button 
           variant="ghost" 
@@ -89,13 +89,13 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-5xl w-full mx-auto text-center mt-8">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-10 uppercase tracking-wide text-black pt-4">
-          {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
+      <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center">
+        <h1 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
+          {formatBookTitle(livro).toUpperCase()} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
         {/* Texto do versículo */}
-        <div className="text-4xl sm:text-5xl font-bold leading-relaxed text-black mb-12">
+        <div className="w-full">
           <BibleVerseDisplay
             livro={formatBookTitle(livro)}
             capitulo={parseInt(capitulo)}
@@ -111,7 +111,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-black/40 border-white/30 hover:bg-black/60 text-white text-xl px-8 py-6 h-auto"
+            className="bg-[#f5f5f5]/80 border-[#f5f5f5]/30 hover:bg-[#f5f5f5]/60 text-black text-xl px-8 py-6 h-auto"
           >
             <ArrowLeft className="mr-2 h-6 w-6" />
             VOLTAR
@@ -121,7 +121,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handleNextVerse}
-            className="bg-black/40 border-white/30 hover:bg-black/60 text-white text-xl px-8 py-6 h-auto"
+            className="bg-[#f5f5f5]/80 border-[#f5f5f5]/30 hover:bg-[#f5f5f5]/60 text-black text-xl px-8 py-6 h-auto"
           >
             PRÓXIMO
             <ArrowRight className="ml-2 h-6 w-6" />
