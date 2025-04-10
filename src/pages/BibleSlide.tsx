@@ -78,9 +78,25 @@ const BibleSlide = () => {
   }, [currentVerse, livro, capitulo, searchParams]);
   
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center p-4 relative">
+    <div 
+      className="flex flex-col justify-center items-center min-h-screen bg-black p-4 relative"
+      style={{
+        backgroundImage: "url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       {/* Imagem da Bíblia como marca d'água */}
-      <div className="absolute inset-0 bg-[url('/lovable-uploads/89091c05-b401-4865-af7e-2c63a0e5a839.png')] bg-center bg-no-repeat bg-contain opacity-20 z-0"></div>
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{
+          backgroundImage: "url('/lovable-uploads/89091c05-b401-4865-af7e-2c63a0e5a839.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.2
+        }}
+      ></div>
       
       <div className="absolute top-4 left-4 z-10">
         <Button 
