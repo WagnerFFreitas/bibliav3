@@ -89,13 +89,13 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-5xl w-full mx-auto text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 uppercase tracking-wide text-black">
+      <div className="max-w-5xl w-full mx-auto text-center mt-8">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-10 uppercase tracking-wide text-black pt-4">
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
         {/* Texto do versículo */}
-        <div className="text-4xl sm:text-5xl font-semibold leading-relaxed text-black mb-12">
+        <div className="text-4xl sm:text-5xl font-bold leading-relaxed text-black mb-12">
           <BibleVerseDisplay
             livro={formatBookTitle(livro)}
             capitulo={parseInt(capitulo)}

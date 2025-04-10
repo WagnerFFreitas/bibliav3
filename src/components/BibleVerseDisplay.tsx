@@ -138,15 +138,15 @@ const BibleVerseDisplay = ({
       <div className={`${slideMode ? 'text-center' : 'bg-white rounded-lg shadow-md p-4 w-full'}`}>
         {versiculosExibidos.length > 0 ? (
           versiculosExibidos.map((versiculo) => (
-            <div key={versiculo.numero} className="space-y-2">
+            <div key={versiculo.numero} className="space-y-4">
               {versiculo.titulo && (
-                <h3 className="text-2xl font-bold text-black mb-4">{versiculo.titulo}</h3>
+                <h3 className="text-[2.5vw] font-bold text-black mb-6">{versiculo.titulo}</h3>
               )}
-              <p className="text-4xl leading-relaxed text-black">{versiculo.texto}</p>
+              <p className="text-[2.2vw] leading-relaxed text-black font-bold">{versiculo.texto}</p>
             </div>
           ))
         ) : (
-          <p className="text-2xl text-black">Carregando versículo...</p>
+          <p className="text-2xl text-black font-bold">Carregando versículo...</p>
         )}
       </div>
     );
