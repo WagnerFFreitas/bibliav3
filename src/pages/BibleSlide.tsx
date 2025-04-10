@@ -78,8 +78,11 @@ const BibleSlide = () => {
   }, [currentVerse, livro, capitulo, searchParams]);
   
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center p-4">
-      <div className="absolute top-4 left-4">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-[url('/lovable-uploads/f90b0e7a-68f9-4318-8954-08467f03308f.png')] bg-cover bg-center p-4 relative">
+      {/* Imagem da Bíblia como marca d'água */}
+      <div className="absolute inset-0 bg-[url('/lovable-uploads/89091c05-b401-4865-af7e-2c63a0e5a839.png')] bg-center bg-no-repeat bg-contain opacity-20 z-0"></div>
+      
+      <div className="absolute top-4 left-4 z-10">
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/biblia/${livro}/${capitulo}?versao=${versaoBiblia}`)}
@@ -89,7 +92,7 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center">
+      <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center z-10">
         <h1 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
           {formatBookTitle(livro).toUpperCase()} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
@@ -106,7 +109,7 @@ const BibleSlide = () => {
         </div>
         
         {/* Botões de navegação */}
-        <div className="fixed bottom-8 left-0 right-0 flex justify-center gap-4">
+        <div className="fixed bottom-8 left-0 right-0 flex justify-center gap-4 z-10">
           <Button 
             variant="outline" 
             size="lg" 
