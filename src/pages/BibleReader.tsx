@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -123,7 +122,6 @@ const BibleReader = () => {
         {/* Menu de navegação */}
         <nav className="container mx-auto mt-4">
           <div className="flex overflow-x-auto py-2 gap-6 text-gray-400">
-            <Link to="/" className="whitespace-nowrap hover:text-white transition">Slide</Link>
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
             <Link to="/harpa" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
