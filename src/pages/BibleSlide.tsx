@@ -86,7 +86,7 @@ const BibleSlide = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Imagem da Bíblia como marca d'água */}
+      {/* Imagem da Bíblia como marca d'água com 50% de opacidade */}
       <div 
         className="absolute inset-0 z-0" 
         style={{
@@ -94,7 +94,7 @@ const BibleSlide = () => {
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.2
+          opacity: 0.5
         }}
       ></div>
       
@@ -130,7 +130,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-[#f5f5f5]/80 border-[#f5f5f5]/30 hover:bg-[#f5f5f5]/60 text-black text-xl px-8 py-6 h-auto"
+            className="bg-[#c1c1c1] hover:bg-[#a1a1a1] text-black text-xl px-8 py-6 h-auto flex items-center"
           >
             <ArrowLeft className="mr-2 h-6 w-6" />
             VOLTAR
@@ -140,7 +140,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handleNextVerse}
-            className="bg-[#f5f5f5]/80 border-[#f5f5f5]/30 hover:bg-[#f5f5f5]/60 text-black text-xl px-8 py-6 h-auto"
+            className="bg-[#c1c1c1] hover:bg-[#a1a1a1] text-black text-xl px-8 py-6 h-auto flex items-center"
           >
             PRÓXIMO
             <ArrowRight className="ml-2 h-6 w-6" />

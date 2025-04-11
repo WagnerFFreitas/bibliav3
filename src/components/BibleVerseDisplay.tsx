@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { 
   Pagination, 
@@ -19,42 +20,42 @@ import {
 // Dados simulados para diferentes versões
 const versiculosPorVersao: Record<string, any> = {
   nvi: [
-    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "CRIAÇÃO DO CÉU E DA TERRA E DE TUDO O QUE NELES SE CONTÉM" },
+    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
     { numero: 2, texto: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas." },
     { numero: 3, texto: "Disse Deus: 'Haja luz', e houve luz." },
     { numero: 4, texto: "Deus viu que a luz era boa, e separou a luz das trevas." },
     { numero: 5, texto: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia." },
   ],
   acf: [
-    { numero: 1, texto: "No princípio criou Deus os céus e a terra." },
+    { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
     { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
     { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
     { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
     { numero: 5, texto: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
   ],
   ara: [
-    { numero: 1, texto: "No princípio, criou Deus os céus e a terra." },
+    { numero: 1, texto: "No princípio, criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
     { numero: 2, texto: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas." },
     { numero: 3, texto: "Disse Deus: Haja luz; e houve luz." },
     { numero: 4, texto: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas." },
     { numero: 5, texto: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia." },
   ],
   naa: [
-    { numero: 1, texto: "No princípio, Deus criou os céus e a terra." },
+    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
     { numero: 2, texto: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas." },
     { numero: 3, texto: "Disse Deus: 'Haja luz!' E houve luz." },
     { numero: 4, texto: "Deus viu que a luz era boa e separou a luz das trevas." },
     { numero: 5, texto: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia." },
   ],
   ntlh: [
-    { numero: 1, texto: "No começo Deus criou os céus e a terra." },
+    { numero: 1, texto: "NO PRINCIPIO DEUS CRIOU OS CÉUS E A TERRA.", titulo: "A CRIAÇÃO" },
     { numero: 2, texto: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água." },
     { numero: 3, texto: "Então Deus disse: 'Que haja luz!' e a luz começou a existir." },
     { numero: 4, texto: "Deus viu que a luz era boa e a separou da escuridão." },
     { numero: 5, texto: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia." },
   ],
   kjv: [
-    { numero: 1, texto: "In the beginning God created the heaven and the earth." },
+    { numero: 1, texto: "In the beginning God created the heaven and the earth.", titulo: "THE CREATION" },
     { numero: 2, texto: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters." },
     { numero: 3, texto: "And God said, Let there be light: and there was light." },
     { numero: 4, texto: "And God saw the light, that it was good: and God divided the light from the darkness." },
@@ -143,7 +144,7 @@ const BibleVerseDisplay = ({
                   {versiculo.titulo}
                 </h3>
               )}
-              <p className="text-[5vw] leading-tight text-white font-bold">
+              <p className="text-[5vw] leading-tight text-white font-bold uppercase">
                 {versiculo.texto}
               </p>
             </div>

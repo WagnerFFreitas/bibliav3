@@ -3,8 +3,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Presentation } from "lucide-react";
+import { Book, Search } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Check } from "lucide-react";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,115 +19,143 @@ const Index = () => {
     }
   };
   
+  const versoesBiblia = [
+    { 
+      id: "nvi", 
+      nome: "Nova Versão Internacional", 
+      descricao: "Uma tradução contemporânea reconhecida pela sua precisão e clareza.",
+      ano: 2000,
+      destaque: true
+    },
+    { 
+      id: "acf", 
+      nome: "Almeida Corrigida Fiel", 
+      descricao: "Versão tradicional revisada que mantém a fidelidade aos textos originais.",
+      ano: 1995,
+      destaque: false
+    },
+    { 
+      id: "ara", 
+      nome: "Almeida Revista e Atualizada", 
+      descricao: "Uma atualização da tradução clássica de João Ferreira de Almeida.",
+      ano: 1993,
+      destaque: false
+    }
+  ];
+  
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* Cabeçalho */}
-      <header className="w-full p-4 bg-black border-b border-gray-800">
-        <div className="container mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
-          <Link to="/" className="text-3xl font-bold italic text-gray-300 hover:text-white transition">
-            Bíblia Sagrada
+      <header className="w-full py-4 border-b border-gray-200 bg-white">
+        <div className="container mx-auto flex justify-between items-center px-4">
+          <Link to="/" className="flex items-center space-x-2">
+            <Book className="h-6 w-6" />
+            <span className="text-xl font-bold">BíbliaOnline</span>
           </Link>
           
-          <form onSubmit={handleSearch} className="flex w-full md:w-auto items-center gap-2">
-            <Button 
-              variant="outline" 
-              className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300"
-              type="button"
-              onClick={() => navigate('/slide/genesis/1?versao=nvi&verso=1')}
-            >
-              <Presentation className="mr-2 h-4 w-4" />
-              Slide
-            </Button>
-            <Input
-              type="text"
-              placeholder="Digite o termo de busca"
-              className="w-full md:w-80 bg-zinc-900 border-zinc-700 text-gray-300 placeholder:text-gray-500"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Button type="submit" className="rounded-md bg-green-600 hover:bg-green-700 text-white">
-              Buscar
-            </Button>
-          </form>
-        </div>
-        
-        {/* Menu de navegação */}
-        <nav className="container mx-auto mt-4">
-          <div className="flex overflow-x-auto py-2 gap-6 text-gray-400">
-            <Link to="/slide/genesis/1?versao=nvi&verso=1" className="whitespace-nowrap hover:text-white transition">Slide</Link>
-            <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
-            <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
-            <Link to="/harpa-hinario" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
-            <Link to="/baixar" className="whitespace-nowrap hover:text-white transition">Baixar</Link>
-            <Link to="/utilitarios" className="whitespace-nowrap hover:text-white transition">Utilidades</Link>
-            <Link to="/contato" className="whitespace-nowrap hover:text-white transition">Contato</Link>
-            <Link to="/sobre" className="whitespace-nowrap hover:text-white transition">Sobre</Link>
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="font-medium hover:text-primary">Início</Link>
+            <Link to="/versoes" className="font-medium hover:text-primary">Versões</Link>
+            <Link to="/pesquisar" className="font-medium hover:text-primary">Pesquisar</Link>
+            <Link to="/harpa-hinario" className="font-medium hover:text-primary">Harpa e Hinário</Link>
+            <Link to="/sobre" className="font-medium hover:text-primary">Sobre</Link>
+          </nav>
+          
+          <div className="flex items-center space-x-2">
+            <div className="relative w-64 hidden md:block">
+              <form onSubmit={handleSearch}>
+                <Input
+                  type="search"
+                  placeholder="Buscar"
+                  className="pr-8"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button 
+                  type="submit" 
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                  aria-label="Buscar"
+                >
+                  <Search className="h-4 w-4 text-gray-500" />
+                </button>
+              </form>
+            </div>
+            <Button className="bg-blue-900 hover:bg-blue-800">Minha Conta</Button>
           </div>
-        </nav>
+        </div>
       </header>
       
-      <main className="flex flex-1 overflow-hidden">
-        {/* Sidebar com livros */}
-        <div className="w-64 md:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-4">
-          <h2 className="text-2xl font-bold text-gray-300 mb-4">LIVROS</h2>
-          <ul className="space-y-2">
-            <li><Link to="/biblia/genesis/1" className="block py-1.5 px-2 rounded text-white font-semibold">Gênesis</Link></li>
-            <li><Link to="/biblia/exodo/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Êxodo</Link></li>
-            <li><Link to="/biblia/levitico/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Levítico</Link></li>
-            <li><Link to="/biblia/numeros/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Números</Link></li>
-            <li><Link to="/biblia/deuteronomio/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Deuteronômio</Link></li>
-            <li><Link to="/biblia/josue/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Josué</Link></li>
-            <li><Link to="/biblia/juizes/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Juízes</Link></li>
-            <li><Link to="/biblia/rute/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Rute</Link></li>
-            <li><Link to="/biblia/1samuel/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">1º Samuel</Link></li>
-            <li><Link to="/biblia/2samuel/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">2º Samuel</Link></li>
-            <li><Link to="/biblia/1reis/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">1º Reis</Link></li>
-            <li><Link to="/biblia/2reis/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">2º Reis</Link></li>
-            <li><Link to="/biblia/1cronicas/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">1º Crônicas</Link></li>
-            <li><Link to="/biblia/2cronicas/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">2º Crônicas</Link></li>
-            <li><Link to="/biblia/esdras/1" className="block py-1.5 px-2 rounded text-gray-400 hover:text-white">Esdras</Link></li>
-          </ul>
+      <main className="flex-1 container mx-auto px-4 py-12">
+        {/* Cabeçalho da página */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold mb-6">Bem-vindo à Bíblia Sagrada Online</h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore diferentes traduções da Bíblia Sagrada para enriquecer seu estudo e compreensão das escrituras.
+          </p>
         </div>
         
-        {/* Conteúdo principal */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed bg-opacity-20">
-          <div className="container mx-auto">
-            {/* Conteúdo da página inicial */}
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Bem-vindo à Bíblia Sagrada Online</h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-                Explore a Palavra de Deus em diversas traduções, pesquise versículos e aprofunde seu conhecimento das escrituras.
-              </p>
-              
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button asChild className="bg-indigo-700 hover:bg-indigo-600 text-white px-6 py-4 text-lg">
-                  <Link to="/biblia/genesis/1">
-                    Começar a Leitura
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="border-indigo-700 text-indigo-300 hover:bg-indigo-900/50 px-6 py-4 text-lg">
-                  <Link to="/slide/genesis/1?versao=nvi&verso=1">
-                    <Presentation className="mr-2 h-5 w-5" />
-                    Modo Apresentação
-                  </Link>
-                </Button>
-              </div>
-              
-              <div className="mt-12 p-6 bg-black/60 rounded-lg border border-gray-800 max-w-2xl">
-                <h2 className="text-2xl font-bold mb-4 text-indigo-300">Versículo do Dia</h2>
-                <p className="text-xl text-gray-300 mb-4">
-                  "No princípio, Deus criou os céus e a terra."
-                </p>
-                <p className="text-lg font-semibold text-indigo-300">Gênesis 1:1</p>
+        {/* Seletor de versão */}
+        <div className="max-w-lg mx-auto mb-16">
+          <h2 className="text-2xl font-bold text-center mb-6">Selecione uma Versão para Leitura</h2>
+          <div className="flex items-center gap-4">
+            <div className="relative flex-1">
+              <select 
+                className="w-full p-3 rounded-md border border-gray-300 appearance-none pr-10"
+                defaultValue="nvi"
+              >
+                <option value="nvi">Nova Versão Internacional</option>
+                <option value="acf">Almeida Corrigida Fiel</option>
+                <option value="ara">Almeida Revista e Atualizada</option>
+                <option value="naa">Nova Almeida Atualizada</option>
+                <option value="ntlh">Nova Tradução na Linguagem de Hoje</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-            
-            <footer className="text-center text-sm text-gray-400 mt-12">
-              © Bíblia Sagrada 2024
-            </footer>
+            <Button className="bg-blue-900 hover:bg-blue-800">
+              <Book className="mr-2 h-5 w-5" />
+              Ler Agora
+            </Button>
           </div>
         </div>
+        
+        {/* Cards de versões */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {versoesBiblia.map((versao) => (
+            <Card key={versao.id} className={versao.destaque ? "border-primary" : ""}>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-xl flex items-center">
+                    {versao.nome}
+                    {versao.destaque && <Check className="ml-2 h-5 w-5 text-blue-600" />}
+                  </CardTitle>
+                </div>
+                <CardDescription>Publicada em {versao.ano}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">{versao.descricao}</p>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" asChild variant="outline">
+                  <Link to={`/biblia/genesis/1?versao=${versao.id}`}>
+                    <Book className="mr-2 h-4 w-4" />
+                    Ler Esta Versão
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </main>
+      
+      <footer className="bg-gray-100 py-8">
+        <div className="container mx-auto px-4 text-center text-gray-600">
+          <p>&copy; {new Date().getFullYear()} Bíblia Sagrada Online. Todos os direitos reservados.</p>
+        </div>
+      </footer>
       
       <ScrollToTop />
     </div>
