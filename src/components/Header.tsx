@@ -39,11 +39,11 @@ const Header = () => {
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Início
-          </Link>
           <Link to="/versoes" className="text-sm font-medium transition-colors hover:text-primary">
             Versões
+          </Link>
+          <Link to="/biblia/genesis/1" className="text-sm font-medium transition-colors hover:text-primary">
+            BÍBLIA
           </Link>
           <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
             Pesquisar
@@ -62,11 +62,11 @@ const Header = () => {
         {isMenuOpen && (
           <div className="absolute top-16 left-0 w-full bg-background border-b md:hidden z-20">
             <div className="container py-4 flex flex-col space-y-4">
-              <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-                Início
-              </Link>
               <Link to="/versoes" className="text-sm font-medium transition-colors hover:text-primary">
                 Versões
+              </Link>
+              <Link to="/biblia/genesis/1" className="text-sm font-medium transition-colors hover:text-primary">
+                BÍBLIA
               </Link>
               <Link to="/pesquisar" className="text-sm font-medium transition-colors hover:text-primary">
                 Pesquisar

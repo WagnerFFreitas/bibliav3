@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { getNumeroVersiculos } from "@/components/BibleVerse";
-import BibleVerseDisplay from "@/components/BibleVerseDisplay";
 
 const BibleSlide = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
@@ -17,11 +16,28 @@ const BibleSlide = () => {
   const [currentVerse, setCurrentVerse] = useState(versoInicial);
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
-  // Formatar o título do livro
-  const formatBookTitle = (book: string) => {
-    const formatted = book.charAt(0).toUpperCase() + book.slice(1);
-    return formatted;
+  // Simulação de dados dos versículos
+  const versiculosPorVersao: Record<string, any> = {
+    nvi: [
+      { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
+      { numero: 2, texto: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.", titulo: "A CRIAÇÃO" },
+      { numero: 3, texto: "Disse Deus: 'Haja luz', e houve luz.", titulo: "A CRIAÇÃO" },
+    ],
+    acf: [
+      { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
+      { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.", titulo: "A CRIAÇÃO" },
+      { numero: 3, texto: "E disse Deus: Haja luz; e houve luz.", titulo: "A CRIAÇÃO" },
+    ],
+    // ... outros dados para outras versões
   };
+  
+  // Obter o versículo atual
+  const getVersiculo = () => {
+    const versoes = versiculosPorVersao[versaoBiblia] || versiculosPorVersao.nvi;
+    return versoes.find((v: any) => v.numero === currentVerse) || versoes[0];
+  };
+  
+  const versiculo = getVersiculo();
   
   // Função para navegar para o versículo anterior
   const handlePreviousVerse = () => {
@@ -77,41 +93,45 @@ const BibleSlide = () => {
     navigate(`/slide/${livro}/${capitulo}?${newParams.toString()}`, { replace: true });
   }, [currentVerse, livro, capitulo, searchParams]);
   
+  // Formatar o título do livro
+  const formatBookTitle = (book: string) => {
+    const formatted = book.charAt(0).toUpperCase() + book.slice(1);
+    return formatted;
+  };
+  
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4 relative">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4">
       <div className="absolute top-4 left-4 z-10">
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/biblia/${livro}/${capitulo}?versao=${versaoBiblia}`)}
-          className="text-white hover:bg-black/40"
+          className="text-blue-400 hover:bg-transparent hover:text-blue-300"
         >
           Sair do Modo Apresentação
         </Button>
       </div>
       
       <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center z-10">
-        <h1 className="text-4xl sm:text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
-          {formatBookTitle(livro).toUpperCase()} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
+        <h1 className="text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
+          {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
+        {versiculo.titulo && (
+          <h2 className="text-4xl font-bold text-green-500 mb-12">{versiculo.titulo}</h2>
+        )}
+        
         {/* Texto do versículo */}
-        <div className="w-full">
-          <BibleVerseDisplay
-            livro={formatBookTitle(livro)}
-            capitulo={parseInt(capitulo)}
-            versao={versaoBiblia}
-            singleVerse={currentVerse}
-            slideMode={true}
-          />
-        </div>
+        <p className="text-5xl text-white mb-16 leading-normal max-w-4xl">
+          {versiculo.texto}
+        </p>
         
         {/* Botões de navegação */}
-        <div className="fixed bottom-8 left-0 right-0 flex justify-center gap-4 z-10">
+        <div className="flex justify-center gap-4 mt-8">
           <Button 
             variant="outline" 
             size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-[#c1c1c1] hover:bg-[#a1a1a1] text-black text-xl px-8 py-6 h-auto flex items-center"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center"
           >
             <ArrowLeft className="mr-2 h-6 w-6" />
             VOLTAR
@@ -121,7 +141,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handleNextVerse}
-            className="bg-[#c1c1c1] hover:bg-[#a1a1a1] text-black text-xl px-8 py-6 h-auto flex items-center"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center"
           >
             PRÓXIMO
             <ArrowRight className="ml-2 h-6 w-6" />
