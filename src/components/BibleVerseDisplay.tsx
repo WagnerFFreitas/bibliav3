@@ -140,11 +140,11 @@ const BibleVerseDisplay = ({
           versiculosExibidos.map((versiculo) => (
             <div key={versiculo.numero} className="space-y-8">
               {versiculo.titulo && (
-                <h3 className="text-[4vw] font-bold text-green-400 mb-6 uppercase tracking-wider leading-tight">
+                <h3 className="text-[2vw] font-bold text-yellow-500 mb-6 uppercase tracking-wider leading-tight">
                   {versiculo.titulo}
                 </h3>
               )}
-              <p className="text-[5vw] leading-tight text-white font-bold uppercase">
+              <p className="text-[3vw] leading-tight text-white font-semibold">
                 {versiculo.texto}
               </p>
             </div>
