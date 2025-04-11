@@ -105,7 +105,7 @@ const BibleSlide = () => {
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/biblia/${livro}/${capitulo}?versao=${versaoBiblia}`)}
-          className="text-blue-400 hover:bg-transparent hover:text-blue-300"
+          className="text-blue-400 hover:bg-transparent hover:text-blue-300 text-sm"
         >
           Sair do Modo Apresentação
         </Button>
@@ -126,12 +126,12 @@ const BibleSlide = () => {
         </p>
         
         {/* Botões de navegação */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-20 mt-8">
           <Button 
             variant="outline" 
             size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
           >
             <ArrowLeft className="mr-2 h-6 w-6" />
             VOLTAR
@@ -141,7 +141,7 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handleNextVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
           >
             PRÓXIMO
             <ArrowRight className="ml-2 h-6 w-6" />

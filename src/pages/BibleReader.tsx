@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
-import { useParams, Link, useSearchParams } from "react-router-dom";
+import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Presentation } from "lucide-react";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
@@ -25,6 +27,7 @@ const BibleReader = () => {
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
   
   // Determinar o número de versículos para o capítulo atual
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
@@ -91,6 +94,15 @@ const BibleReader = () => {
   const handleNextChapter = () => {
     const currentChapter = parseInt(capitulo);
     window.location.href = `/biblia/${livro}/${currentChapter + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
+  };
+
+  // Função para abrir modo apresentação
+  const handleOpenSlideMode = () => {
+    if (selectedVerse) {
+      navigate(`/slide/${livro}/${capitulo}?versao=${versaoBiblia}&verso=${selectedVerse}`);
+    } else {
+      toast.error("Selecione um versículo para apresentação");
+    }
   };
   
   return (
@@ -169,21 +181,36 @@ const BibleReader = () => {
             </div>
             
             {/* Navegação de capítulos */}
-            <Pagination className="mb-8">
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious onClick={handlePreviousChapter} className="cursor-pointer bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink className="bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700">
-                    Capítulo {capitulo}
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext onClick={handleNextChapter} className="cursor-pointer bg-indigo-900/60 hover:bg-indigo-800 border-indigo-700" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+            <div className="mb-6 flex flex-col items-center">
+              <Pagination className="mb-4">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious onClick={handlePreviousChapter} className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6" />
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6">
+                      Capítulo {capitulo}
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationNext onClick={handleNextChapter} className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6" />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+              
+              {/* Botão de apresentação (slide) */}
+              {selectedVerse && (
+                <Button 
+                  onClick={handleOpenSlideMode} 
+                  className="bg-amber-700 hover:bg-amber-600 text-white px-8 py-2 rounded-md flex items-center gap-2 mb-4"
+                >
+                  <Presentation size={18} />
+                  Apresentação (Slide)
+                </Button>
+              )}
+
+              <h2 className="text-xl font-semibold text-center text-white mb-4">Versículos</h2>
+            </div>
             
             {error && (
               <Alert variant="destructive" className="mb-6 bg-red-900/60 border-red-800 text-white">
