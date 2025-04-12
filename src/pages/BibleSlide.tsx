@@ -112,7 +112,8 @@ const BibleSlide = () => {
       </div>
       
       <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center z-10">
-        <h1 className="text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
+        {/* Título em laranja com o mesmo tamanho do título em verde */}
+        <h1 className="text-4xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
@@ -120,12 +121,12 @@ const BibleSlide = () => {
           <h2 className="text-4xl font-bold text-green-500 mb-12">{versiculo.titulo}</h2>
         )}
         
-        {/* Texto do versículo - ajustado para ficar no mesmo tamanho do título em laranja */}
-        <p className="text-5xl text-white mb-16 leading-normal max-w-4xl">
+        {/* Texto do versículo - aumentado e em negrito */}
+        <p className="text-6xl font-bold text-white mb-16 leading-normal max-w-4xl">
           {versiculo.texto}
         </p>
         
-        {/* Botões de navegação - ajustados para ficarem menores e mais próximos do texto */}
+        {/* Botões de navegação - mantidos com o ajuste anterior */}
         <div className="flex justify-center gap-6 mt-4">
           <Button 
             variant="outline" 
