@@ -100,7 +100,12 @@ const BibleSlide = () => {
   };
   
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4">
+    <div 
+      className="flex flex-col justify-center items-center min-h-screen p-4 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url("/lovable-uploads/b03d623a-5c23-4daa-ad82-aaa31f8b3838.png")' }}
+    >
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0" />
+
       <div className="absolute top-4 left-4 z-10">
         <Button 
           variant="ghost" 
