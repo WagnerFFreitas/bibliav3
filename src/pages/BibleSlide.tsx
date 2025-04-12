@@ -120,31 +120,29 @@ const BibleSlide = () => {
           <h2 className="text-4xl font-bold text-green-500 mb-12">{versiculo.titulo}</h2>
         )}
         
-        {/* Texto do versículo */}
+        {/* Texto do versículo - ajustado para ficar no mesmo tamanho do título em laranja */}
         <p className="text-5xl text-white mb-16 leading-normal max-w-4xl">
           {versiculo.texto}
         </p>
         
-        {/* Botões de navegação */}
-        <div className="flex justify-center gap-20 mt-8">
+        {/* Botões de navegação - ajustados para ficarem menores e mais próximos do texto */}
+        <div className="flex justify-center gap-6 mt-4">
           <Button 
             variant="outline" 
-            size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
+            className="bg-gray-600 hover:bg-gray-500 text-black text-base px-6 py-2 h-auto"
           >
-            <ArrowLeft className="mr-2 h-6 w-6" />
+            <ArrowLeft className="mr-2 h-4 w-4" />
             VOLTAR
           </Button>
           
           <Button 
             variant="outline" 
-            size="lg" 
             onClick={handleNextVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
+            className="bg-gray-600 hover:bg-gray-500 text-black text-base px-6 py-2 h-auto"
           >
             PRÓXIMO
-            <ArrowRight className="ml-2 h-6 w-6" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
