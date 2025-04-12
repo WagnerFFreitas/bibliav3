@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -29,11 +28,9 @@ const BibleReader = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   
-  // Determinar o número de versículos para o capítulo atual
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
   useEffect(() => {
-    // Verificar se há um hash na URL (para ir direto a um versículo)
     const hash = window.location.hash;
     if (hash && hash.startsWith('#v')) {
       const verse = parseInt(hash.substring(2));
@@ -42,23 +39,19 @@ const BibleReader = () => {
         toast.info(`Versículo ${verse} selecionado`);
       }
     } else {
-      // Resetar o versículo selecionado ao mudar de capítulo ou livro
       setSelectedVerse(null);
     }
     
-    // Limpar qualquer erro ao navegar para um novo capítulo
     setError(null);
   }, [livro, capitulo, totalVerses]);
   
   useEffect(() => {
-    // Atualizar a versão da Bíblia quando os parâmetros de URL mudarem
     const versaoUrl = searchParams.get("versao");
     if (versaoUrl) {
       setVersaoBiblia(versaoUrl);
     }
   }, [searchParams]);
   
-  // Formatação do título do livro e capítulo atual
   const formatBookTitle = (book: string) => {
     const formatted = book.charAt(0).toUpperCase() + book.slice(1);
     return formatted;
@@ -66,7 +59,6 @@ const BibleReader = () => {
 
   const handleVerseSelect = (verse: number) => {
     setSelectedVerse(verse);
-    // Adiciona um hash à URL para o versículo selecionado
     window.location.hash = `v${verse}`;
     toast.success(`Versículo ${verse} selecionado`);
   };
@@ -75,7 +67,6 @@ const BibleReader = () => {
     if (novaVersao === versaoBiblia) return;
     
     setVersaoBiblia(novaVersao);
-    // Atualiza a URL com a nova versão
     setSearchParams(prev => {
       prev.set("versao", novaVersao);
       return prev;
@@ -83,7 +74,6 @@ const BibleReader = () => {
     toast.info(`Versão alterada para ${novaVersao.toUpperCase()}`);
   };
   
-  // Navegação para capítulos anteriores e próximos
   const handlePreviousChapter = () => {
     const currentChapter = parseInt(capitulo);
     if (currentChapter > 1) {
@@ -96,7 +86,6 @@ const BibleReader = () => {
     window.location.href = `/biblia/${livro}/${currentChapter + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
   };
 
-  // Função para abrir modo apresentação
   const handleOpenSlideMode = () => {
     if (selectedVerse) {
       navigate(`/slide/${livro}/${capitulo}?versao=${versaoBiblia}&verso=${selectedVerse}`);
@@ -107,7 +96,6 @@ const BibleReader = () => {
   
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      {/* Cabeçalho */}
       <header className="w-full p-4 bg-black border-b border-gray-800">
         <div className="container mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
           <Link to="/" className="text-3xl font-bold italic text-gray-300 hover:text-white transition">
@@ -131,7 +119,6 @@ const BibleReader = () => {
           </div>
         </div>
         
-        {/* Menu de navegação */}
         <nav className="container mx-auto mt-4">
           <div className="flex overflow-x-auto py-2 gap-6 text-gray-400">
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
@@ -146,10 +133,8 @@ const BibleReader = () => {
       </header>
       
       <main className="flex flex-1 overflow-hidden">
-        {/* Sidebar com livros */}
         <BibleSidebar />
         
-        {/* Conteúdo principal */}
         <div className="flex-1 overflow-y-auto p-4 md:p-8 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed bg-opacity-20">
           <div className="container mx-auto">
             <h1 className="text-center text-3xl md:text-4xl font-bold uppercase mb-6 text-white">
@@ -180,7 +165,6 @@ const BibleReader = () => {
               </p>
             </div>
             
-            {/* Navegação de capítulos */}
             <div className="mb-6 flex flex-col items-center">
               <Pagination className="mb-4">
                 <PaginationContent>
@@ -188,7 +172,7 @@ const BibleReader = () => {
                     <PaginationPrevious onClick={handlePreviousChapter} className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6" />
                   </PaginationItem>
                   <PaginationItem>
-                    <PaginationLink className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6">
+                    <PaginationLink className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-8 min-w-40">
                       Capítulo {capitulo}
                     </PaginationLink>
                   </PaginationItem>
@@ -198,7 +182,6 @@ const BibleReader = () => {
                 </PaginationContent>
               </Pagination>
               
-              {/* Botão de apresentação (slide) */}
               {selectedVerse && (
                 <Button 
                   onClick={handleOpenSlideMode} 
@@ -208,8 +191,6 @@ const BibleReader = () => {
                   Apresentação (Slide)
                 </Button>
               )}
-
-              <h2 className="text-xl font-semibold text-center text-white mb-4">Versículos</h2>
             </div>
             
             {error && (
@@ -219,13 +200,11 @@ const BibleReader = () => {
               </Alert>
             )}
             
-            {/* Grid de versículos (números) */}
             <BibleVerseGrid 
               totalVerses={totalVerses} 
               onVerseSelect={handleVerseSelect}
             />
             
-            {/* Exibição do texto do versículo */}
             <BibleVerse 
               livro={livro} 
               capitulo={parseInt(capitulo)} 
