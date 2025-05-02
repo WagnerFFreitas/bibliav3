@@ -1,0 +1,167 @@
+
+{
+  "meta": {
+    "nome": "Harpa Cristã",
+    "descricao": "Coletânea de hinos evangelicos populares",
+    "totalHinos": 640
+  },
+  "hinos": [
+    {
+      "numero": 1,
+      "titulo": "Chuvas de Graça",
+      "versos": [
+        "Deus prometeu com certeza",
+        "Chuvas de graça mandar;",
+        "Ele nos dá fortaleza,",
+        "E ricas bênçãos sem par."
+      ],
+      "coro": [
+        "Chuvas de graça,",
+        "Chuvas pedimos, Senhor;",
+        "Manda-nos chuvas constantes,",
+        "Chuvas do Consolador."
+      ],
+      "estrofes": [
+        {
+          "numero": 1,
+          "texto": [
+            "Deus prometeu com certeza",
+            "Chuvas de graça mandar;",
+            "Ele nos dá fortaleza,",
+            "E ricas bênçãos sem par."
+          ]
+        },
+        {
+          "numero": 2,
+          "texto": [
+            "Cristo nos tem concedido",
+            "O santo Consolador,",
+            "De plena paz nos enchido,",
+            "Para o serviço do Senhor."
+          ]
+        },
+        {
+          "numero": 3,
+          "texto": [
+            "Dá-nos, Senhor, amplamente,",
+            "Teu grande gozo e poder;",
+            "Fonte és Tu permanente,",
+            "Vem nossa alma embeber."
+          ]
+        },
+        {
+          "numero": 4,
+          "texto": [
+            "Faze os crentes acordados,",
+            "Dá-lhes divino fervor;",
+            "De Ti, mais santificados,",
+            "Sejam, bendito Senhor."
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Saudosa Lembrança",
+      "versos": [
+        "Lembro-me bem de Jesus,",
+        "Porque me salvou;",
+        "E do lenho de uma cruz,",
+        "Onde expirou."
+      ],
+      "coro": [
+        "Na cruz, na cruz,",
+        "Eu primeiro vi a luz,",
+        "E as máculas do meu coração",
+        "Se lavaram lá na cruz."
+      ],
+      "estrofes": [
+        {
+          "numero": 1,
+          "texto": [
+            "Lembro-me bem de Jesus,",
+            "Porque me salvou;",
+            "E do lenho de uma cruz,",
+            "Onde expirou."
+          ]
+        },
+        {
+          "numero": 2,
+          "texto": [
+            "Tudo o que me faz lembrar",
+            "Desse grande amor,",
+            "Que Jesus quis demonstrar",
+            "Como Salvador."
+          ]
+        },
+        {
+          "numero": 3,
+          "texto": [
+            "Sim, Jesus por Sua cruz,",
+            "Fez-me conhecer",
+            "O caminho que conduz",
+            "A melhor viver."
+          ]
+        },
+        {
+          "numero": 4,
+          "texto": [
+            "Da vergonha, em lugar",
+            "De me envergonhar,",
+            "Quero sempre me gloriar",
+            "Na cruz de Jesus."
+          ]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Plena Paz",
+      "versos": [
+        "Plena paz e santo gozo,",
+        "Tenho em ti, ó meu Jesus!",
+        "Pois eu creio em Tua morte sobre a cruz."
+      ],
+      "coro": [
+        "Sim, Jesus, comigo estás,",
+        "Sim, em Ti seguro estou!",
+        "Como é preciosa Tua paz,",
+        "Bem contente eu vou."
+      ],
+      "estrofes": [
+        {
+          "numero": 1,
+          "texto": [
+            "Plena paz e santo gozo,",
+            "Tenho em ti, ó meu Jesus!",
+            "Pois eu creio em Tua morte sobre a cruz."
+          ]
+        },
+        {
+          "numero": 2,
+          "texto": [
+            "Oh! que paz inefável,",
+            "Sinto em meu coração!",
+            "Pois Jesus me garante a salvação!"
+          ]
+        },
+        {
+          "numero": 3,
+          "texto": [
+            "Eu sou fraco, bem o sabes,",
+            "Ó bendito Salvador!",
+            "Toma-me nos Teus braços, com amor."
+          ]
+        },
+        {
+          "numero": 4,
+          "texto": [
+            "Tu és tudo para mim,",
+            "Tudo encontro, meu Senhor,",
+            "Nesse sangue eficaz purificador."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -95,7 +96,7 @@ const BibleSlide = () => {
     >
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0" />
 
-      <div className="absolute top-4 left-4 z-10">
+      <div className="absolute top-4 left-4 z-20">
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/biblia/${livro}/${capitulo}?versao=${versaoBiblia}`)}
@@ -105,16 +106,16 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-full w-[90vw] mx-auto text-center flex flex-col items-center justify-center z-10 overflow-hidden">
-        <h1 className="text-4xl font-bold uppercase tracking-wide text-yellow-500 mb-6 md:mb-8">
+      <div className="max-w-full w-[90vw] mx-auto text-center flex flex-col items-center justify-center z-10 overflow-hidden pt-16">
+        <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-yellow-500 mb-6 md:mb-8">
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
         {versiculo.titulo && (
-          <h2 className="text-4xl font-bold text-green-500 mb-8 md:mb-12">{versiculo.titulo}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-green-500 mb-8 md:mb-12">{versiculo.titulo}</h2>
         )}
         
-        <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 md:mb-16 leading-normal max-w-[95vw]">
+        <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-10 md:mb-16 leading-normal max-w-[95vw]">
           {versiculo.texto}
         </p>
         
