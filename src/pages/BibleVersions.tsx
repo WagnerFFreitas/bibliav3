@@ -128,4 +128,3 @@ const BibleVersions = () => {
 };
 
 export default BibleVersions;
-

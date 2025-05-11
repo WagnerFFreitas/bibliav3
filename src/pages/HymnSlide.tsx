@@ -122,7 +122,7 @@ const HymnSlide = () => {
     >
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0" />
 
-      <div className="absolute top-4 left-4 z-20">
+      <div className="absolute top-4 left-4 z-30">
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/${tipo}`)}
@@ -132,7 +132,7 @@ const HymnSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-full w-[90vw] mx-auto text-center flex flex-col items-center justify-center z-10 overflow-hidden pt-16">
+      <div className="max-w-full w-[90vw] mx-auto text-center flex flex-col items-center justify-center z-10 overflow-hidden pt-24">
         <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-yellow-500 mb-6">
           {tipoName} - HINO {hino.numero}
         </h1>

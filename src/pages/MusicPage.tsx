@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Presentation, Music } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
-import { harpaHinos } from "@/data/harpa/hinos.json";
 
 const MusicPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,7 +45,7 @@ const MusicPage = () => {
       <header className="w-full p-4 bg-black border-b border-gray-800">
         <div className="container mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
           <Link to="/" className="text-3xl font-bold italic text-gray-300 hover:text-white transition">
-            Bíblia Sagrada
+            BíbliaV3
           </Link>
           
           <div className="flex w-full md:w-auto items-center gap-2">
@@ -172,7 +171,7 @@ const MusicPage = () => {
       
       <footer className="bg-black p-4 border-t border-gray-800">
         <div className="container mx-auto text-center text-sm text-gray-400">
-          © Bíblia Sagrada 2024
+          © BíbliaV3 2024
         </div>
       </footer>
       
