@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Download, Monitor, Smartphone, Tablet } from "lucide-react";
+import { Download, Monitor, Smartphone, Tablet, AlertCircle } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const Downloads = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +16,7 @@ const Downloads = () => {
       <header className="w-full p-4 bg-black border-b border-gray-800">
         <div className="container mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
           <Link to="/" className="text-3xl font-bold italic text-gray-300 hover:text-white transition">
-            Bíblia Sagrada
+            BíbliaV3
           </Link>
           
           <div className="flex w-full md:w-auto items-center gap-2">
@@ -57,6 +58,60 @@ const Downloads = () => {
           <p className="text-gray-300 mb-8">
             Baixe a Bíblia Sagrada em diferentes formatos e para diferentes dispositivos. Tenha acesso à Palavra de Deus mesmo sem conexão à internet.
           </p>
+          
+          {/* Nova seção para o aplicativo Flutter */}
+          <div className="mb-10 p-6 border-2 border-indigo-600 rounded-lg bg-indigo-900/20">
+            <h2 className="text-2xl font-bold mb-4 text-indigo-400 flex items-center">
+              <Smartphone className="w-8 h-8 mr-2" />
+              Novo! Aplicativo Mobile com Flutter
+            </h2>
+            <p className="text-gray-300 mb-6">
+              Experimente nossa versão mais recente desenvolvida com Flutter, oferecendo compatibilidade completa com Android e iOS. 
+              Acesse todas as funcionalidades da BíbliaV3 diretamente do seu dispositivo móvel, com suporte offline.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-black/40 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-indigo-300">Principais recursos:</h3>
+                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  <li>Acesso offline a todas as versões da Bíblia</li>
+                  <li>Modo escuro e modo claro</li>
+                  <li>Sincronização de anotações entre dispositivos</li>
+                  <li>Modo de apresentação para projeção</li>
+                  <li>Design otimizado para telas de celular e tablet</li>
+                </ul>
+              </div>
+              
+              <div className="bg-black/40 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-indigo-300">Requisitos:</h3>
+                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  <li>Android 6.0 ou superior</li>
+                  <li>iOS 13 ou superior</li>
+                  <li>200MB de espaço em disco</li>
+                  <li>Conexão com internet para download inicial</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                <Download className="mr-2 h-5 w-5" />
+                Baixar para Android (APK)
+              </Button>
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Download className="mr-2 h-5 w-5" />
+                Baixar para iOS (App Store)
+              </Button>
+            </div>
+            
+            <Alert className="mt-6 bg-yellow-900/20 border border-yellow-600/50">
+              <AlertCircle className="h-4 w-4 text-yellow-500" />
+              <AlertTitle className="text-yellow-500">Código-fonte disponível</AlertTitle>
+              <AlertDescription className="text-gray-300">
+                Este aplicativo é open source e foi desenvolvido com Flutter. Desenvolvedores interessados podem contribuir acessando nosso repositório no GitHub.
+              </AlertDescription>
+            </Alert>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 border border-gray-800 rounded-lg bg-black/30 flex flex-col items-center text-center">
@@ -151,7 +206,7 @@ const Downloads = () => {
       
       <footer className="bg-black p-4 border-t border-gray-800">
         <div className="container mx-auto text-center text-sm text-gray-400">
-          © Bíblia Sagrada 2024
+          © BíbliaV3 2024
         </div>
       </footer>
       
