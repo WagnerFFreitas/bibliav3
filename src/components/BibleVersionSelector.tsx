@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Book } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const versoesBiblia = [
   { id: "nvi", nome: "Nova Versão Internacional" },
@@ -36,6 +37,7 @@ const BibleVersionSelector = ({
   bookLink = "/biblia/genesis/1"
 }: BibleVersionSelectorProps) => {
   const [versaoSelecionada, setVersaoSelecionada] = useState(initialVersion);
+  const isMobile = useIsMobile();
 
   const handleVersionChange = (versao: string) => {
     setVersaoSelecionada(versao);
@@ -45,24 +47,24 @@ const BibleVersionSelector = ({
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mx-auto">
+    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center w-full max-w-lg mx-auto">
       <div className="w-full sm:w-2/3">
         <Select value={versaoSelecionada} onValueChange={handleVersionChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full text-xs sm:text-sm">
             <SelectValue placeholder="Selecione uma versão" />
           </SelectTrigger>
           <SelectContent>
             {versoesBiblia.map((versao) => (
-              <SelectItem key={versao.id} value={versao.id}>
-                {versao.nome}
+              <SelectItem key={versao.id} value={versao.id} className="text-xs sm:text-sm">
+                {isMobile ? versao.id.toUpperCase() : versao.nome}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
-      <Button className="w-full sm:w-auto" size="sm" asChild>
-        <Link to={`${bookLink}?versao=${versaoSelecionada}`}>
-          <Book className="mr-2 h-4 w-4" />
+      <Button className="w-full sm:w-auto" size={isMobile ? "sm" : "default"} asChild>
+        <Link to={`${bookLink}?versao=${versaoSelecionada}`} className="text-xs sm:text-sm">
+          <Book className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
           Ler Agora
         </Link>
       </Button>

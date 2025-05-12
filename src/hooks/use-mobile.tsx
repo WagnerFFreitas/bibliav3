@@ -2,28 +2,29 @@
 import * as React from "react"
 
 // Different breakpoints for different device sizes
-export const MOBILE_BREAKPOINT = 768
+export const MOBILE_BREAKPOINT = 640 // Changed from 768 to better match mobile devices
 export const TABLET_BREAKPOINT = 1024
 export const DESKTOP_BREAKPOINT = 1280
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = React.useState<boolean>(false)
 
   React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
+    const handleResize = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
+    
+    window.addEventListener("resize", handleResize)
+    handleResize() // Initialize on mount
+    
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  return !!isMobile
+  return isMobile
 }
 
 export function useIsTablet() {
-  const [isTablet, setIsTablet] = React.useState<boolean | undefined>(undefined)
+  const [isTablet, setIsTablet] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -37,7 +38,24 @@ export function useIsTablet() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  return !!isTablet
+  return isTablet
+}
+
+export function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = React.useState<boolean>(false)
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= TABLET_BREAKPOINT)
+    }
+    
+    window.addEventListener("resize", handleResize)
+    handleResize() // Initialize on mount
+    
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return isDesktop
 }
 
 export function useDeviceType() {
@@ -62,4 +80,21 @@ export function useDeviceType() {
   }, [])
 
   return deviceType
+}
+
+export function useBreakpoint(breakpoint: number) {
+  const [isAbove, setIsAbove] = React.useState<boolean>(false)
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsAbove(window.innerWidth >= breakpoint)
+    }
+    
+    window.addEventListener("resize", handleResize)
+    handleResize() // Initialize on mount
+    
+    return () => window.removeEventListener("resize", handleResize)
+  }, [breakpoint])
+
+  return isAbove
 }
