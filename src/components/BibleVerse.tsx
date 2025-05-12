@@ -73,13 +73,13 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua casa:",
         2: "Rúben, Simeão, Levi, e Judá;",
-        3: "Issacar, Zebulom, e Benjamim;",
+        3: "Issacar, Zebulom, Benjamim;",
         4: "Dã e Naftali, Gade e Aser.",
-        5: "Todas as almas, pois, que procederam dos lombos de Jacó, foram setenta almas; José, porém, estava no Egito."
+        5: "Toda descendência de Jacó foi de setenta pessoas; José, porém, estava no Egito."
       },
       2: {
         1: "E foi-se um homem da casa de Levi e casou com uma filha de Levi.",
-        2: "E a mulher concebeu e deu à luz um filho; e, vendo que ele era formoso, escondeu-o três meses."
+        2: "E a mulher concebeu e deu à luz um filho; vendo que era formoso, escondeu-o por três meses."
       }
     }
   },
@@ -112,7 +112,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         2: "Rúben, Simeão, Levi e Judá,",
         3: "Issacar, Zebulom, Benjamim,",
         4: "Dã e Naftali, Gade e Aser.",
-        5: "Toda descendência de Jacó foi de setenta pessoas; José, porém, já estava no Egito."
+        5: "Toda descendência de Jacó foi de setenta pessoas. José já estava no Egito."
       },
       2: {
         1: "Um homem da casa de Levi casou-se com uma filha de Levi.",
@@ -133,14 +133,14 @@ const versiculosExemploPorVersao: Record<string, any> = {
         8: "Ao firmamento, Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
         9: "Disse Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim foi.",
         10: "Deus chamou ao elemento seco 'terra' e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom.",
-        11: "Disse Deus: 'Produza a terra relva, ervas que deem semente e árvores frutíferas que, segundo as suas espécies, deem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
+        11: "Disse Deus: 'Produza a terra relva, ervas que dêem semente e árvores frutíferas que, segundo as suas espécies, dêem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
         12: "A terra produziu relva, ervas que davam semente segundo as suas espécies e árvores que davam fruto que tinha em si a sua semente, segundo as suas espécies. E Deus viu que isso era bom.",
         13: "Houve tarde e manhã: o terceiro dia."
       },
       2: {
         1: "Assim, pois, foram acabados os céus e a terra e todo o seu exército.",
         2: "No sétimo dia, Deus já havia acabado a obra que fizera, e descansou nesse dia de toda a obra que tinha feito.",
-        3: "Deus abençoou o sétimo dia e o santificou, porque nele descansou de toda a obra que realizara na criação."
+        3: "Deus abençoou o sétimo dia e o santificou, porque nesse dia ele descansou de toda a obra que realizara na criação."
       }
     },
     exodo: {
@@ -543,14 +543,38 @@ const formatBookName = (bookId: string): string => {
   return bookMap[bookId] || bookId;
 };
 
+// Função para verificar se o versículo tem título
+const getVerseTitle = (versiculo: any): string | null => {
+  if (typeof versiculo === 'object' && versiculo.titulo) {
+    return versiculo.titulo;
+  }
+  if (typeof versiculo === 'object' && versiculo.título) {
+    return versiculo.título;
+  }
+  return null;
+};
+
+// Função para obter o texto do versículo
+const getVerseText = (versiculo: any): string => {
+  if (typeof versiculo === 'string') {
+    return versiculo;
+  }
+  if (typeof versiculo === 'object' && versiculo.texto) {
+    return versiculo.texto;
+  }
+  return versiculo || "";
+};
+
 // Create BibleVerse component
 const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVerseProps) => {
   const [texto, setTexto] = useState<string | null>(null);
+  const [titulo, setTitulo] = useState<string | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   
   useEffect(() => {
     if (!versiculo) {
       setTexto(null);
+      setTitulo(null);
       setErro(null);
       return;
     }
@@ -558,13 +582,15 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
     if (!versiculoExiste(livro, capitulo, versiculo)) {
       setErro(`O versículo ${versiculo} não existe em ${formatBookName(livro)} ${capitulo}.`);
       setTexto(null);
+      setTitulo(null);
       return;
     }
     
-    const versiculoTexto = versiculosExemploPorVersao[versao]?.[livro]?.[capitulo]?.[versiculo];
+    const versiculoData = versiculosExemploPorVersao[versao]?.[livro]?.[capitulo]?.[versiculo];
     
-    if (versiculoTexto) {
-      setTexto(versiculoTexto);
+    if (versiculoData) {
+      setTexto(getVerseText(versiculoData));
+      setTitulo(getVerseTitle(versiculoData));
       setErro(null);
     } else {
       // Tentar encontrar o versículo em outra versão se não estiver disponível na versão solicitada
@@ -572,10 +598,12 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
       const versiculoDefault = versiculosExemploPorVersao[versaoPadrao]?.[livro]?.[capitulo]?.[versiculo];
       
       if (versiculoDefault) {
-        setTexto(versiculoDefault);
+        setTexto(getVerseText(versiculoDefault));
+        setTitulo(getVerseTitle(versiculoDefault));
         setErro(`Versículo não disponível na versão ${versao.toUpperCase()}. Exibindo da versão ${versaoPadrao.toUpperCase()}.`);
       } else {
         setTexto("Este é um texto simulado. A versão completa deste versículo não está disponível no momento.");
+        setTitulo(null);
         setErro(`Versículo não disponível em ${formatBookName(livro)} ${capitulo}:${versiculo}.`);
       }
     }
@@ -592,6 +620,12 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
       {erro && (
         <div className="mb-4 text-amber-400 text-sm">
           {erro}
+        </div>
+      )}
+      
+      {titulo && (
+        <div className="mb-3 text-lg font-semibold text-green-400 border-b border-green-900 pb-2">
+          {titulo}
         </div>
       )}
       
