@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Download, Monitor, Smartphone, Tablet, AlertCircle, Apple, Android } from "lucide-react";
+import { Download, Monitor, Smartphone, Tablet, AlertCircle, Apple } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { 
@@ -27,7 +27,25 @@ const Downloads = () => {
   const [searchTerm, setSearchTerm] = useState("");
   
   const handleDownload = (platform: string, version: string) => {
-    const fileUrls = {
+    interface FileUrls {
+      android: {
+        app: string;
+        flutter: string;
+      };
+      ios: {
+        app: string;
+        flutter: string;
+      };
+      windows: string;
+      mac: string;
+      linux: string;
+      pdf: string;
+      epub: string;
+      mobi: string;
+      [key: string]: string | { app: string; flutter: string; };
+    }
+    
+    const fileUrls: FileUrls = {
       android: {
         app: "/downloads/bibliav3-android-app.apk",
         flutter: "/downloads/bibliav3-flutter-android.apk"
@@ -46,19 +64,37 @@ const Downloads = () => {
     
     // Para versões iOS que redirecionam para a App Store
     if (platform === 'ios') {
-      window.open(fileUrls.ios[version as keyof typeof fileUrls.ios], '_blank');
+      const iosUrl = fileUrls.ios[version as keyof typeof fileUrls.ios];
+      window.open(iosUrl, '_blank');
+      return;
+    }
+    
+    // Para Android, pegar a URL correta baseada na versão
+    if (platform === 'android') {
+      const androidUrl = fileUrls.android[version as keyof typeof fileUrls.android];
+      const link = document.createElement('a');
+      link.href = androidUrl;
+      link.download = `bibliav3-${platform}-${version}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       return;
     }
     
     // Para outros arquivos, iniciamos o download direto
     const link = document.createElement('a');
-    link.href = platform === 'android' 
-      ? fileUrls.android[version as keyof typeof fileUrls.android]
-      : fileUrls[platform as keyof typeof fileUrls];
-    link.download = `bibliav3-${platform}${version ? '-' + version : ''}`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const url = fileUrls[platform];
+    
+    // Verificar se é string antes de atribuir
+    if (typeof url === 'string') {
+      link.href = url;
+      link.download = `bibliav3-${platform}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      console.error("URL inválida para download:", platform, version);
+    }
   };
   
   return (
@@ -150,7 +186,7 @@ const Downloads = () => {
                 className="bg-green-600 hover:bg-green-700 text-white"
                 onClick={() => handleDownload('android', 'flutter')}
               >
-                <Android className="mr-2 h-5 w-5" />
+                <Smartphone className="mr-2 h-5 w-5" />
                 Baixar para Android (APK)
               </Button>
               
@@ -212,7 +248,7 @@ const Downloads = () => {
                   className="bg-indigo-700 hover:bg-indigo-600"
                   onClick={() => handleDownload('android', 'app')}
                 >
-                  <Android className="mr-2 h-4 w-4" />
+                  <Smartphone className="mr-2 h-4 w-4" />
                   Android
                 </Button>
                 
@@ -255,7 +291,7 @@ const Downloads = () => {
                   className="bg-indigo-700 hover:bg-indigo-600"
                   onClick={() => handleDownload('android', 'app')}
                 >
-                  <Android className="mr-2 h-4 w-4" />
+                  <Smartphone className="mr-2 h-4 w-4" />
                   Android
                 </Button>
                 <Button 
