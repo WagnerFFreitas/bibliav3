@@ -1,0 +1,66 @@
+
+{
+  "hinos": [
+    {
+      "numero": 1,
+      "titulo": "Grande é o Senhor",
+      "letra": [
+        "Grande é o Senhor e mui digno de louvor",
+        "Na cidade do nosso Deus, seu santo monte",
+        "Alegria de toda a terra",
+        "",
+        "Grande é o Senhor em quem nós temos a vitória",
+        "Que nos ajuda contra o inimigo",
+        "Por isso diante dele nos prostramos",
+        "",
+        "Queremos o teu nome engrandecer",
+        "E agradecer-te por tua obra em nossas vidas",
+        "Confiamos em teu infinito amor",
+        "Tua presença é o nosso sustento"
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Vencendo Vem Jesus",
+      "letra": [
+        "Vencendo vem Jesus, o mundo conquistando,",
+        "Com poder e grande glória descerá;",
+        "A terra e o céu contempla-lo-ão,",
+        "E toda a tribo O verá.",
+        "",
+        "Coro:",
+        "Glória, glória, aleluia!",
+        "Glória, glória, aleluia!",
+        "Glória, glória, aleluia!",
+        "Cristo logo voltará!",
+        "",
+        "Os que choraram, então, exultarão,",
+        "E os que O negaram vão gemer;",
+        "A morte vencerá, e a vida triunfará,",
+        "Pois Cristo vai aparecer."
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Deus Está Presente",
+      "letra": [
+        "Deus está presente neste santo lugar",
+        "Como é tremendo estar aqui",
+        "Diante do trono do grande Rei dos reis",
+        "Numa atitude de humilde adoração",
+        "",
+        "Coro:",
+        "Santo, santo, santo",
+        "É o Senhor Deus",
+        "Digno de louvor",
+        "Santo, santo, santo",
+        "É o Senhor",
+        "",
+        "Vamos adorá-lo com reverência",
+        "Pois Ele é santo, Ele é santo",
+        "Vamos nos prostrar, com a face em terra",
+        "Pois Ele é santo, Ele é santo"
+      ]
+    }
+  ]
+}

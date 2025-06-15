@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ScrollToTop from "@/components/ScrollToTop";
+import HymnViewer from "@/components/HymnViewer";
 
 const MusicPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -51,57 +52,15 @@ const MusicPage = () => {
       </header>
       
       <main className="flex-1 p-6 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed">
-        <div className="container mx-auto max-w-5xl bg-black/70 p-6 rounded-lg">
+        <div className="container mx-auto max-w-7xl bg-black/70 p-6 rounded-lg">
           <h1 className="text-3xl font-bold mb-6">Harpa Cristã</h1>
           
-          <div className="mb-8">
-            <Input
-              type="text"
-              placeholder="Pesquisar hino por título ou número..."
-              className="w-full bg-zinc-900 border-zinc-700"
-            />
-          </div>
+          <p className="text-gray-300 mb-8">
+            A Harpa Cristã é uma coletânea de hinos evangelicos tradicional, amplamente utilizada 
+            pelas Assembleias de Deus no Brasil. Explore e cante os hinos que edificam a fé.
+          </p>
           
-          <div className="grid grid-cols-5 md:grid-cols-10 gap-2 mb-8">
-            {Array.from({ length: 50 }, (_, i) => (
-              <Button
-                key={i}
-                variant="outline"
-                className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 text-white"
-              >
-                {i + 1}
-              </Button>
-            ))}
-          </div>
-          
-          <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-            <h2 className="text-xl font-bold mb-2 text-indigo-300">Harpa Cristã nº 1 - Chuvas de Graça</h2>
-            <div className="space-y-4 text-gray-300">
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Chuvas pedimos,<br />
-                 Senhor, enviai.
-              </p>
-              <p>Coro:<br />
-                 Chuvas de graça,<br />
-                 Chuvas mandai;<br />
-                 Gotas celestiais já nos chegam,<br />
-                 Chuvas, a todos, Senhor, enviai.
-              </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Dá-nos os frutos e não tardes mais.
-              </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Manda-nos chuvas sem mais demorar.
-              </p>
-              <p>Chuvas de graça,<br />
-                 Divinas, mandai;<br />
-                 Chuvas constantes, Senhor, enviai.
-              </p>
-            </div>
-          </div>
+          <HymnViewer tipo="harpa" />
         </div>
       </main>
       

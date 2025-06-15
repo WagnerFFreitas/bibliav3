@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ScrollToTop from "@/components/ScrollToTop";
+import DictionarySearch from "@/components/DictionarySearch";
 
 const Dictionary = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,60 +51,15 @@ const Dictionary = () => {
       </header>
       
       <main className="flex-1 p-6 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed">
-        <div className="container mx-auto max-w-5xl bg-black/70 p-6 rounded-lg">
+        <div className="container mx-auto max-w-6xl bg-black/70 p-6 rounded-lg">
           <h1 className="text-3xl font-bold mb-6">Dicionário e Concordância Bíblica</h1>
           
-          <div className="mb-8">
-            <Input
-              type="text"
-              placeholder="Buscar termo no dicionário..."
-              className="w-full bg-zinc-900 border-zinc-700"
-            />
-          </div>
+          <p className="text-gray-300 mb-8">
+            Explore termos bíblicos com definições detalhadas no Dicionário Bíblico, ou encontre versículos 
+            específicos que contêm determinadas palavras através da Concordância Bíblica.
+          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {Array.from({ length: 26 }, (_, i) => (
-              <Button
-                key={i}
-                variant="outline"
-                className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 text-white"
-              >
-                {String.fromCharCode(65 + i)}
-              </Button>
-            ))}
-          </div>
-          
-          <div className="space-y-6">
-            <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-              <h2 className="text-xl font-bold mb-2 text-indigo-300">Aarão</h2>
-              <p className="text-gray-300">
-                Irmão mais velho de Moisés, primeiro sumo sacerdote de Israel. Sua linha familiar continuou no sacerdócio até o fim do período do Antigo Testamento.
-              </p>
-              <div className="mt-2 text-sm">
-                <span className="text-indigo-300 font-semibold">Referências:</span> Êxodo 4:14, Levítico 8:1-36
-              </div>
-            </div>
-            
-            <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-              <h2 className="text-xl font-bold mb-2 text-indigo-300">Abel</h2>
-              <p className="text-gray-300">
-                Segundo filho de Adão e Eva. Foi morto por seu irmão Caim por inveja depois que Deus aceitou sua oferta e rejeitou a de Caim.
-              </p>
-              <div className="mt-2 text-sm">
-                <span className="text-indigo-300 font-semibold">Referências:</span> Gênesis 4:1-16, Hebreus 11:4
-              </div>
-            </div>
-            
-            <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-              <h2 className="text-xl font-bold mb-2 text-indigo-300">Abimelec</h2>
-              <p className="text-gray-300">
-                Título comum dado aos reis filisteus. Aparece em conexão com Abraão e Isaque.
-              </p>
-              <div className="mt-2 text-sm">
-                <span className="text-indigo-300 font-semibold">Referências:</span> Gênesis 20:1-18, 26:1-33
-              </div>
-            </div>
-          </div>
+          <DictionarySearch />
         </div>
       </main>
       

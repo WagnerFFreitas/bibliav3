@@ -1,0 +1,76 @@
+
+{
+  "hinos": [
+    {
+      "numero": 1,
+      "titulo": "Chuvas de Graça",
+      "letra": [
+        "Chuvas de graça,",
+        "Divinas, mandai;",
+        "Chuvas pedimos,",
+        "Senhor, enviai.",
+        "",
+        "Coro:",
+        "Chuvas de graça,",
+        "Chuvas mandai;",
+        "Gotas celestiais já nos chegam,",
+        "Chuvas, a todos, Senhor, enviai.",
+        "",
+        "Chuvas de graça,",
+        "Divinas, mandai;",
+        "Dá-nos os frutos e não tardes mais.",
+        "",
+        "Chuvas de graça,",
+        "Divinas, mandai;",
+        "Manda-nos chuvas sem mais demorar.",
+        "",
+        "Chuvas de graça,",
+        "Divinas, mandai;",
+        "Chuvas constantes, Senhor, enviai."
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Grande Alegria",
+      "letra": [
+        "Grande alegria há no meu ser,",
+        "Pois Cristo me salvou;",
+        "Eu era escravo do pecar,",
+        "Mas Cristo me libertou.",
+        "",
+        "Coro:",
+        "Que grande alegria!",
+        "Jesus me salvou!",
+        "Que grande alegria!",
+        "No meu coração derramou.",
+        "",
+        "Tão grande alegria jamais senti,",
+        "Igual à que tenho em meu coração;",
+        "Pois sei que Jesus me redimiu",
+        "E me deu a sua salvação."
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Louvai a Deus",
+      "letra": [
+        "Louvai a Deus,",
+        "Louvai a Deus",
+        "No firmamento do seu poder.",
+        "Louvai-O pelos seus atos poderosos,",
+        "Louvai-O conforme a sua grandeza.",
+        "",
+        "Coro:",
+        "Aleluia! Aleluia!",
+        "Louvai ao Senhor!",
+        "Aleluia! Aleluia!",
+        "Louvai ao Senhor!",
+        "",
+        "Louvai-O com o som da trombeta,",
+        "Louvai-O com o saltério e a harpa;",
+        "Louvai-O com o tamborim e com a dança,",
+        "Louvai-O com cordas e flautas."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+
+{
+  "termos": [
+    {
+      "termo": "Abba",
+      "definicao": "Palavra aramaica que significa 'pai'. Jesus usou este termo íntimo para se dirigir a Deus (Marcos 14:36).",
+      "referencias": ["Marcos 14:36", "Romanos 8:15", "Gálatas 4:6"]
+    },
+    {
+      "termo": "Aliança",
+      "definicao": "Acordo solene entre Deus e os homens. As principais alianças bíblicas incluem as feitas com Noé, Abraão, Moisés e Davi.",
+      "referencias": ["Gênesis 9:8-17", "Gênesis 17:1-8", "Êxodo 19-24", "2 Samuel 7:12-16"]
+    },
+    {
+      "termo": "Amém",
+      "definicao": "Palavra hebraica que significa 'assim seja' ou 'verdadeiramente'. Expressa concordância e confirmação.",
+      "referencias": ["Deuteronômio 27:15-26", "1 Coríntios 14:16", "Apocalipse 3:14"]
+    },
+    {
+      "termo": "Anjo",
+      "definicao": "Ser celestial criado por Deus para servi-lo. A palavra significa 'mensageiro'.",
+      "referencias": ["Salmo 91:11", "Hebreus 1:14", "Lucas 1:26-38"]
+    },
+    {
+      "termo": "Apostolo",
+      "definicao": "Literalmente 'enviado'. Os doze discípulos escolhidos por Jesus, e posteriormente Paulo e outros.",
+      "referencias": ["Mateus 10:1-4", "1 Coríntios 15:5-8", "Efésios 2:20"]
+    },
+    {
+      "termo": "Batismo",
+      "definicao": "Sacramento cristão que simboliza morte para o pecado e ressurreição para nova vida em Cristo.",
+      "referencias": ["Mateus 28:19", "Romanos 6:3-4", "Atos 2:38"]
+    },
+    {
+      "termo": "Blasfêmia",
+      "definicao": "Falar contra Deus de forma desrespeitosa ou injuriosa.",
+      "referencias": ["Levítico 24:16", "Mateus 12:31", "Marcos 3:28-29"]
+    },
+    {
+      "termo": "Cristo",
+      "definicao": "Palavra grega que significa 'ungido', equivalente ao hebraico 'Messias'. Título dado a Jesus.",
+      "referencias": ["Mateus 16:16", "João 1:41", "Atos 9:22"]
+    },
+    {
+      "termo": "Discípulo",
+      "definicao": "Aquele que aprende e segue os ensinamentos de um mestre. Seguidores de Jesus Cristo.",
+      "referencias": ["Mateus 4:19", "Lucas 14:26-27", "João 8:31"]
+    },
+    {
+      "termo": "Evangelho",
+      "definicao": "Boas novas da salvação em Jesus Cristo. Também se refere aos quatro primeiros livros do Novo Testamento.",
+      "referencias": ["Marcos 1:1", "Romanos 1:16", "1 Coríntios 15:1-4"]
+    },
+    {
+      "termo": "Fé",
+      "definicao": "Confiança e crença em Deus e em suas promessas. Elemento essencial da vida cristã.",
+      "referencias": ["Hebreus 11:1", "Romanos 10:17", "Efésios 2:8"]
+    },
+    {
+      "termo": "Graça",
+      "definicao": "Favor imerecido de Deus. Bondade divina mostrada aos pecadores.",
+      "referencias": ["Efésios 2:8-9", "Romanos 3:24", "2 Coríntios 12:9"]
+    },
+    {
+      "termo": "Hallelujah",
+      "definicao": "Expressão hebraica que significa 'louvai ao Senhor'. Usado em adoração e louvor.",
+      "referencias": ["Salmo 146:1", "Apocalipse 19:1", "Salmo 150:1"]
+    },
+    {
+      "termo": "Hosana",
+      "definicao": "Grito hebraico que significa 'salva agora' ou 'salva, por favor'. Usado como aclamação.",
+      "referencias": ["Mateus 21:9", "Marcos 11:9-10", "João 12:13"]
+    },
+    {
+      "termo": "Israel",
+      "definicao": "Nome dado a Jacó após lutar com o anjo. Também se refere ao povo escolhido de Deus.",
+      "referencias": ["Gênesis 32:28", "Êxodo 3:16", "Romanos 9:6"]
+    },
+    {
+      "termo": "Justificação",
+      "definicao": "Ato de Deus pelo qual declara o pecador justo mediante a fé em Cristo.",
+      "referencias": ["Romanos 3:24", "Romanos 5:1", "Gálatas 2:16"]
+    },
+    {
+      "termo": "Messias",
+      "definicao": "Palavra hebraica que significa 'ungido'. Refere-se ao Salvador prometido por Deus.",
+      "referencias": ["Daniel 9:25", "João 1:41", "João 4:25-26"]
+    },
+    {
+      "termo": "Oração",
+      "definicao": "Comunicação com Deus através de palavras, pensamentos ou sentimentos.",
+      "referencias": ["Mateus 6:5-13", "1 Tessalonicenses 5:17", "Filipenses 4:6"]
+    },
+    {
+      "termo": "Parábola",
+      "definicao": "História terrena com significado celestial. Método de ensino usado por Jesus.",
+      "referencias": ["Mateus 13:3", "Marcos 4:2", "Lucas 8:4"]
+    },
+    {
+      "termo": "Pecado",
+      "definicao": "Transgressão da lei de Deus. Desobediência à vontade divina.",
+      "referencias": ["1 João 3:4", "Romanos 3:23", "Romanos 6:23"]
+    },
+    {
+      "termo": "Profeta",
+      "definicao": "Pessoa escolhida por Deus para transmitir sua mensagem ao povo.",
+      "referencias": ["Deuteronômio 18:18", "Amós 3:7", "2 Pedro 1:21"]
+    },
+    {
+      "termo": "Redenção",
+      "definicao": "Libertação do pecado através do sacrifício de Cristo. Ato de comprar de volta.",
+      "referencias": ["Efésios 1:7", "1 Pedro 1:18-19", "Gálatas 3:13"]
+    },
+    {
+      "termo": "Ressurreição",
+      "definicao": "Retorno à vida após a morte. Promessa cristã de vida eterna.",
+      "referencias": ["1 Coríntios 15:12-20", "João 11:25", "Romanos 6:5"]
+    },
+    {
+      "termo": "Salvação",
+      "definicao": "Libertação do pecado e suas consequências através de Jesus Cristo.",
+      "referencias": ["Atos 4:12", "Romanos 10:9-10", "Efésios 2:8-9"]
+    },
+    {
+      "termo": "Santificação",
+      "definicao": "Processo de tornar-se santo. Crescimento na semelhança com Cristo.",
+      "referencias": ["1 Tessalonicenses 4:3", "2 Coríntios 3:18", "Romanos 6:19"]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ScrollToTop from "@/components/ScrollToTop";
+import HymnViewer from "@/components/HymnViewer";
 
 const HinarioPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -51,47 +52,15 @@ const HinarioPage = () => {
       </header>
       
       <main className="flex-1 p-6 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed">
-        <div className="container mx-auto max-w-5xl bg-black/70 p-6 rounded-lg">
-          <h1 className="text-3xl font-bold mb-6">Hinário Cristão</h1>
+        <div className="container mx-auto max-w-7xl bg-black/70 p-6 rounded-lg">
+          <h1 className="text-3xl font-bold mb-6">Cantor Cristão</h1>
           
-          <div className="mb-8">
-            <Input
-              type="text"
-              placeholder="Pesquisar hino por título ou número..."
-              className="w-full bg-zinc-900 border-zinc-700"
-            />
-          </div>
+          <p className="text-gray-300 mb-8">
+            O Cantor Cristão é um hinário tradicional amplamente utilizado pelas igrejas batistas 
+            no Brasil. Explore os hinos clássicos que fazem parte da rica tradição cristã.
+          </p>
           
-          <div className="grid grid-cols-5 md:grid-cols-10 gap-2 mb-8">
-            {Array.from({ length: 50 }, (_, i) => (
-              <Button
-                key={i}
-                variant="outline"
-                className="bg-blue-900/80 hover:bg-blue-800 border-blue-700 text-white"
-              >
-                {i + 1}
-              </Button>
-            ))}
-          </div>
-          
-          <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
-            <h2 className="text-xl font-bold mb-2 text-blue-300">Hinário Cristão nº 1 - Grande é o Senhor</h2>
-            <div className="space-y-4 text-gray-300">
-              <p>Grande é o Senhor e mui digno de louvor<br />
-                 Na cidade do nosso Deus, seu santo monte<br />
-                 Alegria de toda a terra
-              </p>
-              <p>Grande é o Senhor em quem nós temos a vitória<br />
-                 Que nos ajuda contra o inimigo<br />
-                 Por isso diante dele nos prostramos
-              </p>
-              <p>Queremos o teu nome engrandecer<br />
-                 E agradecer-te por tua obra em nossas vidas<br />
-                 Confiamos em teu infinito amor<br />
-                 Tua presença é o nosso sustento
-              </p>
-            </div>
-          </div>
+          <HymnViewer tipo="cantor" />
         </div>
       </main>
       

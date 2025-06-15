@@ -1,0 +1,149 @@
+
+{
+  "termos": [
+    {
+      "palavra": "Amor",
+      "versiculos": [
+        {
+          "referencia": "João 3:16",
+          "texto": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna."
+        },
+        {
+          "referencia": "1 Coríntios 13:4",
+          "texto": "O amor é sofredor, é benigno; o amor não é invejoso; o amor não trata com leviandade, não se ensoberbece."
+        },
+        {
+          "referencia": "1 João 4:8",
+          "texto": "Aquele que não ama não conhece a Deus; porque Deus é amor."
+        },
+        {
+          "referencia": "Romanos 5:8",
+          "texto": "Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores."
+        }
+      ]
+    },
+    {
+      "palavra": "Fé",
+      "versiculos": [
+        {
+          "referencia": "Hebreus 11:1",
+          "texto": "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que não se veem."
+        },
+        {
+          "referencia": "Romanos 10:17",
+          "texto": "De sorte que a fé é pelo ouvir, e o ouvir pela palavra de Deus."
+        },
+        {
+          "referencia": "Efésios 2:8",
+          "texto": "Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus."
+        },
+        {
+          "referencia": "Marcos 11:22",
+          "texto": "E Jesus, respondendo, disse-lhes: Tende fé em Deus."
+        }
+      ]
+    },
+    {
+      "palavra": "Esperança",
+      "versiculos": [
+        {
+          "referencia": "Romanos 15:13",
+          "texto": "Ora, o Deus de esperança vos encha de todo o gozo e paz em crença, para que abundeis em esperança pela virtude do Espírito Santo."
+        },
+        {
+          "referencia": "1 Pedro 1:3",
+          "texto": "Bendito seja o Deus e Pai de nosso Senhor Jesus Cristo que, segundo a sua grande misericórdia, nos gerou de novo para uma viva esperança, pela ressurreição de Jesus Cristo dentre os mortos."
+        },
+        {
+          "referencia": "Hebreus 6:19",
+          "texto": "A qual temos como âncora da alma, segura e firme, e que penetra até ao interior do véu."
+        }
+      ]
+    },
+    {
+      "palavra": "Paz",
+      "versiculos": [
+        {
+          "referencia": "João 14:27",
+          "texto": "Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se atemorize."
+        },
+        {
+          "referencia": "Filipenses 4:7",
+          "texto": "E a paz de Deus, que excede todo o entendimento, guardará os vossos corações e os vossos sentimentos em Cristo Jesus."
+        },
+        {
+          "referencia": "Isaías 26:3",
+          "texto": "Tu conservarás em paz aquele cuja mente está firme em ti; porque ele confia em ti."
+        }
+      ]
+    },
+    {
+      "palavra": "Alegria",
+      "versiculos": [
+        {
+          "referencia": "Salmo 16:11",
+          "texto": "Far-me-ás ver a vereda da vida; na tua presença há abundância de alegrias; à tua mão direita há delícias perpetuamente."
+        },
+        {
+          "referencia": "Neemias 8:10",
+          "texto": "Disse-lhes mais: Ide, comei as gorduras, e bebei as doçuras, e enviai porções aos que não têm nada preparado; porque este dia é consagrado ao nosso Senhor; portanto não vos entristeçais; porque a alegria do Senhor é a vossa força."
+        },
+        {
+          "referencia": "João 15:11",
+          "texto": "Tenho-vos dito isto, para que o meu gozo permaneça em vós, e o vosso gozo seja completo."
+        }
+      ]
+    },
+    {
+      "palavra": "Oração",
+      "versiculos": [
+        {
+          "referencia": "1 Tessalonicenses 5:17",
+          "texto": "Orai sem cessar."
+        },
+        {
+          "referencia": "Filipenses 4:6",
+          "texto": "Não estejais inquietos por coisa alguma; antes as vossas petições sejam em tudo conhecidas diante de Deus pela oração e súplicas, com ação de graças."
+        },
+        {
+          "referencia": "Mateus 6:9",
+          "texto": "Portanto, vós orareis assim: Pai nosso, que estás nos céus, santificado seja o teu nome."
+        }
+      ]
+    },
+    {
+      "palavra": "Perdão",
+      "versiculos": [
+        {
+          "referencia": "1 João 1:9",
+          "texto": "Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados, e nos purificar de toda a injustiça."
+        },
+        {
+          "referencia": "Efésios 4:32",
+          "texto": "Antes sede uns para com os outros benignos, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo."
+        },
+        {
+          "referencia": "Mateus 6:14",
+          "texto": "Porque, se perdoardes aos homens as suas ofensas, também vosso Pai celestial vos perdoará a vós."
+        }
+      ]
+    },
+    {
+      "palavra": "Sabedoria",
+      "versiculos": [
+        {
+          "referencia": "Provérbios 9:10",
+          "texto": "O temor do Senhor é o princípio da sabedoria, e o conhecimento do Santo a prudência."
+        },
+        {
+          "referencia": "Tiago 1:5",
+          "texto": "E, se algum de vós tem falta de sabedoria, peça-a a Deus, que a todos dá liberalmente, e o não lança em rosto, e ser-lhe-á dada."
+        },
+        {
+          "referencia": "Provérbios 3:5-6",
+          "texto": "Confia no Senhor de todo o teu coração, e não te estribes no teu próprio entendimento. Reconhece-o em todos os teus caminhos, e ele endireitará as tuas veredas."
+        }
+      ]
+    }
+  ]
+}
