@@ -5,34 +5,34 @@ import { Github, Twitter, Facebook, Instagram, Book } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted py-8 md:py-12 px-4 md:px-6">
+    <footer className="bg-muted py-12 px-4 md:px-6">
       <div className="container mx-auto max-w-5xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="col-span-1 md:col-span-1">
             <h3 className="text-xl font-bold mb-4 flex items-center">
               <Book className="mr-2 h-5 w-5" />
               BíbliaOnline
             </h3>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground">
               Facilitando o acesso e estudo da Palavra de Deus em diversas traduções desde 2023.
             </p>
           </div>
           
           <div>
-            <h4 className="font-medium mb-3 md:mb-4">Bíblia</h4>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="font-medium mb-4">Bíblia</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/versoes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/versoes" className="text-muted-foreground hover:text-foreground transition-colors">
                   Versões
                 </Link>
               </li>
               <li>
-                <Link to="/livros" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/livros" className="text-muted-foreground hover:text-foreground transition-colors">
                   Livros
                 </Link>
               </li>
               <li>
-                <Link to="/pesquisar" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/pesquisar" className="text-muted-foreground hover:text-foreground transition-colors">
                   Pesquisar
                 </Link>
               </li>
@@ -40,20 +40,20 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-medium mb-3 md:mb-4">Recursos</h4>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="font-medium mb-4">Recursos</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/dicionario" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/dicionario" className="text-muted-foreground hover:text-foreground transition-colors">
                   Dicionário Bíblico
                 </Link>
               </li>
               <li>
-                <Link to="/estudos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/estudos" className="text-muted-foreground hover:text-foreground transition-colors">
                   Estudos Bíblicos
                 </Link>
               </li>
               <li>
-                <Link to="/planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/planos" className="text-muted-foreground hover:text-foreground transition-colors">
                   Planos de Leitura
                 </Link>
               </li>
@@ -61,8 +61,8 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-medium mb-3 md:mb-4">Siga-nos</h4>
-            <div className="flex space-x-3 md:space-x-4">
+            <h4 className="font-medium mb-4">Siga-nos</h4>
+            <div className="flex space-x-4">
               <a href="https://github.com" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-5 w-5" />
               </a>
@@ -79,20 +79,20 @@ const Footer = () => {
           </div>
         </div>
         
-        <Separator className="my-6 md:my-8" />
+        <Separator className="my-8" />
         
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-xs md:text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             © 2023 BíbliaOnline. Todos os direitos reservados.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
-            <Link to="/termos" className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <Link to="/termos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Termos de Serviço
             </Link>
-            <Link to="/privacidade" className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/privacidade" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Política de Privacidade
             </Link>
-            <Link to="/atribuicoes" className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/atribuicoes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Atribuições
             </Link>
           </div>

@@ -1,41 +1,12 @@
 
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Presentation, Book } from "lucide-react";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const HinarioPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedHino, setSelectedHino] = useState<number | null>(null);
-  const navigate = useNavigate();
-  
-  const handleOpenSlideMode = () => {
-    if (selectedHino) {
-      navigate(`/slide-hino/cantor/${selectedHino}`);
-    }
-  };
-  
-  // Simulação de dados para a demonstração
-  const hinosSimulados = [
-    { numero: 1, titulo: "Glória ao Salvador" },
-    { numero: 2, titulo: "Culto à Trindade" },
-    { numero: 3, titulo: "O Grande Amor de Deus" },
-    { numero: 4, titulo: "Amor Sacrificial" },
-    { numero: 5, titulo: "O Amor de Jesus" },
-    { numero: 6, titulo: "Firmeza na Fé" },
-    { numero: 7, titulo: "Confissão e Súplica" },
-    { numero: 8, titulo: "Bênção Pedida" },
-    { numero: 9, titulo: "Coração Quebrantado" },
-    { numero: 10, titulo: "Vida com Deus" },
-  ];
-  
-  const filteredHinos = hinosSimulados.filter(
-    (hino) => 
-      hino.titulo.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      hino.numero.toString().includes(searchTerm)
-  );
   
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
@@ -69,7 +40,8 @@ const HinarioPage = () => {
             <Link to="/" className="whitespace-nowrap hover:text-white transition">Slide</Link>
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
-            <Link to="/harpa" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
+            <Link to="/harpa" className="whitespace-nowrap hover:text-white transition">Harpa Cristã</Link>
+            <Link to="/hinario" className="whitespace-nowrap hover:text-white transition">Hinário Cristão</Link>
             <Link to="/baixar" className="whitespace-nowrap hover:text-white transition">Baixar</Link>
             <Link to="/utilitarios" className="whitespace-nowrap hover:text-white transition">Utilidades</Link>
             <Link to="/contato" className="whitespace-nowrap hover:text-white transition">Contato</Link>
@@ -79,91 +51,47 @@ const HinarioPage = () => {
       </header>
       
       <main className="flex-1 p-6 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed">
-        <div className="container mx-auto max-w-4xl bg-black/70 p-6 rounded-lg">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold mb-4 md:mb-0">
-              <Book className="inline-block mr-2 h-8 w-8 text-blue-500" />
-              Cantor Cristão
-            </h1>
-            
-            {selectedHino && (
-              <Button 
-                onClick={handleOpenSlideMode}
-                className="bg-amber-700 hover:bg-amber-600 text-white flex items-center gap-2"
-              >
-                <Presentation size={18} />
-                Apresentação (Slide)
-              </Button>
-            )}
-          </div>
+        <div className="container mx-auto max-w-5xl bg-black/70 p-6 rounded-lg">
+          <h1 className="text-3xl font-bold mb-6">Hinário Cristão</h1>
           
-          <div className="mb-6">
+          <div className="mb-8">
             <Input
               type="text"
-              placeholder="Buscar hino por número ou título..."
+              placeholder="Pesquisar hino por título ou número..."
               className="w-full bg-zinc-900 border-zinc-700"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-6">
-            {Array.from({ length: 10 }, (_, i) => (
+          <div className="grid grid-cols-5 md:grid-cols-10 gap-2 mb-8">
+            {Array.from({ length: 50 }, (_, i) => (
               <Button
                 key={i}
                 variant="outline"
                 className="bg-blue-900/80 hover:bg-blue-800 border-blue-700 text-white"
-                onClick={() => setSearchTerm(((i + 1) * 10).toString())}
               >
-                {(i + 1) * 10}
+                {i + 1}
               </Button>
             ))}
-            {/* Botão para mostrar todos */}
-            <Button
-              variant="outline"
-              className="bg-green-800/80 hover:bg-green-700 border-green-700 text-white"
-              onClick={() => setSearchTerm("")}
-            >
-              Ver Todos
-            </Button>
           </div>
           
-          <div className="space-y-2">
-            {filteredHinos.map((hino) => (
-              <div 
-                key={hino.numero}
-                className={`p-4 border rounded-lg transition-colors cursor-pointer ${
-                  selectedHino === hino.numero 
-                    ? "bg-blue-900/80 border-blue-600" 
-                    : "bg-black/50 border-gray-800 hover:bg-blue-900/40"
-                }`}
-                onClick={() => setSelectedHino(hino.numero)}
-              >
-                <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-semibold">
-                    <span className="text-blue-500 mr-2">{hino.numero}.</span>
-                    {hino.titulo}
-                  </h2>
-                  <Button
-                    size="sm"
-                    className="bg-amber-700 hover:bg-amber-600"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate(`/slide-hino/cantor/${hino.numero}`);
-                    }}
-                  >
-                    <Presentation className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {filteredHinos.length === 0 && (
-            <div className="py-8 text-center text-gray-400">
-              Nenhum hino encontrado. Tente uma busca diferente.
+          <div className="p-4 border border-gray-800 rounded-lg bg-black/50">
+            <h2 className="text-xl font-bold mb-2 text-blue-300">Hinário Cristão nº 1 - Grande é o Senhor</h2>
+            <div className="space-y-4 text-gray-300">
+              <p>Grande é o Senhor e mui digno de louvor<br />
+                 Na cidade do nosso Deus, seu santo monte<br />
+                 Alegria de toda a terra
+              </p>
+              <p>Grande é o Senhor em quem nós temos a vitória<br />
+                 Que nos ajuda contra o inimigo<br />
+                 Por isso diante dele nos prostramos
+              </p>
+              <p>Queremos o teu nome engrandecer<br />
+                 E agradecer-te por tua obra em nossas vidas<br />
+                 Confiamos em teu infinito amor<br />
+                 Tua presença é o nosso sustento
+              </p>
             </div>
-          )}
+          </div>
         </div>
       </main>
       

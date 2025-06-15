@@ -16,6 +16,7 @@ const BibleSlide = () => {
   const [currentVerse, setCurrentVerse] = useState(versoInicial);
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
+  // Simulação de dados dos versículos
   const versiculosPorVersao: Record<string, any> = {
     nvi: [
       { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
@@ -27,8 +28,10 @@ const BibleSlide = () => {
       { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.", titulo: "A CRIAÇÃO" },
       { numero: 3, texto: "E disse Deus: Haja luz; e houve luz.", titulo: "A CRIAÇÃO" },
     ],
+    // ... outros dados para outras versões
   };
   
+  // Obter o versículo atual
   const getVersiculo = () => {
     const versoes = versiculosPorVersao[versaoBiblia] || versiculosPorVersao.nvi;
     return versoes.find((v: any) => v.numero === currentVerse) || versoes[0];
@@ -36,10 +39,12 @@ const BibleSlide = () => {
   
   const versiculo = getVersiculo();
   
+  // Função para navegar para o versículo anterior
   const handlePreviousVerse = () => {
     if (currentVerse > 1) {
       setCurrentVerse(prevVerse => prevVerse - 1);
     } else {
+      // Se estiver no primeiro versículo do capítulo atual, voltar para o capítulo anterior
       const currentChapter = parseInt(capitulo);
       if (currentChapter > 1) {
         const previousChapter = currentChapter - 1;
@@ -51,15 +56,18 @@ const BibleSlide = () => {
     }
   };
   
+  // Função para navegar para o próximo versículo
   const handleNextVerse = () => {
     if (currentVerse < totalVerses) {
       setCurrentVerse(prevVerse => prevVerse + 1);
     } else {
+      // Se estiver no último versículo do capítulo atual, avançar para o próximo capítulo
       const currentChapter = parseInt(capitulo);
       navigate(`/slide/${livro}/${currentChapter + 1}?versao=${versaoBiblia}&verso=1`);
     }
   };
   
+  // Manipulador de teclas para navegação pelo teclado
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
@@ -78,25 +86,22 @@ const BibleSlide = () => {
     };
   }, [currentVerse, livro, capitulo, versaoBiblia, navigate]);
   
+  // Atualiza a URL quando o versículo muda
   useEffect(() => {
     const newParams = new URLSearchParams(searchParams);
     newParams.set("verso", currentVerse.toString());
     navigate(`/slide/${livro}/${capitulo}?${newParams.toString()}`, { replace: true });
   }, [currentVerse, livro, capitulo, searchParams]);
   
+  // Formatar o título do livro
   const formatBookTitle = (book: string) => {
     const formatted = book.charAt(0).toUpperCase() + book.slice(1);
     return formatted;
   };
   
   return (
-    <div 
-      className="flex flex-col justify-center items-center min-h-screen p-4 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url("/lovable-uploads/b03d623a-5c23-4daa-ad82-aaa31f8b3838.png")' }}
-    >
-      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0" />
-
-      <div className="absolute top-4 left-4 z-30">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4">
+      <div className="absolute top-4 left-4 z-10">
         <Button 
           variant="ghost" 
           onClick={() => navigate(`/biblia/${livro}/${capitulo}?versao=${versaoBiblia}`)}
@@ -106,38 +111,40 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-full w-[90vw] mx-auto text-center flex flex-col items-center justify-center z-10 overflow-hidden pt-24">
-        <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wide text-yellow-500 mb-6 md:mb-8">
+      <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center z-10">
+        <h1 className="text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
           {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
         </h1>
         
         {versiculo.titulo && (
-          <h2 className="text-3xl md:text-4xl font-bold text-green-500 mb-8 md:mb-12">{versiculo.titulo}</h2>
+          <h2 className="text-4xl font-bold text-green-500 mb-12">{versiculo.titulo}</h2>
         )}
         
-        <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-10 md:mb-16 leading-normal max-w-[95vw]">
+        {/* Texto do versículo */}
+        <p className="text-5xl text-white mb-16 leading-normal max-w-4xl">
           {versiculo.texto}
         </p>
         
-        <div className="flex justify-center gap-4 mt-2">
+        {/* Botões de navegação */}
+        <div className="flex justify-center gap-20 mt-8">
           <Button 
             variant="outline" 
+            size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-gray-600 hover:bg-gray-500 text-black text-sm px-4 py-1 h-auto"
-            size="sm"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
           >
-            <ArrowLeft className="mr-1 h-3 w-3" />
+            <ArrowLeft className="mr-2 h-6 w-6" />
             VOLTAR
           </Button>
           
           <Button 
             variant="outline" 
+            size="lg" 
             onClick={handleNextVerse}
-            className="bg-gray-600 hover:bg-gray-500 text-black text-sm px-4 py-1 h-auto"
-            size="sm"
+            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
           >
             PRÓXIMO
-            <ArrowRight className="ml-1 h-3 w-3" />
+            <ArrowRight className="ml-2 h-6 w-6" />
           </Button>
         </div>
       </div>

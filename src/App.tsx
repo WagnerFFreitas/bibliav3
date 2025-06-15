@@ -15,7 +15,6 @@ import Utilities from "./pages/Utilities";
 import MusicPage from "./pages/MusicPage";
 import HinarioPage from "./pages/HinarioPage";
 import HymnsPage from "./pages/HymnsPage";
-import HymnSlide from "./pages/HymnSlide";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Downloads from "./pages/Downloads";
@@ -34,7 +33,6 @@ const App = () => (
           <Route path="/pesquisar" element={<BibleSearch />} />
           <Route path="/biblia/:livro/:capitulo" element={<BibleReader />} />
           <Route path="/slide/:livro/:capitulo" element={<BibleSlide />} />
-          <Route path="/slide-hino/:tipo/:numero" element={<HymnSlide />} />
           <Route path="/dicionario" element={<Dictionary />} />
           <Route path="/utilitarios" element={<Utilities />} />
           <Route path="/harpa-hinario" element={<HymnsPage />} />

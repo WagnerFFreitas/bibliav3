@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { 
   Pagination, 
@@ -8,6 +7,14 @@ import {
   PaginationNext, 
   PaginationPrevious 
 } from "@/components/ui/pagination";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 // Dados simulados para diferentes versões
 const versiculosPorVersao: Record<string, any> = {
@@ -105,20 +112,13 @@ const BibleVerseDisplay = ({
       
       <div className={`${slideMode ? "" : "space-y-4 my-6"}`}>
         {versesData.map((versiculo: any) => (
-          <div key={versiculo.numero} className={slideMode ? "" : "flex flex-col"}>
-            {versiculo.titulo && !slideMode && (
-              <h3 className="font-semibold text-green-600 mb-1 mt-3 border-b border-green-200 pb-1">
-                {versiculo.titulo}
-              </h3>
+          <div key={versiculo.numero} className={slideMode ? "" : "flex"}>
+            {!slideMode && (
+              <span className="font-bold text-sm text-primary mr-2 pt-0.5 min-w-[20px]">{versiculo.numero}</span>
             )}
-            <div className={slideMode ? "" : "flex"}>
-              {!slideMode && (
-                <span className="font-bold text-sm text-primary mr-2 pt-0.5 min-w-[20px]">{versiculo.numero}</span>
-              )}
-              <p className={slideMode ? "text-5xl text-white" : "text-base"}>
-                {versiculo.texto}
-              </p>
-            </div>
+            <p className={slideMode ? "text-5xl text-white" : "text-base"}>
+              {versiculo.texto}
+            </p>
           </div>
         ))}
       </div>

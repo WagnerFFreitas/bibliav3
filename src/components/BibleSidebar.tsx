@@ -1,10 +1,7 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Book } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ChevronRight } from "lucide-react";
 
 const bibleBooks = [
   { id: "genesis", name: "Gênesis", chapters: 50 },
@@ -75,7 +72,7 @@ const bibleBooks = [
   { id: "apocalipse", name: "Apocalipse", chapters: 22 },
 ];
 
-const BibleSidebarContent = ({ onChapterSelect }) => {
+const BibleSidebar = () => {
   const [selectedBook, setSelectedBook] = useState<string | null>(null);
   const [expandedBook, setExpandedBook] = useState<string | null>(null);
 
@@ -94,7 +91,7 @@ const BibleSidebarContent = ({ onChapterSelect }) => {
   };
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="w-64 md:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-4">
       <h2 className="text-2xl font-bold text-gray-300 mb-4">LIVROS</h2>
       <ul className="space-y-1">
         {bibleBooks.map((book) => (
@@ -118,12 +115,11 @@ const BibleSidebarContent = ({ onChapterSelect }) => {
               </button>
               
               {expandedBook === book.id && (
-                <div className="ml-4 mt-1 grid grid-cols-4 sm:grid-cols-5 gap-1">
+                <div className="ml-4 mt-1 grid grid-cols-5 gap-1">
                   {generateChapters(book.chapters).map((chapter) => (
                     <Link
                       key={chapter}
                       to={`/biblia/${book.id}/${chapter}`}
-                      onClick={() => onChapterSelect?.()}
                       className="flex items-center justify-center aspect-square rounded
                                 bg-indigo-900 hover:bg-indigo-800 text-white font-medium text-sm
                                 transition-colors duration-200"
@@ -137,32 +133,6 @@ const BibleSidebarContent = ({ onChapterSelect }) => {
           </li>
         ))}
       </ul>
-    </div>
-  );
-};
-
-const BibleSidebar = () => {
-  const isMobile = useIsMobile();
-  
-  if (isMobile) {
-    return (
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="sm" className="md:hidden fixed bottom-4 left-4 z-10 bg-indigo-900 border-indigo-700 text-white shadow-lg">
-            <Book className="mr-2 h-4 w-4" />
-            Livros
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-[280px] sm:w-[350px] bg-black border-r border-gray-800 p-4">
-          <BibleSidebarContent onChapterSelect={() => document.body.click()} />
-        </SheetContent>
-      </Sheet>
-    );
-  }
-  
-  return (
-    <div className="hidden md:block w-64 md:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-4">
-      <BibleSidebarContent onChapterSelect={() => {}} />
     </div>
   );
 };
