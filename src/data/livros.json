@@ -336,6 +336,132 @@
             "abreviacao": "Gl",
             "testamento": "novo",
             "capitulos": 6
+        },
+        {
+            "id": "efesios",
+            "nome": "Efésios",
+            "abreviacao": "Ef",
+            "testamento": "novo",
+            "capitulos": 6
+        },
+        {
+            "id": "filipenses",
+            "nome": "Filipenses",
+            "abreviacao": "Fp",
+            "testamento": "novo",
+            "capitulos": 4
+        },
+        {
+            "id": "colossenses",
+            "nome": "Colossenses",
+            "abreviacao": "Cl",
+            "testamento": "novo",
+            "capitulos": 4
+        },
+        {
+            "id": "1tessalonicenses",
+            "nome": "1 Tessalonicenses",
+            "abreviacao": "1Ts",
+            "testamento": "novo",
+            "capitulos": 5
+        },
+        {
+            "id": "2tessalonicenses",
+            "nome": "2 Tessalonicenses",
+            "abreviacao": "2Ts",
+            "testamento": "novo",
+            "capitulos": 3
+        },
+        {
+            "id": "1timoteo",
+            "nome": "1 Timóteo",
+            "abreviacao": "1Tm",
+            "testamento": "novo",
+            "capitulos": 6
+        },
+        {
+            "id": "2timoteo",
+            "nome": "2 Timóteo",
+            "abreviacao": "2Tm",
+            "testamento": "novo",
+            "capitulos": 4
+        },
+        {
+            "id": "tito",
+            "nome": "Tito",
+            "abreviacao": "Tt",
+            "testamento": "novo",
+            "capitulos": 3
+        },
+        {
+            "id": "filemom",
+            "nome": "Filemom",
+            "abreviacao": "Fm",
+            "testamento": "novo",
+            "capitulos": 1
+        },
+        {
+            "id": "hebreus",
+            "nome": "Hebreus",
+            "abreviacao": "Hb",
+            "testamento": "novo",
+            "capitulos": 13
+        },
+        {
+            "id": "tiago",
+            "nome": "Tiago",
+            "abreviacao": "Tg",
+            "testamento": "novo",
+            "capitulos": 5
+        },
+        {
+            "id": "1pedro",
+            "nome": "1 Pedro",
+            "abreviacao": "1Pe",
+            "testamento": "novo",
+            "capitulos": 5
+        },
+        {
+            "id": "2pedro",
+            "nome": "2 Pedro",
+            "abreviacao": "2Pe",
+            "testamento": "novo",
+            "capitulos": 3
+        },
+        {
+            "id": "1joao",
+            "nome": "1 João",
+            "abreviacao": "1Jo",
+            "testamento": "novo",
+            "capitulos": 5
+        },
+        {
+            "id": "2joao",
+            "nome": "2 João",
+            "abreviacao": "2Jo",
+            "testamento": "novo",
+            "capitulos": 1
+        },
+        {
+            "id": "3joao",
+            "nome": "3 João",
+            "abreviacao": "3Jo",
+            "testamento": "novo",
+            "capitulos": 1
+        },
+        {
+            "id": "judas",
+            "nome": "Judas",
+            "abreviacao": "Jd",
+            "testamento": "novo",
+            "capitulos": 1
+        },
+        {
+            "id": "apocalipse",
+            "nome": "Apocalipse",
+            "abreviacao": "Ap",
+            "testamento": "novo",
+            "capitulos": 22
         }
     ]
 }

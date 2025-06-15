@@ -1,0 +1,26 @@
+
+{
+    "livro": "Mateus",
+    "capítulo": 1,
+    "versículos": {
+        "1": {
+            "título": "A genealogia de Jesus Cristo",
+            "texto": "Registro da genealogia de Jesus Cristo, filho de Davi, filho de Abraão:"
+        },
+        "2": "Abraão gerou Isaque; Isaque gerou Jacó; Jacó gerou Judá e seus irmãos;",
+        "3": "Judá gerou Farés e Zará, cuja mãe foi Tamar; Farés gerou Esrom; Esrom gerou Arão;",
+        "4": "Arão gerou Aminadabe; Aminadabe gerou Naassom; Naassom gerou Salmom;",
+        "5": "Salmom gerou Boaz, cuja mãe foi Raabe; Boaz gerou Obede, cuja mãe foi Rute; Obede gerou Jessé;",
+        "6": "Jessé gerou o rei Davi. Davi gerou Salomão, cuja mãe tinha sido mulher de Urias;",
+        "7": "Salomão gerou Roboão; Roboão gerou Abias; Abias gerou Asa;",
+        "8": "Asa gerou Josafá; Josafá gerou Jeorão; Jeorão gerou Uzias;",
+        "9": "Uzias gerou Jotão; Jotão gerou Acaz; Acaz gerou Ezequias;",
+        "10": "Ezequias gerou Manassés; Manassés gerou Amom; Amom gerou Josias;",
+        "11": "Josias gerou Jeconias e seus irmãos, no tempo do exílio para a Babilônia.",
+        "12": "Depois do exílio para a Babilônia: Jeconias gerou Salatiel; Salatiel gerou Zorobabel;",
+        "13": "Zorobabel gerou Abiúde; Abiúde gerou Eliaquim; Eliaquim gerou Azor;",
+        "14": "Azor gerou Sadoque; Sadoque gerou Aquim; Aquim gerou Eliúde;",
+        "15": "Eliúde gerou Eleazar; Eleazar gerou Matã; Matã gerou Jacó;",
+        "16": "Jacó gerou José, marido de Maria, da qual nasceu Jesus, que é chamado Cristo."
+    }
+}

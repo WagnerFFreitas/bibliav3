@@ -1,0 +1,26 @@
+
+{
+    "livro": "Mateus",
+    "capítulo": 1,
+    "versículos": {
+        "1": {
+            "título": "A genealogia de Jesus Cristo",
+            "texto": "Livro da genealogia de Jesus Cristo, filho de Davi, filho de Abraão."
+        },
+        "2": "A Abraão nasceu Isaque; a Isaque, Jacó; a Jacó, Judá e seus irmãos;",
+        "3": "a Judá nasceram, de Tamar, Farés e Zará; a Farés, Esrom; a Esrom, Arão;",
+        "4": "a Arão, Aminadabe; a Aminadabe, Naassom; a Naassom, Salmom;",
+        "5": "a Salmom nasceu, de Raabe, Boaz; a Boaz nasceu, de Rute, Obede; a Obede, Jessé;",
+        "6": "a Jessé, o rei Davi. A Davi nasceu Salomão da que fora mulher de Urias;",
+        "7": "a Salomão, Roboão; a Roboão, Abias; a Abias, Asafe;",
+        "8": "a Asafe, Josafá; a Josafá, Jorão; a Jorão, Ozias;",
+        "9": "a Ozias, Joatão; a Joatão, Acaz; a Acaz, Ezequias;",
+        "10": "a Ezequias, Manassés; a Manassés, Amom; a Amom, Josias;",
+        "11": "a Josias nasceram Jeconias e seus irmãos, no tempo do exílio na Babilônia.",
+        "12": "Depois do exílio na Babilônia, a Jeconias nasceu Salatiel; a Salatiel, Zorobabel;",
+        "13": "a Zorobabel, Abiúde; a Abiúde, Eliaquim; a Eliaquim, Azor;",
+        "14": "a Azor, Sadoque; a Sadoque, Aquim; a Aquim, Eliúde;",
+        "15": "a Eliúde, Eleazar; a Eleazar, Matã; a Matã, Jacó;",
+        "16": "a Jacó, José, marido de Maria, da qual nasceu Jesus, que se chama Cristo."
+    }
+}
