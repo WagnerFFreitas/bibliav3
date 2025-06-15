@@ -61,6 +61,153 @@
         "Vamos nos prostrar, com a face em terra",
         "Pois Ele é santo, Ele é santo"
       ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Alegria, Alegria",
+      "letra": [
+        "Alegria, alegria no meu coração",
+        "Cristo me salvou, Cristo me salvou",
+        "Alegria, alegria no meu coração",
+        "Cristo me salvou!",
+        "",
+        "Coro:",
+        "Por isso canto aleluia,",
+        "Aleluia ao meu Senhor!",
+        "Por isso canto aleluia,",
+        "Glória a Deus, meu Salvador!",
+        "",
+        "Liberdade, liberdade Cristo me deu",
+        "Quebrou as cadeias, quebrou as cadeias",
+        "Liberdade, liberdade Cristo me deu,",
+        "Aleluia!"
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Jubilosos Te Adoramos",
+      "letra": [
+        "Jubilosos te adoramos,",
+        "Soberano Criador;",
+        "Com os anjos te louvamos,",
+        "A ti, nosso Redentor.",
+        "",
+        "Coro:",
+        "Glória, glória seja dada",
+        "Ao Cordeiro de Deus!",
+        "Glória, glória seja dada",
+        "Ao Rei dos reis!",
+        "",
+        "Tua graça nos alcança,",
+        "Teu amor nos satisfaz;",
+        "Nossa firme esperança",
+        "É Jesus, o Príncipe da Paz."
+      ]
+    },
+    {
+      "numero": 6,
+      "titulo": "Cristo Já Ressuscitou",
+      "letra": [
+        "Cristo já ressuscitou, aleluia!",
+        "Morte e inferno venceu, aleluia!",
+        "Cantemos com fervor, aleluia!",
+        "Cristo é o vencedor!",
+        "",
+        "Coro:",
+        "Aleluia! Aleluia!",
+        "Cristo vive para sempre!",
+        "Aleluia! Aleluia!",
+        "Ele é o Rei potente!",
+        "",
+        "Ele vive em meu ser, aleluia!",
+        "Para sempre vou viver, aleluia!",
+        "Com Jesus estarei, aleluia!",
+        "Na glória cantarei!"
+      ]
+    },
+    {
+      "numero": 7,
+      "titulo": "Ao Calvário Só",
+      "letra": [
+        "Ao Calvário só, Jesus subiu,",
+        "Carregando a cruz por mim;",
+        "Seus pés e mãos foram cravados,",
+        "Para dar-me o perdão, enfim.",
+        "",
+        "Coro:",
+        "Foi por mim, foi por mim,",
+        "Que Jesus morreu assim;",
+        "Foi por mim, foi por mim,",
+        "Que Jesus morreu por mim.",
+        "",
+        "No madeiro vil pendurado,",
+        "Meu Jesus por mim sofreu;",
+        "Minhas culpas tem levado,",
+        "E a salvação me deu."
+      ]
+    },
+    {
+      "numero": 8,
+      "titulo": "Segurança e Alegria",
+      "letra": [
+        "Tenho segurança e alegria",
+        "Em meu coração;",
+        "Pois Jesus me deu a garantia",
+        "Da minha salvação.",
+        "",
+        "Coro:",
+        "Sou feliz, sou feliz,",
+        "Com Jesus sou muito feliz!",
+        "Sou feliz, sou feliz,",
+        "Com Jesus sou muito feliz!",
+        "",
+        "Nada pode me separar",
+        "Do amor do meu Senhor;",
+        "Para sempre vou cantar",
+        "Ao meu Redentor."
+      ]
+    },
+    {
+      "numero": 9,
+      "titulo": "Louvado Seja Deus",
+      "letra": [
+        "Louvado seja Deus, o Pai,",
+        "Louvado seja Deus, o Filho,",
+        "Louvado seja o Espírito Santo,",
+        "Bendita Trindade!",
+        "",
+        "Coro:",
+        "Glória ao Pai, glória ao Filho,",
+        "Glória ao Espírito Santo!",
+        "Como era no princípio,",
+        "Agora e para sempre!",
+        "",
+        "A ti, ó Deus, nós louvamos,",
+        "A ti, Senhor, confessamos;",
+        "Tu és o Rei eterno,",
+        "Pai da glória!"
+      ]
+    },
+    {
+      "numero": 10,
+      "titulo": "Rude Cruz",
+      "letra": [
+        "Numa cruz foi meu Salvador",
+        "Morto, mas ressurgiu;",
+        "E do túmulo triunfou,",
+        "Morte assim venceu.",
+        "",
+        "Coro:",
+        "Eu amo a mensagem da cruz,",
+        "Té morrer eu a vou proclamar;",
+        "Levarei eu também minha cruz,",
+        "Té por uma coroa trocar.",
+        "",
+        "Nesta cruz meu Jesus morreu",
+        "Pelos pecados meus;",
+        "Nela a paz e perdão me deu,",
+        "Nela achei meu Deus."
+      ]
     }
   ]
 }
