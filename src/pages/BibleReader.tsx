@@ -1,8 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Presentation } from "lucide-react";
+import { Presentation, Menu, X } from "lucide-react";
 import BibleSidebar from "@/components/BibleSidebar";
 import BibleVerseGrid from "@/components/BibleVerseGrid";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
@@ -26,6 +27,7 @@ const BibleReader = () => {
   const [selectedVerse, setSelectedVerse] = useState<number | null>(null);
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
   const [error, setError] = useState<string | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
@@ -96,31 +98,31 @@ const BibleReader = () => {
   
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      <header className="w-full p-4 bg-black border-b border-gray-800">
-        <div className="container mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
-          <Link to="/" className="text-3xl font-bold italic text-gray-300 hover:text-white transition">
+      <header className="w-full p-2 sm:p-4 bg-black border-b border-gray-800">
+        <div className="container mx-auto flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between items-center">
+          <Link to="/" className="text-xl sm:text-2xl md:text-3xl font-bold italic text-gray-300 hover:text-white transition">
             Bíblia Sagrada
           </Link>
           
-          <div className="flex w-full md:w-auto items-center gap-2">
-            <Button variant="outline" className="rounded-md text-sm bg-zinc-900 border-zinc-700 text-gray-300">
+          <div className="flex w-full sm:w-auto items-center gap-1 sm:gap-2">
+            <Button variant="outline" className="rounded-md text-xs sm:text-sm bg-zinc-900 border-zinc-700 text-gray-300 px-2 sm:px-4">
               Todos
             </Button>
             <Input
               type="text"
               placeholder="Digite o termo de busca"
-              className="w-full md:w-80 bg-zinc-900 border-zinc-700 text-gray-300 placeholder:text-gray-500"
+              className="w-full sm:w-60 md:w-80 bg-zinc-900 border-zinc-700 text-gray-300 placeholder:text-gray-500 text-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Button className="rounded-md bg-green-600 hover:bg-green-700 text-white">
+            <Button className="rounded-md bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm px-2 sm:px-4">
               Buscar
             </Button>
           </div>
         </div>
         
-        <nav className="container mx-auto mt-4">
-          <div className="flex overflow-x-auto py-2 gap-6 text-gray-400">
+        <nav className="container mx-auto mt-2 sm:mt-4">
+          <div className="flex overflow-x-auto py-2 gap-3 sm:gap-6 text-gray-400 text-sm">
             <Link to="/versoes" className="whitespace-nowrap hover:text-white transition">Versões</Link>
             <Link to="/dicionario" className="whitespace-nowrap hover:text-white transition">Dicionário e Concordância</Link>
             <Link to="/harpa" className="whitespace-nowrap hover:text-white transition">Harpa e Hinário</Link>
@@ -132,24 +134,52 @@ const BibleReader = () => {
         </nav>
       </header>
       
-      <main className="flex flex-1 overflow-hidden">
-        <BibleSidebar />
+      <main className="flex flex-1 overflow-hidden relative">
+        {/* Mobile Menu Button */}
+        <Button
+          variant="outline"
+          size="sm"
+          className="lg:hidden fixed top-20 left-2 z-20 bg-black/80 border-gray-700"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          {sidebarOpen ? <X size={16} /> : <Menu size={16} />}
+        </Button>
+
+        {/* Sidebar - Hidden on mobile by default */}
+        <div className={`
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
+          lg:translate-x-0 
+          fixed lg:relative 
+          z-10 
+          transition-transform duration-300 ease-in-out
+          h-full
+        `}>
+          <BibleSidebar />
+        </div>
+
+        {/* Overlay for mobile */}
+        {sidebarOpen && (
+          <div 
+            className="lg:hidden fixed inset-0 bg-black/50 z-5"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
         
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed bg-opacity-20">
-          <div className="container mx-auto">
-            <h1 className="text-center text-3xl md:text-4xl font-bold uppercase mb-6 text-white">
+        <div className="flex-1 overflow-y-auto p-2 sm:p-4 md:p-8 bg-[url('/lovable-uploads/a3e3f70f-582b-454b-9228-04d688e5e083.png')] bg-cover bg-center bg-fixed bg-opacity-20">
+          <div className="container mx-auto max-w-4xl">
+            <h1 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase mb-4 sm:mb-6 text-white px-2">
               {formatBookTitle(livro)} - CAPÍTULO {capitulo}
-              {selectedVerse && <span> - VERSÍCULO {selectedVerse}</span>}
+              {selectedVerse && <span className="block sm:inline"> - VERSÍCULO {selectedVerse}</span>}
             </h1>
             
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
               <BibleVersionSelector 
                 onVersionChange={handleVersionChange} 
                 initialVersion={versaoBiblia}
               />
             </div>
             
-            <div className="bg-black/70 p-4 rounded-lg mb-6 text-gray-300 text-sm">
+            <div className="bg-black/70 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 text-gray-300 text-xs sm:text-sm">
               <p className="mb-2">
                 <strong>Como navegar na Bíblia:</strong>
               </p>
@@ -165,19 +195,25 @@ const BibleReader = () => {
               </p>
             </div>
             
-            <div className="mb-6 flex flex-col items-center">
-              <Pagination className="mb-4">
-                <PaginationContent>
+            <div className="mb-4 sm:mb-6 flex flex-col items-center space-y-3 sm:space-y-4">
+              <Pagination className="mb-2 sm:mb-4">
+                <PaginationContent className="flex-wrap gap-1 sm:gap-0">
                   <PaginationItem>
-                    <PaginationPrevious onClick={handlePreviousChapter} className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6" />
+                    <PaginationPrevious 
+                      onClick={handlePreviousChapter} 
+                      className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-1 px-2 sm:px-6 text-xs sm:text-sm" 
+                    />
                   </PaginationItem>
                   <PaginationItem>
-                    <PaginationLink className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-8 min-w-40">
+                    <PaginationLink className="bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-1 px-3 sm:px-8 min-w-[120px] sm:min-w-[160px] text-xs sm:text-sm">
                       Capítulo {capitulo}
                     </PaginationLink>
                   </PaginationItem>
                   <PaginationItem>
-                    <PaginationNext onClick={handleNextChapter} className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-2 px-6" />
+                    <PaginationNext 
+                      onClick={handleNextChapter} 
+                      className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-1 px-2 sm:px-6 text-xs sm:text-sm" 
+                    />
                   </PaginationItem>
                 </PaginationContent>
               </Pagination>
@@ -185,16 +221,17 @@ const BibleReader = () => {
               {selectedVerse && (
                 <Button 
                   onClick={handleOpenSlideMode} 
-                  className="bg-amber-700 hover:bg-amber-600 text-white px-8 py-2 rounded-md flex items-center gap-2 mb-4"
+                  className="bg-amber-700 hover:bg-amber-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
                 >
-                  <Presentation size={18} />
-                  Apresentação (Slide)
+                  <Presentation size={16} className="sm:w-[18px] sm:h-[18px]" />
+                  <span className="hidden sm:inline">Apresentação (Slide)</span>
+                  <span className="sm:hidden">Slide</span>
                 </Button>
               )}
             </div>
             
             {error && (
-              <Alert variant="destructive" className="mb-6 bg-red-900/60 border-red-800 text-white">
+              <Alert variant="destructive" className="mb-4 sm:mb-6 bg-red-900/60 border-red-800 text-white">
                 <AlertTitle>Erro</AlertTitle>
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
@@ -212,7 +249,7 @@ const BibleReader = () => {
               versao={versaoBiblia}
             />
             
-            <footer className="text-center text-sm text-gray-400 mt-8">
+            <footer className="text-center text-xs sm:text-sm text-gray-400 mt-6 sm:mt-8">
               © Bíblia Sagrada 2024
             </footer>
           </div>

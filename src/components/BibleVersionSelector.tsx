@@ -45,25 +45,26 @@ const BibleVersionSelector = ({
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-lg mx-auto">
+    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center w-full max-w-lg mx-auto px-2 sm:px-0">
       <div className="w-full sm:w-2/3">
         <Select value={versaoSelecionada} onValueChange={handleVersionChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full text-sm">
             <SelectValue placeholder="Selecione uma versão" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white">
             {versoesBiblia.map((versao) => (
-              <SelectItem key={versao.id} value={versao.id}>
+              <SelectItem key={versao.id} value={versao.id} className="text-sm">
                 {versao.nome}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
-      <Button className="w-full sm:w-auto" size="sm" asChild>
+      <Button className="w-full sm:w-auto text-sm" size="sm" asChild>
         <Link to={`${bookLink}?versao=${versaoSelecionada}`}>
-          <Book className="mr-2 h-4 w-4" />
-          Ler Agora
+          <Book className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+          <span className="hidden sm:inline">Ler Agora</span>
+          <span className="sm:hidden">Ler</span>
         </Link>
       </Button>
     </div>

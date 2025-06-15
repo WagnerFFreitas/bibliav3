@@ -91,14 +91,14 @@ const BibleSidebar = () => {
   };
 
   return (
-    <div className="w-64 md:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-4">
-      <h2 className="text-2xl font-bold text-gray-300 mb-4">LIVROS</h2>
+    <div className="w-64 sm:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-2 sm:p-4">
+      <h2 className="text-lg sm:text-2xl font-bold text-gray-300 mb-3 sm:mb-4">LIVROS</h2>
       <ul className="space-y-1">
         {bibleBooks.map((book) => (
           <li key={book.id}>
             <div className="flex flex-col">
               <button
-                className={`flex justify-between items-center py-1.5 px-2 rounded transition w-full text-left ${
+                className={`flex justify-between items-center py-1.5 px-2 rounded transition w-full text-left text-sm sm:text-base ${
                   selectedBook === book.id 
                     ? "text-white font-semibold" 
                     : "text-gray-400 hover:text-white"
@@ -107,22 +107,22 @@ const BibleSidebar = () => {
               >
                 <span>{book.name}</span>
                 <ChevronRight 
-                  size={16} 
-                  className={`transition-transform duration-200 ${
+                  size={14} 
+                  className={`sm:w-4 sm:h-4 transition-transform duration-200 ${
                     expandedBook === book.id ? "rotate-90" : ""
                   }`} 
                 />
               </button>
               
               {expandedBook === book.id && (
-                <div className="ml-4 mt-1 grid grid-cols-5 gap-1">
+                <div className="ml-2 sm:ml-4 mt-1 grid grid-cols-4 sm:grid-cols-5 gap-1">
                   {generateChapters(book.chapters).map((chapter) => (
                     <Link
                       key={chapter}
                       to={`/biblia/${book.id}/${chapter}`}
                       className="flex items-center justify-center aspect-square rounded
-                                bg-indigo-900 hover:bg-indigo-800 text-white font-medium text-sm
-                                transition-colors duration-200"
+                                bg-indigo-900 hover:bg-indigo-800 text-white font-medium text-xs sm:text-sm
+                                transition-colors duration-200 min-h-[28px] sm:min-h-[32px]"
                     >
                       {chapter}
                     </Link>
