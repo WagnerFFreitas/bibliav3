@@ -2,23 +2,47 @@
 {
   "termos": [
     {
+      "palavra": "Deus",
+      "versiculos": [
+        {
+          "referencia": "Gênesis 1:1",
+          "texto": "No princípio, criou Deus os céus e a terra.",
+          "textoOriginal": "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+          "transliteracao": "bereshit bara elohim et hashamayim ve'et ha'aretz",
+          "testamento": "antigo"
+        },
+        {
+          "referencia": "João 3:16",
+          "texto": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",
+          "textoOriginal": "οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν τὸν μονογενῆ ἔδωκεν",
+          "transliteracao": "houtōs gar ēgapēsen ho theos ton kosmon, hōste ton huion ton monogenē edōken",
+          "testamento": "novo"
+        },
+        {
+          "referencia": "Salmos 23:1",
+          "texto": "O Senhor é o meu pastor; nada me faltará.",
+          "textoOriginal": "יְהוָה רֹעִי לֹא אֶחְסָר",
+          "transliteracao": "YHWH ro'i lo echsar",
+          "testamento": "antigo"
+        }
+      ]
+    },
+    {
       "palavra": "Amor",
       "versiculos": [
         {
-          "referencia": "João 3:16",
-          "texto": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna."
-        },
-        {
           "referencia": "1 Coríntios 13:4",
-          "texto": "O amor é sofredor, é benigno; o amor não é invejoso; o amor não trata com leviandade, não se ensoberbece."
+          "texto": "O amor é sofredor, é benigno; o amor não é invejoso; o amor não trata com leviandade, não se ensoberbece.",
+          "textoOriginal": "ἡ ἀγάπη μακροθυμεῖ, χρηστεύεται ἡ ἀγάπη, οὐ ζηλοῖ, [ἡ ἀγάπη] οὐ περπερεύεται, οὐ φυσιοῦται",
+          "transliteracao": "hē agapē makrothymei, chrēsteuetai hē agapē, ou zēloi, ou perpereuetai, ou physioutai",
+          "testamento": "novo"
         },
         {
           "referencia": "1 João 4:8",
-          "texto": "Aquele que não ama não conhece a Deus; porque Deus é amor."
-        },
-        {
-          "referencia": "Romanos 5:8",
-          "texto": "Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores."
+          "texto": "Aquele que não ama não conhece a Deus; porque Deus é amor.",
+          "textoOriginal": "ὁ μὴ ἀγαπῶν οὐκ ἔγνω τὸν θεόν, ὅτι ὁ θεὸς ἀγάπη ἐστίν",
+          "transliteracao": "ho mē agapōn ouk egnō ton theon, hoti ho theos agapē estin",
+          "testamento": "novo"
         }
       ]
     },
@@ -27,36 +51,36 @@
       "versiculos": [
         {
           "referencia": "Hebreus 11:1",
-          "texto": "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que não se veem."
+          "texto": "Ora, a fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não vêem.",
+          "textoOriginal": "ἔστιν δὲ πίστις ἐλπιζομένων ὑπόστασις, πραγμάτων ἔλεγχος οὐ βλεπομένων",
+          "transliteracao": "estin de pistis elpizomenōn hypostasis, pragmatōn elegchos ou blepomenōn",
+          "testamento": "novo"
         },
         {
           "referencia": "Romanos 10:17",
-          "texto": "De sorte que a fé é pelo ouvir, e o ouvir pela palavra de Deus."
-        },
-        {
-          "referencia": "Efésios 2:8",
-          "texto": "Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus."
-        },
-        {
-          "referencia": "Marcos 11:22",
-          "texto": "E Jesus, respondendo, disse-lhes: Tende fé em Deus."
+          "texto": "De sorte que a fé é pelo ouvir, e o ouvir pela palavra de Deus.",
+          "textoOriginal": "ἄρα ἡ πίστις ἐξ ἀκοῆς, ἡ δὲ ἀκοὴ διὰ ῥήματος Χριστοῦ",
+          "transliteracao": "ara hē pistis ex akoēs, hē de akoē dia rhēmatos Christou",
+          "testamento": "novo"
         }
       ]
     },
     {
-      "palavra": "Esperança",
+      "palavra": "Salvação",
       "versiculos": [
         {
-          "referencia": "Romanos 15:13",
-          "texto": "Ora, o Deus de esperança vos encha de todo o gozo e paz em crença, para que abundeis em esperança pela virtude do Espírito Santo."
+          "referencia": "Efésios 2:8",
+          "texto": "Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus.",
+          "textoOriginal": "τῇ γὰρ χάριτί ἐστε σεσῳσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον",
+          "transliteracao": "tē gar chariti este sesōsmenoi dia pisteōs; kai touto ouk ex hymōn, theou to dōron",
+          "testamento": "novo"
         },
         {
-          "referencia": "1 Pedro 1:3",
-          "texto": "Bendito seja o Deus e Pai de nosso Senhor Jesus Cristo que, segundo a sua grande misericórdia, nos gerou de novo para uma viva esperança, pela ressurreição de Jesus Cristo dentre os mortos."
-        },
-        {
-          "referencia": "Hebreus 6:19",
-          "texto": "A qual temos como âncora da alma, segura e firme, e que penetra até ao interior do véu."
+          "referencia": "Atos 4:12",
+          "texto": "E em nenhum outro há salvação, porque também debaixo do céu nenhum outro nome há, dado entre os homens, pelo qual devamos ser salvos.",
+          "textoOriginal": "καὶ οὐκ ἔστιν ἐν ἄλλῳ οὐδενὶ ἡ σωτηρία, οὐδὲ γὰρ ὄνομά ἐστιν ἕτερον ὑπὸ τὸν οὐρανὸν τὸ δεδομένον ἐν ἀνθρώποις ἐν ᾧ δεῖ σωθῆναι ἡμᾶς",
+          "transliteracao": "kai ouk estin en allō oudeni hē sōtēria, oude gar onoma estin heteron hypo ton ouranon to dedomenon en anthrōpois en hō dei sōthēnai hēmas",
+          "testamento": "novo"
         }
       ]
     },
@@ -65,49 +89,93 @@
       "versiculos": [
         {
           "referencia": "João 14:27",
-          "texto": "Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se atemorize."
-        },
-        {
-          "referencia": "Filipenses 4:7",
-          "texto": "E a paz de Deus, que excede todo o entendimento, guardará os vossos corações e os vossos sentimentos em Cristo Jesus."
+          "texto": "Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se atemorize.",
+          "textoOriginal": "εἰρήνην ἀφίημι ὑμῖν, εἰρήνην τὴν ἐμὴν δίδωμι ὑμῖν· οὐ καθὼς ὁ κόσμος δίδωσιν ἐγὼ δίδωμι ὑμῖν",
+          "transliteracao": "eirēnēn aphiēmi hymin, eirēnēn tēn emēn didōmi hymin; ou kathōs ho kosmos didōsin egō didōmi hymin",
+          "testamento": "novo"
         },
         {
           "referencia": "Isaías 26:3",
-          "texto": "Tu conservarás em paz aquele cuja mente está firme em ti; porque ele confia em ti."
+          "texto": "Tu conservarás em paz aquele cuja mente está firme em ti; porque ele confia em ti.",
+          "textoOriginal": "יֵצֶר סָמוּךְ תִּצֹּר שָׁלוֹם שָׁלוֹם כִּי בְךָ בָּטוּחַ",
+          "transliteracao": "yetzer samukh titsor shalom shalom ki bekha batuach",
+          "testamento": "antigo"
         }
       ]
     },
     {
-      "palavra": "Alegria",
+      "palavra": "Esperança",
       "versiculos": [
         {
-          "referencia": "Salmo 16:11",
-          "texto": "Far-me-ás ver a vereda da vida; na tua presença há abundância de alegrias; à tua mão direita há delícias perpetuamente."
+          "referencia": "Romanos 15:13",
+          "texto": "Ora, o Deus de esperança vos encha de todo o gozo e paz em crença, para que abundeis em esperança pela virtude do Espírito Santo.",
+          "textoOriginal": "ὁ δὲ θεὸς τῆς ἐλπίδος πληρώσαι ὑμᾶς πάσης χαρᾶς καὶ εἰρήνης ἐν τῷ πιστεύειν",
+          "transliteracao": "ho de theos tēs elpidos plērōsai hymas pasēs charas kai eirēnēs en tō pisteuein",
+          "testamento": "novo"
         },
         {
-          "referencia": "Neemias 8:10",
-          "texto": "Disse-lhes mais: Ide, comei as gorduras, e bebei as doçuras, e enviai porções aos que não têm nada preparado; porque este dia é consagrado ao nosso Senhor; portanto não vos entristeçais; porque a alegria do Senhor é a vossa força."
-        },
-        {
-          "referencia": "João 15:11",
-          "texto": "Tenho-vos dito isto, para que o meu gozo permaneça em vós, e o vosso gozo seja completo."
+          "referencia": "Jeremias 29:11",
+          "texto": "Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.",
+          "textoOriginal": "כִּי אָנֹכִי יָדַעְתִּי אֶת־הַמַּחֲשָׁבֹת אֲשֶׁר אָנֹכִי חֹשֵׁב עֲלֵיכֶם נְאֻם־יְהוָה מַחְשְׁבוֹת שָׁלוֹם וְלֹא לְרָעָה",
+          "transliteracao": "ki anokhi yada'ti et-hamachashavot asher anokhi choshev aleichem ne'um-YHWH machshevot shalom velo lera'ah",
+          "testamento": "antigo"
         }
       ]
     },
     {
-      "palavra": "Oração",
+      "palavra": "Graça",
       "versiculos": [
         {
-          "referencia": "1 Tessalonicenses 5:17",
-          "texto": "Orai sem cessar."
+          "referencia": "2 Coríntios 12:9",
+          "texto": "E disse-me: A minha graça te basta, porque o meu poder se aperfeiçoa na fraqueza.",
+          "textoOriginal": "καὶ εἴρηκέν μοι· ἀρκεῖ σοι ἡ χάρις μου, ἡ γὰρ δύναμις ἐν ἀσθενείᾳ τελεῖται",
+          "transliteracao": "kai eirēken moi; arkei soi hē charis mou, hē gar dynamis en astheneia teleitai",
+          "testamento": "novo"
         },
         {
-          "referencia": "Filipenses 4:6",
-          "texto": "Não estejais inquietos por coisa alguma; antes as vossas petições sejam em tudo conhecidas diante de Deus pela oração e súplicas, com ação de graças."
+          "referencia": "Efésios 2:5",
+          "texto": "Estando nós ainda mortos em nossas ofensas, nos vivificou juntamente com Cristo (pela graça sois salvos)",
+          "textoOriginal": "καὶ ὄντας ἡμᾶς νεκροὺς τοῖς παραπτώμασιν συνεζωοποίησεν τῷ Χριστῷ",
+          "transliteracao": "kai ontas hēmas nekrous tois paraptōmasin synezōopoiēsen tō Christō",
+          "testamento": "novo"
+        }
+      ]
+    },
+    {
+      "palavra": "Verdade",
+      "versiculos": [
+        {
+          "referencia": "João 14:6",
+          "texto": "Disse-lhe Jesus: Eu sou o caminho, e a verdade e a vida; ninguém vem ao Pai, senão por mim.",
+          "textoOriginal": "λέγει αὐτῷ Ἰησοῦς· ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή",
+          "transliteracao": "legei autō Iēsous; egō eimi hē hodos kai hē alētheia kai hē zōē",
+          "testamento": "novo"
         },
         {
-          "referencia": "Mateus 6:9",
-          "texto": "Portanto, vós orareis assim: Pai nosso, que estás nos céus, santificado seja o teu nome."
+          "referencia": "João 8:32",
+          "texto": "E conhecereis a verdade, e a verdade vos libertará.",
+          "textoOriginal": "καὶ γνώσεσθε τὴν ἀλήθειαν, καὶ ἡ ἀλήθεια ἐλευθερώσει ὑμᾶς",
+          "transliteracao": "kai gnōsesthe tēn alētheian, kai hē alētheia eleutherōsei hymas",
+          "testamento": "novo"
+        }
+      ]
+    },
+    {
+      "palavra": "Vida",
+      "versiculos": [
+        {
+          "referencia": "João 10:10",
+          "texto": "O ladrão não vem senão a roubar, a matar, e a destruir; eu vim para que tenham vida, e a tenham com abundância.",
+          "textoOriginal": "ὁ κλέπτης οὐκ ἔρχεται εἰ μὴ ἵνα κλέψῃ καὶ θύσῃ καὶ ἀπολέσῃ· ἐγὼ ἦλθον ἵνα ζωὴν ἔχωσιν καὶ περισσὸν ἔχωσιν",
+          "transliteracao": "ho kleptēs ouk erchetai ei mē hina klepsē kai thysē kai apolesē; egō ēlthon hina zōēn echōsin kai perisson echōsin",
+          "testamento": "novo"
+        },
+        {
+          "referencia": "1 João 5:12",
+          "texto": "Quem tem o Filho tem a vida; quem não tem o Filho de Deus não tem a vida.",
+          "textoOriginal": "ὁ ἔχων τὸν υἱὸν ἔχει τὴν ζωήν· ὁ μὴ ἔχων τὸν υἱὸν τοῦ θεοῦ τὴν ζωὴν οὐκ ἔχει",
+          "transliteracao": "ho echōn ton huion echei tēn zōēn; ho mē echōn ton huion tou theou tēn zōēn ouk echei",
+          "testamento": "novo"
         }
       ]
     },
@@ -116,32 +184,17 @@
       "versiculos": [
         {
           "referencia": "1 João 1:9",
-          "texto": "Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados, e nos purificar de toda a injustiça."
-        },
-        {
-          "referencia": "Efésios 4:32",
-          "texto": "Antes sede uns para com os outros benignos, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo."
+          "texto": "Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar os pecados, e nos purificar de toda a injustiça.",
+          "textoOriginal": "ἐὰν ὁμολογῶμεν τὰς ἁμαρτίας ἡμῶν, πιστός ἐστιν καὶ δίκαιος ἵνα ἀφῇ ἡμῖν τὰς ἁμαρτίας",
+          "transliteracao": "ean homologōmen tas hamartias hēmōn, pistos estin kai dikaios hina aphē hēmin tas hamartias",
+          "testamento": "novo"
         },
         {
           "referencia": "Mateus 6:14",
-          "texto": "Porque, se perdoardes aos homens as suas ofensas, também vosso Pai celestial vos perdoará a vós."
-        }
-      ]
-    },
-    {
-      "palavra": "Sabedoria",
-      "versiculos": [
-        {
-          "referencia": "Provérbios 9:10",
-          "texto": "O temor do Senhor é o princípio da sabedoria, e o conhecimento do Santo a prudência."
-        },
-        {
-          "referencia": "Tiago 1:5",
-          "texto": "E, se algum de vós tem falta de sabedoria, peça-a a Deus, que a todos dá liberalmente, e o não lança em rosto, e ser-lhe-á dada."
-        },
-        {
-          "referencia": "Provérbios 3:5-6",
-          "texto": "Confia no Senhor de todo o teu coração, e não te estribes no teu próprio entendimento. Reconhece-o em todos os teus caminhos, e ele endireitará as tuas veredas."
+          "texto": "Porque, se perdoardes aos homens as suas ofensas, também vosso Pai celestial vos perdoará a vós.",
+          "textoOriginal": "ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν, ἀφήσει καὶ ὑμῖν ὁ πατὴρ ὑμῶν ὁ οὐράνιος",
+          "transliteracao": "ean gar aphēte tois anthrōpois ta paraptōmata autōn, aphēsei kai hymin ho patēr hymōn ho ouranios",
+          "testamento": "novo"
         }
       ]
     }
