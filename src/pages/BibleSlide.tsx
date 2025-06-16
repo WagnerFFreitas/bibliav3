@@ -100,7 +100,7 @@ const BibleSlide = () => {
   };
   
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-black p-4 relative">
       <div className="absolute top-4 left-4 z-10">
         <Button 
           variant="ghost" 
@@ -111,29 +111,40 @@ const BibleSlide = () => {
         </Button>
       </div>
       
-      <div className="max-w-5xl w-full mx-auto text-center flex flex-col items-center justify-center z-10">
-        <h1 className="text-5xl font-bold uppercase tracking-wide text-yellow-500 mb-8">
-          {formatBookTitle(livro)} - CAPÍTULO {capitulo} - VERSÍCULO {currentVerse}
-        </h1>
+      <div className="w-full max-w-6xl mx-auto text-center flex flex-col items-center justify-center space-y-8 px-4">
+        {/* Título - Responsivo */}
+        <div className="space-y-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold uppercase tracking-wide text-yellow-500">
+            {formatBookTitle(livro)} - CAPÍTULO {capitulo}
+          </h1>
+          
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400">
+            VERSÍCULO {currentVerse}
+          </h2>
+          
+          {versiculo.titulo && (
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500">
+              {versiculo.titulo}
+            </h3>
+          )}
+        </div>
         
-        {versiculo.titulo && (
-          <h2 className="text-4xl font-bold text-green-500 mb-12">{versiculo.titulo}</h2>
-        )}
+        {/* Texto do versículo - Responsivo */}
+        <div className="flex-1 flex items-center justify-center w-full">
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white leading-relaxed max-w-5xl text-center px-4">
+            {versiculo.texto}
+          </p>
+        </div>
         
-        {/* Texto do versículo */}
-        <p className="text-5xl text-white mb-16 leading-normal max-w-4xl">
-          {versiculo.texto}
-        </p>
-        
-        {/* Botões de navegação */}
-        <div className="flex justify-center gap-20 mt-8">
+        {/* Botões de navegação - Responsivos */}
+        <div className="flex justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 mt-8">
           <Button 
             variant="outline" 
             size="lg" 
             onClick={handlePreviousVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
+            className="bg-gray-500 hover:bg-gray-400 text-black font-bold text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 h-auto flex items-center min-w-[140px] sm:min-w-[160px] md:min-w-[180px]"
           >
-            <ArrowLeft className="mr-2 h-6 w-6" />
+            <ArrowLeft className="mr-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
             VOLTAR
           </Button>
           
@@ -141,10 +152,10 @@ const BibleSlide = () => {
             variant="outline" 
             size="lg" 
             onClick={handleNextVerse}
-            className="bg-gray-500 hover:bg-gray-400 text-black text-xl px-10 py-6 h-auto flex items-center min-w-[180px]"
+            className="bg-gray-500 hover:bg-gray-400 text-black font-bold text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 h-auto flex items-center min-w-[140px] sm:min-w-[160px] md:min-w-[180px]"
           >
             PRÓXIMO
-            <ArrowRight className="ml-2 h-6 w-6" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
           </Button>
         </div>
       </div>

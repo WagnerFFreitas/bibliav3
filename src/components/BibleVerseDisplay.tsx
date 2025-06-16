@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { 
   Pagination, 
@@ -7,14 +8,6 @@ import {
   PaginationNext, 
   PaginationPrevious 
 } from "@/components/ui/pagination";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
 // Dados simulados para diferentes versões
 const versiculosPorVersao: Record<string, any> = {
@@ -24,6 +17,14 @@ const versiculosPorVersao: Record<string, any> = {
     { numero: 3, texto: "Disse Deus: 'Haja luz', e houve luz.", titulo: "A CRIAÇÃO" },
     { numero: 4, texto: "Deus viu que a luz era boa, e separou a luz das trevas.", titulo: "A CRIAÇÃO" },
     { numero: 5, texto: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.", titulo: "A CRIAÇÃO" },
+    { numero: 6, texto: "Disse Deus: 'Haja um firmamento no meio das águas, e separe ele as águas das águas.'", titulo: "A CRIAÇÃO" },
+    { numero: 7, texto: "Deus fez o firmamento e separou as águas que estavam embaixo do firmamento das que estavam por cima. E assim aconteceu.", titulo: "A CRIAÇÃO" },
+    { numero: 8, texto: "Ao firmamento Deus chamou céu. Passaram-se a tarde e a manhã; esse foi o segundo dia.", titulo: "A CRIAÇÃO" },
+    { numero: 9, texto: "E disse Deus: 'Ajuntem-se as águas que estão debaixo do céu num só lugar, e apareça a parte seca.' E assim aconteceu.", titulo: "A CRIAÇÃO" },
+    { numero: 10, texto: "À parte seca Deus chamou terra, e chamou mares ao conjunto das águas. E Deus viu que ficou bom.", titulo: "A CRIAÇÃO" },
+    { numero: 11, texto: "Então disse Deus: 'Cubra-se a terra de vegetação: plantas que dêem sementes e árvores cujos frutos produzam sementes de acordo com as suas espécies.' E assim aconteceu.", titulo: "A CRIAÇÃO" },
+    { numero: 12, texto: "A terra fez brotar a vegetação: plantas que dêem sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom.", titulo: "A CRIAÇÃO" },
+    { numero: 13, texto: "Passaram-se a tarde e a manhã; esse foi o terceiro dia.", titulo: "A CRIAÇÃO" },
   ],
   acf: [
     { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
@@ -101,49 +102,38 @@ const BibleVerseDisplay = ({
     ? versiculos.filter((v: any) => v.numero === singleVerse)
     : versiculos;
 
-  return (
-    <div className={`${slideMode ? "" : "bg-white rounded-lg shadow-md p-4 w-full"}`}>
-      {!slideMode && (
-        <div className="mb-4 text-center">
-          <h2 className="text-2xl font-bold">{livro} {capitulo}</h2>
-          <p className="text-muted-foreground">{getNomeVersao(versao)}</p>
-        </div>
-      )}
-      
-      <div className={`${slideMode ? "" : "space-y-4 my-6"}`}>
+  if (slideMode) {
+    // Modo slide - apenas o texto do versículo
+    return (
+      <div className="text-center">
         {versesData.map((versiculo: any) => (
-          <div key={versiculo.numero} className={slideMode ? "" : "flex"}>
-            {!slideMode && (
-              <span className="font-bold text-sm text-primary mr-2 pt-0.5 min-w-[20px]">{versiculo.numero}</span>
-            )}
-            <p className={slideMode ? "text-5xl text-white" : "text-base"}>
+          <p key={versiculo.numero} className="text-4xl md:text-5xl lg:text-6xl text-white leading-relaxed px-4">
+            {versiculo.texto}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full">
+      <div className="mb-6 text-center">
+        <h2 className="text-2xl font-bold text-white">{livro} {capitulo}</h2>
+        <p className="text-gray-300">{getNomeVersao(versao)}</p>
+      </div>
+      
+      <div className="space-y-4">
+        {versesData.map((versiculo: any) => (
+          <div key={versiculo.numero} className="flex gap-3 text-white">
+            <span className="font-bold text-lg text-blue-400 min-w-[30px] flex-shrink-0">
+              {versiculo.numero}
+            </span>
+            <p className="text-lg leading-relaxed">
               {versiculo.texto}
             </p>
           </div>
         ))}
       </div>
-      
-      {!slideMode && (
-        <Pagination className="mt-6">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#" isActive>2</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
     </div>
   );
 };
