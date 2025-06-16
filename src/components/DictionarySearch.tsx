@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,9 @@ interface TermoDicionario {
 
 interface TermoConcordancia {
   palavra: string;
+  palavraOriginal?: string;
+  transliteracao?: string;
+  testamento: 'antigo' | 'novo';
   versiculos: {
     referencia: string;
     texto: string;
@@ -46,15 +48,23 @@ const DictionarySearch = () => {
         setTermosDicionario(dicionarioData.termos);
         
         // Expandir dados de concordância com informações originais
-        const concordanciaExpandida = concordanciaData.termos.map((termo: any) => ({
-          ...termo,
-          versiculos: termo.versiculos.map((v: any) => ({
-            ...v,
-            textoOriginal: v.textoOriginal || getTextoOriginal(v.referencia),
-            transliteracao: v.transliteracao || getTransliteracao(v.referencia),
-            testamento: determinarTestamento(v.referencia)
-          }))
-        }));
+        const concordanciaExpandida = concordanciaData.termos.map((termo: any) => {
+          const testamentoPredominante = termo.versiculos.length > 0 ? termo.versiculos[0].testamento : 'novo';
+          const palavraOriginalInfo = getPalavraOriginalExemplo(termo.palavra, testamentoPredominante);
+          
+          return {
+            ...termo,
+            palavraOriginal: palavraOriginalInfo.original,
+            transliteracao: palavraOriginalInfo.transliteracao,
+            testamento: testamentoPredominante,
+            versiculos: termo.versiculos.map((v: any) => ({
+              ...v,
+              textoOriginal: v.textoOriginal || getTextoOriginal(v.referencia),
+              transliteracao: v.transliteracao || getTransliteracao(v.referencia),
+              testamento: v.testamento || determinarTestamento(v.referencia)
+            }))
+          };
+        });
         
         setTermosConcordancia(concordanciaExpandida);
       } catch (error) {
@@ -93,6 +103,31 @@ const DictionarySearch = () => {
     
     const livro = referencia.toLowerCase().split(' ')[0];
     return livrosNovoTestamento.includes(livro) ? 'novo' : 'antigo';
+  };
+
+  const getPalavraOriginalExemplo = (palavra: string, testamento: 'antigo' | 'novo'): { original: string, transliteracao: string } => {
+    // Exemplos de palavras originais baseadas no termo pesquisado
+    const exemplos = {
+      'antigo': {
+        'Deus': { original: 'אֱלֹהִים', transliteracao: 'Elohim' },
+        'Amor': { original: 'אַהֲבָה', transliteracao: 'ahavah' },
+        'Paz': { original: 'שָׁלוֹם', transliteracao: 'shalom' },
+        'Vida': { original: 'חַיִּים', transliteracao: 'chayyim' },
+        'Esperança': { original: 'תִּקְוָה', transliteracao: 'tikvah' }
+      },
+      'novo': {
+        'Deus': { original: 'θεός', transliteracao: 'theos' },
+        'Amor': { original: 'ἀγάπη', transliteracao: 'agape' },
+        'Paz': { original: 'εἰρήνη', transliteracao: 'eirene' },
+        'Vida': { original: 'ζωή', transliteracao: 'zoe' },
+        'Esperança': { original: 'ἐλπίς', transliteracao: 'elpis' }
+      }
+    };
+    
+    return exemplos[testamento][palavra] || { 
+      original: testamento === 'antigo' ? 'דָּבָר' : 'λόγος',
+      transliteracao: testamento === 'antigo' ? 'davar' : 'logos'
+    };
   };
 
   const filteredDicionario = termosDicionario.filter(termo =>
@@ -210,16 +245,35 @@ const DictionarySearch = () => {
                   <CollapsibleTrigger asChild>
                     <CardHeader className="p-4 sm:p-6 cursor-pointer hover:bg-black/30 transition-colors">
                       <div className="flex items-center justify-between">
-                        <div>
-                          <CardTitle className="text-indigo-300 text-lg sm:text-xl">{termo.palavra}</CardTitle>
+                        <div className="text-left">
+                          <CardTitle className="text-indigo-300 text-lg sm:text-xl mb-2">{termo.palavra}</CardTitle>
+                          
+                          {/* Palavra original e transliteração */}
+                          <div className="space-y-1 mb-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs sm:text-sm text-gray-400">
+                                {termo.testamento === 'antigo' ? 'Hebraico:' : 'Grego:'}
+                              </span>
+                              <span className="text-yellow-300 text-sm sm:text-base font-mono">
+                                {termo.palavraOriginal}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs sm:text-sm text-gray-400">Transliteração:</span>
+                              <span className="text-green-300 text-sm sm:text-base italic">
+                                {termo.transliteracao}
+                              </span>
+                            </div>
+                          </div>
+                          
                           <CardDescription className="text-gray-400 text-sm sm:text-base">
                             {termo.versiculos.length} ocorrência{termo.versiculos.length !== 1 ? 's' : ''} encontrada{termo.versiculos.length !== 1 ? 's' : ''}
                           </CardDescription>
                         </div>
                         {expandedTerms[termo.palavra] ? (
-                          <ChevronUp className="h-5 w-5 text-gray-400" />
+                          <ChevronUp className="h-5 w-5 text-gray-400 flex-shrink-0" />
                         ) : (
-                          <ChevronDown className="h-5 w-5 text-gray-400" />
+                          <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
                         )}
                       </div>
                     </CardHeader>
@@ -239,26 +293,6 @@ const DictionarySearch = () => {
                                 <h5 className="text-xs sm:text-sm font-semibold text-gray-400 mb-1">Texto:</h5>
                                 <p className="text-gray-300 text-sm sm:text-base italic leading-relaxed">"{versiculo.texto}"</p>
                               </div>
-                              
-                              {versiculo.textoOriginal && (
-                                <div>
-                                  <h5 className="text-xs sm:text-sm font-semibold text-gray-400 mb-1">
-                                    Texto Original ({versiculo.testamento === 'antigo' ? 'Hebraico' : 'Grego'}):
-                                  </h5>
-                                  <p className="text-yellow-300 text-sm sm:text-base font-mono bg-black/30 p-2 rounded">
-                                    {versiculo.textoOriginal}
-                                  </p>
-                                </div>
-                              )}
-                              
-                              {versiculo.transliteracao && (
-                                <div>
-                                  <h5 className="text-xs sm:text-sm font-semibold text-gray-400 mb-1">Transliteração:</h5>
-                                  <p className="text-green-300 text-sm sm:text-base italic bg-black/30 p-2 rounded">
-                                    {versiculo.transliteracao}
-                                  </p>
-                                </div>
-                              )}
                             </div>
                           </div>
                         ))}
