@@ -9,6 +9,7 @@ import BibleVersions from "./pages/BibleVersions";
 import BibleSearch from "./pages/BibleSearch";
 import BibleReader from "./pages/BibleReader";
 import BibleSlide from "./pages/BibleSlide";
+import BibleReading from "./pages/BibleReading";
 import Dictionary from "./pages/Dictionary";
 import NotFound from "./pages/NotFound";
 import Utilities from "./pages/Utilities";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/pesquisar" element={<BibleSearch />} />
           <Route path="/biblia/:livro/:capitulo" element={<BibleReader />} />
           <Route path="/slide/:livro/:capitulo" element={<BibleSlide />} />
+          <Route path="/leitura/:livro/:capitulo" element={<BibleReading />} />
           <Route path="/dicionario" element={<Dictionary />} />
           <Route path="/utilitarios" element={<Utilities />} />
           <Route path="/harpa-hinario" element={<HymnsPage />} />

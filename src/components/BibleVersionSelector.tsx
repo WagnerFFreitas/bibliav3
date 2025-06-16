@@ -44,12 +44,19 @@ const BibleVersionSelector = ({
     }
   };
 
+  const versaoAtual = versoesBiblia.find(v => v.id === versaoSelecionada);
+
   return (
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center w-full max-w-lg mx-auto px-2 sm:px-0">
-      <div className="w-full sm:w-2/3">
+      <div className="w-full sm:w-2/3 relative">
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-medium text-sm z-10 pointer-events-none">
+          Versão
+        </div>
         <Select value={versaoSelecionada} onValueChange={handleVersionChange}>
-          <SelectTrigger className="w-full text-sm">
-            <SelectValue placeholder="Selecione uma versão" />
+          <SelectTrigger className="w-full text-sm pl-16 bg-white text-black border-gray-300">
+            <SelectValue placeholder="Selecione uma versão">
+              {versaoAtual?.nome}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent className="bg-white">
             {versoesBiblia.map((versao) => (

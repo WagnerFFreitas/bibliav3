@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Presentation } from "lucide-react";
+import { Presentation, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { 
@@ -42,6 +42,10 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
     }
   };
 
+  const handleOpenReadingMode = () => {
+    navigate(`/leitura/${livro}/${capitulo}?versao=${versaoBiblia}`);
+  };
+
   return (
     <div className="mb-4 sm:mb-6 flex flex-col items-center space-y-3 sm:space-y-4">
       <Pagination className="mb-2 sm:mb-4">
@@ -66,16 +70,27 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
         </PaginationContent>
       </Pagination>
       
-      {selectedVerse && (
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
         <Button 
-          onClick={handleOpenSlideMode} 
-          className="bg-amber-700 hover:bg-amber-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
+          onClick={handleOpenReadingMode} 
+          className="bg-blue-700 hover:bg-blue-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
         >
-          <Presentation size={16} className="sm:w-[18px] sm:h-[18px]" />
-          <span className="hidden sm:inline">Apresentação (Slide)</span>
-          <span className="sm:hidden">Slide</span>
+          <BookOpen size={16} className="sm:w-[18px] sm:h-[18px]" />
+          <span className="hidden sm:inline">Modo Leitura</span>
+          <span className="sm:hidden">Leitura</span>
         </Button>
-      )}
+        
+        {selectedVerse && (
+          <Button 
+            onClick={handleOpenSlideMode} 
+            className="bg-amber-700 hover:bg-amber-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
+          >
+            <Presentation size={16} className="sm:w-[18px] sm:h-[18px]" />
+            <span className="hidden sm:inline">Apresentação (Slide)</span>
+            <span className="sm:hidden">Slide</span>
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
