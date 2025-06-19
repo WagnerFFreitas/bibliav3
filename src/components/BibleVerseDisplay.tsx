@@ -1,65 +1,100 @@
 
 import { useState, useEffect } from "react";
 
-// Dados simulados para diferentes versões com títulos
+// Dados simulados com a nova estrutura (títulos separados)
 const versiculosPorVersao: Record<string, any> = {
-  nvi: [
-    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
-    { numero: 2, texto: "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas." },
-    { numero: 3, texto: "Disse Deus: 'Haja luz', e houve luz." },
-    { numero: 4, texto: "Deus viu que a luz era boa, e separou a luz das trevas." },
-    { numero: 5, texto: "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia." },
-    { numero: 6, texto: "Disse Deus: 'Haja um firmamento no meio das águas, e separe ele as águas das águas.'" },
-    { numero: 7, texto: "Deus fez o firmamento e separou as águas que estavam embaixo do firmamento das que estavam por cima. E assim aconteceu." },
-    { numero: 8, texto: "Ao firmamento Deus chamou céu. Passaram-se a tarde e a manhã; esse foi o segundo dia." },
-    { numero: 9, texto: "E disse Deus: 'Ajuntem-se as águas que estão debaixo do céu num só lugar, e apareça a parte seca.' E assim aconteceu." },
-    { numero: 10, texto: "À parte seca Deus chamou terra, e chamou mares ao conjunto das águas. E Deus viu que ficou bom." },
-    { numero: 11, texto: "Então disse Deus: 'Cubra-se a terra de vegetação: plantas que dêem sementes e árvores cujos frutos produzam sementes de acordo com as suas espécies.' E assim aconteceu." },
-    { numero: 12, texto: "A terra fez brotar a vegetação: plantas que dêem sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom." },
-    { numero: 13, texto: "Passaram-se a tarde e a manhã; esse foi o terceiro dia." },
-  ],
-  acf: [
-    { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
-    { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
-    { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
-    { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
-    { numero: 5, texto: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
-  ],
-  arc: [
-    { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A criação do céu e da terra e de tudo o que neles se contém" },
-    { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
-    { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
-    { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
-    { numero: 5, texto: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
-  ],
-  ara: [
-    { numero: 1, texto: "No princípio, criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
-    { numero: 2, texto: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas." },
-    { numero: 3, texto: "Disse Deus: Haja luz; e houve luz." },
-    { numero: 4, texto: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas." },
-    { numero: 5, texto: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia." },
-  ],
-  naa: [
-    { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
-    { numero: 2, texto: "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas." },
-    { numero: 3, texto: "Disse Deus: 'Haja luz!' E houve luz." },
-    { numero: 4, texto: "Deus viu que a luz era boa e separou a luz das trevas." },
-    { numero: 5, texto: "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia." },
-  ],
-  ntlh: [
-    { numero: 1, texto: "No começo Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
-    { numero: 2, texto: "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água." },
-    { numero: 3, texto: "Então Deus disse: 'Que haja luz!' e a luz começou a existir." },
-    { numero: 4, texto: "Deus viu que a luz era boa e a separou da escuridão." },
-    { numero: 5, texto: "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia." },
-  ],
-  kjv: [
-    { numero: 1, texto: "In the beginning God created the heaven and the earth.", titulo: "CREATION" },
-    { numero: 2, texto: "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters." },
-    { numero: 3, texto: "And God said, Let there be light: and there was light." },
-    { numero: 4, texto: "And God saw the light, that it was good: and God divided the light from the darkness." },
-    { numero: 5, texto: "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day." },
-  ]
+  nvi: {
+    titulos: {
+      "1": "A CRIAÇÃO"
+    },
+    versiculos: {
+      "1": "No princípio, Deus criou os céus e a terra.",
+      "2": "Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.",
+      "3": "Disse Deus: 'Haja luz', e houve luz.",
+      "4": "Deus viu que a luz era boa, e separou a luz das trevas.",
+      "5": "Deus chamou à luz dia, e às trevas chamou noite. Passaram-se a tarde e a manhã; esse foi o primeiro dia.",
+      "6": "Disse Deus: 'Haja um firmamento no meio das águas, e separe ele as águas das águas.'",
+      "7": "Deus fez o firmamento e separou as águas que estavam embaixo do firmamento das que estavam por cima. E assim aconteceu.",
+      "8": "Ao firmamento Deus chamou céu. Passaram-se a tarde e a manhã; esse foi o segundo dia.",
+      "9": "E disse Deus: 'Ajuntem-se as águas que estão debaixo do céu num só lugar, e apareça a parte seca.' E assim aconteceu.",
+      "10": "À parte seca Deus chamou terra, e chamou mares ao conjunto das águas. E Deus viu que ficou bom.",
+      "11": "Então disse Deus: 'Cubra-se a terra de vegetação: plantas que dêem sementes e árvores cujos frutos produzam sementes de acordo com as suas espécies.' E assim aconteceu.",
+      "12": "A terra fez brotar a vegetação: plantas que dêem sementes de acordo com as suas espécies, e árvores cujos frutos produzem sementes de acordo com as suas espécies. E Deus viu que ficou bom.",
+      "13": "Passaram-se a tarde e a manhã; esse foi o terceiro dia."
+    }
+  },
+  acf: {
+    titulos: {
+      "1": "A CRIAÇÃO"
+    },
+    versiculos: {
+      "1": "No princípio criou Deus os céus e a terra.",
+      "2": "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
+      "3": "E disse Deus: Haja luz; e houve luz.",
+      "4": "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
+      "5": "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro."
+    }
+  },
+  arc: {
+    titulos: {
+      "1": "A criação do céu e da terra e de tudo o que neles se contém"
+    },
+    versiculos: {
+      "1": "No princípio criou Deus os céus e a terra.",
+      "2": "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
+      "3": "E disse Deus: Haja luz; e houve luz.",
+      "4": "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas.",
+      "5": "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro."
+    }
+  },
+  ara: {
+    titulos: {
+      "1": "A CRIAÇÃO"
+    },
+    versiculos: {
+      "1": "No princípio, criou Deus os céus e a terra.",
+      "2": "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas.",
+      "3": "Disse Deus: Haja luz; e houve luz.",
+      "4": "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas.",
+      "5": "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia."
+    }
+  },
+  naa: {
+    titulos: {
+      "1": "A CRIAÇÃO"
+    },
+    versiculos: {
+      "1": "No princípio, Deus criou os céus e a terra.",
+      "2": "A terra estava sem forma e vazia, e havia trevas sobre a face do abismo, mas o Espírito de Deus pairava sobre a face das águas.",
+      "3": "Disse Deus: 'Haja luz!' E houve luz.",
+      "4": "Deus viu que a luz era boa e separou a luz das trevas.",
+      "5": "Deus chamou à luz 'dia' e às trevas, 'noite'. Houve tarde e manhã: o primeiro dia."
+    }
+  },
+  ntlh: {
+    titulos: {
+      "1": "A CRIAÇÃO"
+    },
+    versiculos: {
+      "1": "No começo Deus criou os céus e a terra.",
+      "2": "A terra estava sem forma e vazia; a escuridão cobria o abismo, e o Espírito de Deus se movia por cima da água.",
+      "3": "Então Deus disse: 'Que haja luz!' e a luz começou a existir.",
+      "4": "Deus viu que a luz era boa e a separou da escuridão.",
+      "5": "E Deus chamou a luz de 'dia' e a escuridão de 'noite'. A noite passou, e a manhã chegou. Esse foi o primeiro dia."
+    }
+  },
+  kjv: {
+    titulos: {
+      "1": "CREATION"
+    },
+    versiculos: {
+      "1": "In the beginning God created the heaven and the earth.",
+      "2": "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+      "3": "And God said, Let there be light: and there was light.",
+      "4": "And God saw the light, that it was good: and God divided the light from the darkness.",
+      "5": "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day."
+    }
+  }
 };
 
 const getNomeVersao = (id: string): string => {
@@ -92,31 +127,50 @@ const BibleVerseDisplay = ({
   slideMode = false,
   readingMode = false
 }: BibleVerseDisplayProps) => {
-  const [versiculos, setVersiculos] = useState(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
+  const [dadosVersao, setDadosVersao] = useState(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   
   useEffect(() => {
-    setVersiculos(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
+    setDadosVersao(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   }, [versao]);
 
-  const versesData = singleVerse 
-    ? versiculos.filter((v: any) => v.numero === singleVerse)
-    : versiculos;
+  // Função para obter o título de um versículo específico
+  const getTituloVersiculo = (numeroVersiculo: number): string | null => {
+    return dadosVersao.titulos?.[numeroVersiculo.toString()] || null;
+  };
+
+  // Função para obter o texto de um versículo específico
+  const getTextoVersiculo = (numeroVersiculo: number): string => {
+    return dadosVersao.versiculos?.[numeroVersiculo.toString()] || "";
+  };
+
+  // Obter todos os números de versículos disponíveis
+  const numerosVersiculos = Object.keys(dadosVersao.versiculos || {}).map(num => parseInt(num)).sort((a, b) => a - b);
+  
+  // Filtrar versículos se um versículo específico foi solicitado
+  const versiculosParaExibir = singleVerse 
+    ? numerosVersiculos.filter(num => num === singleVerse)
+    : numerosVersiculos;
 
   if (slideMode) {
     return (
       <div className="text-center">
-        {versesData.map((versiculo: any) => (
-          <div key={versiculo.numero}>
-            {versiculo.titulo && (
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 mb-4">
-                {versiculo.titulo}
-              </h3>
-            )}
-            <p className="text-4xl md:text-5xl lg:text-6xl text-white leading-relaxed px-4">
-              {versiculo.texto}
-            </p>
-          </div>
-        ))}
+        {versiculosParaExibir.map((numeroVersiculo) => {
+          const titulo = getTituloVersiculo(numeroVersiculo);
+          const texto = getTextoVersiculo(numeroVersiculo);
+          
+          return (
+            <div key={numeroVersiculo}>
+              {titulo && (
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 mb-4">
+                  {titulo}
+                </h3>
+              )}
+              <p className="text-4xl md:text-5xl lg:text-6xl text-white leading-relaxed px-4">
+                {texto}
+              </p>
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -131,25 +185,30 @@ const BibleVerseDisplay = ({
       )}
       
       <div className="space-y-4">
-        {versesData.map((versiculo: any, index: number) => (
-          <div key={versiculo.numero}>
-            {versiculo.titulo && (
-              <div className="mb-3">
-                <h3 className="text-lg font-bold text-green-500 text-center uppercase tracking-wide">
-                  {versiculo.titulo}
-                </h3>
+        {versiculosParaExibir.map((numeroVersiculo) => {
+          const titulo = getTituloVersiculo(numeroVersiculo);
+          const texto = getTextoVersiculo(numeroVersiculo);
+          
+          return (
+            <div key={numeroVersiculo}>
+              {titulo && (
+                <div className="mb-3">
+                  <h3 className="text-lg font-bold text-green-500 text-center uppercase tracking-wide">
+                    {titulo}
+                  </h3>
+                </div>
+              )}
+              <div className="flex gap-3 text-white">
+                <span className="font-bold text-lg text-blue-400 min-w-[30px] flex-shrink-0">
+                  {numeroVersiculo}
+                </span>
+                <p className="text-lg leading-relaxed">
+                  {texto}
+                </p>
               </div>
-            )}
-            <div className="flex gap-3 text-white">
-              <span className="font-bold text-lg text-blue-400 min-w-[30px] flex-shrink-0">
-                {versiculo.numero}
-              </span>
-              <p className="text-lg leading-relaxed">
-                {versiculo.texto}
-              </p>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
