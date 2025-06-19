@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import BibleVerseDisplay from "@/components/BibleVerseDisplay";
+import ExibicaoVersiculoBiblia from "@/components/ExibicaoVersiculoBiblia";
 import { toast } from "sonner";
 
 // Lista de livros da Bíblia em ordem
@@ -149,7 +149,7 @@ const BibleReading = () => {
       {/* Conteúdo da leitura */}
       <div className="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
         <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 sm:p-8">
-          <BibleVerseDisplay 
+          <ExibicaoVersiculoBiblia 
             livro={formatBookTitle(livro)}
             capitulo={parseInt(capitulo)}
             versao={versaoBiblia}

@@ -4,13 +4,13 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { toast } from "sonner";
 import BibleHeader from "@/components/BibleHeader";
-import BibleNavigation from "@/components/BibleNavigation";
+import NavegacaoBiblia from "@/components/NavegacaoBiblia";
 import BibleInstructions from "@/components/BibleInstructions";
 import BibleSidebar from "@/components/BibleSidebar";
-import BibleVerseGrid from "@/components/BibleVerseGrid";
+import GradeVersiculosBiblia from "@/components/GradeVersiculosBiblia";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
-import BibleVersionSelector from "@/components/BibleVersionSelector";
+import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
 const BibleReader = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
@@ -105,18 +105,18 @@ const BibleReader = () => {
             </h1>
             
             <div className="mb-4 sm:mb-6">
-              <BibleVersionSelector 
-                onVersionChange={handleVersionChange} 
-                initialVersion={versaoBiblia}
+              <SeletorVersaoBiblia 
+                aoMudarVersao={handleVersionChange} 
+                versaoInicial={versaoBiblia}
               />
             </div>
             
             <BibleInstructions />
             
-            <BibleNavigation 
+            <NavegacaoBiblia 
               livro={livro}
               capitulo={capitulo}
-              selectedVerse={selectedVerse}
+              versiculoSelecionado={selectedVerse}
               versaoBiblia={versaoBiblia}
             />
             
@@ -127,9 +127,9 @@ const BibleReader = () => {
               </Alert>
             )}
             
-            <BibleVerseGrid 
-              totalVerses={totalVerses} 
-              onVerseSelect={handleVerseSelect}
+            <GradeVersiculosBiblia 
+              totalVersiculos={totalVerses} 
+              aoSelecionarVersiculo={handleVerseSelect}
             />
             
             <BibleVerse 

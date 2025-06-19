@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-import BibleVersionSelector from "@/components/BibleVersionSelector";
+import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
 const resultadosSimulados = [
   { 
@@ -53,7 +52,7 @@ const BibleSearch = () => {
         </div>
         
         <div className="max-w-2xl mx-auto mb-12">
-          <BibleVersionSelector />
+          <SeletorVersaoBiblia />
           
           <form onSubmit={realizarPesquisa} className="mt-6 flex gap-2">
             <Input

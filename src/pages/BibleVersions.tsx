@@ -1,11 +1,10 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Book, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import BibleVersionSelector from "@/components/BibleVersionSelector";
+import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
 const versoesBiblia = [
   { 
@@ -94,7 +93,7 @@ const BibleVersions = () => {
         
         <div className="mb-10">
           <h2 className="text-2xl font-bold mb-6 text-center">Selecione uma Versão para Leitura</h2>
-          <BibleVersionSelector />
+          <SeletorVersaoBiblia />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -128,4 +127,3 @@ const BibleVersions = () => {
 };
 
 export default BibleVersions;
-
