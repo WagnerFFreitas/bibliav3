@@ -24,23 +24,23 @@ const versoesBiblia = [
   { id: "original", nome: "Texto Original com Tradução" }
 ];
 
-interface BibleVersionSelectorProps {
-  onVersionChange?: (versao: string) => void;
-  initialVersion?: string;
-  bookLink?: string;
+interface PropriedadesSeletorVersaoBiblia {
+  aoMudarVersao?: (versao: string) => void;
+  versaoInicial?: string;
+  linkLivro?: string;
 }
 
-const BibleVersionSelector = ({ 
-  onVersionChange, 
-  initialVersion = "nvi",
-  bookLink = "/biblia/genesis/1"
-}: BibleVersionSelectorProps) => {
-  const [versaoSelecionada, setVersaoSelecionada] = useState(initialVersion);
+const SeletorVersaoBiblia = ({ 
+  aoMudarVersao, 
+  versaoInicial = "nvi",
+  linkLivro = "/biblia/genesis/1"
+}: PropriedadesSeletorVersaoBiblia) => {
+  const [versaoSelecionada, setVersaoSelecionada] = useState(versaoInicial);
 
-  const handleVersionChange = (versao: string) => {
+  const manipularMudancaVersao = (versao: string) => {
     setVersaoSelecionada(versao);
-    if (onVersionChange) {
-      onVersionChange(versao);
+    if (aoMudarVersao) {
+      aoMudarVersao(versao);
     }
   };
 
@@ -52,7 +52,7 @@ const BibleVersionSelector = ({
         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-medium text-sm z-10 pointer-events-none">
           Versão
         </div>
-        <Select value={versaoSelecionada} onValueChange={handleVersionChange}>
+        <Select value={versaoSelecionada} onValueChange={manipularMudancaVersao}>
           <SelectTrigger className="w-full text-sm pl-16 bg-white text-black border-gray-300">
             <SelectValue placeholder="Selecione uma versão">
               {versaoAtual?.nome}
@@ -68,7 +68,7 @@ const BibleVersionSelector = ({
         </Select>
       </div>
       <Button className="w-full sm:w-auto text-sm" size="sm" asChild>
-        <Link to={`${bookLink}?versao=${versaoSelecionada}`}>
+        <Link to={`${linkLivro}?versao=${versaoSelecionada}`}>
           <Book className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
           <span className="hidden sm:inline">Ler Agora</span>
           <span className="sm:hidden">Ler</span>
@@ -78,4 +78,4 @@ const BibleVersionSelector = ({
   );
 };
 
-export default BibleVersionSelector;
+export default SeletorVersaoBiblia;

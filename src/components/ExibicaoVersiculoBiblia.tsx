@@ -97,7 +97,7 @@ const versiculosPorVersao: Record<string, any> = {
   }
 };
 
-const getNomeVersao = (id: string): string => {
+const obterNomeVersao = (id: string): string => {
   const versoes = {
     "nvi": "Nova Versão Internacional",
     "acf": "Almeida Corrigida Fiel",
@@ -110,23 +110,23 @@ const getNomeVersao = (id: string): string => {
   return versoes[id as keyof typeof versoes] || id.toUpperCase();
 };
 
-interface BibleVerseDisplayProps {
+interface PropriedadesExibicaoVersiculoBiblia {
   livro?: string;
   capitulo?: number;
   versao?: string;
-  singleVerse?: number;
-  slideMode?: boolean;
-  readingMode?: boolean;
+  versiculoUnico?: number;
+  modoSlide?: boolean;
+  modoLeitura?: boolean;
 }
 
-const BibleVerseDisplay = ({ 
+const ExibicaoVersiculoBiblia = ({ 
   livro = "Gênesis", 
   capitulo = 1, 
   versao = "nvi",
-  singleVerse,
-  slideMode = false,
-  readingMode = false
-}: BibleVerseDisplayProps) => {
+  versiculoUnico,
+  modoSlide = false,
+  modoLeitura = false
+}: PropriedadesExibicaoVersiculoBiblia) => {
   const [dadosVersao, setDadosVersao] = useState(versiculosPorVersao[versao] || versiculosPorVersao.nvi);
   
   useEffect(() => {
@@ -134,12 +134,12 @@ const BibleVerseDisplay = ({
   }, [versao]);
 
   // Função para obter o título de um versículo específico
-  const getTituloVersiculo = (numeroVersiculo: number): string | null => {
+  const obterTituloVersiculo = (numeroVersiculo: number): string | null => {
     return dadosVersao.titulos?.[numeroVersiculo.toString()] || null;
   };
 
   // Função para obter o texto de um versículo específico
-  const getTextoVersiculo = (numeroVersiculo: number): string => {
+  const obterTextoVersiculo = (numeroVersiculo: number): string => {
     return dadosVersao.versiculos?.[numeroVersiculo.toString()] || "";
   };
 
@@ -147,16 +147,16 @@ const BibleVerseDisplay = ({
   const numerosVersiculos = Object.keys(dadosVersao.versiculos || {}).map(num => parseInt(num)).sort((a, b) => a - b);
   
   // Filtrar versículos se um versículo específico foi solicitado
-  const versiculosParaExibir = singleVerse 
-    ? numerosVersiculos.filter(num => num === singleVerse)
+  const versiculosParaExibir = versiculoUnico 
+    ? numerosVersiculos.filter(num => num === versiculoUnico)
     : numerosVersiculos;
 
-  if (slideMode) {
+  if (modoSlide) {
     return (
       <div className="text-center">
         {versiculosParaExibir.map((numeroVersiculo) => {
-          const titulo = getTituloVersiculo(numeroVersiculo);
-          const texto = getTextoVersiculo(numeroVersiculo);
+          const titulo = obterTituloVersiculo(numeroVersiculo);
+          const texto = obterTextoVersiculo(numeroVersiculo);
           
           return (
             <div key={numeroVersiculo}>
@@ -177,17 +177,17 @@ const BibleVerseDisplay = ({
 
   return (
     <div className="w-full">
-      {!readingMode && (
+      {!modoLeitura && (
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-white">{livro} {capitulo}</h2>
-          <p className="text-gray-300">{getNomeVersao(versao)}</p>
+          <p className="text-gray-300">{obterNomeVersao(versao)}</p>
         </div>
       )}
       
       <div className="space-y-4">
         {versiculosParaExibir.map((numeroVersiculo) => {
-          const titulo = getTituloVersiculo(numeroVersiculo);
-          const texto = getTextoVersiculo(numeroVersiculo);
+          const titulo = obterTituloVersiculo(numeroVersiculo);
+          const texto = obterTextoVersiculo(numeroVersiculo);
           
           return (
             <div key={numeroVersiculo}>
@@ -214,4 +214,4 @@ const BibleVerseDisplay = ({
   );
 };
 
-export default BibleVerseDisplay;
+export default ExibicaoVersiculoBiblia;

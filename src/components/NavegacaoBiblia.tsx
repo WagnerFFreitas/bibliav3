@@ -12,38 +12,38 @@ import {
   PaginationPrevious 
 } from "@/components/ui/pagination";
 
-interface BibleNavigationProps {
+interface PropriedadesNavegacaoBiblia {
   livro: string;
   capitulo: string;
-  selectedVerse: number | null;
+  versiculoSelecionado: number | null;
   versaoBiblia: string;
 }
 
-const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: BibleNavigationProps) => {
-  const navigate = useNavigate();
+const NavegacaoBiblia = ({ livro, capitulo, versiculoSelecionado, versaoBiblia }: PropriedadesNavegacaoBiblia) => {
+  const navegador = useNavigate();
 
-  const handlePreviousChapter = () => {
-    const currentChapter = parseInt(capitulo);
-    if (currentChapter > 1) {
-      window.location.href = `/biblia/${livro}/${currentChapter - 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
+  const manipularCapituloAnterior = () => {
+    const capituloAtual = parseInt(capitulo);
+    if (capituloAtual > 1) {
+      window.location.href = `/biblia/${livro}/${capituloAtual - 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
     }
   };
   
-  const handleNextChapter = () => {
-    const currentChapter = parseInt(capitulo);
-    window.location.href = `/biblia/${livro}/${currentChapter + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
+  const manipularProximoCapitulo = () => {
+    const capituloAtual = parseInt(capitulo);
+    window.location.href = `/biblia/${livro}/${capituloAtual + 1}${versaoBiblia ? `?versao=${versaoBiblia}` : ''}`;
   };
 
-  const handleOpenSlideMode = () => {
-    if (selectedVerse) {
-      navigate(`/slide/${livro}/${capitulo}?versao=${versaoBiblia}&verso=${selectedVerse}`);
+  const manipularAbrirModoSlide = () => {
+    if (versiculoSelecionado) {
+      navegador(`/slide/${livro}/${capitulo}?versao=${versaoBiblia}&verso=${versiculoSelecionado}`);
     } else {
       toast.error("Selecione um versículo para apresentação");
     }
   };
 
-  const handleOpenReadingMode = () => {
-    navigate(`/leitura/${livro}/${capitulo}?versao=${versaoBiblia}`);
+  const manipularAbrirModoLeitura = () => {
+    navegador(`/leitura/${livro}/${capitulo}?versao=${versaoBiblia}`);
   };
 
   return (
@@ -52,7 +52,7 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
         <PaginationContent className="flex-wrap gap-1 sm:gap-0">
           <PaginationItem>
             <PaginationPrevious 
-              onClick={handlePreviousChapter} 
+              onClick={manipularCapituloAnterior} 
               className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-1 px-2 sm:px-6 text-xs sm:text-sm" 
             />
           </PaginationItem>
@@ -63,7 +63,7 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
           </PaginationItem>
           <PaginationItem>
             <PaginationNext 
-              onClick={handleNextChapter} 
+              onClick={manipularProximoCapitulo} 
               className="cursor-pointer bg-indigo-900/80 hover:bg-indigo-800 border-indigo-700 mx-1 px-2 sm:px-6 text-xs sm:text-sm" 
             />
           </PaginationItem>
@@ -72,7 +72,7 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
       
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
         <Button 
-          onClick={handleOpenReadingMode} 
+          onClick={manipularAbrirModoLeitura} 
           className="bg-blue-700 hover:bg-blue-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
         >
           <BookOpen size={16} className="sm:w-[18px] sm:h-[18px]" />
@@ -80,9 +80,9 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
           <span className="sm:hidden">Leitura</span>
         </Button>
         
-        {selectedVerse && (
+        {versiculoSelecionado && (
           <Button 
-            onClick={handleOpenSlideMode} 
+            onClick={manipularAbrirModoSlide} 
             className="bg-amber-700 hover:bg-amber-600 text-white px-4 sm:px-8 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
           >
             <Presentation size={16} className="sm:w-[18px] sm:h-[18px]" />
@@ -95,4 +95,4 @@ const BibleNavigation = ({ livro, capitulo, selectedVerse, versaoBiblia }: Bible
   );
 };
 
-export default BibleNavigation;
+export default NavegacaoBiblia;
