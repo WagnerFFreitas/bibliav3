@@ -5,9 +5,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import BibleVersions from "./pages/BibleVersions";
-import BibleSearch from "./pages/BibleSearch";
-import BibleReader from "./pages/BibleReader";
+import VersoesBiblia from "./pages/VersoesBiblia";
+import PesquisaBiblia from "./pages/PesquisaBiblia";
+import LeitorBiblia from "./pages/LeitorBiblia";
 import BibleSlide from "./pages/BibleSlide";
 import BibleReading from "./pages/BibleReading";
 import Dictionary from "./pages/Dictionary";
@@ -30,9 +30,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/versoes" replace />} />
-          <Route path="/versoes" element={<BibleVersions />} />
-          <Route path="/pesquisar" element={<BibleSearch />} />
-          <Route path="/biblia/:livro/:capitulo" element={<BibleReader />} />
+          <Route path="/versoes" element={<VersoesBiblia />} />
+          <Route path="/pesquisar" element={<PesquisaBiblia />} />
+          <Route path="/biblia/:livro/:capitulo" element={<LeitorBiblia />} />
           <Route path="/slide/:livro/:capitulo" element={<BibleSlide />} />
           <Route path="/leitura/:livro/:capitulo" element={<BibleReading />} />
           <Route path="/dicionario" element={<Dictionary />} />

@@ -1,5 +1,5 @@
 
-const BibleInstructions = () => {
+const InstrucoesBiblia = () => {
   return (
     <div className="bg-black/70 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 text-gray-300 text-xs sm:text-sm">
       <p className="mb-2">
@@ -19,4 +19,4 @@ const BibleInstructions = () => {
   );
 };
 
-export default BibleInstructions;
+export default InstrucoesBiblia;

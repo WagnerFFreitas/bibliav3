@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Cabecalho from "@/components/Cabecalho";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -79,10 +79,10 @@ const versoesBiblia = [
   }
 ];
 
-const BibleVersions = () => {
+const VersoesBiblia = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Cabecalho />
       <main className="flex-grow container py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Versões da Bíblia</h1>
@@ -126,4 +126,4 @@ const BibleVersions = () => {
   );
 };
 
-export default BibleVersions;
+export default VersoesBiblia;

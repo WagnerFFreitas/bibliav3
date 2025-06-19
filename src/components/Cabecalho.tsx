@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-const Header = () => {
+const Cabecalho = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -95,4 +95,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Cabecalho;

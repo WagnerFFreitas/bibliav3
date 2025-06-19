@@ -4,14 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, X } from "lucide-react";
 
-interface BibleHeaderProps {
+interface PropriedadesCabecalhoBiblia {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
 }
 
-const BibleHeader = ({ searchTerm, setSearchTerm, sidebarOpen, setSidebarOpen }: BibleHeaderProps) => {
+const CabecalhoBiblia = ({ searchTerm, setSearchTerm, sidebarOpen, setSidebarOpen }: PropriedadesCabecalhoBiblia) => {
   return (
     <header className="w-full p-2 sm:p-4 bg-black border-b border-gray-800">
       <div className="container mx-auto flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between items-center">
@@ -61,4 +61,4 @@ const BibleHeader = ({ searchTerm, setSearchTerm, sidebarOpen, setSidebarOpen }:
   );
 };
 
-export default BibleHeader;
+export default CabecalhoBiblia;

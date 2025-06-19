@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { toast } from "sonner";
-import BibleHeader from "@/components/BibleHeader";
+import CabecalhoBiblia from "@/components/CabecalhoBiblia";
 import NavegacaoBiblia from "@/components/NavegacaoBiblia";
-import BibleInstructions from "@/components/BibleInstructions";
+import InstrucoesBiblia from "@/components/InstrucoesBiblia";
 import BibleSidebar from "@/components/BibleSidebar";
 import GradeVersiculosBiblia from "@/components/GradeVersiculosBiblia";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
 import ScrollToTop from "@/components/ScrollToTop";
 import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
-const BibleReader = () => {
+const LeitorBiblia = () => {
   const { livro = "genesis", capitulo = "1" } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
@@ -69,7 +69,7 @@ const BibleReader = () => {
   
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
-      <BibleHeader 
+      <CabecalhoBiblia 
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         sidebarOpen={sidebarOpen}
@@ -111,7 +111,7 @@ const BibleReader = () => {
               />
             </div>
             
-            <BibleInstructions />
+            <InstrucoesBiblia />
             
             <NavegacaoBiblia 
               livro={livro}
@@ -151,4 +151,4 @@ const BibleReader = () => {
   );
 };
 
-export default BibleReader;
+export default LeitorBiblia;

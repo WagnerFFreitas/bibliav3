@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "@/components/Header";
+import Cabecalho from "@/components/Cabecalho";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ const resultadosSimulados = [
   },
 ];
 
-const BibleSearch = () => {
+const PesquisaBiblia = () => {
   const [termoPesquisa, setTermoPesquisa] = useState("");
   const [resultados, setResultados] = useState([]);
   const [pesquisaRealizada, setPesquisaRealizada] = useState(false);
@@ -42,7 +42,7 @@ const BibleSearch = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Cabecalho />
       <main className="flex-grow container py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Pesquisar na Bíblia</h1>
@@ -93,4 +93,4 @@ const BibleSearch = () => {
   );
 };
 
-export default BibleSearch;
+export default PesquisaBiblia;
