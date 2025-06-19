@@ -26,7 +26,7 @@ const versiculosPorVersao: Record<string, any> = {
     { numero: 5, texto: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
   ],
   arc: [
-    { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
+    { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A criação do céu e da terra e de tudo o que neles se contém" },
     { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
     { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
     { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },

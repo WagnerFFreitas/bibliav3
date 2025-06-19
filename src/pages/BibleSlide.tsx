@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -34,10 +35,10 @@ const BibleSlide = () => {
       { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
       { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
       { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
-      { numero: 5, texto: "E Deus chamou à luz Dia, e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
+      { numero: 5, texto: "E Deus chamou à luz Dia; e às trevas chamou Noite. E foi a tarde e a manhã, o dia primeiro." },
     ],
     arc: [
-      { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A CRIAÇÃO" },
+      { numero: 1, texto: "No princípio criou Deus os céus e a terra.", titulo: "A criação do céu e da terra e de tudo o que neles se contém" },
       { numero: 2, texto: "E a terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas." },
       { numero: 3, texto: "E disse Deus: Haja luz; e houve luz." },
       { numero: 4, texto: "E viu Deus que era boa a luz; e fez Deus separação entre a luz e as trevas." },
@@ -48,7 +49,7 @@ const BibleSlide = () => {
       { numero: 2, texto: "A terra, porém, estava sem forma e vazia; havia trevas sobre a face do abismo, e o Espírito de Deus pairava por sobre as águas." },
       { numero: 3, texto: "Disse Deus: Haja luz; e houve luz." },
       { numero: 4, texto: "E viu Deus que a luz era boa; e fez separação entre a luz e as trevas." },
-      { numero: 5, texto: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã: o primeiro dia." },
+      { numero: 5, texto: "Chamou Deus à luz Dia e às trevas, Noite. Houve tarde e manhã, o primeiro dia." },
     ],
     naa: [
       { numero: 1, texto: "No princípio, Deus criou os céus e a terra.", titulo: "A CRIAÇÃO" },
