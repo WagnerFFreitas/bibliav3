@@ -1,15 +1,14 @@
-
 import { Link } from "react-router-dom";
 import { Music, Book } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import Header from "@/components/Header";
+import Cabecalho from "@/components/Cabecalho";
 import Footer from "@/components/Footer";
 
 const HymnsPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Cabecalho />
       
       <main className="flex-1 container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-8">Livros de Hinos</h1>
