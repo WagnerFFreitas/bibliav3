@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -546,11 +547,13 @@ const formatBookName = (bookId: string): string => {
 // Create BibleVerse component
 const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVerseProps) => {
   const [texto, setTexto] = useState<string | null>(null);
+  const [titulo, setTitulo] = useState<string | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   
   useEffect(() => {
     if (!versiculo) {
       setTexto(null);
+      setTitulo(null);
       setErro(null);
       return;
     }
@@ -558,27 +561,66 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
     if (!versiculoExiste(livro, capitulo, versiculo)) {
       setErro(`O versículo ${versiculo} não existe em ${formatBookName(livro)} ${capitulo}.`);
       setTexto(null);
+      setTitulo(null);
       return;
     }
     
-    const versiculoTexto = versiculosExemploPorVersao[versao]?.[livro]?.[capitulo]?.[versiculo];
-    
-    if (versiculoTexto) {
-      setTexto(versiculoTexto);
-      setErro(null);
-    } else {
-      // Tentar encontrar o versículo em outra versão se não estiver disponível na versão solicitada
-      const versaoPadrao = "nvi";
-      const versiculoDefault = versiculosExemploPorVersao[versaoPadrao]?.[livro]?.[capitulo]?.[versiculo];
-      
-      if (versiculoDefault) {
-        setTexto(versiculoDefault);
-        setErro(`Versículo não disponível na versão ${versao.toUpperCase()}. Exibindo da versão ${versaoPadrao.toUpperCase()}.`);
-      } else {
-        setTexto("Este é um texto simulado. A versão completa deste versículo não está disponível no momento.");
-        setErro(`Versículo não disponível em ${formatBookName(livro)} ${capitulo}:${versiculo}.`);
+    // Tentar carregar dados do arquivo JSON primeiro
+    const carregarDadosJSON = async () => {
+      try {
+        const nomeArquivo = livro.toLowerCase()
+          .replace(/\s+/g, '')
+          .replace('ê', 'e')
+          .replace('ç', 'c');
+        
+        const caminhoArquivo = `/src/data/${versao}/${nomeArquivo}/${capitulo}.json`;
+        const response = await fetch(caminhoArquivo);
+        
+        if (response.ok) {
+          const dados = await response.json();
+          const versiculoData = dados.versículos[versiculo.toString()];
+          
+          if (versiculoData) {
+            if (typeof versiculoData === 'object') {
+              setTexto(versiculoData.texto);
+              setTitulo(versiculoData.título || null);
+            } else {
+              setTexto(versiculoData);
+              setTitulo(null);
+            }
+            setErro(null);
+            return;
+          }
+        }
+      } catch (error) {
+        console.log('Erro ao carregar dados JSON, usando fallback');
       }
-    }
+      
+      // Fallback para dados estáticos
+      const versiculoTexto = versiculosExemploPorVersao[versao]?.[livro]?.[capitulo]?.[versiculo];
+      
+      if (versiculoTexto) {
+        setTexto(versiculoTexto);
+        setTitulo(null);
+        setErro(null);
+      } else {
+        // Tentar encontrar o versículo em outra versão se não estiver disponível na versão solicitada
+        const versaoPadrao = "nvi";
+        const versiculoDefault = versiculosExemploPorVersao[versaoPadrao]?.[livro]?.[capitulo]?.[versiculo];
+        
+        if (versiculoDefault) {
+          setTexto(versiculoDefault);
+          setTitulo(null);
+          setErro(`Versículo não disponível na versão ${versao.toUpperCase()}. Exibindo da versão ${versaoPadrao.toUpperCase()}.`);
+        } else {
+          setTexto("Este é um texto simulado. A versão completa deste versículo não está disponível no momento.");
+          setTitulo(null);
+          setErro(`Versículo não disponível em ${formatBookName(livro)} ${capitulo}:${versiculo}.`);
+        }
+      }
+    };
+
+    carregarDadosJSON();
   }, [livro, capitulo, versiculo, versao]);
   
   if (!versiculo) return null;
@@ -588,6 +630,12 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
       <h3 className="text-xl font-bold mb-2 text-indigo-300">
         {formatBookName(livro)} {capitulo}:{versiculo}
       </h3>
+      
+      {titulo && (
+        <h4 className="text-lg font-bold text-green-500 mb-4 text-center uppercase tracking-wide">
+          {titulo}
+        </h4>
+      )}
       
       {erro && (
         <div className="mb-4 text-amber-400 text-sm">
