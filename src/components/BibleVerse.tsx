@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 interface BibleVerseProps {
@@ -74,7 +73,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
       1: {
         1: "Estes, pois, são os nomes dos filhos de Israel, que entraram no Egito com Jacó; cada um entrou com sua casa:",
         2: "Rúben, Simeão, Levi, e Judá;",
-        3: "Issacar, Zebulom, e Benjamim;",
+        3: "Issacar, Zebulom, Benjamim;",
         4: "Dã e Naftali, Gade e Aser.",
         5: "Todas as almas, pois, que procederam dos lombos de Jacó, foram setenta almas; José, porém, estava no Egito."
       },
@@ -134,7 +133,7 @@ const versiculosExemploPorVersao: Record<string, any> = {
         8: "Ao firmamento, Deus chamou 'céu'. Houve tarde e manhã: o segundo dia.",
         9: "Disse Deus: 'Ajuntem-se as águas debaixo dos céus num só lugar, e apareça a porção seca; e assim foi.",
         10: "Deus chamou ao elemento seco 'terra' e ao ajuntamento das águas, 'mares'. E Deus viu que isso era bom.",
-        11: "Disse Deus: 'Produza a terra relva, ervas que deem semente e árvores frutíferas que, segundo as suas espécies, deem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
+        11: "Disse Deus: 'Produza a terra relva, ervas que dêem semente e árvores frutíferas que, segundo as suas espécies, dêem fruto que tenha em si a sua semente, sobre a terra.' E assim foi.",
         12: "A terra produziu relva, ervas que davam semente segundo as suas espécies e árvores que davam fruto que tinha em si a sua semente, segundo as suas espécies. E Deus viu que isso era bom.",
         13: "Houve tarde e manhã: o terceiro dia."
       },
@@ -578,15 +577,20 @@ const BibleVerse = ({ livro, capitulo, versiculo, versao = "nvi" }: BibleVersePr
         
         if (response.ok) {
           const dados = await response.json();
-          const versiculoData = dados.versículos[versiculo.toString()];
+          
+          // Buscar texto do versículo
+          const versiculoData = dados.versículos?.[versiculo.toString()];
+          
+          // Buscar título do versículo (nova estrutura)
+          const tituloVersiculo = dados.titulos?.[versiculo.toString()];
           
           if (versiculoData) {
             if (typeof versiculoData === 'object') {
               setTexto(versiculoData.texto);
-              setTitulo(versiculoData.título || null);
+              setTitulo(versiculoData.título || tituloVersiculo || null);
             } else {
               setTexto(versiculoData);
-              setTitulo(null);
+              setTitulo(tituloVersiculo || null);
             }
             setErro(null);
             return;
