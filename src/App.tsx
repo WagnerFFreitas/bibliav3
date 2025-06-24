@@ -1,9 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BibleProvider } from "@/contexts/BibleContext";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 import VersoesBiblia from "./pages/VersoesBiblia";
 import PesquisaBiblia from "./pages/PesquisaBiblia";
@@ -25,27 +26,31 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/versoes" replace />} />
-          <Route path="/versoes" element={<VersoesBiblia />} />
-          <Route path="/pesquisar" element={<PesquisaBiblia />} />
-          <Route path="/biblia/:livro/:capitulo" element={<LeitorBiblia />} />
-          <Route path="/slide/:livro/:capitulo" element={<BibleSlide />} />
-          <Route path="/leitura/:livro/:capitulo" element={<BibleReading />} />
-          <Route path="/dicionario" element={<Dictionary />} />
-          <Route path="/utilitarios" element={<Utilities />} />
-          <Route path="/harpa-hinario" element={<HymnsPage />} />
-          <Route path="/harpa" element={<MusicPage />} />
-          <Route path="/hinario" element={<HinarioPage />} />
-          <Route path="/contato" element={<Contact />} />
-          <Route path="/sobre" element={<About />} />
-          <Route path="/baixar" element={<Downloads />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <BibleProvider>
+        <ErrorBoundary>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Navigate to="/versoes" replace />} />
+              <Route path="/versoes" element={<VersoesBiblia />} />
+              <Route path="/pesquisar" element={<PesquisaBiblia />} />
+              <Route path="/biblia/:livro/:capitulo" element={<LeitorBiblia />} />
+              <Route path="/slide/:livro/:capitulo" element={<BibleSlide />} />
+              <Route path="/leitura/:livro/:capitulo" element={<BibleReading />} />
+              <Route path="/dicionario" element={<Dictionary />} />
+              <Route path="/utilitarios" element={<Utilities />} />
+              <Route path="/harpa-hinario" element={<HymnsPage />} />
+              <Route path="/harpa" element={<MusicPage />} />
+              <Route path="/hinario" element={<HinarioPage />} />
+              <Route path="/contato" element={<Contact />} />
+              <Route path="/sobre" element={<About />} />
+              <Route path="/baixar" element={<Downloads />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </BibleProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

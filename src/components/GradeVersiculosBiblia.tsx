@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import React, { useState, memo, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -9,25 +9,28 @@ interface PropriedadesGradeVersiculosBiblia {
   aoSelecionarVersiculo?: (versiculo: number) => void;
 }
 
-const GradeVersiculosBiblia = ({ totalVersiculos, linhas = 4, aoSelecionarVersiculo }: PropriedadesGradeVersiculosBiblia) => {
+const GradeVersiculosBiblia = memo(({ totalVersiculos, linhas = 4, aoSelecionarVersiculo }: PropriedadesGradeVersiculosBiblia) => {
   const { livro = "genesis", capitulo = "1" } = useParams();
   const [versiculoSelecionado, setVersiculoSelecionado] = useState<number | null>(null);
   
-  // Calcular quantos versículos mostrar por linha baseado no tamanho da tela
-  const versiculosPorLinha = Math.ceil(totalVersiculos / linhas);
-  const gradeVersiculos = [];
-  
-  // Criar grid de versículos
-  for (let linha = 0; linha < linhas; linha++) {
-    const versiculosLinha = [];
-    for (let coluna = 1; coluna <= versiculosPorLinha; coluna++) {
-      const numeroVersiculo = linha * versiculosPorLinha + coluna;
-      if (numeroVersiculo <= totalVersiculos) {
-        versiculosLinha.push(numeroVersiculo);
+  // Memoizar o cálculo da grade de versículos
+  const gradeVersiculos = useMemo(() => {
+    const versiculosPorLinha = Math.ceil(totalVersiculos / linhas);
+    const grade = [];
+    
+    for (let linha = 0; linha < linhas; linha++) {
+      const versiculosLinha = [];
+      for (let coluna = 1; coluna <= versiculosPorLinha; coluna++) {
+        const numeroVersiculo = linha * versiculosPorLinha + coluna;
+        if (numeroVersiculo <= totalVersiculos) {
+          versiculosLinha.push(numeroVersiculo);
+        }
       }
+      grade.push(versiculosLinha);
     }
-    gradeVersiculos.push(versiculosLinha);
-  }
+    
+    return grade;
+  }, [totalVersiculos, linhas]);
 
   const manipularCliqueBotao = (versiculo: number) => {
     setVersiculoSelecionado(versiculo);
@@ -62,6 +65,8 @@ const GradeVersiculosBiblia = ({ totalVersiculos, linhas = 4, aoSelecionarVersic
       ))}
     </div>
   );
-};
+});
+
+GradeVersiculosBiblia.displayName = 'GradeVersiculosBiblia';
 
 export default GradeVersiculosBiblia;
