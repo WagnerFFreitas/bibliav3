@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import BibleReader from "@/components/BibleReader";
 
 interface VersiculoData {
   título?: string;
@@ -32,6 +33,7 @@ interface PropriedadesExibicaoVersiculoBiblia {
   versiculoUnico?: number;
   modoSlide?: boolean;
   modoLeitura?: boolean;
+  showBibleReader?: boolean;
 }
 
 const ExibicaoVersiculoBiblia = ({ 
@@ -40,7 +42,8 @@ const ExibicaoVersiculoBiblia = ({
   versao = "nvi",
   versiculoUnico,
   modoSlide = false,
-  modoLeitura = false
+  modoLeitura = false,
+  showBibleReader = false
 }: PropriedadesExibicaoVersiculoBiblia) => {
   const [dadosCapitulo, setDadosCapitulo] = useState<CapituloData | null>(null);
   const [carregando, setCarregando] = useState(true);
@@ -119,10 +122,34 @@ const ExibicaoVersiculoBiblia = ({
     ? numerosVersiculos.filter(num => num === versiculoUnico)
     : numerosVersiculos;
 
+  // Preparar dados para o BibleReader
+  const versiculosTexto = dadosCapitulo 
+    ? Object.fromEntries(
+        Object.entries(dadosCapitulo.versículos).map(([num, verso]) => [
+          num,
+          typeof verso === 'string' ? verso : verso.texto
+        ])
+      )
+    : { "1": "No princípio criou Deus os céus e a terra." };
+
   if (carregando) {
     return (
       <div className="w-full text-center py-8">
         <p className="text-gray-400">Carregando...</p>
+      </div>
+    );
+  }
+
+  // Mostrar BibleReader se solicitado
+  if (showBibleReader) {
+    return (
+      <div className="space-y-6">
+        <BibleReader
+          livro={livro}
+          capitulo={capitulo}
+          versiculos={versiculosTexto}
+          versao={versao}
+        />
       </div>
     );
   }

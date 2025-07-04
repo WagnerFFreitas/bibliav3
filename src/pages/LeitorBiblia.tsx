@@ -2,13 +2,16 @@
 import { useState, useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Volume2 } from "lucide-react";
 import CabecalhoBiblia from "@/components/CabecalhoBiblia";
 import NavegacaoBiblia from "@/components/NavegacaoBiblia";
 import InstrucoesBiblia from "@/components/InstrucoesBiblia";
 import BibleSidebar from "@/components/BibleSidebar";
 import GradeVersiculosBiblia from "@/components/GradeVersiculosBiblia";
 import BibleVerse, { getNumeroVersiculos } from "@/components/BibleVerse";
+import ExibicaoVersiculoBiblia from "@/components/ExibicaoVersiculoBiblia";
 import ScrollToTop from "@/components/ScrollToTop";
 import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
@@ -20,6 +23,7 @@ const LeitorBiblia = () => {
   const [versaoBiblia, setVersaoBiblia] = useState(searchParams.get("versao") || "nvi");
   const [error, setError] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showBibleReader, setShowBibleReader] = useState(false);
   
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
@@ -110,6 +114,17 @@ const LeitorBiblia = () => {
                 versaoInicial={versaoBiblia}
               />
             </div>
+
+            {/* Botão para ativar o leitor de áudio */}
+            <div className="mb-4 sm:mb-6 text-center">
+              <Button
+                onClick={() => setShowBibleReader(!showBibleReader)}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                <Volume2 className="w-4 h-4 mr-2" />
+                {showBibleReader ? 'Ocultar Leitor de Áudio' : 'Ativar Leitor de Áudio'}
+              </Button>
+            </div>
             
             <InstrucoesBiblia />
             
@@ -126,18 +141,32 @@ const LeitorBiblia = () => {
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
-            
-            <GradeVersiculosBiblia 
-              totalVersiculos={totalVerses} 
-              aoSelecionarVersiculo={handleVerseSelect}
-            />
-            
-            <BibleVerse 
-              livro={livro} 
-              capitulo={parseInt(capitulo)} 
-              versiculo={selectedVerse}
-              versao={versaoBiblia}
-            />
+
+            {/* Mostrar leitor de áudio ou interface padrão */}
+            {showBibleReader ? (
+              <div className="mb-6">
+                <ExibicaoVersiculoBiblia
+                  livro={formatBookTitle(livro)}
+                  capitulo={parseInt(capitulo)}
+                  versao={versaoBiblia}
+                  showBibleReader={true}
+                />
+              </div>
+            ) : (
+              <>
+                <GradeVersiculosBiblia 
+                  totalVersiculos={totalVerses} 
+                  aoSelecionarVersiculo={handleVerseSelect}
+                />
+                
+                <BibleVerse 
+                  livro={livro} 
+                  capitulo={parseInt(capitulo)} 
+                  versiculo={selectedVerse}
+                  versao={versaoBiblia}
+                />
+              </>
+            )}
             
             <footer className="text-center text-xs sm:text-sm text-gray-400 mt-6 sm:mt-8">
               © Bíblia Sagrada 2024

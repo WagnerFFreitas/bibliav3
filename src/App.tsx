@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { BibleProvider } from "@/contexts/BibleContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import AccessibilityAssistant from "@/components/AccessibilityAssistant";
 
 import VersoesBiblia from "./pages/VersoesBiblia";
 import PesquisaBiblia from "./pages/PesquisaBiblia";
@@ -48,6 +50,7 @@ const App = () => (
               <Route path="/baixar" element={<Downloads />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <AccessibilityAssistant />
           </BrowserRouter>
         </ErrorBoundary>
       </BibleProvider>
