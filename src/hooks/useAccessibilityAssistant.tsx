@@ -95,7 +95,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     
     const utterance = new SpeechSynthesisUtterance(content);
     utterance.lang = 'pt-BR';
-    utterance.rate = 0.9;
+    utterance.rate = 0.8; // Velocidade mais lenta para melhor compreensão
     utterance.pitch = 1;
     
     utterance.onend = () => {
@@ -103,7 +103,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     };
     
     synthesis.speak(utterance);
-  }, []);
+  }, [synthesis]);
 
   const stopReading = useCallback(() => {
     if (synthesis) {
@@ -113,22 +113,26 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
   }, [synthesis]);
 
   const readPageContent = useCallback(() => {
-    // Primeiro, fornecer contexto da página atual
+    // Fornecer descrição completa da página atual
     const contextualIntro = `${context.pageTitle}. ${context.pageDescription}`;
     
-    const mainContent = document.querySelector('main');
-    if (mainContent) {
-      const textContent = mainContent.textContent || '';
-      const fullContent = `${contextualIntro} ${textContent.slice(0, 800)}`;
-      readContent(fullContent);
-    } else {
-      readContent(contextualIntro);
-    }
+    // Descrever elementos da tela
+    const screenElementsDescription = context.screenElements.length > 0 
+      ? `Elementos na tela: ${context.screenElements.join(', ')}.` 
+      : '';
+    
+    // Descrever opções de navegação
+    const navigationDescription = context.navigationOptions.length > 0 
+      ? `Opções de navegação: ${context.navigationOptions.join(', ')}.` 
+      : '';
+    
+    const fullContent = `${contextualIntro} ${screenElementsDescription} ${navigationDescription} ${context.contextualInfo}`;
+    readContent(fullContent);
   }, [readContent, context]);
 
   const readAvailableCommands = useCallback(() => {
     const contextualActions = context.availableActions.join(', ');
-    const commandsText = `${context.contextualInfo} Ações disponíveis nesta página: ${contextualActions}. Comandos gerais: diga "onde estou" para saber sua localização, "o que posso fazer" para ações disponíveis, "explicar" para contexto, "ajuda" para comandos completos, ou "desativar" para desligar o assistente.`;
+    const commandsText = `${context.contextualInfo} Ações disponíveis nesta página: ${contextualActions}. Comandos gerais: diga "descrever tela" para conhecer todos elementos visíveis, "onde estou" para saber sua localização, "o que posso fazer" para ações disponíveis, "como navegar" para instruções de navegação, "explicar" para contexto, "ajuda" para comandos completos, ou "desativar" para me desligar.`;
     readContent(commandsText);
   }, [readContent, context]);
 
@@ -144,19 +148,19 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     if (command.includes('abrir') || command.includes('navegar')) {
       if (command.includes('gênesis') || command.includes('genesis')) {
         navigate('/biblia/genesis/1');
-        readContent('Abrindo o livro de Gênesis, capítulo 1. Este é o primeiro livro da Bíblia que narra a criação do mundo por Deus.');
+        readContent('Abrindo o livro de Gênesis, capítulo 1. Este é o primeiro livro da Bíblia que narra a criação do mundo por Deus. Na tela você verá o texto completo do capítulo com versículos numerados, controles de navegação e uma grade para pular entre versículos.');
       } else if (command.includes('versões') || command.includes('versoes')) {
         navigate('/versoes');
-        readContent('Abrindo página de versões da Bíblia. Aqui você pode escolher entre diferentes traduções como Nova Versão Internacional, Almeida Corrigida Fiel e outras.');
+        readContent('Abrindo página de versões da Bíblia. Aqui você pode escolher entre diferentes traduções como Nova Versão Internacional, Almeida Corrigida Fiel e outras. Na tela há uma lista de todas as versões disponíveis com descrições.');
       } else if (command.includes('dicionário') || command.includes('dicionario')) {
         navigate('/dicionario');
-        readContent('Abrindo dicionário e concordância bíblica. Ferramenta para pesquisar termos bíblicos e suas definições completas.');
+        readContent('Abrindo dicionário e concordância bíblica. Na tela há um campo de busca no topo, duas abas - Dicionário para definições de termos bíblicos, e Concordância para encontrar versículos que contêm palavras específicas. Digite qualquer termo bíblico para começar.');
       } else if (command.includes('harpa')) {
         navigate('/harpa');
-        readContent('Abrindo Harpa Cristã. Coletânea tradicional de hinos evangélicos das Assembleias de Deus.');
+        readContent('Abrindo Harpa Cristã. Na tela há uma lista numerada de hinos evangélicos tradicionais das Assembleias de Deus, com campo de busca para encontrar hinos específicos por número ou título.');
       } else if (command.includes('cantor cristão') || command.includes('cantor cristao')) {
         navigate('/hinario');
-        readContent('Abrindo Cantor Cristão. Hinário tradicional das igrejas batistas no Brasil.');
+        readContent('Abrindo Cantor Cristão. Na tela há uma coleção organizada de hinos tradicionais das igrejas batistas no Brasil, com sistema de busca e navegação por categorias.');
       }
     } else if (command.includes('ler') || command.includes('leia')) {
       readPageContent();
@@ -167,7 +171,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     } else if (command.includes('desativar') || command.includes('sair')) {
       deactivateAssistant();
     } else {
-      readContent('Comando não reconhecido. Tente comandos como "onde estou", "o que posso fazer", "ler página", ou "ajuda" para mais opções.');
+      readContent('Comando não reconhecido. Tente comandos como "descrever tela" para conhecer elementos visíveis, "onde estou" para localização, "o que posso fazer" para ações disponíveis, "ler página" para ouvir conteúdo, ou "ajuda" para lista completa de comandos.');
     }
   }, [navigate, readContent, stopReading, readPageContent, readAvailableCommands, executeSmartCommand, context]);
 
@@ -200,6 +204,11 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
 
   const availableCommands: VoiceCommand[] = [
     {
+      command: 'descrever tela',
+      action: () => {},
+      description: 'Descreve todos os elementos visíveis na tela atual'
+    },
+    {
       command: 'onde estou',
       action: () => {},
       description: 'Informa sua localização atual no site'
@@ -207,7 +216,12 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     {
       command: 'o que posso fazer',
       action: () => {},
-      description: 'Lista ações disponíveis na página atual'
+      description: 'Lista todas as ações disponíveis na página atual'
+    },
+    {
+      command: 'como navegar',
+      action: () => {},
+      description: 'Explica como navegar na página atual'
     },
     {
       command: 'explicar',
@@ -227,7 +241,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     {
       command: 'abrir dicionário',
       action: () => navigate('/dicionario'),
-      description: 'Abre o dicionário bíblico'
+      description: 'Abre o dicionário e concordância bíblica'
     },
     {
       command: 'abrir harpa',
@@ -242,7 +256,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     {
       command: 'ler página',
       action: readPageContent,
-      description: 'Lê o conteúdo da página atual com contexto'
+      description: 'Lê todo o conteúdo da página atual com descrição completa'
     },
     {
       command: 'parar leitura',
@@ -252,7 +266,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     {
       command: 'ajuda',
       action: readAvailableCommands,
-      description: 'Lista comandos disponíveis com contexto'
+      description: 'Lista comandos disponíveis com contexto detalhado'
     }
   ];
 
@@ -260,8 +274,8 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     setIsActive(true);
     toast.success('Assistente de acessibilidade ativado');
     
-    // Saudação contextual baseada na página atual
-    const welcomeMessage = `Olá! Sou seu assistente virtual para navegação na Bíblia Sagrada. ${context.pageDescription} ${context.contextualInfo} Diga "ajuda" para comandos disponíveis, "onde estou" para saber sua localização, ou "desativar" para me desligar.`;
+    // Saudação contextual detalhada baseada na página atual
+    const welcomeMessage = `Olá! Sou seu assistente virtual para navegação na Bíblia Sagrada. ${context.pageDescription} ${context.contextualInfo} Para conhecer todos elementos da tela, diga "descrever tela". Para saber o que pode fazer, diga "o que posso fazer". Para ajuda completa, diga "ajuda", ou "desativar" para me desligar.`;
     readContent(welcomeMessage);
   }, [readContent, context]);
 
