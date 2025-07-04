@@ -3,6 +3,14 @@ import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
+// Declarações de tipo para Web Speech API
+declare global {
+  interface Window {
+    SpeechRecognition: typeof SpeechRecognition;
+    webkitSpeechRecognition: typeof SpeechRecognition;
+  }
+}
+
 interface VoiceCommand {
   command: string;
   action: () => void;
@@ -32,32 +40,46 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
   const [synthesis, setSynthesis] = useState<SpeechSynthesis | null>(null);
   const navigate = useNavigate();
 
-  // Inicializar APIs de fala
-  useEffect(() => {
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognitionInstance = new SpeechRecognition();
-      
-      recognitionInstance.continuous = false;
-      recognitionInstance.interimResults = false;
-      recognitionInstance.lang = 'pt-BR';
-      
-      recognitionInstance.onresult = (event) => {
-        const command = event.results[0][0].transcript.toLowerCase();
-        handleVoiceCommand(command);
-      };
-      
-      recognitionInstance.onend = () => {
-        setIsListening(false);
-      };
-      
-      setRecognition(recognitionInstance);
-    }
-
-    if ('speechSynthesis' in window) {
-      setSynthesis(window.speechSynthesis);
-    }
+  const readContent = useCallback((content: string) => {
+    if (!synthesis) return;
+    
+    stopReading();
+    setCurrentContent(content);
+    setIsReading(true);
+    
+    const utterance = new SpeechSynthesisUtterance(content);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    
+    utterance.onend = () => {
+      setIsReading(false);
+    };
+    
+    synthesis.speak(utterance);
   }, []);
+
+  const stopReading = useCallback(() => {
+    if (synthesis) {
+      synthesis.cancel();
+      setIsReading(false);
+    }
+  }, [synthesis]);
+
+  const readPageContent = useCallback(() => {
+    const mainContent = document.querySelector('main');
+    if (mainContent) {
+      const textContent = mainContent.textContent || '';
+      readContent(textContent.slice(0, 500) + '...');
+    } else {
+      readContent('Não foi possível encontrar o conteúdo da página');
+    }
+  }, [readContent]);
+
+  const readAvailableCommands = useCallback(() => {
+    const commandsText = 'Comandos disponíveis: abrir gênesis para navegar para Gênesis. abrir versões para ver versões da Bíblia. abrir dicionário para acessar o dicionário bíblico. abrir harpa para ver a Harpa Cristã. abrir cantor cristão para ver o hinário. ler página para ouvir o conteúdo atual. parar leitura para interromper. ajuda para repetir esta lista. desativar para desligar o assistente.';
+    readContent(commandsText);
+  }, [readContent]);
 
   const handleVoiceCommand = useCallback((command: string) => {
     console.log('Comando recebido:', command);
@@ -90,7 +112,34 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     } else {
       readContent('Comando não reconhecido. Diga "ajuda" para ouvir os comandos disponíveis.');
     }
-  }, [navigate]);
+  }, [navigate, readContent, stopReading, readPageContent, readAvailableCommands]);
+
+  // Inicializar APIs de fala
+  useEffect(() => {
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognitionClass = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      const recognitionInstance = new SpeechRecognitionClass();
+      
+      recognitionInstance.continuous = false;
+      recognitionInstance.interimResults = false;
+      recognitionInstance.lang = 'pt-BR';
+      
+      recognitionInstance.onresult = (event: any) => {
+        const command = event.results[0][0].transcript.toLowerCase();
+        handleVoiceCommand(command);
+      };
+      
+      recognitionInstance.onend = () => {
+        setIsListening(false);
+      };
+      
+      setRecognition(recognitionInstance);
+    }
+
+    if ('speechSynthesis' in window) {
+      setSynthesis(window.speechSynthesis);
+    }
+  }, [handleVoiceCommand]);
 
   const availableCommands: VoiceCommand[] = [
     {
@@ -139,40 +188,14 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     setIsActive(true);
     toast.success('Assistente de acessibilidade ativado');
     readContent('Olá! Sou seu assistente virtual para navegação na Bíblia Sagrada. Posso ajudar você a navegar pelo site, ler conteúdos e acessar diferentes seções. Diga "ajuda" para ouvir os comandos disponíveis ou "desativar" para me desligar.');
-  }, []);
+  }, [readContent]);
 
   const deactivateAssistant = useCallback(() => {
     setIsActive(false);
     setIsListening(false);
     stopReading();
     toast.info('Assistente de acessibilidade desativado');
-  }, []);
-
-  const readContent = useCallback((content: string) => {
-    if (!synthesis) return;
-    
-    stopReading();
-    setCurrentContent(content);
-    setIsReading(true);
-    
-    const utterance = new SpeechSynthesisUtterance(content);
-    utterance.lang = 'pt-BR';
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
-    
-    utterance.onend = () => {
-      setIsReading(false);
-    };
-    
-    synthesis.speak(utterance);
-  }, [synthesis]);
-
-  const stopReading = useCallback(() => {
-    if (synthesis) {
-      synthesis.cancel();
-      setIsReading(false);
-    }
-  }, [synthesis]);
+  }, [stopReading]);
 
   const startListening = useCallback(() => {
     if (!recognition) return;
@@ -188,22 +211,6 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
       setIsListening(false);
     }
   }, [recognition]);
-
-  const readPageContent = useCallback(() => {
-    const mainContent = document.querySelector('main');
-    if (mainContent) {
-      const textContent = mainContent.textContent || '';
-      readContent(textContent.slice(0, 500) + '...');
-    } else {
-      readContent('Não foi possível encontrar o conteúdo da página');
-    }
-  }, [readContent]);
-
-  const readAvailableCommands = useCallback(() => {
-    const commandsText = 'Comandos disponíveis: ' + 
-      availableCommands.map(cmd => `${cmd.command}: ${cmd.description}`).join('. ');
-    readContent(commandsText);
-  }, [availableCommands, readContent]);
 
   return {
     isActive,
