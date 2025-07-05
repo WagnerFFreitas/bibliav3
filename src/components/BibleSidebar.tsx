@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import ReadingHistoryPanel from './ReadingHistoryPanel';
 
 const bibleBooks = [
   { id: "genesis", name: "Gênesis", chapters: 50 },
@@ -91,7 +91,7 @@ const BibleSidebar = () => {
   };
 
   return (
-    <div className="w-64 sm:w-72 h-full overflow-y-auto bg-black border-r border-gray-800 p-2 sm:p-4">
+    <div className="w-80 bg-slate-900 text-white h-full overflow-y-auto p-4 space-y-4">
       <h2 className="text-lg sm:text-2xl font-bold text-gray-300 mb-3 sm:mb-4">LIVROS</h2>
       <ul className="space-y-1">
         {bibleBooks.map((book) => (
@@ -133,6 +133,7 @@ const BibleSidebar = () => {
           </li>
         ))}
       </ul>
+      <ReadingHistoryPanel />
     </div>
   );
 };
