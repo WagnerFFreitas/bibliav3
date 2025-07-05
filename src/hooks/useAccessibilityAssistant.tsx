@@ -77,6 +77,7 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
   const [currentContent, setCurrentContent] = useState('');
   const [recognition, setRecognition] = useState<SpeechRecognitionInstance | null>(null);
   const [synthesis, setSynthesis] = useState<SpeechSynthesis | null>(null);
+  const [preferredVoice, setPreferredVoice] = useState<SpeechSynthesisVoice | null>(null);
   const navigate = useNavigate();
   
   const { context } = useContentContext();
@@ -86,6 +87,34 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     readContent(content);
   }
 
+  // Configurar voz humanizada
+  const setupHumanizedVoice = useCallback(() => {
+    if (!synthesis) return;
+
+    const voices = synthesis.getVoices();
+    
+    // Priorizar vozes femininas em português brasileiro (mais humanizadas)
+    const preferredVoices = [
+      // Vozes específicas do Brasil/Portugal
+      voices.find(voice => voice.lang === 'pt-BR' && voice.name.toLowerCase().includes('luciana')),
+      voices.find(voice => voice.lang === 'pt-BR' && voice.name.toLowerCase().includes('maria')),
+      voices.find(voice => voice.lang === 'pt-BR' && voice.name.toLowerCase().includes('fernanda')),
+      voices.find(voice => voice.lang === 'pt-BR' && voice.name.toLowerCase().includes('female')),
+      // Fallback para qualquer voz feminina em português
+      voices.find(voice => voice.lang === 'pt-BR' && voice.name.toLowerCase().includes('f')),
+      voices.find(voice => voice.lang.startsWith('pt') && voice.name.toLowerCase().includes('female')),
+      // Fallback geral para português
+      voices.find(voice => voice.lang === 'pt-BR'),
+      voices.find(voice => voice.lang.startsWith('pt')),
+      // Último recurso - voz padrão do sistema
+      voices.find(voice => voice.default)
+    ].filter(Boolean);
+
+    if (preferredVoices.length > 0) {
+      setPreferredVoice(preferredVoices[0] as SpeechSynthesisVoice);
+    }
+  }, [synthesis]);
+
   const readContent = useCallback((content: string) => {
     if (!synthesis) return;
     
@@ -94,16 +123,39 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     setIsReading(true);
     
     const utterance = new SpeechSynthesisUtterance(content);
+    
+    // Configurações para voz mais humanizada e natural
+    if (preferredVoice) {
+      utterance.voice = preferredVoice;
+    }
+    
     utterance.lang = 'pt-BR';
-    utterance.rate = 0.8; // Velocidade mais lenta para melhor compreensão
-    utterance.pitch = 1;
+    utterance.rate = 0.85; // Velocidade ligeiramente mais lenta para clareza
+    utterance.pitch = 1.1; // Tom ligeiramente mais alto para soar mais natural
+    utterance.volume = 0.9; // Volume quase máximo para clareza
+    
+    // Adicionar pausas naturais em pontuação para soar menos robótico
+    const naturalContent = content
+      .replace(/\./g, '.')
+      .replace(/,/g, ', ')
+      .replace(/:/g, ': ')
+      .replace(/;/g, '; ')
+      .replace(/\?/g, '? ')
+      .replace(/!/g, '! ');
+    
+    utterance.text = naturalContent;
     
     utterance.onend = () => {
       setIsReading(false);
     };
     
+    utterance.onerror = (event) => {
+      console.error('Erro na síntese de voz:', event);
+      setIsReading(false);
+    };
+    
     synthesis.speak(utterance);
-  }, [synthesis]);
+  }, [synthesis, preferredVoice]);
 
   const stopReading = useCallback(() => {
     if (synthesis) {
@@ -202,6 +254,23 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     }
   }, [handleVoiceCommand]);
 
+  // Configurar voz quando as vozes estiverem disponíveis
+  useEffect(() => {
+    if (synthesis) {
+      const setupVoice = () => {
+        setupHumanizedVoice();
+      };
+
+      // Algumas vezes as vozes não estão imediatamente disponíveis
+      if (synthesis.getVoices().length > 0) {
+        setupVoice();
+      } else {
+        synthesis.addEventListener('voiceschanged', setupVoice);
+        return () => synthesis.removeEventListener('voiceschanged', setupVoice);
+      }
+    }
+  }, [synthesis, setupHumanizedVoice]);
+
   const availableCommands: VoiceCommand[] = [
     {
       command: 'descrever tela',
@@ -274,17 +343,28 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     setIsActive(true);
     toast.success('Assistente de acessibilidade ativado');
     
-    // Saudação contextual detalhada baseada na página atual
-    const welcomeMessage = `Olá! Sou seu assistente virtual para navegação na Bíblia Sagrada. ${context.pageDescription} ${context.contextualInfo} Para conhecer todos elementos da tela, diga "descrever tela". Para saber o que pode fazer, diga "o que posso fazer". Para ajuda completa, diga "ajuda", ou "desativar" para me desligar.`;
-    readContent(welcomeMessage);
+    // Saudação mais natural e acolhedora
+    const welcomeMessage = `Olá! Sou sua assistente virtual para navegação na Bíblia Sagrada. ${context.pageDescription} ${context.contextualInfo} Para conhecer todos elementos da tela, diga "descrever tela". Para saber o que pode fazer aqui, diga "o que posso fazer". Para ajuda completa, diga "ajuda", ou "desativar" para me desligar. Estou aqui para ajudar você!`;
+    
+    // Pequeno delay para uma experiência mais natural
+    setTimeout(() => {
+      readContent(welcomeMessage);
+    }, 500);
   }, [readContent, context]);
 
   const deactivateAssistant = useCallback(() => {
     setIsActive(false);
     setIsListening(false);
     stopReading();
-    toast.info('Assistente de acessibilidade desativado. Até breve!');
-  }, [stopReading]);
+    
+    // Despedida mais calorosa
+    const goodbyeMessage = 'Assistente desativado. Foi um prazer ajudar você! Até breve!';
+    readContent(goodbyeMessage);
+    
+    setTimeout(() => {
+      toast.info('Assistente de acessibilidade desativado');
+    }, 2000);
+  }, [stopReading, readContent]);
 
   const startListening = useCallback(() => {
     if (!recognition) return;
