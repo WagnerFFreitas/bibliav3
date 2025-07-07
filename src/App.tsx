@@ -1,8 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BibleProvider } from "@/contexts/BibleContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -35,7 +36,7 @@ const App = () => (
             <Sonner />
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Navigate to="/versoes" replace />} />
+                <Route path="/" element={<VersoesBiblia />} />
                 <Route path="/versoes" element={<VersoesBiblia />} />
                 <Route path="/pesquisar" element={<PesquisaBiblia />} />
                 <Route path="/biblia/:livro/:capitulo" element={<LeitorBiblia />} />
