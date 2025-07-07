@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
@@ -20,8 +19,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('🔐 AuthContext: Inicializando autenticação...');
+    
     // Verificar usuário atual
     supabase.auth.getUser().then(({ data: { user } }) => {
+      console.log('🔐 AuthContext: Usuário atual:', user ? 'Logado' : 'Não logado');
       setUser(user);
       setLoading(false);
     });
@@ -30,6 +32,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('🔐 AuthContext: Mudança de estado:', event);
       setUser(session?.user ?? null);
       setLoading(false);
     });
@@ -38,6 +41,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signUp = async (email: string, password: string, name?: string) => {
+    console.log('🔐 AuthContext: Tentando criar conta para:', email);
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -49,46 +53,57 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     if (error) {
+      console.error('🔐 AuthContext: Erro no cadastro:', error.message);
       toast.error(error.message);
       throw error;
     }
 
+    console.log('🔐 AuthContext: Cadastro realizado com sucesso');
     toast.success('Conta criada! Verifique seu email para confirmar.');
   };
 
   const signIn = async (email: string, password: string) => {
+    console.log('🔐 AuthContext: Tentando fazer login para:', email);
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
+      console.error('🔐 AuthContext: Erro no login:', error.message);
       toast.error(error.message);
       throw error;
     }
 
+    console.log('🔐 AuthContext: Login realizado com sucesso');
     toast.success('Login realizado com sucesso!');
   };
 
   const signOut = async () => {
+    console.log('🔐 AuthContext: Fazendo logout...');
     const { error } = await supabase.auth.signOut();
     
     if (error) {
+      console.error('🔐 AuthContext: Erro no logout:', error.message);
       toast.error(error.message);
       throw error;
     }
 
+    console.log('🔐 AuthContext: Logout realizado com sucesso');
     toast.success('Logout realizado com sucesso!');
   };
 
   const resetPassword = async (email: string) => {
+    console.log('🔐 AuthContext: Enviando reset de senha para:', email);
     const { error } = await supabase.auth.resetPasswordForEmail(email);
     
     if (error) {
+      console.error('🔐 AuthContext: Erro no reset:', error.message);
       toast.error(error.message);
       throw error;
     }
 
+    console.log('🔐 AuthContext: Reset enviado com sucesso');
     toast.success('Email de recuperação enviado!');
   };
 
