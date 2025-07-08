@@ -1,3 +1,4 @@
+
 import Cabecalho from "@/components/Cabecalho";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -80,6 +81,9 @@ const versoesBiblia = [
 ];
 
 const VersoesBiblia = () => {
+  console.log('📖 VersoesBiblia: Componente sendo renderizado');
+  console.log('📖 VersoesBiblia: Versões carregadas:', versoesBiblia.length);
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Cabecalho />
