@@ -1,11 +1,8 @@
 
-import Cabecalho from "@/components/Cabecalho";
-import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Book, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import SeletorVersaoBiblia from "@/components/SeletorVersaoBiblia";
 
 const versoesBiblia = [
   { 
@@ -28,85 +25,27 @@ const versoesBiblia = [
     descricao: "Uma atualização da tradução clássica de João Ferreira de Almeida.",
     ano: 1993,
     destaque: false
-  },
-  { 
-    id: "aa", 
-    nome: "Almeida Atualizada", 
-    descricao: "Versão clássica com linguagem atualizada para melhor compreensão.",
-    ano: 1990,
-    destaque: false
-  },
-  { 
-    id: "arc", 
-    nome: "Almeida Revisada e Corrigida", 
-    descricao: "Uma revisão cuidadosa da tradução de Almeida, corrigida para maior precisão.",
-    ano: 1969,
-    destaque: false
-  },
-  { 
-    id: "ra", 
-    nome: "Almeida Revista e Atualizada (RA)", 
-    descricao: "Edição revisada com linguagem atual mantendo a fidelidade aos textos originais.",
-    ano: 1993,
-    destaque: false
-  },
-  { 
-    id: "naa", 
-    nome: "Nova Almeida Atualizada", 
-    descricao: "Versão que equilibra linguagem contemporânea com fidelidade textual.",
-    ano: 2017,
-    destaque: true
-  },
-  { 
-    id: "ntlh", 
-    nome: "Nova Tradução na Linguagem de Hoje", 
-    descricao: "Tradução em linguagem simples e acessível para todos os leitores.",
-    ano: 2000,
-    destaque: false
-  },
-  { 
-    id: "kjv", 
-    nome: "King James Version", 
-    descricao: "Tradução clássica em inglês com grande influência histórica.",
-    ano: 1611,
-    destaque: false
-  },
-  { 
-    id: "original", 
-    nome: "Texto Original com Tradução", 
-    descricao: "Apresenta o texto nas línguas originais (hebraico/grego) com tradução paralela.",
-    ano: 2023,
-    destaque: true
   }
 ];
 
 const VersoesBiblia = () => {
-  console.log('📖 VersoesBiblia: Componente sendo renderizado');
-  console.log('📖 VersoesBiblia: Versões carregadas:', versoesBiblia.length);
+  console.log('📖 VersoesBiblia: Renderizando página simplificada');
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Cabecalho />
-      <main className="flex-grow container py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Versões da Bíblia</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Explore diferentes traduções da Bíblia Sagrada para enriquecer seu estudo e compreensão das escrituras.
-          </p>
-        </div>
-        
-        <div className="mb-10">
-          <h2 className="text-2xl font-bold mb-6 text-center">Selecione uma Versão para Leitura</h2>
-          <SeletorVersaoBiblia />
-        </div>
+    <div className="min-h-screen bg-gray-50 p-4">
+      <div className="container mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-8">Versões da Bíblia</h1>
+        <p className="text-xl text-center text-gray-600 mb-12">
+          Teste da página funcionando
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {versoesBiblia.map((versao) => (
-            <Card key={versao.id} className={versao.destaque ? "border-primary" : ""}>
+            <Card key={versao.id} className={versao.destaque ? "border-blue-500" : ""}>
               <CardHeader>
                 <CardTitle className="flex items-center">
                   {versao.nome}
-                  {versao.destaque && <Check className="ml-2 h-5 w-5 text-primary" />}
+                  {versao.destaque && <Check className="ml-2 h-5 w-5 text-blue-500" />}
                 </CardTitle>
                 <CardDescription>Publicada em {versao.ano}</CardDescription>
               </CardHeader>
@@ -124,8 +63,7 @@ const VersoesBiblia = () => {
             </Card>
           ))}
         </div>
-      </main>
-      <Footer />
+      </div>
     </div>
   );
 };
