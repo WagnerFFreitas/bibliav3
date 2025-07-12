@@ -157,6 +157,7 @@ const LeitorBiblia = () => {
                 <GradeVersiculosBiblia 
                   totalVersiculos={totalVerses} 
                   aoSelecionarVersiculo={handleVerseSelect}
+                  versiculoSelecionado={selectedVerse}
                 />
                 
                 <BibleVerse 
