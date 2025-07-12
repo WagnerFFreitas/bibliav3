@@ -26,25 +26,31 @@ const useBibleData = (): UseBibleDataReturn => {
     setError(null);
 
     try {
-      const response = await fetch(`/data/${versao.toUpperCase()}.json`);
+      console.log(`📖 useBibleData: Carregando ${livro} ${capitulo} (${versao})`);
+      
+      // Usar o caminho correto baseado na estrutura de arquivos
+      const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
+      
       if (!response.ok) {
         throw new Error(`Erro ao carregar dados: ${response.status}`);
       }
 
-      const bibleData = await response.json();
-      const bookData = bibleData[livro];
+      const chapterData = await response.json();
+      console.log(`📖 useBibleData: Dados carregados:`, chapterData);
       
-      if (!bookData || !bookData[capitulo]) {
-        throw new Error(`Capítulo ${capitulo} do livro ${livro} não encontrado`);
+      if (!chapterData || !chapterData.versículos) {
+        throw new Error(`Capítulo ${capitulo} do livro ${livro} não encontrado ou formato inválido`);
       }
 
       setData({
         livro,
         capitulo,
-        versiculos: bookData[capitulo]
+        versiculos: chapterData.versículos
       });
+      
+      console.log(`📖 useBibleData: Capítulo carregado com sucesso`);
     } catch (err) {
-      console.error('Erro ao carregar dados da Bíblia:', err);
+      console.error('📖 useBibleData: Erro ao carregar dados da Bíblia:', err);
       setError(err instanceof Error ? err.message : 'Erro desconhecido');
       setData(null);
     } finally {

@@ -8,7 +8,8 @@ export const getBibleVerse = async (livro: string, capitulo: number, versiculo: 
       throw new Error('Parâmetros inválidos fornecidos');
     }
 
-    const response = await fetch(`/data/${versao}/${livro}/${capitulo}.json`);
+    // Carregar do caminho correto baseado na estrutura de arquivos
+    const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
     
     if (!response.ok) {
       if (response.status === 404) {
@@ -18,22 +19,26 @@ export const getBibleVerse = async (livro: string, capitulo: number, versiculo: 
     }
     
     const data = await response.json();
-    console.log(`📖 BibleService: Dados carregados, ${data.versiculos?.length || 0} versículos`);
+    console.log(`📖 BibleService: Dados carregados:`, data);
     
-    if (!data.versiculos || !Array.isArray(data.versiculos)) {
+    if (!data.versículos) {
       throw new Error('Formato de dados inválido - versículos não encontrados');
     }
 
-    const verse = data.versiculos.find((v: any) => v.numero === versiculo);
+    // Buscar o versículo específico
+    const verse = data.versículos[versiculo.toString()];
     
     if (!verse) {
       throw new Error(`Versículo ${versiculo} não encontrado no capítulo ${capitulo} de ${livro}`);
     }
     
+    // Extrair o texto do versículo (pode ser string simples ou objeto com texto)
+    const texto = typeof verse === 'string' ? verse : verse.texto || 'Texto não disponível';
+    
     console.log(`📖 BibleService: Versículo encontrado com sucesso`);
     return {
-      numero: verse.numero,
-      texto: verse.texto || 'Texto não disponível'
+      numero: versiculo,
+      texto: texto
     };
   } catch (error) {
     console.error('📖 BibleService: Erro detalhado:', {
@@ -47,7 +52,7 @@ export const getBibleVerse = async (livro: string, capitulo: number, versiculo: 
   }
 };
 
-// Nova função para carregar capítulo completo com cache
+// Nova função para carregar capítulo completo
 export const getBibleChapter = async (livro: string, capitulo: number, versao: string) => {
   console.log(`📖 BibleService: Carregando capítulo ${livro} ${capitulo} (${versao})`);
   
@@ -56,7 +61,7 @@ export const getBibleChapter = async (livro: string, capitulo: number, versao: s
       throw new Error('Parâmetros inválidos para carregar capítulo');
     }
 
-    const response = await fetch(`/data/${versao}/${livro}/${capitulo}.json`);
+    const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
     
     if (!response.ok) {
       if (response.status === 404) {
@@ -67,11 +72,11 @@ export const getBibleChapter = async (livro: string, capitulo: number, versao: s
     
     const data = await response.json();
     
-    if (!data.versiculos || !Array.isArray(data.versiculos)) {
+    if (!data.versículos) {
       throw new Error('Formato de dados inválido - capítulo sem versículos');
     }
 
-    console.log(`📖 BibleService: Capítulo carregado com ${data.versiculos.length} versículos`);
+    console.log(`📖 BibleService: Capítulo carregado com ${Object.keys(data.versículos).length} versículos`);
     return data;
   } catch (error) {
     console.error('📖 BibleService: Erro ao carregar capítulo:', {
