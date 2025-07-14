@@ -27,6 +27,8 @@ const LeitorBiblia = () => {
   
   const totalVerses = getNumeroVersiculos(livro, parseInt(capitulo));
   
+  console.log('LeitorBiblia - totalVerses:', { livro, capitulo, totalVerses });
+  
   useEffect(() => {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#v')) {
