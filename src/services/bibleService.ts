@@ -9,7 +9,7 @@ export const getBibleVerse = async (livro: string, capitulo: number, versiculo: 
     }
 
     // Carregar do caminho correto baseado na estrutura de arquivos
-    const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
+      const response = await fetch(`/data/${versao}/${livro}/${capitulo}.json`);
     
     if (!response.ok) {
       if (response.status === 404) {
@@ -61,7 +61,7 @@ export const getBibleChapter = async (livro: string, capitulo: number, versao: s
       throw new Error('Parâmetros inválidos para carregar capítulo');
     }
 
-    const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
+    const response = await fetch(`/data/${versao}/${livro}/${capitulo}.json`);
     
     if (!response.ok) {
       if (response.status === 404) {

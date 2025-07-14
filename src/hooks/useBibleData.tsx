@@ -29,7 +29,7 @@ const useBibleData = (): UseBibleDataReturn => {
       console.log(`📖 useBibleData: Carregando ${livro} ${capitulo} (${versao})`);
       
       // Usar o caminho correto baseado na estrutura de arquivos
-      const response = await fetch(`/src/data/${versao}/${livro}/${capitulo}.json`);
+      const response = await fetch(`/data/${versao}/${livro}/${capitulo}.json`);
       
       if (!response.ok) {
         throw new Error(`Erro ao carregar dados: ${response.status}`);

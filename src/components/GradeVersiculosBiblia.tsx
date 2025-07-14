@@ -18,8 +18,6 @@ const GradeVersiculosBiblia = memo(({
 }: PropriedadesGradeVersiculosBiblia) => {
   const { livro = "genesis", capitulo = "1" } = useParams();
   
-  console.log('GradeVersiculosBiblia - Props:', { totalVersiculos, linhas, livro, capitulo });
-  
   // Memoizar o cálculo da grade de versículos
   const gradeVersiculos = useMemo(() => {
     const versiculosPorLinha = Math.ceil(totalVersiculos / linhas);
