@@ -71,17 +71,18 @@ const AccessibilityAssistant: React.FC = () => {
             </DialogTitle>
             <DialogDescription className="text-blue-700">
               Olá! Precisa de auxílio para navegar no site da Bíblia Sagrada? 
-              Nosso assistente virtual pode ajudar você a:
+              Nossa assistente virtual pode orientar você por todo o site:
             </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-3">
             <ul className="space-y-2 text-sm text-blue-700">
+              <li>• Explicar todos os recursos disponíveis verbalmente</li>
               <li>• Ler versículos e capítulos da Bíblia</li>
-              <li>• Navegar entre diferentes versões</li>
-              <li>• Acessar dicionário e concordância</li>
-              <li>• Explorar a Harpa Cristã e Cantor Cristão</li>
-              <li>• Usar comandos de voz para navegação</li>
+              <li>• Navegar por comando de voz para qualquer seção</li>
+              <li>• Orientar sobre dicionário, concordância e hinários</li>
+              <li>• Descrever elementos da tela em detalhes</li>
+              <li>• Fornecer instruções passo a passo de navegação</li>
             </ul>
             
             <div className="flex gap-2 pt-4">
@@ -201,7 +202,7 @@ const AccessibilityAssistant: React.FC = () => {
 
               {/* Dicas */}
               <div className="text-xs text-gray-500 bg-blue-50 p-2 rounded">
-                💡 Diga "abrir gênesis", "ler página", "ajuda" ou "desativar"
+                💡 Diga "explicar recursos" para conhecer todas as funcionalidades ou "sim/não" para responder perguntas
               </div>
             </CardContent>
           </Card>

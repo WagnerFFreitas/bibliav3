@@ -188,11 +188,54 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     readContent(commandsText);
   }, [readContent, context]);
 
+  const readAllProjectResources = useCallback(() => {
+    const allResources = `Perfeito! Vou explicar todos os recursos disponíveis na Bíblia Sagrada online. 
+
+    PRINCIPAIS RECURSOS:
+
+    1. LEITURA DA BÍBLIA: Acesse todos os 66 livros bíblicos em múltiplas versões brasileiras como Nova Versão Internacional, Almeida Corrigida Fiel, Almeida Revista e Atualizada. Navegue por capítulos e versículos com facilidade.
+
+    2. VERSÕES DA BÍBLIA: Compare diferentes traduções lado a lado para um estudo mais profundo. Disponível nas principais versões usadas no Brasil.
+
+    3. DICIONÁRIO E CONCORDÂNCIA BÍBLICA: Pesquise o significado de termos bíblicos e encontre todos os versículos que contêm palavras específicas. Ferramenta essencial para estudos.
+
+    4. HARPA CRISTÃ: Acesso completo aos hinos das Assembleias de Deus, com busca por número ou título. Ideal para cultos e momentos devocionais.
+
+    5. CANTOR CRISTÃO: Hinário tradicional das igrejas batistas, com rica coleção de hinos organizados por categorias.
+
+    6. MODO APRESENTAÇÃO: Transforme versículos em slides para projeção em cultos e estudos bíblicos.
+
+    7. PESQUISA AVANÇADA: Encontre versículos específicos em todo o texto bíblico.
+
+    8. UTILITÁRIOS: Ferramentas adicionais para auxiliar no estudo e ministério.
+
+    NAVEGAÇÃO POR VOZ: Você pode navegar por todo o site usando comandos de voz. Diga "abrir gênesis" para ir ao primeiro livro da Bíblia, "abrir versões" para ver as traduções disponíveis, "abrir dicionário" para pesquisar termos, "abrir harpa" para os hinos das Assembleias de Deus, ou "abrir cantor cristão" para os hinos batistas.
+
+    Para qualquer dúvida, diga "ajuda" para comandos específicos ou "onde estou" para saber sua localização atual. Posso ler qualquer página ou explicar qualquer funcionalidade detalhadamente. Como posso ajudar você agora?`;
+    
+    readContent(allResources);
+  }, [readContent]);
+
   const handleVoiceCommand = useCallback((command: string) => {
     console.log('Comando recebido:', command);
     
+    // Respostas para pergunta inicial de auxílio
+    if (command.includes('sim') && !command.includes('abrir')) {
+      readAllProjectResources();
+      return;
+    } else if (command.includes('não') || command.includes('nao')) {
+      readContent('Entendido! Estarei aqui se precisar de ajuda. Para ativar a orientação completa a qualquer momento, diga "ajuda" ou "explicar recursos". Para conhecer a página atual, diga "onde estou".');
+      return;
+    }
+    
     // Primeiro tentar comandos inteligentes baseados no contexto
     if (executeSmartCommand(command, context.currentPage)) {
+      return;
+    }
+
+    // Comandos específicos para recursos do projeto
+    if (command.includes('explicar recursos') || command.includes('todos os recursos') || command.includes('listar recursos')) {
+      readAllProjectResources();
       return;
     }
     
@@ -213,6 +256,21 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
       } else if (command.includes('cantor cristão') || command.includes('cantor cristao')) {
         navigate('/hinario');
         readContent('Abrindo Cantor Cristão. Na tela há uma coleção organizada de hinos tradicionais das igrejas batistas no Brasil, com sistema de busca e navegação por categorias.');
+      } else if (command.includes('pesquisar') || command.includes('pesquisa')) {
+        navigate('/pesquisar');
+        readContent('Abrindo página de pesquisa bíblica. Aqui você pode buscar versículos em toda a Bíblia usando palavras-chave. Digite termos específicos para encontrar passagens relacionadas.');
+      } else if (command.includes('utilitários') || command.includes('utilitarios') || command.includes('ferramentas')) {
+        navigate('/utilitarios');
+        readContent('Abrindo página de utilitários. Aqui você encontra ferramentas adicionais para estudos bíblicos e atividades ministeriais.');
+      } else if (command.includes('contato')) {
+        navigate('/contato');
+        readContent('Abrindo página de contato. Aqui você pode enviar mensagens, sugestões ou relatar problemas com o site.');
+      } else if (command.includes('sobre')) {
+        navigate('/sobre');
+        readContent('Abrindo página sobre o projeto. Aqui você encontra informações sobre os desenvolvedores e a missão da Bíblia Sagrada online.');
+      } else if (command.includes('baixar') || command.includes('download')) {
+        navigate('/baixar');
+        readContent('Abrindo página de downloads. Aqui você pode baixar recursos bíblicos e outras ferramentas para uso offline.');
       }
     } else if (command.includes('ler') || command.includes('leia')) {
       readPageContent();
@@ -223,9 +281,9 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     } else if (command.includes('desativar') || command.includes('sair')) {
       deactivateAssistant();
     } else {
-      readContent('Comando não reconhecido. Tente comandos como "descrever tela" para conhecer elementos visíveis, "onde estou" para localização, "o que posso fazer" para ações disponíveis, "ler página" para ouvir conteúdo, ou "ajuda" para lista completa de comandos.');
+      readContent('Comando não reconhecido. Tente dizer "explicar recursos" para conhecer todas as funcionalidades, "onde estou" para saber sua localização, "o que posso fazer" para ações da página atual, "ler página" para ouvir o conteúdo, ou "ajuda" para lista completa de comandos.');
     }
-  }, [navigate, readContent, stopReading, readPageContent, readAvailableCommands, executeSmartCommand, context]);
+  }, [navigate, readContent, stopReading, readPageContent, readAvailableCommands, readAllProjectResources, executeSmartCommand, context]);
 
   // Inicializar APIs de fala
   useEffect(() => {
@@ -343,14 +401,14 @@ const useAccessibilityAssistant = (): UseAccessibilityAssistantReturn => {
     setIsActive(true);
     toast.success('Assistente de acessibilidade ativado');
     
-    // Saudação mais natural e acolhedora
-    const welcomeMessage = `Olá! Sou sua assistente virtual para navegação na Bíblia Sagrada. ${context.pageDescription} ${context.contextualInfo} Para conhecer todos elementos da tela, diga "descrever tela". Para saber o que pode fazer aqui, diga "o que posso fazer". Para ajuda completa, diga "ajuda", ou "desativar" para me desligar. Estou aqui para ajudar você!`;
+    // Pergunta inicial de auxílio
+    const initialQuestion = 'Olá! Sou sua assistente virtual para navegação na Bíblia Sagrada. Precisa de ajuda para navegar no site? Responda "sim" para conhecer todos os recursos disponíveis ou "não" se preferir explorar por conta própria.';
     
     // Pequeno delay para uma experiência mais natural
     setTimeout(() => {
-      readContent(welcomeMessage);
+      readContent(initialQuestion);
     }, 500);
-  }, [readContent, context]);
+  }, [readContent]);
 
   const deactivateAssistant = useCallback(() => {
     setIsActive(false);
